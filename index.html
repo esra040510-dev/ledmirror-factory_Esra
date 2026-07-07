@@ -90,10 +90,23 @@
 <header>
     <h1>Yongling LED Sanitary Mirror Factory</h1>
     <nav style="text-align:center; margin:20px 0; font-size:18px;">
-    <a href="#mirror" style="margin:0 15px; text-decoration:none; color:#222; font-weight:bold;">LED Bathroom Mirrors</a>
-    <a href="#cabinet" style="margin:0 15px; text-decoration:none; color:#222; font-weight:bold;">Smart Bathroom Cabinets</a>
+    <a onclick="showTab('mirror')" style="margin:0 15px; text-decoration:none; color:#222; font-weight:bold; cursor:pointer;">Smart LED Mirror</a>
+<a onclick="showTab('cabinet')" style="margin:0 15px; text-decoration:none; color:#222; font-weight:bold; cursor:pointer;">Smart Mirror Cabinet</a>
 </nav>
     <p>Wholesale Bathroom Mirrors | ODM & OEM Supported</p>
+    <p>Wholesale Bathroom Mirrors | ODM & OEM Supported</p>
+<script>
+function showTab(tabName) {
+    document.getElementById("mirror").style.display = "none";
+    document.getElementById("cabinet").style.display = "none";
+    document.getElementById(tabName).style.display = "block";
+}
+window.onload = function(){
+    document.getElementById("mirror").style.display = "none";
+    document.getElementById("cabinet").style.display = "none";
+}
+</script>
+</header>
 </header>
 
 <!-- 商品列表区域，在这里复制/新增商品卡片 -->
