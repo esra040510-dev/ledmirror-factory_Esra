@@ -90,34 +90,59 @@
 <header>
     <h1>Yongling LED Sanitary Mirror Factory</h1>
     <nav style="text-align:center; margin:20px 0; font-size:18px;">
-  <nav style="text-align:center; margin:20px 0; font-size:18px;">
     <div class="level1" onclick="toggleLevel1()">Products</div>
     <div id="level2-wrap" style="display:none; margin-top:10px;">
+        <div onclick="showAll()">All Products</div>
         <div onclick="showMirror()">Mirror (Budget Item)</div>
         <div onclick="showCabinet()">Mirror Cabinet (Premium Item)</div>
     </div>
+    <div style="margin-top:15px;">
+        <input type="text" id="searchInput" placeholder="Search products..." style="padding:6px 12px; width:300px;" oninput="searchProduct()">
+    </div>
 </nav>
-  <script>
+ <script>
+const allMirror = document.getElementById('mirror');
+const allCabinet = document.getElementById('cabinet');
+// 展开/收起分类菜单
 function toggleLevel1(){
     let menu = document.getElementById('level2-wrap');
     menu.style.display = menu.style.display === 'none' ? 'block' : 'none';
-    document.getElementById('mirror').style.display = 'none';
-    document.getElementById('cabinet').style.display = 'none';
 }
-// 打开便宜镜子商品
+// 展示全部商品
+function showAll(){
+    allMirror.style.display = 'block';
+    allCabinet.style.display = 'block';
+}
+// 只展示平价镜子
 function showMirror(){
-    document.getElementById('mirror').style.display = 'block';
-    document.getElementById('cabinet').style.display = 'none';
+    allMirror.style.display = 'block';
+    allCabinet.style.display = 'none';
 }
-// 打开高端镜柜商品
+// 只展示高端镜柜
 function showCabinet(){
-    document.getElementById('cabinet').style.display = 'block';
-    document.getElementById('mirror').style.display = 'none';
+    allCabinet.style.display = 'block';
+    allMirror.style.display = 'none';
 }
-// 页面初始隐藏全部商品
+// 关键词搜索筛选
+function searchProduct(){
+    let keyword = document.getElementById('searchInput').value.toLowerCase();
+    let mirrorCards = allMirror.querySelectorAll('.product-card');
+    let cabinetCards = allCabinet.querySelectorAll('.product-card');
+    // 遍历镜子商品匹配关键词
+    mirrorCards.forEach(card=>{
+        let text = card.innerText.toLowerCase();
+        card.style.display = text.includes(keyword) ? 'block' : 'none';
+    })
+    // 遍历镜柜商品匹配关键词
+    cabinetCards.forEach(card=>{
+        let text = card.innerText.toLowerCase();
+        card.style.display = text.includes(keyword) ? 'block' : 'none';
+    })
+}
+// 页面打开默认展示所有商品
 window.onload = function(){
-    document.getElementById('mirror').style.display = 'none';
-    document.getElementById('cabinet').style.display = 'none';
+    allMirror.style.display = 'block';
+    allCabinet.style.display = 'block';
 }
 </script>
 </header>
