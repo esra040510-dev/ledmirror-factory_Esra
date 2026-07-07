@@ -13,7 +13,7 @@
             box-sizing: border-box;
             font-family: Arial, Helvetica, sans-serif;
         }
-        /* 柔和浅蜜桃粉色背景，温柔不惨白 */
+
         body {
             background-color: #ffe8ec;
             color: #222;
@@ -21,19 +21,21 @@
             margin: 0 auto;
             padding: 30px 20px;
         }
+
         header {
             text-align: center;
             padding: 35px 0;
             border-bottom: 1px solid #f8c8d2;
             margin-bottom: 40px;
         }
+
         header h1 {
             font-size: 34px;
             color: #91284b;
             margin-bottom: 22px;
             letter-spacing: 1px;
         }
-        /* 搜索框美化全套 */
+
         #searchInput {
             padding: 11px 16px;
             width: 360px;
@@ -43,45 +45,55 @@
             background: #ffffff;
             transition: all 0.2s ease;
         }
+
         #searchInput::placeholder {
             color: #bb7989;
         }
+
         #searchInput:focus {
             outline: none;
             border-color: #d65076;
             box-shadow: 0 0 0 3px rgba(214, 80, 118, 0.15);
         }
+
         #searchInput:hover {
             border-color: #e27893;
         }
-        /* 商品网格自适应 */
+
         .product-grid {
             display: grid;
             grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
             gap: 32px;
             margin-top: 45px;
+            justify-items: center;
         }
-        /* 商品卡片精致样式 */
+
         .product-card {
             background: #ffffff;
             border-radius: 14px;
             overflow: hidden;
             box-shadow: 0 3px 14px rgba(145, 40, 75, 0.09);
             transition: transform 0.25s ease, box-shadow 0.25s ease;
+            width: 100%;
+            max-width: 380px;
         }
+
         .product-card:hover {
             transform: translateY(-8px);
             box-shadow: 0 8px 26px rgba(145, 40, 75, 0.14);
         }
+
         .product-img {
             width: 100%;
-            height: 210px;
+            height: 220px;
             object-fit: cover;
             background: #ffe8ec;
         }
+
         .product-info {
             padding: 22px;
         }
+
         .product-name {
             font-size: 19px;
             font-weight: bold;
@@ -89,18 +101,20 @@
             color: #781f3e;
             line-height: 1.3;
         }
+
         .product-desc {
             font-size: 14px;
             color: #66394a;
             line-height: 1.65;
             margin-bottom: 14px;
         }
+
         .product-price {
             font-size: 18px;
             color: #c42e5a;
             font-weight: bold;
         }
-        /* 页脚样式统一粉色系 */
+
         footer {
             margin-top: 75px;
             padding-top: 35px;
@@ -109,14 +123,17 @@
             color: #884a60;
             font-size: 15px;
         }
+
         footer p {
             margin-bottom: 8px;
         }
+
         footer a {
             color: #d65076;
             text-decoration: none;
             transition: color 0.2s;
         }
+
         footer a:hover {
             color: #b32e52;
             text-decoration: underline;
@@ -126,17 +143,15 @@
 <body>
 <header>
     <h1>Yongling LED Sanitary Mirror Factory</h1>
-    <!-- 仅保留搜索框，无任何Products下拉导航 -->
     <div>
         <input type="text" id="searchInput" placeholder="Search mirrors / mirror cabinets..." oninput="searchProduct()">
     </div>
 </header>
 
 <script>
-// 获取两个商品容器
 const mirrorBox = document.getElementById('mirror');
 const cabinetBox = document.getElementById('cabinet');
-// 关键词实时筛选商品
+
 function searchProduct(){
     let key = document.getElementById('searchInput').value.toLowerCase();
     let allCards = document.querySelectorAll('.product-card');
@@ -145,17 +160,16 @@ function searchProduct(){
         card.style.display = text.includes(key) ? "block" : "none";
     })
 }
-// 页面打开默认全部商品同时展示
+
 window.onload = function(){
     mirrorBox.style.display = "block";
     cabinetBox.style.display = "block";
 }
 </script>
 
-<!-- 平价镜子商品区块 -->
 <div id="mirror" class="product-grid">
     <div class="product-card">
-        <img class="product-img" src="https://via.placeholder.com/400x300?text=Budget+Bathroom+Mirror" alt="LED Anti-Fog Bathroom Mirror">
+        <img class="product-img" src="https://images.unsplash.com/photo-1556912172-45b7abe8b7e1?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="LED Anti-Fog Bathroom Mirror">
         <div class="product-info">
             <h3 class="product-name">LED Anti-Fog Bathroom Mirror</h3>
             <p class="product-desc">Material: Paulownia Frame Mirror, Size:70*90, Function: Storage & LED lighting, Warranty:2 years, MOQ:500pcs</p>
@@ -164,10 +178,9 @@ window.onload = function(){
     </div>
 </div>
 
-<!-- 高端镜柜商品区块 -->
 <div id="cabinet" class="product-grid">
     <div class="product-card">
-        <img class="product-img" src="https://via.placeholder.com/400x300?text=Premium+Mirror+Cabinet" alt="Smart Bathroom Mirror Cabinet">
+        <img class="product-img" src="https://images.unsplash.com/photo-1552321554-5fefe8c9ef14?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Smart Bathroom Mirror Cabinet Set">
         <div class="product-info">
             <h3 class="product-name">New Style Smart Bathroom Mirror Cabinet Set</h3>
             <p class="product-desc">Material: Solid Wood & Paulownia Mirror Frame, Size:70*90, Warranty:2 years, MOQ:100pcs</p>
