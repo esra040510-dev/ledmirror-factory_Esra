@@ -89,11 +89,13 @@
 <body>
 <header>
     <h1>Yongling LED Sanitary Mirror Factory</h1>
-  <nav style="text-align:center; margin:20px 0; font-size:18px;">
+ <nav style="text-align:center; margin:20px 0; font-size:18px;">
     <div class="level1" onclick="toggleLevel1()">Products</div>
-    <div onclick="showAll()">All Products</div>
-<div onclick="showMirror()">Mirror (Budget Item)</div>
-<div onclick="showCabinet()">Mirror Cabinet (Premium Item)</div>
+    <!-- 关键：display:none 页面加载默认隐藏下拉 -->
+    <div id="level2-wrap" style="display:none; margin-top:10px;">
+        <div onclick="showAll()">All Products</div>
+        <div onclick="showMirror()">Mirror</div>
+        <div onclick="showCabinet()">Mirror Cabinet</div>
     </div>
     <div style="margin-top:15px;">
         <input type="text" id="searchInput" placeholder="Search products..." style="padding:6px 12px; width:300px;" oninput="searchProduct()">
