@@ -90,67 +90,46 @@
 <header>
     <h1>Yongling LED Sanitary Mirror Factory</h1>
     <nav style="text-align:center; margin:20px 0; font-size:18px;">
-  
-    <div class="level1" onclick="toggleLevel1()">产品</div>
+  <nav style="text-align:center; margin:20px 0; font-size:18px;">
+    <div class="level1" onclick="toggleLevel1()">Products</div>
     <div id="level2-wrap" style="display:none; margin-top:10px;">
-        <div class="level2" onclick="toggleMirror()">镜子</div>
+        <div class="level2" onclick="toggleMirror()">LED Mirror Series</div>
         <div id="mirror-sub" style="display:none; margin:8px 0;">
-            <span onclick="showMirrorLed()">LED</span>
-            <span onclick="showMirrorAntiFog()">雾镜</span>
-            <span onclick="showMirrorHigh()">高纪</span>
+            <span onclick="showMirrorLed()">LED Mirror</span>
+            <span onclick="showMirrorAntiFog()">Anti-fog Mirror</span>
+            <span onclick="showMirrorHigh()">High Frame Mirror</span>
         </div>
-        <div class="level2" onclick="toggleCabinet()">柜子</div>
+        <div class="level2" onclick="toggleCabinet()">Mirror Cabinet</div>
         <div id="cabinet-sub" style="display:none; margin:8px 0;">
-            <span onclick="showCabinetTall()">高柜</span>
-            <span onclick="showCabinetWide()">宽皮后</span>
+            <span onclick="showCabinetTall()">Tall Cabinet</span>
+            <span onclick="showCabinetWide()">Wide Back Cabinet</span>
         </div>
     </div>
 </nav>
-     <script>
-// 一级菜单展开收起
-function toggleLevel1(){
+</nav>
+    function toggleLevel1(){
     let l2 = document.getElementById('level2-wrap');
     l2.style.display = l2.style.display==='none' ? 'block' : 'none';
-    // 收起所有下级和商品
     document.getElementById('mirror-sub').style.display='none';
     document.getElementById('cabinet-sub').style.display='none';
     document.getElementById('mirror').style.display='none';
     document.getElementById('cabinet').style.display='none';
 }
-// 镜子二级展开
 function toggleMirror(){
     let sub = document.getElementById('mirror-sub');
     sub.style.display = sub.style.display==='none' ? 'block' : 'none';
     document.getElementById('cabinet-sub').style.display='none';
     document.getElementById('cabinet').style.display='none';
 }
-// 柜子二级展开
 function toggleCabinet(){
     let sub = document.getElementById('cabinet-sub');
     sub.style.display = sub.style.display==='none' ? 'block' : 'none';
     document.getElementById('mirror-sub').style.display='none';
     document.getElementById('mirror').style.display='none';
 }
-// 点击镜子三级，显示镜子商品
 function showMirrorLed(){
     document.getElementById('mirror').style.display='block';
     document.getElementById('cabinet').style.display='none';
-}
-         function showMirrorAntiFog(){
-    document.getElementById('mirror').style.display='block';
-    document.getElementById('cabinet').style.display='none';
-}
-function showMirrorHigh(){
-    document.getElementById('mirror').style.display='block';
-    document.getElementById('cabinet').style.display='none';
-}
-function showCabinetItem(){
-    document.getElementById('cabinet').style.display='block';
-    document.getElementById('mirror').style.display='none';
-}
-window.onload = function(){
-    document.getElementById("mirror").style.display = "none";
-    document.getElementById("cabinet").style.display = "none";
 }
 function showMirrorAntiFog(){
     document.getElementById('mirror').style.display='block';
@@ -160,7 +139,6 @@ function showMirrorHigh(){
     document.getElementById('mirror').style.display='block';
     document.getElementById('cabinet').style.display='none';
 }
-// 点击柜子三级，显示柜子商品
 function showCabinetTall(){
     document.getElementById('cabinet').style.display='block';
     document.getElementById('mirror').style.display='none';
@@ -169,12 +147,10 @@ function showCabinetWide(){
     document.getElementById('cabinet').style.display='block';
     document.getElementById('mirror').style.display='none';
 }
-// 页面加载默认全部隐藏商品
 window.onload = function(){
     document.getElementById("mirror").style.display = "none";
     document.getElementById("cabinet").style.display = "none";
 }
-</script>   
     <p>Wholesale Bathroom Mirrors | ODM & OEM Supported</p>
     <p>Wholesale Bathroom Mirrors | ODM & OEM Supported</p>
 <script>
