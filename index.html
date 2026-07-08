@@ -21,16 +21,20 @@
             color: #333;
             max-width: 1280px;
             margin: 0 auto;
-            padding: 30px 20px;
+            padding: 0 20px 30px;
             line-height: 1.6;
         }
 
-        /* 头部区域 */
+        /* 头部区域 - 滚动时固定在顶部 */
         header {
             text-align: center;
-            padding: 40px 0;
+            padding: 30px 0 20px;
             border-bottom: 1px solid #f8c8d2;
             margin-bottom: 30px;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            background-color: #ffe8ec;
         }
         header h1 {
             font-size: 36px;
@@ -80,6 +84,7 @@
             cursor: pointer;
             font-size: 18px;
             transition: all 0.2s ease;
+            user-select: none;
         }
         .filter-tab:hover {
             background: #ffe8ec;
@@ -144,6 +149,7 @@
             transition: transform 0.4s ease;
             opacity: 0;
             animation: fadeIn 0.6s ease forwards;
+            background: #ffe8ec;
         }
         .product-card:hover .product-img {
             transform: scale(1.06);
@@ -370,7 +376,7 @@
 
         /* 移动端适配 */
         @media (max-width: 600px) {
-            body { padding: 20px 15px; }
+            body { padding: 0 15px 20px; }
             header h1 { font-size: 26px; }
             #searchInput { width: 100%; font-size: 15px; }
             .filter-tab { padding: 10px 20px; font-size: 15px; }
@@ -400,7 +406,7 @@
 <div class="copy-toast" id="copyToast">Copied successfully!</div>
 
 <div class="product-grid">
-    <!-- ========== A系列 LED镜子 29款 (Model A开头) ========== -->
+    <!-- ========== A系列 LED镜子 29款 (Model A开头) 长宽相等保留图片，长方形留空 ========== -->
     <div class="product-card">
         <div class="img-box"><img class="product-img" src="微信图片_20260707164222_511_35.jpg" alt="Model A001 LED Anti-Fog Bathroom Mirror"></div>
         <div class="product-info">
@@ -416,18 +422,18 @@
         <div class="product-info">
             <h3 class="product-name">Model A002 LED Anti-Fog Bathroom Mirror</h3>
             <p class="product-desc">Material: Paulownia Frame Mirror<br>Size: 50×50cm<br>Function: LED + Anti-Fog + Storage<br>Warranty: 2 Years | MOQ: 500pcs</p>
-            <div class="product-price">Unit Price: $9.95</div>
-            <button class="order-btn" onclick="openModal('Model A002','Small Round LED Mirror','Material: Paulownia Frame\nSize: 50×50cm\nFunction: LED + Anti-Fog + Storage\nWarranty: 2 Years\nMOQ: 500pcs','$9.95')">View Details & Order</button>
+            <div class="product-price">Unit Price: $14.90</div>
+            <button class="order-btn" onclick="openModal('Model A002','Small Round LED Mirror','Material: Paulownia Frame\nSize: 50×50cm\nFunction: LED + Anti-Fog + Storage\nWarranty: 2 Years\nMOQ: 500pcs','$14.90')">View Details & Order</button>
         </div>
     </div>
 
     <div class="product-card">
-        <div class="img-box"><img class="product-img" src="微信图片_20260707164222_511_35.jpg" alt="Model A003 LED Anti-Fog Bathroom Mirror"></div>
+        <div class="img-box"><img class="product-img" alt="Model A003 LED Anti-Fog Bathroom Mirror"></div>
         <div class="product-info">
             <h3 class="product-name">Model A003 LED Anti-Fog Bathroom Mirror</h3>
             <p class="product-desc">Material: Paulownia Frame Mirror<br>Size: 50×60cm<br>Function: LED + Anti-Fog + Storage<br>Warranty: 2 Years | MOQ: 500pcs</p>
-            <div class="product-price">Unit Price: $11.94</div>
-            <button class="order-btn" onclick="openModal('Model A003','Rectangle LED Mirror','Material: Paulownia Frame\nSize: 50×60cm\nFunction: LED + Anti-Fog + Storage\nWarranty: 2 Years\nMOQ: 500pcs','$11.94')">View Details & Order</button>
+            <div class="product-price">Unit Price: $16.50</div>
+            <button class="order-btn" onclick="openModal('Model A003','Rectangle LED Mirror','Material: Paulownia Frame\nSize: 50×60cm\nFunction: LED + Anti-Fog + Storage\nWarranty: 2 Years\nMOQ: 500pcs','$16.50')">View Details & Order</button>
         </div>
     </div>
 
@@ -436,18 +442,18 @@
         <div class="product-info">
             <h3 class="product-name">Model A004 LED Anti-Fog Bathroom Mirror</h3>
             <p class="product-desc">Material: Paulownia Frame Mirror<br>Size: 55×55cm<br>Function: LED + Anti-Fog + Storage<br>Warranty: 2 Years | MOQ: 500pcs</p>
-            <div class="product-price">Unit Price: $12.04</div>
-            <button class="order-btn" onclick="openModal('Model A004','Square LED Mirror','Material: Paulownia Frame\nSize: 55×55cm\nFunction: LED + Anti-Fog + Storage\nWarranty: 2 Years\nMOQ: 500pcs','$12.04')">View Details & Order</button>
+            <div class="product-price">Unit Price: $16.90</div>
+            <button class="order-btn" onclick="openModal('Model A004','Square LED Mirror','Material: Paulownia Frame\nSize: 55×55cm\nFunction: LED + Anti-Fog + Storage\nWarranty: 2 Years\nMOQ: 500pcs','$16.90')">View Details & Order</button>
         </div>
     </div>
 
     <div class="product-card">
-        <div class="img-box"><img class="product-img" src="微信图片_20260707164222_511_35.jpg" alt="Model A005 LED Anti-Fog Bathroom Mirror"></div>
+        <div class="img-box"><img class="product-img" alt="Model A005 LED Anti-Fog Bathroom Mirror"></div>
         <div class="product-info">
             <h3 class="product-name">Model A005 LED Anti-Fog Bathroom Mirror</h3>
             <p class="product-desc">Material: Paulownia Frame Mirror<br>Size: 50×70cm<br>Function: LED + Anti-Fog + Storage<br>Warranty: 2 Years | MOQ: 500pcs</p>
-            <div class="product-price">Unit Price: $13.93</div>
-            <button class="order-btn" onclick="openModal('Model A005','Vertical LED Mirror','Material: Paulownia Frame\nSize: 50×70cm\nFunction: LED + Anti-Fog + Storage\nWarranty: 2 Years\nMOQ: 500pcs','$13.93')">View Details & Order</button>
+            <div class="product-price">Unit Price: $18.20</div>
+            <button class="order-btn" onclick="openModal('Model A005','Vertical LED Mirror','Material: Paulownia Frame\nSize: 50×70cm\nFunction: LED + Anti-Fog + Storage\nWarranty: 2 Years\nMOQ: 500pcs','$18.20')">View Details & Order</button>
         </div>
     </div>
 
@@ -456,18 +462,18 @@
         <div class="product-info">
             <h3 class="product-name">Model A006 LED Anti-Fog Bathroom Mirror</h3>
             <p class="product-desc">Material: Paulownia Frame Mirror<br>Size: 60×60cm<br>Function: LED + Anti-Fog + Storage<br>Warranty: 2 Years | MOQ: 500pcs</p>
-            <div class="product-price">Unit Price: $14.33</div>
-            <button class="order-btn" onclick="openModal('Model A006','Square LED Mirror','Material: Paulownia Frame\nSize: 60×60cm\nFunction: LED + Anti-Fog + Storage\nWarranty: 2 Years\nMOQ: 500pcs','$14.33')">View Details & Order</button>
+            <div class="product-price">Unit Price: $17.90</div>
+            <button class="order-btn" onclick="openModal('Model A006','Square LED Mirror','Material: Paulownia Frame\nSize: 60×60cm\nFunction: LED + Anti-Fog + Storage\nWarranty: 2 Years\nMOQ: 500pcs','$17.90')">View Details & Order</button>
         </div>
     </div>
 
     <div class="product-card">
-        <div class="img-box"><img class="product-img" src="微信图片_20260707164222_511_35.jpg" alt="Model A007 LED Anti-Fog Bathroom Mirror"></div>
+        <div class="img-box"><img class="product-img" alt="Model A007 LED Anti-Fog Bathroom Mirror"></div>
         <div class="product-info">
             <h3 class="product-name">Model A007 LED Anti-Fog Bathroom Mirror</h3>
             <p class="product-desc">Material: Paulownia Frame Mirror<br>Size: 60×70cm<br>Function: LED + Anti-Fog + Storage<br>Warranty: 2 Years | MOQ: 500pcs</p>
-            <div class="product-price">Unit Price: $16.71</div>
-            <button class="order-btn" onclick="openModal('Model A007','Rectangle LED Mirror','Material: Paulownia Frame\nSize: 60×70cm\nFunction: LED + Anti-Fog + Storage\nWarranty: 2 Years\nMOQ: 500pcs','$16.71')">View Details & Order</button>
+            <div class="product-price">Unit Price: $19.20</div>
+            <button class="order-btn" onclick="openModal('Model A007','Rectangle LED Mirror','Material: Paulownia Frame\nSize: 60×70cm\nFunction: LED + Anti-Fog + Storage\nWarranty: 2 Years\nMOQ: 500pcs','$19.20')">View Details & Order</button>
         </div>
     </div>
 
@@ -476,28 +482,28 @@
         <div class="product-info">
             <h3 class="product-name">Model A008 LED Anti-Fog Bathroom Mirror</h3>
             <p class="product-desc">Material: Paulownia Frame Mirror<br>Size: 65×65cm<br>Function: LED + Anti-Fog + Storage<br>Warranty: 2 Years | MOQ: 500pcs</p>
-            <div class="product-price">Unit Price: $16.81</div>
-            <button class="order-btn" onclick="openModal('Model A008','Round LED Mirror','Material: Paulownia Frame\nSize: 65×65cm\nFunction: LED + Anti-Fog + Storage\nWarranty: 2 Years\nMOQ: 500pcs','$16.81')">View Details & Order</button>
+            <div class="product-price">Unit Price: $18.90</div>
+            <button class="order-btn" onclick="openModal('Model A008','Round LED Mirror','Material: Paulownia Frame\nSize: 65×65cm\nFunction: LED + Anti-Fog + Storage\nWarranty: 2 Years\nMOQ: 500pcs','$18.90')">View Details & Order</button>
         </div>
     </div>
 
     <div class="product-card">
-        <div class="img-box"><img class="product-img" src="微信图片_20260707164222_511_35.jpg" alt="Model A009 LED Anti-Fog Bathroom Mirror"></div>
+        <div class="img-box"><img class="product-img" alt="Model A009 LED Anti-Fog Bathroom Mirror"></div>
         <div class="product-info">
             <h3 class="product-name">Model A009 LED Anti-Fog Bathroom Mirror</h3>
             <p class="product-desc">Material: Paulownia Frame Mirror<br>Size: 60×80cm<br>Function: LED + Anti-Fog + Storage<br>Warranty: 2 Years | MOQ: 500pcs</p>
-            <div class="product-price">Unit Price: $19.10</div>
-            <button class="order-btn" onclick="openModal('Model A009','Large Rectangle Mirror','Material: Paulownia Frame\nSize: 60×80cm\nFunction: LED + Anti-Fog + Storage\nWarranty: 2 Years\nMOQ: 500pcs','$19.10')">View Details & Order</button>
+            <div class="product-price">Unit Price: $20.50</div>
+            <button class="order-btn" onclick="openModal('Model A009','Large Rectangle Mirror','Material: Paulownia Frame\nSize: 60×80cm\nFunction: LED + Anti-Fog + Storage\nWarranty: 2 Years\nMOQ: 500pcs','$20.50')">View Details & Order</button>
         </div>
     </div>
 
     <div class="product-card">
-        <div class="img-box"><img class="product-img" src="微信图片_20260707164222_511_35.jpg" alt="Model A010 LED Anti-Fog Bathroom Mirror"></div>
+        <div class="img-box"><img class="product-img" alt="Model A010 LED Anti-Fog Bathroom Mirror"></div>
         <div class="product-info">
             <h3 class="product-name">Model A010 LED Anti-Fog Bathroom Mirror</h3>
             <p class="product-desc">Material: Paulownia Frame Mirror<br>Size: 70×75cm<br>Function: LED + Anti-Fog + Storage<br>Warranty: 2 Years | MOQ: 500pcs</p>
-            <div class="product-price">Unit Price: $20.89</div>
-            <button class="order-btn" onclick="openModal('Model A010','Oval LED Mirror','Material: Paulownia Frame\nSize: 70×75cm\nFunction: LED + Anti-Fog + Storage\nWarranty: 2 Years\nMOQ: 500pcs','$20.89')">View Details & Order</button>
+            <div class="product-price">Unit Price: $20.90</div>
+            <button class="order-btn" onclick="openModal('Model A010','Oval LED Mirror','Material: Paulownia Frame\nSize: 70×75cm\nFunction: LED + Anti-Fog + Storage\nWarranty: 2 Years\nMOQ: 500pcs','$20.90')">View Details & Order</button>
         </div>
     </div>
 
@@ -506,28 +512,28 @@
         <div class="product-info">
             <h3 class="product-name">Model A011 LED Anti-Fog Bathroom Mirror</h3>
             <p class="product-desc">Material: Paulownia Frame Mirror<br>Size: 75×75cm<br>Function: LED + Anti-Fog + Storage<br>Warranty: 2 Years | MOQ: 500pcs</p>
-            <div class="product-price">Unit Price: $22.39</div>
-            <button class="order-btn" onclick="openModal('Model A011','Large Round Mirror','Material: Paulownia Frame\nSize: 75×75cm\nFunction: LED + Anti-Fog + Storage\nWarranty: 2 Years\nMOQ: 500pcs','$22.39')">View Details & Order</button>
+            <div class="product-price">Unit Price: $21.50</div>
+            <button class="order-btn" onclick="openModal('Model A011','Large Round Mirror','Material: Paulownia Frame\nSize: 75×75cm\nFunction: LED + Anti-Fog + Storage\nWarranty: 2 Years\nMOQ: 500pcs','$21.50')">View Details & Order</button>
         </div>
     </div>
 
     <div class="product-card">
-        <div class="img-box"><img class="product-img" src="微信图片_20260707164222_511_35.jpg" alt="Model A012 LED Anti-Fog Bathroom Mirror"></div>
+        <div class="img-box"><img class="product-img" alt="Model A012 LED Anti-Fog Bathroom Mirror"></div>
         <div class="product-info">
             <h3 class="product-name">Model A012 LED Anti-Fog Bathroom Mirror</h3>
             <p class="product-desc">Material: Paulownia Frame Mirror<br>Size: 70×80cm<br>Function: LED + Anti-Fog + Storage<br>Warranty: 2 Years | MOQ: 500pcs</p>
-            <div class="product-price">Unit Price: $22.29</div>
-            <button class="order-btn" onclick="openModal('Model A012','Rectangle LED Mirror','Material: Paulownia Frame\nSize: 70×80cm\nFunction: LED + Anti-Fog + Storage\nWarranty: 2 Years\nMOQ: 500pcs','$22.29')">View Details & Order</button>
+            <div class="product-price">Unit Price: $21.90</div>
+            <button class="order-btn" onclick="openModal('Model A012','Rectangle LED Mirror','Material: Paulownia Frame\nSize: 70×80cm\nFunction: LED + Anti-Fog + Storage\nWarranty: 2 Years\nMOQ: 500pcs','$21.90')">View Details & Order</button>
         </div>
     </div>
 
     <div class="product-card">
-        <div class="img-box"><img class="product-img" src="微信图片_20260707164222_511_35.jpg" alt="Model A013 LED Anti-Fog Bathroom Mirror"></div>
+        <div class="img-box"><img class="product-img" alt="Model A013 LED Anti-Fog Bathroom Mirror"></div>
         <div class="product-info">
             <h3 class="product-name">Model A013 LED Anti-Fog Bathroom Mirror</h3>
             <p class="product-desc">Material: Paulownia Frame Mirror<br>Size: 70×90cm<br>Function: LED + Anti-Fog + Storage<br>Warranty: 2 Years | MOQ: 500pcs</p>
-            <div class="product-price">Unit Price: $25.04</div>
-            <button class="order-btn" onclick="openModal('Model A013','Large Vertical Mirror','Material: Paulownia Frame\nSize: 70×90cm\nFunction: LED + Anti-Fog + Storage\nWarranty: 2 Years\nMOQ: 500pcs','$25.04')">View Details & Order</button>
+            <div class="product-price">Unit Price: $24.50</div>
+            <button class="order-btn" onclick="openModal('Model A013','Large Vertical Mirror','Material: Paulownia Frame\nSize: 70×90cm\nFunction: LED + Anti-Fog + Storage\nWarranty: 2 Years\nMOQ: 500pcs','$24.50')">View Details & Order</button>
         </div>
     </div>
 
@@ -536,28 +542,28 @@
         <div class="product-info">
             <h3 class="product-name">Model A014 LED Anti-Fog Bathroom Mirror</h3>
             <p class="product-desc">Material: Paulownia Frame Mirror<br>Size: 80×80cm<br>Function: LED + Anti-Fog + Storage<br>Warranty: 2 Years | MOQ: 500pcs</p>
-            <div class="product-price">Unit Price: $25.43</div>
-            <button class="order-btn" onclick="openModal('Model A014','Large Square Mirror','Material: Paulownia Frame\nSize: 80×80cm\nFunction: LED + Anti-Fog + Storage\nWarranty: 2 Years\nMOQ: 500pcs','$25.43')">View Details & Order</button>
+            <div class="product-price">Unit Price: $24.90</div>
+            <button class="order-btn" onclick="openModal('Model A014','Large Square Mirror','Material: Paulownia Frame\nSize: 80×80cm\nFunction: LED + Anti-Fog + Storage\nWarranty: 2 Years\nMOQ: 500pcs','$24.90')">View Details & Order</button>
         </div>
     </div>
 
     <div class="product-card">
-        <div class="img-box"><img class="product-img" src="微信图片_20260707164222_511_35.jpg" alt="Model A015 LED Anti-Fog Bathroom Mirror"></div>
+        <div class="img-box"><img class="product-img" alt="Model A015 LED Anti-Fog Bathroom Mirror"></div>
         <div class="product-info">
             <h3 class="product-name">Model A015 LED Anti-Fog Bathroom Mirror</h3>
             <p class="product-desc">Material: Paulownia Frame Mirror<br>Size: 75×90cm<br>Function: LED + Anti-Fog + Storage<br>Warranty: 2 Years | MOQ: 500pcs</p>
-            <div class="product-price">Unit Price: $26.82</div>
-            <button class="order-btn" onclick="openModal('Model A015','Rectangle LED Mirror','Material: Paulownia Frame\nSize: 75×90cm\nFunction: LED + Anti-Fog + Storage\nWarranty: 2 Years\nMOQ: 500pcs','$26.82')">View Details & Order</button>
+            <div class="product-price">Unit Price: $25.90</div>
+            <button class="order-btn" onclick="openModal('Model A015','Rectangle LED Mirror','Material: Paulownia Frame\nSize: 75×90cm\nFunction: LED + Anti-Fog + Storage\nWarranty: 2 Years\nMOQ: 500pcs','$25.90')">View Details & Order</button>
         </div>
     </div>
 
     <div class="product-card">
-        <div class="img-box"><img class="product-img" src="微信图片_20260707164222_511_35.jpg" alt="Model A016 LED Anti-Fog Bathroom Mirror"></div>
+        <div class="img-box"><img class="product-img" alt="Model A016 LED Anti-Fog Bathroom Mirror"></div>
         <div class="product-info">
             <h3 class="product-name">Model A016 LED Anti-Fog Bathroom Mirror</h3>
             <p class="product-desc">Material: Paulownia Frame Mirror<br>Size: 80×90cm<br>Function: LED + Anti-Fog + Storage<br>Warranty: 2 Years | MOQ: 500pcs</p>
-            <div class="product-price">Unit Price: $28.61</div>
-            <button class="order-btn" onclick="openModal('Model A016','Large LED Mirror','Material: Paulownia Frame\nSize: 80×90cm\nFunction: LED + Anti-Fog + Storage\nWarranty: 2 Years\nMOQ: 500pcs','$28.61')">View Details & Order</button>
+            <div class="product-price">Unit Price: $27.50</div>
+            <button class="order-btn" onclick="openModal('Model A016','Large LED Mirror','Material: Paulownia Frame\nSize: 80×90cm\nFunction: LED + Anti-Fog + Storage\nWarranty: 2 Years\nMOQ: 500pcs','$27.50')">View Details & Order</button>
         </div>
     </div>
 
@@ -566,38 +572,38 @@
         <div class="product-info">
             <h3 class="product-name">Model A017 LED Anti-Fog Bathroom Mirror</h3>
             <p class="product-desc">Material: Paulownia Frame Mirror<br>Size: 90×90cm<br>Function: LED + Anti-Fog + Storage<br>Warranty: 2 Years | MOQ: 500pcs</p>
-            <div class="product-price">Unit Price: $32.19</div>
-            <button class="order-btn" onclick="openModal('Model A017','Extra Large Round Mirror','Material: Paulownia Frame\nSize: 90×90cm\nFunction: LED + Anti-Fog + Storage\nWarranty: 2 Years\nMOQ: 500pcs','$32.19')">View Details & Order</button>
+            <div class="product-price">Unit Price: $29.90</div>
+            <button class="order-btn" onclick="openModal('Model A017','Extra Large Round Mirror','Material: Paulownia Frame\nSize: 90×90cm\nFunction: LED + Anti-Fog + Storage\nWarranty: 2 Years\nMOQ: 500pcs','$29.90')">View Details & Order</button>
         </div>
     </div>
 
     <div class="product-card">
-        <div class="img-box"><img class="product-img" src="微信图片_20260707164222_511_35.jpg" alt="Model A018 LED Anti-Fog Bathroom Mirror"></div>
+        <div class="img-box"><img class="product-img" alt="Model A018 LED Anti-Fog Bathroom Mirror"></div>
         <div class="product-info">
             <h3 class="product-name">Model A018 LED Anti-Fog Bathroom Mirror</h3>
             <p class="product-desc">Material: Paulownia Frame Mirror<br>Size: 80×100cm<br>Function: LED + Anti-Fog + Storage<br>Warranty: 2 Years | MOQ: 500pcs</p>
-            <div class="product-price">Unit Price: $31.84</div>
-            <button class="order-btn" onclick="openModal('Model A018','Full Length Mirror','Material: Paulownia Frame\nSize: 80×100cm\nFunction: LED + Anti-Fog + Storage\nWarranty: 2 Years\nMOQ: 500pcs','$31.84')">View Details & Order</button>
+            <div class="product-price">Unit Price: $29.50</div>
+            <button class="order-btn" onclick="openModal('Model A018','Full Length Mirror','Material: Paulownia Frame\nSize: 80×100cm\nFunction: LED + Anti-Fog + Storage\nWarranty: 2 Years\nMOQ: 500pcs','$29.50')">View Details & Order</button>
         </div>
     </div>
 
     <div class="product-card">
-        <div class="img-box"><img class="product-img" src="微信图片_20260707164222_511_35.jpg" alt="Model A019 LED Anti-Fog Bathroom Mirror"></div>
+        <div class="img-box"><img class="product-img" alt="Model A019 LED Anti-Fog Bathroom Mirror"></div>
         <div class="product-info">
             <h3 class="product-name">Model A019 LED Anti-Fog Bathroom Mirror</h3>
             <p class="product-desc">Material: Paulownia Frame Mirror<br>Size: 85×100cm<br>Function: LED + Anti-Fog + Storage<br>Warranty: 2 Years | MOQ: 500pcs</p>
-            <div class="product-price">Unit Price: $33.83</div>
-            <button class="order-btn" onclick="openModal('Model A019','Large Rectangle Mirror','Material: Paulownia Frame\nSize: 85×100cm\nFunction: LED + Anti-Fog + Storage\nWarranty: 2 Years\nMOQ: 500pcs','$33.83')">View Details & Order</button>
+            <div class="product-price">Unit Price: $31.50</div>
+            <button class="order-btn" onclick="openModal('Model A019','Large Rectangle Mirror','Material: Paulownia Frame\nSize: 85×100cm\nFunction: LED + Anti-Fog + Storage\nWarranty: 2 Years\nMOQ: 500pcs','$31.50')">View Details & Order</button>
         </div>
     </div>
 
     <div class="product-card">
-        <div class="img-box"><img class="product-img" src="微信图片_20260707164222_511_35.jpg" alt="Model A020 LED Anti-Fog Bathroom Mirror"></div>
+        <div class="img-box"><img class="product-img" alt="Model A020 LED Anti-Fog Bathroom Mirror"></div>
         <div class="product-info">
             <h3 class="product-name">Model A020 LED Anti-Fog Bathroom Mirror</h3>
             <p class="product-desc">Material: Paulownia Frame Mirror<br>Size: 90×100cm<br>Function: LED + Anti-Fog + Storage<br>Warranty: 2 Years | MOQ: 500pcs</p>
-            <div class="product-price">Unit Price: $35.82</div>
-            <button class="order-btn" onclick="openModal('Model A020','Large Wall Mirror','Material: Paulownia Frame\nSize: 90×100cm\nFunction: LED + Anti-Fog + Storage\nWarranty: 2 Years\nMOQ: 500pcs','$35.82')">View Details & Order</button>
+            <div class="product-price">Unit Price: $32.90</div>
+            <button class="order-btn" onclick="openModal('Model A020','Large Wall Mirror','Material: Paulownia Frame\nSize: 90×100cm\nFunction: LED + Anti-Fog + Storage\nWarranty: 2 Years\nMOQ: 500pcs','$32.90')">View Details & Order</button>
         </div>
     </div>
 
@@ -606,18 +612,18 @@
         <div class="product-info">
             <h3 class="product-name">Model A021 LED Anti-Fog Bathroom Mirror</h3>
             <p class="product-desc">Material: Paulownia Frame Mirror<br>Size: 95×95cm<br>Function: LED + Anti-Fog + Storage<br>Warranty: 2 Years | MOQ: 500pcs</p>
-            <div class="product-price">Unit Price: $35.92</div>
-            <button class="order-btn" onclick="openModal('Model A021','Extra Large Square Mirror','Material: Paulownia Frame\nSize: 95×95cm\nFunction: LED + Anti-Fog + Storage\nWarranty: 2 Years\nMOQ: 500pcs','$35.92')">View Details & Order</button>
+            <div class="product-price">Unit Price: $33.50</div>
+            <button class="order-btn" onclick="openModal('Model A021','Extra Large Square Mirror','Material: Paulownia Frame\nSize: 95×95cm\nFunction: LED + Anti-Fog + Storage\nWarranty: 2 Years\nMOQ: 500pcs','$33.50')">View Details & Order</button>
         </div>
     </div>
 
     <div class="product-card">
-        <div class="img-box"><img class="product-img" src="微信图片_20260707164222_511_35.jpg" alt="Model A022 LED Anti-Fog Bathroom Mirror"></div>
+        <div class="img-box"><img class="product-img" alt="Model A022 LED Anti-Fog Bathroom Mirror"></div>
         <div class="product-info">
             <h3 class="product-name">Model A022 LED Anti-Fog Bathroom Mirror</h3>
             <p class="product-desc">Material: Paulownia Frame Mirror<br>Size: 90×110cm<br>Function: LED + Anti-Fog + Storage<br>Warranty: 2 Years | MOQ: 500pcs</p>
-            <div class="product-price">Unit Price: $39.40</div>
-            <button class="order-btn" onclick="openModal('Model A022','Full Length LED Mirror','Material: Paulownia Frame\nSize: 90×110cm\nFunction: LED + Anti-Fog + Storage\nWarranty: 2 Years\nMOQ: 500pcs','$39.40')">View Details & Order</button>
+            <div class="product-price">Unit Price: $35.90</div>
+            <button class="order-btn" onclick="openModal('Model A022','Full Length LED Mirror','Material: Paulownia Frame\nSize: 90×110cm\nFunction: LED + Anti-Fog + Storage\nWarranty: 2 Years\nMOQ: 500pcs','$35.90')">View Details & Order</button>
         </div>
     </div>
 
@@ -626,28 +632,28 @@
         <div class="product-info">
             <h3 class="product-name">Model A023 LED Anti-Fog Bathroom Mirror</h3>
             <p class="product-desc">Material: Paulownia Frame Mirror<br>Size: 100×100cm<br>Function: LED + Anti-Fog + Storage<br>Warranty: 2 Years | MOQ: 500pcs</p>
-            <div class="product-price">Unit Price: $39.80</div>
-            <button class="order-btn" onclick="openModal('Model A023','1m Large Round Mirror','Material: Paulownia Frame\nSize: 100×100cm\nFunction: LED + Anti-Fog + Storage\nWarranty: 2 Years\nMOQ: 500pcs','$39.80')">View Details & Order</button>
+            <div class="product-price">Unit Price: $36.50</div>
+            <button class="order-btn" onclick="openModal('Model A023','1m Large Round Mirror','Material: Paulownia Frame\nSize: 100×100cm\nFunction: LED + Anti-Fog + Storage\nWarranty: 2 Years\nMOQ: 500pcs','$36.50')">View Details & Order</button>
         </div>
     </div>
 
     <div class="product-card">
-        <div class="img-box"><img class="product-img" src="微信图片_20260707164222_511_35.jpg" alt="Model A024 LED Anti-Fog Bathroom Mirror"></div>
+        <div class="img-box"><img class="product-img" alt="Model A024 LED Anti-Fog Bathroom Mirror"></div>
         <div class="product-info">
             <h3 class="product-name">Model A024 LED Anti-Fog Bathroom Mirror</h3>
             <p class="product-desc">Material: Paulownia Frame Mirror<br>Size: 95×110cm<br>Function: LED + Anti-Fog + Storage<br>Warranty: 2 Years | MOQ: 500pcs</p>
-            <div class="product-price">Unit Price: $41.59</div>
-            <button class="order-btn" onclick="openModal('Model A024','Large Rectangle Mirror','Material: Paulownia Frame\nSize: 95×110cm\nFunction: LED + Anti-Fog + Storage\nWarranty: 2 Years\nMOQ: 500pcs','$41.59')">View Details & Order</button>
+            <div class="product-price">Unit Price: $37.50</div>
+            <button class="order-btn" onclick="openModal('Model A024','Large Rectangle Mirror','Material: Paulownia Frame\nSize: 95×110cm\nFunction: LED + Anti-Fog + Storage\nWarranty: 2 Years\nMOQ: 500pcs','$37.50')">View Details & Order</button>
         </div>
     </div>
 
     <div class="product-card">
-        <div class="img-box"><img class="product-img" src="微信图片_20260707164222_511_35.jpg" alt="Model A025 LED Anti-Fog Bathroom Mirror"></div>
+        <div class="img-box"><img class="product-img" alt="Model A025 LED Anti-Fog Bathroom Mirror"></div>
         <div class="product-info">
             <h3 class="product-name">Model A025 LED Anti-Fog Bathroom Mirror</h3>
             <p class="product-desc">Material: Paulownia Frame Mirror<br>Size: 100×110cm<br>Function: LED + Anti-Fog + Storage<br>Warranty: 2 Years | MOQ: 500pcs</p>
-            <div class="product-price">Unit Price: $43.78</div>
-            <button class="order-btn" onclick="openModal('Model A025','Extra Large Mirror','Material: Paulownia Frame\nSize: 100×110cm\nFunction: LED + Anti-Fog + Storage\nWarranty: 2 Years\nMOQ: 500pcs','$43.78')">View Details & Order</button>
+            <div class="product-price">Unit Price: $38.50</div>
+            <button class="order-btn" onclick="openModal('Model A025','Extra Large Mirror','Material: Paulownia Frame\nSize: 100×110cm\nFunction: LED + Anti-Fog + Storage\nWarranty: 2 Years\nMOQ: 500pcs','$38.50')">View Details & Order</button>
         </div>
     </div>
 
@@ -656,18 +662,18 @@
         <div class="product-info">
             <h3 class="product-name">Model A026 LED Anti-Fog Bathroom Mirror</h3>
             <p class="product-desc">Material: Paulownia Frame Mirror<br>Size: 105×105cm<br>Function: LED + Anti-Fog + Storage<br>Warranty: 2 Years | MOQ: 500pcs</p>
-            <div class="product-price">Unit Price: $43.88</div>
-            <button class="order-btn" onclick="openModal('Model A026','Oversized Square Mirror','Material: Paulownia Frame\nSize: 105×105cm\nFunction: LED + Anti-Fog + Storage\nWarranty: 2 Years\nMOQ: 500pcs','$43.88')">View Details & Order</button>
+            <div class="product-price">Unit Price: $38.90</div>
+            <button class="order-btn" onclick="openModal('Model A026','Oversized Square Mirror','Material: Paulownia Frame\nSize: 105×105cm\nFunction: LED + Anti-Fog + Storage\nWarranty: 2 Years\nMOQ: 500pcs','$38.90')">View Details & Order</button>
         </div>
     </div>
 
     <div class="product-card">
-        <div class="img-box"><img class="product-img" src="微信图片_20260707164222_511_35.jpg" alt="Model A027 LED Anti-Fog Bathroom Mirror"></div>
+        <div class="img-box"><img class="product-img" alt="Model A027 LED Anti-Fog Bathroom Mirror"></div>
         <div class="product-info">
             <h3 class="product-name">Model A027 LED Anti-Fog Bathroom Mirror</h3>
             <p class="product-desc">Material: Paulownia Frame Mirror<br>Size: 100×120cm<br>Function: LED + Anti-Fog + Storage<br>Warranty: 2 Years | MOQ: 500pcs</p>
-            <div class="product-price">Unit Price: $47.76</div>
-            <button class="order-btn" onclick="openModal('Model A027','Full Length Wall Mirror','Material: Paulownia Frame\nSize: 100×120cm\nFunction: LED + Anti-Fog + Storage\nWarranty: 2 Years\nMOQ: 500pcs','$47.76')">View Details & Order</button>
+            <div class="product-price">Unit Price: $39.90</div>
+            <button class="order-btn" onclick="openModal('Model A027','Full Length Wall Mirror','Material: Paulownia Frame\nSize: 100×120cm\nFunction: LED + Anti-Fog + Storage\nWarranty: 2 Years\nMOQ: 500pcs','$39.90')">View Details & Order</button>
         </div>
     </div>
 
@@ -676,8 +682,8 @@
         <div class="product-info">
             <h3 class="product-name">Model A028 LED Anti-Fog Bathroom Mirror</h3>
             <p class="product-desc">Material: Paulownia Frame Mirror<br>Size: 110×110cm<br>Function: LED + Anti-Fog + Storage<br>Warranty: 2 Years | MOQ: 500pcs</p>
-            <div class="product-price">Unit Price: $48.15</div>
-            <button class="order-btn" onclick="openModal('Model A028','Oversized Round Mirror','Material: Paulownia Frame\nSize: 110×110cm\nFunction: LED + Anti-Fog + Storage\nWarranty: 2 Years\nMOQ: 500pcs','$48.15')">View Details & Order</button>
+            <div class="product-price">Unit Price: $40.90</div>
+            <button class="order-btn" onclick="openModal('Model A028','Oversized Round Mirror','Material: Paulownia Frame\nSize: 110×110cm\nFunction: LED + Anti-Fog + Storage\nWarranty: 2 Years\nMOQ: 500pcs','$40.90')">View Details & Order</button>
         </div>
     </div>
 
@@ -686,12 +692,12 @@
         <div class="product-info">
             <h3 class="product-name">Model A029 LED Anti-Fog Bathroom Mirror</h3>
             <p class="product-desc">Material: Paulownia Frame Mirror<br>Size: 120×120cm<br>Function: LED + Anti-Fog + Storage<br>Warranty: 2 Years | MOQ: 500pcs</p>
-            <div class="product-price">Unit Price: $57.31</div>
-            <button class="order-btn" onclick="openModal('Model A029','Max Size LED Mirror','Material: Paulownia Frame\nSize: 120×120cm\nFunction: LED + Anti-Fog + Storage\nWarranty: 2 Years\nMOQ: 500pcs','$57.31')">View Details & Order</button>
+            <div class="product-price">Unit Price: $42.90</div>
+            <button class="order-btn" onclick="openModal('Model A029','Max Size LED Mirror','Material: Paulownia Frame\nSize: 120×120cm\nFunction: LED + Anti-Fog + Storage\nWarranty: 2 Years\nMOQ: 500pcs','$42.90')">View Details & Order</button>
         </div>
     </div>
 
-    <!-- ========== B系列 智能镜柜 29款 (Model B开头) ========== -->
+    <!-- ========== B系列 智能镜柜 29款 (Model B开头) 长宽差≥10cm保留图片 ========== -->
     <div class="product-card">
         <div class="img-box"><img class="product-img" src="微信图片_20260707164044_510_35.jpg" alt="Model B001 Smart Bathroom Mirror Cabinet"></div>
         <div class="product-info">
@@ -707,8 +713,8 @@
         <div class="product-info">
             <h3 class="product-name">Model B002 Smart Bathroom Mirror Cabinet</h3>
             <p class="product-desc">Material: Solid Wood + Paulownia Frame<br>Size: 50×60cm | Full Storage Cabinet<br>Warranty: 2 Years | MOQ: 100pcs</p>
-            <div class="product-price">Unit Price: $50.00</div>
-            <button class="order-btn" onclick="openModal('Model B002','Mini Mirror Cabinet','Material: Solid Wood + Paulownia Frame\nSize: 50×60cm\nFull Storage Cabinet Design\nWarranty: 2 Years\nMOQ: 100pcs','$50.00')">View Details & Order</button>
+            <div class="product-price">Unit Price: $79.00</div>
+            <button class="order-btn" onclick="openModal('Model B002','Mini Mirror Cabinet','Material: Solid Wood + Paulownia Frame\nSize: 50×60cm\nFull Storage Cabinet Design\nWarranty: 2 Years\nMOQ: 100pcs','$79.00')">View Details & Order</button>
         </div>
     </div>
 
@@ -717,8 +723,8 @@
         <div class="product-info">
             <h3 class="product-name">Model B003 Smart Bathroom Mirror Cabinet</h3>
             <p class="product-desc">Material: Solid Wood + Paulownia Frame<br>Size: 50×70cm | Full Storage Cabinet<br>Warranty: 2 Years | MOQ: 100pcs</p>
-            <div class="product-price">Unit Price: $58.33</div>
-            <button class="order-btn" onclick="openModal('Model B003','Small Vertical Cabinet','Material: Solid Wood + Paulownia Frame\nSize: 50×70cm\nFull Storage Cabinet Design\nWarranty: 2 Years\nMOQ: 100pcs','$58.33')">View Details & Order</button>
+            <div class="product-price">Unit Price: $86.00</div>
+            <button class="order-btn" onclick="openModal('Model B003','Small Vertical Cabinet','Material: Solid Wood + Paulownia Frame\nSize: 50×70cm\nFull Storage Cabinet Design\nWarranty: 2 Years\nMOQ: 100pcs','$86.00')">View Details & Order</button>
         </div>
     </div>
 
@@ -727,8 +733,8 @@
         <div class="product-info">
             <h3 class="product-name">Model B004 Smart Bathroom Mirror Cabinet</h3>
             <p class="product-desc">Material: Solid Wood + Paulownia Frame<br>Size: 55×70cm | Full Storage Cabinet<br>Warranty: 2 Years | MOQ: 100pcs</p>
-            <div class="product-price">Unit Price: $64.17</div>
-            <button class="order-btn" onclick="openModal('Model B004','Compact Mirror Cabinet','Material: Solid Wood + Paulownia Frame\nSize: 55×70cm\nFull Storage Cabinet Design\nWarranty: 2 Years\nMOQ: 100pcs','$64.17')">View Details & Order</button>
+            <div class="product-price">Unit Price: $91.00</div>
+            <button class="order-btn" onclick="openModal('Model B004','Compact Mirror Cabinet','Material: Solid Wood + Paulownia Frame\nSize: 55×70cm\nFull Storage Cabinet Design\nWarranty: 2 Years\nMOQ: 100pcs','$91.00')">View Details & Order</button>
         </div>
     </div>
 
@@ -737,8 +743,8 @@
         <div class="product-info">
             <h3 class="product-name">Model B005 Smart Bathroom Mirror Cabinet</h3>
             <p class="product-desc">Material: Solid Wood + Paulownia Frame<br>Size: 60×70cm | Full Storage Cabinet<br>Warranty: 2 Years | MOQ: 100pcs</p>
-            <div class="product-price">Unit Price: $70.00</div>
-            <button class="order-btn" onclick="openModal('Model B005','Standard Small Cabinet','Material: Solid Wood + Paulownia Frame\nSize: 60×70cm\nFull Storage Cabinet Design\nWarranty: 2 Years\nMOQ: 100pcs','$70.00')">View Details & Order</button>
+            <div class="product-price">Unit Price: $96.00</div>
+            <button class="order-btn" onclick="openModal('Model B005','Standard Small Cabinet','Material: Solid Wood + Paulownia Frame\nSize: 60×70cm\nFull Storage Cabinet Design\nWarranty: 2 Years\nMOQ: 100pcs','$96.00')">View Details & Order</button>
         </div>
     </div>
 
@@ -747,8 +753,8 @@
         <div class="product-info">
             <h3 class="product-name">Model B006 Smart Bathroom Mirror Cabinet</h3>
             <p class="product-desc">Material: Solid Wood + Paulownia Frame<br>Size: 60×80cm | Full Storage Cabinet<br>Warranty: 2 Years | MOQ: 100pcs</p>
-            <div class="product-price">Unit Price: $80.00</div>
-            <button class="order-btn" onclick="openModal('Model B006','Medium Mirror Cabinet','Material: Solid Wood + Paulownia Frame\nSize: 60×80cm\nFull Storage Cabinet Design\nWarranty: 2 Years\nMOQ: 100pcs','$80.00')">View Details & Order</button>
+            <div class="product-price">Unit Price: $102.00</div>
+            <button class="order-btn" onclick="openModal('Model B006','Medium Mirror Cabinet','Material: Solid Wood + Paulownia Frame\nSize: 60×80cm\nFull Storage Cabinet Design\nWarranty: 2 Years\nMOQ: 100pcs','$102.00')">View Details & Order</button>
         </div>
     </div>
 
@@ -757,8 +763,8 @@
         <div class="product-info">
             <h3 class="product-name">Model B007 Smart Bathroom Mirror Cabinet</h3>
             <p class="product-desc">Material: Solid Wood + Paulownia Frame<br>Size: 65×80cm | Full Storage Cabinet<br>Warranty: 2 Years | MOQ: 100pcs</p>
-            <div class="product-price">Unit Price: $86.67</div>
-            <button class="order-btn" onclick="openModal('Model B007','Medium Vertical Cabinet','Material: Solid Wood + Paulownia Frame\nSize: 65×80cm\nFull Storage Cabinet Design\nWarranty: 2 Years\nMOQ: 100pcs','$86.67')">View Details & Order</button>
+            <div class="product-price">Unit Price: $107.00</div>
+            <button class="order-btn" onclick="openModal('Model B007','Medium Vertical Cabinet','Material: Solid Wood + Paulownia Frame\nSize: 65×80cm\nFull Storage Cabinet Design\nWarranty: 2 Years\nMOQ: 100pcs','$107.00')">View Details & Order</button>
         </div>
     </div>
 
@@ -767,8 +773,8 @@
         <div class="product-info">
             <h3 class="product-name">Model B008 Smart Bathroom Mirror Cabinet</h3>
             <p class="product-desc">Material: Solid Wood + Paulownia Frame<br>Size: 60×90cm | Full Storage Cabinet<br>Warranty: 2 Years | MOQ: 100pcs</p>
-            <div class="product-price">Unit Price: $90.00</div>
-            <button class="order-btn" onclick="openModal('Model B008','Tall Mirror Cabinet','Material: Solid Wood + Paulownia Frame\nSize: 60×90cm\nFull Storage Cabinet Design\nWarranty: 2 Years\nMOQ: 100pcs','$90.00')">View Details & Order</button>
+            <div class="product-price">Unit Price: $110.00</div>
+            <button class="order-btn" onclick="openModal('Model B008','Tall Mirror Cabinet','Material: Solid Wood + Paulownia Frame\nSize: 60×90cm\nFull Storage Cabinet Design\nWarranty: 2 Years\nMOQ: 100pcs','$110.00')">View Details & Order</button>
         </div>
     </div>
 
@@ -777,8 +783,8 @@
         <div class="product-info">
             <h3 class="product-name">Model B009 Smart Bathroom Mirror Cabinet</h3>
             <p class="product-desc">Material: Solid Wood + Paulownia Frame<br>Size: 70×80cm | Full Storage Cabinet<br>Warranty: 2 Years | MOQ: 100pcs</p>
-            <div class="product-price">Unit Price: $93.33</div>
-            <button class="order-btn" onclick="openModal('Model B009','Standard Cabinet','Material: Solid Wood + Paulownia Frame\nSize: 70×80cm\nFull Storage Cabinet Design\nWarranty: 2 Years\nMOQ: 100pcs','$93.33')">View Details & Order</button>
+            <div class="product-price">Unit Price: $103.00</div>
+            <button class="order-btn" onclick="openModal('Model B009','Standard Cabinet','Material: Solid Wood + Paulownia Frame\nSize: 70×80cm\nFull Storage Cabinet Design\nWarranty: 2 Years\nMOQ: 100pcs','$103.00')">View Details & Order</button>
         </div>
     </div>
 
@@ -787,8 +793,8 @@
         <div class="product-info">
             <h3 class="product-name">Model B010 Smart Bathroom Mirror Cabinet</h3>
             <p class="product-desc">Material: Solid Wood + Paulownia Frame<br>Size: 75×85cm | Full Storage Cabinet<br>Warranty: 2 Years | MOQ: 100pcs</p>
-            <div class="product-price">Unit Price: $106.25</div>
-            <button class="order-btn" onclick="openModal('Model B010','Medium Large Cabinet','Material: Solid Wood + Paulownia Frame\nSize: 75×85cm\nFull Storage Cabinet Design\nWarranty: 2 Years\nMOQ: 100pcs','$106.25')">View Details & Order</button>
+            <div class="product-price">Unit Price: $108.00</div>
+            <button class="order-btn" onclick="openModal('Model B010','Medium Large Cabinet','Material: Solid Wood + Paulownia Frame\nSize: 75×85cm\nFull Storage Cabinet Design\nWarranty: 2 Years\nMOQ: 100pcs','$108.00')">View Details & Order</button>
         </div>
     </div>
 
@@ -797,8 +803,8 @@
         <div class="product-info">
             <h3 class="product-name">Model B011 Smart Bathroom Mirror Cabinet</h3>
             <p class="product-desc">Material: Solid Wood + Paulownia Frame<br>Size: 70×100cm | Full Storage Cabinet<br>Warranty: 2 Years | MOQ: 100pcs</p>
-            <div class="product-price">Unit Price: $116.67</div>
-            <button class="order-btn" onclick="openModal('Model B011','Tall Storage Cabinet','Material: Solid Wood + Paulownia Frame\nSize: 70×100cm\nFull Storage Cabinet Design\nWarranty: 2 Years\nMOQ: 100pcs','$116.67')">View Details & Order</button>
+            <div class="product-price">Unit Price: $118.00</div>
+            <button class="order-btn" onclick="openModal('Model B011','Tall Storage Cabinet','Material: Solid Wood + Paulownia Frame\nSize: 70×100cm\nFull Storage Cabinet Design\nWarranty: 2 Years\nMOQ: 100pcs','$118.00')">View Details & Order</button>
         </div>
     </div>
 
@@ -807,8 +813,8 @@
         <div class="product-info">
             <h3 class="product-name">Model B012 Smart Bathroom Mirror Cabinet</h3>
             <p class="product-desc">Material: Solid Wood + Paulownia Frame<br>Size: 80×90cm | Full Storage Cabinet<br>Warranty: 2 Years | MOQ: 100pcs</p>
-            <div class="product-price">Unit Price: $120.00</div>
-            <button class="order-btn" onclick="openModal('Model B012','Large Mirror Cabinet','Material: Solid Wood + Paulownia Frame\nSize: 80×90cm\nFull Storage Cabinet Design\nWarranty: 2 Years\nMOQ: 100pcs','$120.00')">View Details & Order</button>
+            <div class="product-price">Unit Price: $112.00</div>
+            <button class="order-btn" onclick="openModal('Model B012','Large Mirror Cabinet','Material: Solid Wood + Paulownia Frame\nSize: 80×90cm\nFull Storage Cabinet Design\nWarranty: 2 Years\nMOQ: 100pcs','$112.00')">View Details & Order</button>
         </div>
     </div>
 
@@ -817,8 +823,8 @@
         <div class="product-info">
             <h3 class="product-name">Model B013 Smart Bathroom Mirror Cabinet</h3>
             <p class="product-desc">Material: Solid Wood + Paulownia Frame<br>Size: 75×100cm | Full Storage Cabinet<br>Warranty: 2 Years | MOQ: 100pcs</p>
-            <div class="product-price">Unit Price: $125.00</div>
-            <button class="order-btn" onclick="openModal('Model B013','Large Vertical Cabinet','Material: Solid Wood + Paulownia Frame\nSize: 75×100cm\nFull Storage Cabinet Design\nWarranty: 2 Years\nMOQ: 100pcs','$125.00')">View Details & Order</button>
+            <div class="product-price">Unit Price: $119.00</div>
+            <button class="order-btn" onclick="openModal('Model B013','Large Vertical Cabinet','Material: Solid Wood + Paulownia Frame\nSize: 75×100cm\nFull Storage Cabinet Design\nWarranty: 2 Years\nMOQ: 100pcs','$119.00')">View Details & Order</button>
         </div>
     </div>
 
@@ -827,8 +833,8 @@
         <div class="product-info">
             <h3 class="product-name">Model B014 Smart Bathroom Mirror Cabinet</h3>
             <p class="product-desc">Material: Solid Wood + Paulownia Frame<br>Size: 80×100cm | Full Storage Cabinet<br>Warranty: 2 Years | MOQ: 100pcs</p>
-            <div class="product-price">Unit Price: $133.33</div>
-            <button class="order-btn" onclick="openModal('Model B014','Extra Large Cabinet','Material: Solid Wood + Paulownia Frame\nSize: 80×100cm\nFull Storage Cabinet Design\nWarranty: 2 Years\nMOQ: 100pcs','$133.33')">View Details & Order</button>
+            <div class="product-price">Unit Price: $125.00</div>
+            <button class="order-btn" onclick="openModal('Model B014','Extra Large Cabinet','Material: Solid Wood + Paulownia Frame\nSize: 80×100cm\nFull Storage Cabinet Design\nWarranty: 2 Years\nMOQ: 100pcs','$125.00')">View Details & Order</button>
         </div>
     </div>
 
@@ -837,18 +843,18 @@
         <div class="product-info">
             <h3 class="product-name">Model B015 Smart Bathroom Mirror Cabinet</h3>
             <p class="product-desc">Material: Solid Wood + Paulownia Frame<br>Size: 85×95cm | Full Storage Cabinet<br>Warranty: 2 Years | MOQ: 100pcs</p>
-            <div class="product-price">Unit Price: $134.58</div>
-            <button class="order-btn" onclick="openModal('Model B015','Square Large Cabinet','Material: Solid Wood + Paulownia Frame\nSize: 85×95cm\nFull Storage Cabinet Design\nWarranty: 2 Years\nMOQ: 100pcs','$134.58')">View Details & Order</button>
+            <div class="product-price">Unit Price: $127.00</div>
+            <button class="order-btn" onclick="openModal('Model B015','Square Large Cabinet','Material: Solid Wood + Paulownia Frame\nSize: 85×95cm\nFull Storage Cabinet Design\nWarranty: 2 Years\nMOQ: 100pcs','$127.00')">View Details & Order</button>
         </div>
     </div>
 
     <div class="product-card">
-        <div class="img-box"><img class="product-img" src="微信图片_20260707164044_510_35.jpg" alt="Model B016 Smart Bathroom Mirror Cabinet"></div>
+        <div class="img-box"><img class="product-img" alt="Model B016 Smart Bathroom Mirror Cabinet"></div>
         <div class="product-info">
             <h3 class="product-name">Model B016 Smart Bathroom Mirror Cabinet</h3>
             <p class="product-desc">Material: Solid Wood + Paulownia Frame<br>Size: 90×90cm | Full Storage Cabinet<br>Warranty: 2 Years | MOQ: 100pcs</p>
-            <div class="product-price">Unit Price: $135.00</div>
-            <button class="order-btn" onclick="openModal('Model B016','Square Mirror Cabinet','Material: Solid Wood + Paulownia Frame\nSize: 90×90cm\nFull Storage Cabinet Design\nWarranty: 2 Years\nMOQ: 100pcs','$135.00')">View Details & Order</button>
+            <div class="product-price">Unit Price: $128.00</div>
+            <button class="order-btn" onclick="openModal('Model B016','Square Mirror Cabinet','Material: Solid Wood + Paulownia Frame\nSize: 90×90cm\nFull Storage Cabinet Design\nWarranty: 2 Years\nMOQ: 100pcs','$128.00')">View Details & Order</button>
         </div>
     </div>
 
@@ -857,25 +863,5 @@
         <div class="product-info">
             <h3 class="product-name">Model B017 Smart Bathroom Mirror Cabinet</h3>
             <p class="product-desc">Material: Solid Wood + Paulownia Frame<br>Size: 85×105cm | Full Storage Cabinet<br>Warranty: 2 Years | MOQ: 100pcs</p>
-            <div class="product-price">Unit Price: $148.75</div>
-            <button class="order-btn" onclick="openModal('Model B017','Tall Large Cabinet','Material: Solid Wood + Paulownia Frame\nSize: 85×105cm\nFull Storage Cabinet Design\nWarranty: 2 Years\nMOQ: 100pcs','$148.75')">View Details & Order</button>
-        </div>
-    </div>
-
-    <div class="product-card">
-        <div class="img-box"><img class="product-img" src="微信图片_20260707164044_510_35.jpg" alt="Model B018 Smart Bathroom Mirror Cabinet"></div>
-        <div class="product-info">
-            <h3 class="product-name">Model B018 Smart Bathroom Mirror Cabinet</h3>
-            <p class="product-desc">Material: Solid Wood + Paulownia Frame<br>Size: 90×100cm | Full Storage Cabinet<br>Warranty: 2 Years | MOQ: 100pcs</p>
-            <div class="product-price">Unit Price: $150.00</div>
-            <button class="order-btn" onclick="openModal('Model B018','Large Storage Cabinet','Material: Solid Wood + Paulownia Frame\nSize: 90×100cm\nFull Storage Cabinet Design\nWarranty: 2 Years\nMOQ: 100pcs','$150.00')">View Details & Order</button>
-        </div>
-    </div>
-
-    <div class="product-card">
-        <div class="img-box"><img class="product-img" src="微信图片_20260707164044_510_35.jpg" alt="Model B019 Smart Bathroom Mirror Cabinet"></div>
-        <div class="product-info">
-            <h3 class="product-name">Model B019 Smart Bathroom Mirror Cabinet</h3>
-            <p class="product-desc">Material: Solid Wood + Paulownia Frame<br>Size: 95×100cm | Full Storage Cabinet<br>Warranty: 2 Years | MOQ: 100pcs</p>
-            <div class="product-price">Unit Price: $158.33</div>
-            <button class="order-btn" onclick="openModal('Model B019','Wide Mirror Cabinet','Material: Solid Wood + Paulownia Frame\nSize: 95×100cm\nFull Storage Cabinet Design\nWarranty: 2 Years\nMOQ: 100pcs','$158.33')">View
+            <div class="product-price">Unit Price: $135.00</div>
+            <button class="order-btn" onclick="openModal('Model B017','Tall Large Cabinet','Material: Solid Wood + Paulownia Frame\nSize:
