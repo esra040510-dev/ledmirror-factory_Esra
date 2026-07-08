@@ -63,10 +63,10 @@
             box-shadow: 0 0 0 4px rgba(214, 80, 118, 0.12);
         }
 
-        /* 快捷功能入口栏（可点击模块） */
+        /* 快捷功能入口栏（已删除报价、联系我们模块） */
         .trust-bar {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
             gap: 20px;
             margin: 40px 0;
             padding: 24px;
@@ -100,7 +100,7 @@
             color: #884a60;
         }
 
-        /* 产品弹窗（分类选择弹窗） */
+        /* 产品分类选择弹窗（仅2个按钮，无第三个选项） */
         .category-modal-mask {
             display: none;
             position: fixed;
@@ -176,14 +176,6 @@
         }
         .btn-cabinet:hover {
             background: #ffe8ec;
-        }
-        .btn-all {
-            margin-top: 10px;
-            background: #f8c8d2;
-            color: #781f3e;
-        }
-        .btn-all:hover {
-            background: #f0b6c4;
         }
 
         /* 产品网格 */
@@ -437,52 +429,39 @@
     <div class="search-wrap">
         <input type="text" id="searchInput" placeholder="Search mirrors / mirror cabinets / model..." oninput="searchProduct()">
     </div>
-    <!-- 已删除顶部分类标签栏 -->
 </header>
 
-<!-- 快捷功能入口栏（全部可点击） -->
+<!-- 快捷功能栏：仅保留全部产品、OEM定制；删除报价、联系我们 -->
 <div class="trust-bar">
     <div class="trust-item" onclick="openCategoryModal()">
         <div class="trust-icon">📦</div>
         <div class="trust-title">All Products</div>
         <div class="trust-desc">View full catalog</div>
     </div>
-    <div class="trust-item" onclick="window.open('https://wa.me/8617799215074','_blank')">
-        <div class="trust-icon">💬</div>
-        <div class="trust-title">Get Free Quote</div>
-        <div class="trust-desc">Reply within 24 hours</div>
-    </div>
     <div class="trust-item" onclick="showOEM()">
         <div class="trust-icon">🎨</div>
         <div class="trust-title">OEM Custom</div>
         <div class="trust-desc">Size & logo customizable</div>
     </div>
-    <div class="trust-item" onclick="window.location.href='mailto:esra040510@gmail.com'">
-        <div class="trust-icon">📧</div>
-        <div class="trust-title">Contact Us</div>
-        <div class="trust-desc">esra040510@gmail.com</div>
-    </div>
 </div>
 
-<!-- 产品分类选择弹窗（点击All Products弹出） -->
+<!-- 分类弹窗：仅2个按钮，无型号后缀、无第三个按钮 -->
 <div id="category-modal-mask" class="category-modal-mask" onclick="if(event.target === this) closeCategoryModal()">
     <div class="category-modal-box">
         <span class="close-category-modal" onclick="closeCategoryModal()">×</span>
-        <h3 class="category-modal-title">Select Product Category</h3>
-        <button class="category-btn btn-mirror" onclick="showMirrorOnly()">LED Mirrors (Model A001)</button>
-        <button class="category-btn btn-cabinet" onclick="showCabinetOnly()">Mirror Cabinets (Model B001)</button>
-        <button class="category-btn btn-all" onclick="showAllProducts()">Show All Items</button>
+        <h3 class="category-modal-title">选择产品类别</h3>
+        <button class="category-btn btn-mirror" onclick="filterAModel()">LED后视镜</button>
+        <button class="category-btn btn-cabinet" onclick="filterBModel()">镜柜</button>
     </div>
 </div>
 
 <script>
-    const mirrorBox = document.getElementById('mirror');
-    const cabinetBox = document.getElementById('cabinet');
+    // 全局获取所有商品卡片，自动区分A/B型号，后期新增商品无需改筛选代码
+    let allCards = document.querySelectorAll('.product-card');
 
     // 搜索功能
     function searchProduct(){
         let key = document.getElementById('searchInput').value.toLowerCase();
-        let allCards = document.querySelectorAll('.product-card');
         allCards.forEach(card=>{
             let text = card.innerText.toLowerCase();
             card.style.display = text.includes(key) ? "block" : "none";
@@ -490,11 +469,11 @@
     }
 
     window.onload = function(){
-        mirrorBox.style.display = "grid";
-        cabinetBox.style.display = "grid";
+        // 页面加载默认展示全部商品
+        allCards.forEach(card=>card.style.display = "block");
     }
 
-    // 分类弹窗控制
+    // 弹窗开关
     function openCategoryModal(){
         let mask = document.getElementById("category-modal-mask");
         mask.style.display = "flex";
@@ -506,27 +485,37 @@
         setTimeout(()=>mask.style.display = "none", 300);
     }
 
-    // 分类筛选逻辑
-    function showMirrorOnly(){
-        mirrorBox.style.display = "grid";
-        cabinetBox.style.display = "none";
+    // 筛选A开头型号（LED后视镜）
+    function filterAModel(){
         closeCategoryModal();
-        document.getElementById('mirror').scrollIntoView({behavior: 'smooth'});
-    }
-    function showCabinetOnly(){
-        mirrorBox.style.display = "none";
-        cabinetBox.style.display = "grid";
-        closeCategoryModal();
-        document.getElementById('cabinet').scrollIntoView({behavior: 'smooth'});
-    }
-    function showAllProducts(){
-        mirrorBox.style.display = "grid";
-        cabinetBox.style.display = "grid";
-        closeCategoryModal();
-        document.getElementById('mirror').scrollIntoView({behavior: 'smooth'});
+        allCards.forEach(card=>{
+            let titleText = card.querySelector('.product-name').innerText;
+            // 标题以Model A开头则显示，其余隐藏
+            if(titleText.startsWith('Model A')){
+                card.style.display = "block";
+            }else{
+                card.style.display = "none";
+            }
+        })
+        document.querySelector('.product-card').scrollIntoView({behavior: 'smooth'});
     }
 
-    // 商品详情弹窗
+    // 筛选B开头型号（镜柜）
+    function filterBModel(){
+        closeCategoryModal();
+        allCards.forEach(card=>{
+            let titleText = card.querySelector('.product-name').innerText;
+            // 标题以Model B开头则显示，其余隐藏
+            if(titleText.startsWith('Model B')){
+                card.style.display = "block";
+            }else{
+                card.style.display = "none";
+            }
+        })
+        document.querySelector('.product-card').scrollIntoView({behavior: 'smooth'});
+    }
+
+    // 商品下单弹窗
     function openModal(model, title, desc, price){
         let mask = document.getElementById("modal-mask");
         mask.style.display = "flex";
@@ -540,7 +529,7 @@
         setTimeout(()=>mask.style.display = "none", 300);
     }
 
-    // OEM服务弹窗
+    // OEM定制弹窗
     function showOEM(){
         let mask = document.getElementById("modal-mask");
         mask.style.display = "flex";
@@ -563,37 +552,33 @@
     }
 </script>
 
-<!-- A001 低价圆形LED防雾镜子 -->
-<div id="mirror" class="product-grid">
-    <div class="product-card">
-        <div class="img-box">
-            <img class="product-img" src="微信图片_20260707164222_511_35.jpg" alt="Model A001 LED Anti-Fog Round Bathroom Mirror">
-        </div>
-        <div class="product-info">
-            <h3 class="product-name">Model A001 LED Anti-Fog Bathroom Mirror</h3>
-            <p class="product-desc">Material: Paulownia Frame Mirror, Size: 70*70cm<br>Function: LED Lighting + Anti-Fog + Storage<br>Warranty: 2 Years | MOQ: 500pcs</p>
-            <div class="product-price">Unit Price: $19.50</div>
-            <button class="order-btn" onclick="openModal('Model A001','Round LED Anti-Fog Mirror','Material: Paulownia Frame\nSize: 70*70cm\nFunction: LED Light + Anti-Fog + Storage\nWarranty: 2 Years\nMOQ: 500pcs','$19.50')">View Details & Order</button>
-        </div>
+<!-- A001 LED后视镜（A开头，筛选LED后视镜会显示） -->
+<div class="product-card">
+    <div class="img-box">
+        <img class="product-img" src="微信图片_20260707164222_511_35.jpg" alt="Model A001 LED Anti-Fog Round Bathroom Mirror">
+    </div>
+    <div class="product-info">
+        <h3 class="product-name">Model A001 LED Anti-Fog Bathroom Mirror</h3>
+        <p class="product-desc">Material: Paulownia Frame Mirror, Size: 70*70cm<br>Function: LED Lighting + Anti-Fog + Storage<br>Warranty: 2 Years | MOQ: 500pcs</p>
+        <div class="product-price">Unit Price: $19.50</div>
+        <button class="order-btn" onclick="openModal('Model A001','Round LED Anti-Fog Mirror','Material: Paulownia Frame\nSize: 70*70cm\nFunction: LED Light + Anti-Fog + Storage\nWarranty: 2 Years\nMOQ: 500pcs','$19.50')">View Details & Order</button>
     </div>
 </div>
 
-<!-- B001 高端智能浴室镜柜套装 -->
-<div id="cabinet" class="product-grid">
-    <div class="product-card">
-        <div class="img-box">
-            <img class="product-img" src="微信图片_20260707164044_510_35.jpg" alt="Model B001 Smart Bathroom Mirror Cabinet Set">
-        </div>
-        <div class="product-info">
-            <h3 class="product-name">Model B001 Smart Bathroom Mirror Cabinet Set</h3>
-            <p class="product-desc">Material: Solid Wood + Paulownia Mirror Frame<br>Size: 70*90cm | Full Storage Cabinet<br>Warranty: 2 Years | MOQ: 100pcs</p>
-            <div class="product-price">Unit Price: $89.00</div>
-            <button class="order-btn" onclick="openModal('Model B001','Smart Mirror Cabinet Set','Material: Solid Wood + Paulownia Frame\nSize: 70*90cm\nFull Storage Cabinet Design\nWarranty: 2 Years\nMOQ: 100pcs','$89.00')">View Details & Order</button>
-        </div>
+<!-- B001 镜柜（B开头，筛选镜柜会显示） -->
+<div class="product-card">
+    <div class="img-box">
+        <img class="product-img" src="微信图片_20260707164044_510_35.jpg" alt="Model B001 Smart Bathroom Mirror Cabinet Set">
+    </div>
+    <div class="product-info">
+        <h3 class="product-name">Model B001 Smart Bathroom Mirror Cabinet Set</h3>
+        <p class="product-desc">Material: Solid Wood + Paulownia Mirror Frame<br>Size: 70*90cm | Full Storage Cabinet<br>Warranty: 2 Years | MOQ: 100pcs</p>
+        <div class="product-price">Unit Price: $89.00</div>
+        <button class="order-btn" onclick="openModal('Model B001','Smart Mirror Cabinet Set','Material: Solid Wood + Paulownia Frame\nSize: 70*90cm\nFull Storage Cabinet Design\nWarranty: 2 Years\nMOQ: 100pcs','$89.00')">View Details & Order</button>
     </div>
 </div>
 
-<!-- 全局商品下单弹窗 -->
+<!-- 商品详情全局弹窗 -->
 <div id="modal-mask" class="modal-mask" onclick="if(event.target==this)closeModal()">
     <div class="modal-box">
         <span class="close-modal" onclick="closeModal()">×</span>
@@ -603,14 +588,14 @@
     </div>
 </div>
 
-<!-- 悬浮WhatsApp按钮 -->
+<!-- 右下角悬浮WhatsApp -->
 <a href="https://wa.me/8617799215074" target="_blank" class="float-whatsapp" title="Chat on WhatsApp">💬</a>
 
-<!-- 回到顶部按钮 -->
+<!-- 回到顶部悬浮按钮 -->
 <div id="backTop" class="back-top" onclick="goTop()" title="Back to top">↑</div>
 
 <footer>
-    <p><strong>Contact: Esra</strong> | Email: esra040510@gmail.com | <a href="https://wa.me/8617799215074" target="_blank">WhatsApp: +86 17799215074</a></p>
+    <p><strong>Contact: Esra</strong> | WhatsApp: <a href="https://wa.me/8617799215074" target="_blank">+86 17799215074</a></p>
     <p>We accept OEM & ODM custom design for all bathroom mirror products</p>
     <p style="margin-top:12px; font-size:12px; color:#aa7a8a;">© 2026 Yongling Sanitary Products Co., Ltd. All rights reserved.</p>
 </footer>
