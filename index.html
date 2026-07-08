@@ -63,31 +63,7 @@
             box-shadow: 0 0 0 4px rgba(214, 80, 118, 0.12);
         }
 
-        /* 分类筛选标签 */
-        .filter-tags {
-            display: flex;
-            justify-content: center;
-            gap: 12px;
-            margin-top: 20px;
-            flex-wrap: wrap;
-        }
-        .filter-tag {
-            padding: 8px 20px;
-            border-radius: 20px;
-            background: #fff;
-            border: 1px solid #f0a8b8;
-            color: #91284b;
-            cursor: pointer;
-            font-size: 14px;
-            transition: all 0.2s ease;
-        }
-        .filter-tag:hover, .filter-tag.active {
-            background: #91284b;
-            color: #fff;
-            border-color: #91284b;
-        }
-
-        /* 快捷功能入口栏 */
+        /* 快捷功能入口栏（可点击模块） */
         .trust-bar {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
@@ -122,6 +98,92 @@
         .trust-desc {
             font-size: 13px;
             color: #884a60;
+        }
+
+        /* 产品弹窗（分类选择弹窗） */
+        .category-modal-mask {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.5);
+            z-index: 1000;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+        .category-modal-mask.show {
+            opacity: 1;
+        }
+        .category-modal-box {
+            background: #fff;
+            width: 90%;
+            max-width: 400px;
+            border-radius: 18px;
+            padding: 36px 30px;
+            position: relative;
+            transform: translateY(20px);
+            transition: transform 0.3s ease;
+            text-align: center;
+        }
+        .category-modal-mask.show .category-modal-box {
+            transform: translateY(0);
+        }
+        .close-category-modal {
+            position: absolute;
+            top: 16px;
+            right: 20px;
+            font-size: 26px;
+            cursor: pointer;
+            color: #999;
+            transition: color 0.2s;
+            line-height: 1;
+        }
+        .close-category-modal:hover {
+            color: #781f3e;
+        }
+        .category-modal-title {
+            font-size: 22px;
+            color: #781f3e;
+            margin-bottom: 28px;
+            font-weight: 600;
+        }
+        .category-btn {
+            display: block;
+            width: 100%;
+            padding: 14px;
+            margin-bottom: 14px;
+            border-radius: 10px;
+            border: none;
+            font-size: 16px;
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
+        .btn-mirror {
+            background: #91284b;
+            color: white;
+        }
+        .btn-mirror:hover {
+            background: #b03860;
+        }
+        .btn-cabinet {
+            background: #fff;
+            color: #91284b;
+            border: 1px solid #91284b;
+        }
+        .btn-cabinet:hover {
+            background: #ffe8ec;
+        }
+        .btn-all {
+            margin-top: 10px;
+            background: #f8c8d2;
+            color: #781f3e;
+        }
+        .btn-all:hover {
+            background: #f0b6c4;
         }
 
         /* 产品网格 */
@@ -207,7 +269,7 @@
             transform: translateY(1px);
         }
 
-        /* 弹窗样式 */
+        /* 商品详情弹窗 */
         .modal-mask {
             display: none;
             position: fixed;
@@ -375,16 +437,12 @@
     <div class="search-wrap">
         <input type="text" id="searchInput" placeholder="Search mirrors / mirror cabinets / model..." oninput="searchProduct()">
     </div>
-    <div class="filter-tags">
-        <span class="filter-tag active" onclick="filterAll()">All Products</span>
-        <span class="filter-tag" onclick="filterMirror()">LED Mirrors</span>
-        <span class="filter-tag" onclick="filterCabinet()">Mirror Cabinets</span>
-    </div>
+    <!-- 已删除顶部分类标签栏 -->
 </header>
 
 <!-- 快捷功能入口栏（全部可点击） -->
 <div class="trust-bar">
-    <div class="trust-item" onclick="scrollToProducts()">
+    <div class="trust-item" onclick="openCategoryModal()">
         <div class="trust-icon">📦</div>
         <div class="trust-title">All Products</div>
         <div class="trust-desc">View full catalog</div>
@@ -406,10 +464,20 @@
     </div>
 </div>
 
+<!-- 产品分类选择弹窗（点击All Products弹出） -->
+<div id="category-modal-mask" class="category-modal-mask" onclick="if(event.target === this) closeCategoryModal()">
+    <div class="category-modal-box">
+        <span class="close-category-modal" onclick="closeCategoryModal()">×</span>
+        <h3 class="category-modal-title">Select Product Category</h3>
+        <button class="category-btn btn-mirror" onclick="showMirrorOnly()">LED Mirrors (Model A001)</button>
+        <button class="category-btn btn-cabinet" onclick="showCabinetOnly()">Mirror Cabinets (Model B001)</button>
+        <button class="category-btn btn-all" onclick="showAllProducts()">Show All Items</button>
+    </div>
+</div>
+
 <script>
     const mirrorBox = document.getElementById('mirror');
     const cabinetBox = document.getElementById('cabinet');
-    const tags = document.querySelectorAll('.filter-tag');
 
     // 搜索功能
     function searchProduct(){
@@ -421,31 +489,44 @@
         })
     }
 
-    // 分类筛选
-    function filterAll(){
-        tags.forEach(t=>t.classList.remove('active'));
-        tags[0].classList.add('active');
-        document.querySelectorAll('.product-card').forEach(c=>c.style.display="block");
-    }
-    function filterMirror(){
-        tags.forEach(t=>t.classList.remove('active'));
-        tags[1].classList.add('active');
-        document.querySelectorAll('.product-card')[0].style.display = "block";
-        document.querySelectorAll('.product-card')[1].style.display = "none";
-    }
-    function filterCabinet(){
-        tags.forEach(t=>t.classList.remove('active'));
-        tags[2].classList.add('active');
-        document.querySelectorAll('.product-card')[0].style.display = "none";
-        document.querySelectorAll('.product-card')[1].style.display = "block";
-    }
-
     window.onload = function(){
         mirrorBox.style.display = "grid";
         cabinetBox.style.display = "grid";
     }
 
-    // 弹窗控制
+    // 分类弹窗控制
+    function openCategoryModal(){
+        let mask = document.getElementById("category-modal-mask");
+        mask.style.display = "flex";
+        setTimeout(()=>mask.classList.add("show"), 10);
+    }
+    function closeCategoryModal(){
+        let mask = document.getElementById("category-modal-mask");
+        mask.classList.remove("show");
+        setTimeout(()=>mask.style.display = "none", 300);
+    }
+
+    // 分类筛选逻辑
+    function showMirrorOnly(){
+        mirrorBox.style.display = "grid";
+        cabinetBox.style.display = "none";
+        closeCategoryModal();
+        document.getElementById('mirror').scrollIntoView({behavior: 'smooth'});
+    }
+    function showCabinetOnly(){
+        mirrorBox.style.display = "none";
+        cabinetBox.style.display = "grid";
+        closeCategoryModal();
+        document.getElementById('cabinet').scrollIntoView({behavior: 'smooth'});
+    }
+    function showAllProducts(){
+        mirrorBox.style.display = "grid";
+        cabinetBox.style.display = "grid";
+        closeCategoryModal();
+        document.getElementById('mirror').scrollIntoView({behavior: 'smooth'});
+    }
+
+    // 商品详情弹窗
     function openModal(model, title, desc, price){
         let mask = document.getElementById("modal-mask");
         mask.style.display = "flex";
@@ -457,11 +538,6 @@
         let mask = document.getElementById("modal-mask");
         mask.classList.remove("show");
         setTimeout(()=>mask.style.display = "none", 300);
-    }
-
-    // 滚动到产品区
-    function scrollToProducts(){
-        document.getElementById('mirror').scrollIntoView({behavior: 'smooth'});
     }
 
     // OEM服务弹窗
@@ -517,7 +593,7 @@
     </div>
 </div>
 
-<!-- 全局下单弹窗 -->
+<!-- 全局商品下单弹窗 -->
 <div id="modal-mask" class="modal-mask" onclick="if(event.target==this)closeModal()">
     <div class="modal-box">
         <span class="close-modal" onclick="closeModal()">×</span>
