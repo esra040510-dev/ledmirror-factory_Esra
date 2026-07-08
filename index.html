@@ -98,6 +98,21 @@
             font-size: 18px;
             color: #c42e5a;
             font-weight: bold;
+            margin-bottom: 16px;
+        }
+        .order-btn {
+            width: 100%;
+            padding: 12px;
+            background-color: #91284b;
+            color: #fff;
+            border: none;
+            border-radius: 8px;
+            font-size: 15px;
+            cursor: pointer;
+            transition: background 0.2s;
+        }
+        .order-btn:hover {
+            background-color: #b03860;
         }
         footer {
             margin-top: 75px;
@@ -118,6 +133,57 @@
         footer a:hover {
             color: #b32e52;
             text-decoration: underline;
+        }
+
+        /* 下单弹窗样式 */
+        .modal-mask {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.6);
+            z-index: 999;
+            align-items: center;
+            justify-content: center;
+        }
+        .modal-box {
+            background: #fff;
+            width: 90%;
+            max-width: 420px;
+            border-radius: 16px;
+            padding: 30px;
+            position: relative;
+        }
+        .close-modal {
+            position: absolute;
+            top: 16px;
+            right: 20px;
+            font-size: 24px;
+            cursor: pointer;
+            color: #781f3e;
+        }
+        .modal-title {
+            font-size: 22px;
+            color: #781f3e;
+            margin-bottom: 20px;
+        }
+        .modal-text {
+            line-height: 1.8;
+            font-size: 15px;
+            margin-bottom: 20px;
+        }
+        .whatsapp-order {
+            display: block;
+            width: 100%;
+            text-align: center;
+            padding: 12px;
+            background: #25D366;
+            color: white;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: bold;
         }
     </style>
 </head>
@@ -144,6 +210,16 @@ window.onload = function(){
     mirrorBox.style.display = "block";
     cabinetBox.style.display = "block";
 }
+
+// 弹窗控制函数
+function openModal(model, title, desc, price){
+    document.getElementById("modal-mask").style.display = "flex";
+    document.getElementById("modal-title").innerText = model;
+    document.getElementById("modal-desc").innerText = title + "\n" + desc + "\nUnit Price: " + price;
+}
+function closeModal(){
+    document.getElementById("modal-mask").style.display = "none";
+}
 </script>
 
 <!-- A001 低价圆形LED防雾镜子（圆形图） -->
@@ -154,6 +230,7 @@ window.onload = function(){
             <h3 class="product-name">Model A001 LED Anti-Fog Bathroom Mirror</h3>
             <p class="product-desc">Material: Paulownia Frame Mirror, Size:70*70, Function: Storage & LED lighting, Warranty:2 years, MOQ:500pcs</p>
             <div class="product-price">Unit Price: $19.50</div>
+            <button class="order-btn" onclick="openModal('Model A001','Round LED Anti-Fog Mirror','Material: Paulownia Frame, Size 70*70, LED Light & Storage, 2 Years Warranty, MOQ 500pcs','$19.50')">View & Order Now</button>
         </div>
     </div>
 </div>
@@ -166,12 +243,23 @@ window.onload = function(){
             <h3 class="product-name">Model B001 New Style Smart Bathroom Mirror Cabinet Set</h3>
             <p class="product-desc">Material: Solid Wood & Paulownia Mirror Frame, Size:70*90, Warranty:2 years, MOQ:100pcs</p>
             <div class="product-price">Unit Price: $89.00</div>
+            <button class="order-btn" onclick="openModal('Model B001','Smart Mirror Cabinet Set','Solid Wood + Paulownia Frame, Size 70*90, 2 Years Warranty, MOQ 100pcs','$89.00')">View & Order Now</button>
         </div>
     </div>
 </div>
 
+<!-- 全局下单弹窗 -->
+<div id="modal-mask" class="modal-mask">
+    <div class="modal-box">
+        <span class="close-modal" onclick="closeModal()">×</span>
+        <h3 id="modal-title" class="modal-title"></h3>
+        <p id="modal-desc" class="modal-text"></p>
+        <a class="whatsapp-order" href="https://wa.me/8617799215074" target="_blank">Order via WhatsApp Now</a>
+    </div>
+</div>
+
 <footer>
-    <p>Contact: Esra | Email: esra040510@gmail.com | <a href="tel:+8617799215074">WhatsApp: +86 17799215074</a></p>
+    <p>Contact: Esra | Email: esra040510@gmail.com | <a href="https://wa.me/8617799215074" target="_blank">WhatsApp: +86 17799215074</a></p>
     <p>We accept OEM & ODM custom design for all bathroom mirror products</p>
 </footer>
 </body>
