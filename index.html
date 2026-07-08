@@ -63,7 +63,7 @@
             box-shadow: 0 0 0 4px rgba(214, 80, 118, 0.12);
         }
 
-        /* 快捷功能入口栏（已删除报价、联系我们模块） */
+        /* 快捷功能入口栏 */
         .trust-bar {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
@@ -100,7 +100,7 @@
             color: #884a60;
         }
 
-        /* 产品分类选择弹窗（仅2个按钮，无第三个选项） */
+        /* 产品分类弹窗 */
         .category-modal-mask {
             display: none;
             position: fixed;
@@ -154,13 +154,14 @@
         .category-btn {
             display: block;
             width: 100%;
-            padding: 14px;
-            margin-bottom: 14px;
-            border-radius: 10px;
+            padding: 16px;
+            margin-bottom: 16px;
+            border-radius: 12px;
             border: none;
-            font-size: 16px;
+            font-size: 18px;
             cursor: pointer;
             transition: all 0.2s ease;
+            pointer-events: auto !important;
         }
         .btn-mirror {
             background: #91284b;
@@ -172,20 +173,13 @@
         .btn-cabinet {
             background: #fff;
             color: #91284b;
-            border: 1px solid #91284b;
+            border: 2px solid #91284b;
         }
         .btn-cabinet:hover {
             background: #ffe8ec;
         }
 
-        /* 产品网格 */
-        .product-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-            gap: 36px;
-            margin-top: 20px;
-            justify-items: center;
-        }
+        /* 产品卡片区域 */
         .product-card {
             background: #ffffff;
             border-radius: 16px;
@@ -194,6 +188,7 @@
             transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
             width: 100%;
             max-width: 380px;
+            margin: 0 auto 36px;
         }
         .product-card:hover {
             transform: translateY(-10px);
@@ -390,7 +385,7 @@
             box-shadow: 0 6px 20px rgba(37, 211, 102, 0.5);
         }
 
-        /* 页脚 */
+        /* 页脚样式 + 复制文本按钮 */
         footer {
             margin-top: 80px;
             padding-top: 40px;
@@ -400,16 +395,29 @@
             font-size: 14px;
         }
         footer p {
-            margin-bottom: 8px;
+            margin-bottom: 10px;
         }
-        footer a {
+        .copy-text {
             color: #d65076;
-            text-decoration: none;
-            transition: color 0.2s;
-        }
-        footer a:hover {
-            color: #b32e52;
             text-decoration: underline;
+            cursor: pointer;
+            margin: 0 6px;
+        }
+        .copy-text:hover {
+            color: #b32e52;
+        }
+        .tip-toast {
+            position: fixed;
+            bottom: 140px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: rgba(0,0,0,0.75);
+            color: white;
+            padding: 10px 22px;
+            border-radius: 8px;
+            font-size: 14px;
+            display: none;
+            z-index: 9999;
         }
 
         /* 移动端适配 */
@@ -417,7 +425,6 @@
             body { padding: 20px 15px; }
             header h1 { font-size: 26px; }
             #searchInput { width: 100%; }
-            .product-grid { gap: 24px; }
             .float-whatsapp { right: 20px; bottom: 80px; width: 50px; height: 50px; font-size: 24px; }
             .back-top { right: 20px; bottom: 20px; width: 42px; height: 42px; }
         }
@@ -431,7 +438,7 @@
     </div>
 </header>
 
-<!-- 快捷功能栏：仅保留全部产品、OEM定制；删除报价、联系我们 -->
+<!-- 快捷功能栏 -->
 <div class="trust-bar">
     <div class="trust-item" onclick="openCategoryModal()">
         <div class="trust-icon">📦</div>
@@ -445,19 +452,22 @@
     </div>
 </div>
 
-<!-- 分类弹窗：仅2个按钮，无型号后缀、无第三个按钮 -->
+<!-- 分类弹窗：英文按钮，修复点击事件 -->
 <div id="category-modal-mask" class="category-modal-mask" onclick="if(event.target === this) closeCategoryModal()">
     <div class="category-modal-box">
         <span class="close-category-modal" onclick="closeCategoryModal()">×</span>
-        <h3 class="category-modal-title">选择产品类别</h3>
-        <button class="category-btn btn-mirror" onclick="filterAModel()">LED后视镜</button>
-        <button class="category-btn btn-cabinet" onclick="filterBModel()">镜柜</button>
+        <h3 class="category-modal-title">Select Product Category</h3>
+        <button class="category-btn btn-mirror" onclick="filterAModel()">LED Mirror</button>
+        <button class="category-btn btn-cabinet" onclick="filterBModel()">Mirror Cabinet</button>
     </div>
 </div>
 
+<!-- 复制成功提示弹窗 -->
+<div class="tip-toast" id="copyTip">Copied successfully!</div>
+
 <script>
-    // 全局获取所有商品卡片，自动区分A/B型号，后期新增商品无需改筛选代码
     let allCards = document.querySelectorAll('.product-card');
+    const toast = document.getElementById('copyTip');
 
     // 搜索功能
     function searchProduct(){
@@ -469,7 +479,6 @@
     }
 
     window.onload = function(){
-        // 页面加载默认展示全部商品
         allCards.forEach(card=>card.style.display = "block");
     }
 
@@ -485,34 +494,32 @@
         setTimeout(()=>mask.style.display = "none", 300);
     }
 
-    // 筛选A开头型号（LED后视镜）
+    // 筛选A开头 LED Mirror
     function filterAModel(){
         closeCategoryModal();
         allCards.forEach(card=>{
             let titleText = card.querySelector('.product-name').innerText;
-            // 标题以Model A开头则显示，其余隐藏
-            if(titleText.startsWith('Model A')){
-                card.style.display = "block";
-            }else{
-                card.style.display = "none";
-            }
+            card.style.display = titleText.startsWith('Model A') ? "block" : "none";
         })
         document.querySelector('.product-card').scrollIntoView({behavior: 'smooth'});
     }
 
-    // 筛选B开头型号（镜柜）
+    // 筛选B开头 Mirror Cabinet
     function filterBModel(){
         closeCategoryModal();
         allCards.forEach(card=>{
             let titleText = card.querySelector('.product-name').innerText;
-            // 标题以Model B开头则显示，其余隐藏
-            if(titleText.startsWith('Model B')){
-                card.style.display = "block";
-            }else{
-                card.style.display = "none";
-            }
+            card.style.display = titleText.startsWith('Model B') ? "block" : "none";
         })
-        document.querySelector('.product-card').scrollIntoView({behavior: 'smooth'});
+        document.querySelectorAll('.product-card')[1].scrollIntoView({behavior: 'smooth'});
+    }
+
+    // 一键复制文本函数
+    function copyTextFunc(text){
+        navigator.clipboard.writeText(text).then(()=>{
+            toast.style.display = "block";
+            setTimeout(()=>toast.style.display = "none", 1500);
+        })
     }
 
     // 商品下单弹窗
@@ -541,18 +548,14 @@
     // 回到顶部
     window.onscroll = function(){
         let btn = document.getElementById('backTop');
-        if(window.scrollY > 300){
-            btn.classList.add('show');
-        } else {
-            btn.classList.remove('show');
-        }
+        btn.classList.toggle('show', window.scrollY > 300);
     }
     function goTop(){
         window.scrollTo({top: 0, behavior: 'smooth'});
     }
 </script>
 
-<!-- A001 LED后视镜（A开头，筛选LED后视镜会显示） -->
+<!-- A001 LED Mirror -->
 <div class="product-card">
     <div class="img-box">
         <img class="product-img" src="微信图片_20260707164222_511_35.jpg" alt="Model A001 LED Anti-Fog Round Bathroom Mirror">
@@ -565,7 +568,7 @@
     </div>
 </div>
 
-<!-- B001 镜柜（B开头，筛选镜柜会显示） -->
+<!-- B001 Mirror Cabinet -->
 <div class="product-card">
     <div class="img-box">
         <img class="product-img" src="微信图片_20260707164044_510_35.jpg" alt="Model B001 Smart Bathroom Mirror Cabinet Set">
@@ -588,14 +591,16 @@
     </div>
 </div>
 
-<!-- 右下角悬浮WhatsApp -->
+<!-- 悬浮WhatsApp -->
 <a href="https://wa.me/8617799215074" target="_blank" class="float-whatsapp" title="Chat on WhatsApp">💬</a>
 
-<!-- 回到顶部悬浮按钮 -->
+<!-- 回到顶部按钮 -->
 <div id="backTop" class="back-top" onclick="goTop()" title="Back to top">↑</div>
 
 <footer>
-    <p><strong>Contact: Esra</strong> | WhatsApp: <a href="https://wa.me/8617799215074" target="_blank">+86 17799215074</a></p>
+    <p><strong>Contact Information</strong></p>
+    <p>WhatsApp: <span class="copy-text" onclick="copyTextFunc('+86 17799215074')">+86 17799215074</span></p>
+    <p>Email: <span class="copy-text" onclick="copyTextFunc('esra040510@gmail.com')">esra040510@gmail.com</span></p>
     <p>We accept OEM & ODM custom design for all bathroom mirror products</p>
     <p style="margin-top:12px; font-size:12px; color:#aa7a8a;">© 2026 Yongling Sanitary Products Co., Ltd. All rights reserved.</p>
 </footer>
