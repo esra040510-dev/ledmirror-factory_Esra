@@ -87,7 +87,7 @@
             border-color: #91284b;
         }
 
-        /* 信任保障栏 */
+        /* 快捷功能入口栏 */
         .trust-bar {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
@@ -100,7 +100,14 @@
         }
         .trust-item {
             text-align: center;
-            padding: 10px;
+            padding: 14px 10px;
+            cursor: pointer;
+            transition: all 0.25s ease;
+            border-radius: 10px;
+        }
+        .trust-item:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 18px rgba(145, 40, 75, 0.1);
         }
         .trust-icon {
             font-size: 28px;
@@ -375,27 +382,27 @@
     </div>
 </header>
 
-<!-- 信任保障栏 -->
+<!-- 快捷功能入口栏（全部可点击） -->
 <div class="trust-bar">
-    <div class="trust-item">
-        <div class="trust-icon">🏭</div>
-        <div class="trust-title">Direct Factory</div>
-        <div class="trust-desc">Own production line, lowest price</div>
-    </div>
-    <div class="trust-item">
-        <div class="trust-icon">🌍</div>
-        <div class="trust-title">Global Shipping</div>
-        <div class="trust-desc">Deliver to worldwide ports</div>
-    </div>
-    <div class="trust-item">
-        <div class="trust-icon">✅</div>
-        <div class="trust-title">2 Years Warranty</div>
-        <div class="trust-desc">Full after-sales support</div>
-    </div>
-    <div class="trust-item">
+    <div class="trust-item" onclick="scrollToProducts()">
         <div class="trust-icon">📦</div>
-        <div class="trust-title">Low MOQ</div>
-        <div class="trust-desc">Support small batch order</div>
+        <div class="trust-title">All Products</div>
+        <div class="trust-desc">View full catalog</div>
+    </div>
+    <div class="trust-item" onclick="window.open('https://wa.me/8617799215074','_blank')">
+        <div class="trust-icon">💬</div>
+        <div class="trust-title">Get Free Quote</div>
+        <div class="trust-desc">Reply within 24 hours</div>
+    </div>
+    <div class="trust-item" onclick="showOEM()">
+        <div class="trust-icon">🎨</div>
+        <div class="trust-title">OEM Custom</div>
+        <div class="trust-desc">Size & logo customizable</div>
+    </div>
+    <div class="trust-item" onclick="window.location.href='mailto:esra040510@gmail.com'">
+        <div class="trust-icon">📧</div>
+        <div class="trust-title">Contact Us</div>
+        <div class="trust-desc">esra040510@gmail.com</div>
     </div>
 </div>
 
@@ -450,6 +457,20 @@
         let mask = document.getElementById("modal-mask");
         mask.classList.remove("show");
         setTimeout(()=>mask.style.display = "none", 300);
+    }
+
+    // 滚动到产品区
+    function scrollToProducts(){
+        document.getElementById('mirror').scrollIntoView({behavior: 'smooth'});
+    }
+
+    // OEM服务弹窗
+    function showOEM(){
+        let mask = document.getElementById("modal-mask");
+        mask.style.display = "flex";
+        setTimeout(()=>mask.classList.add("show"), 10);
+        document.getElementById("modal-title").innerText = "OEM & ODM Service";
+        document.getElementById("modal-desc").innerText = "We support full custom service:\n• Custom size & shape\n• Custom logo printing\n• Custom light color & function\n• Custom packaging\n• MOQ for OEM: 100pcs\n\nContact us for your custom solution!";
     }
 
     // 回到顶部
