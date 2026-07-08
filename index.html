@@ -261,6 +261,21 @@
             transform: translateY(-1px);
         }
 
+        /* 复制成功提示浮窗 */
+        .copy-toast {
+            position: fixed;
+            left: 50%;
+            bottom: 140px;
+            transform: translateX(-50%);
+            background: rgba(0,0,0,0.7);
+            color: #fff;
+            padding: 10px 24px;
+            border-radius: 8px;
+            font-size: 14px;
+            z-index: 9999;
+            display: none;
+        }
+
         /* 回到顶部按钮 */
         .back-top {
             position: fixed;
@@ -316,7 +331,7 @@
             box-shadow: 0 6px 20px rgba(37, 211, 102, 0.5);
         }
 
-        /* 页脚样式 联系方式跳转链接 */
+        /* 页脚样式 */
         footer {
             margin-top: 80px;
             padding-top: 40px;
@@ -328,12 +343,21 @@
         footer p {
             margin-bottom: 10px;
         }
-        .footer-link {
+        .jump-link {
             color: #d65076;
             text-decoration: underline;
             margin: 0 6px;
         }
-        .footer-link:hover {
+        .jump-link:hover {
+            color: #b32e52;
+        }
+        .copy-link {
+            color: #d65076;
+            text-decoration: underline;
+            cursor: pointer;
+            margin: 0 6px;
+        }
+        .copy-link:hover {
             color: #b32e52;
         }
 
@@ -367,9 +391,21 @@
     <span class="oem-btn" onclick="showOEM()">🎨 OEM & ODM Custom Service</span>
 </div>
 
+<!-- 复制成功提示浮窗 -->
+<div class="copy-toast" id="copyToast">Copied successfully!</div>
+
 <script>
     let allCards = document.querySelectorAll('.product-card');
     const tabs = document.querySelectorAll('.filter-tab');
+    const toast = document.getElementById('copyToast');
+
+    // 一键复制通用函数
+    function copyText(text) {
+        navigator.clipboard.writeText(text).then(() => {
+            toast.style.display = "block";
+            setTimeout(() => toast.style.display = "none", 1500);
+        })
+    }
 
     // 搜索功能
     function searchProduct(){
@@ -488,10 +524,14 @@
 
 <footer>
     <p><strong>Contact Information</strong></p>
-    <!-- 点击跳转WhatsApp聊天 -->
-    <p>WhatsApp: <a class="footer-link" href="https://wa.me/8617799215074" target="_blank">+86 17799215074</a></p>
-    <!-- 点击跳转系统邮件 -->
-    <p>Email: <a class="footer-link" href="mailto:esra040510@gmail.com">esra040510@gmail.com</a></p>
+    <!-- WhatsApp：点击跳转聊天APP -->
+    <p>WhatsApp: <a class="jump-link" href="https://wa.me/8617799215074" target="_blank">+86 17799215074</a></p>
+    <!-- 邮箱：点击一键复制 -->
+    <p>Email: <span class="copy-link" onclick="copyText('esra040510@gmail.com')">esra040510@gmail.com</span></p>
+    <!-- 微信：点击一键复制微信号 -->
+    <p>WeChat ID: <span class="copy-link" onclick="copyText('zrqy716')">zrqy716</span></p>
+    <!-- 工厂地址，纯展示不可点击 -->
+    <p>Factory Address: Guali Qianxing Village, Xiaoshan District, Hangzhou City, Zhejiang Province, China</p>
     <p>We accept OEM & ODM custom design for all bathroom mirror products</p>
     <p style="margin-top:12px; font-size:12px; color:#aa7a8a;">© 2026 Yongling Sanitary Products Co., Ltd. All rights reserved.</p>
 </footer>
