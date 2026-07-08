@@ -1,17 +1,17 @@
 <!DOCTYPE html>
-<html lang="zh-CN">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="永玲卫浴镜厂，专业供应LED浴室镜，支持OEM&ODM定制，工厂小批量批发全球发货">
+    <meta name="description" content="Yongling LED Sanitary Mirror Factory - Professional manufacturer of LED bathroom mirrors and smart mirror cabinets, support OEM & ODM, low MOQ wholesale worldwide.">
     <meta name="robots" content="index, follow">
-    <title>永玲卫浴镜厂 - LED浴室镜、智能镜柜生产厂家</title>
+    <title>Yongling LED Sanitary Mirror Factory</title>
     <style>
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            font-family: 'Microsoft YaHei', 'Segoe UI', Arial, Helvetica, sans-serif;
+            font-family: 'Segoe UI', Arial, Helvetica, sans-serif;
         }
         html {
             scroll-behavior: smooth;
@@ -25,7 +25,7 @@
             line-height: 1.6;
         }
 
-        /* 头部区域 - 滚动时固定在顶部 */
+        /* 头部固定区域 */
         header {
             text-align: center;
             padding: 30px 0 20px;
@@ -35,6 +35,7 @@
             top: 0;
             z-index: 100;
             background-color: #ffe8ec;
+            backdrop-filter: blur(8px);
         }
         header h1 {
             font-size: 36px;
@@ -68,7 +69,7 @@
             box-shadow: 0 0 0 4px rgba(214, 80, 118, 0.12);
         }
 
-        /* 顶部分类标签样式 */
+        /* 分类导航标签 */
         .filter-tabs {
             display: flex;
             justify-content: center;
@@ -95,7 +96,7 @@
             border-color: #91284b;
         }
 
-        /* OEM快捷入口 */
+        /* OEM入口 */
         .oem-entry {
             text-align: center;
             margin: 0 0 40px;
@@ -115,7 +116,7 @@
             background: #ffe8ec;
         }
 
-        /* 产品网格布局 */
+        /* 产品网格 */
         .product-grid {
             display: grid;
             grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
@@ -132,6 +133,7 @@
             transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
             width: 100%;
             max-width: 320px;
+            display: block;
         }
         .product-card.hide {
             display: none;
@@ -144,15 +146,18 @@
             overflow: hidden;
             height: 220px;
             background: #ffe8ec;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #c890a0;
+            font-size: 14px;
         }
         .product-img {
             width: 100%;
             height: 100%;
             object-fit: cover;
             transition: transform 0.4s ease;
-            opacity: 0;
             animation: fadeIn 0.6s ease forwards;
-            background: #ffe8ec;
         }
         .product-card:hover .product-img {
             transform: scale(1.06);
@@ -203,7 +208,7 @@
             transform: translateY(1px);
         }
 
-        /* 商品详情弹窗 */
+        /* 通用弹窗 */
         .modal-mask {
             display: none;
             position: fixed;
@@ -217,6 +222,7 @@
             justify-content: center;
             opacity: 0;
             transition: opacity 0.3s ease;
+            padding: 20px;
         }
         .modal-mask.show {
             display: flex;
@@ -224,7 +230,7 @@
         }
         .modal-box {
             background: #fff;
-            width: 90%;
+            width: 100%;
             max-width: 440px;
             border-radius: 18px;
             padding: 36px 30px;
@@ -261,7 +267,7 @@
             margin-bottom: 24px;
             white-space: pre-line;
         }
-        .whatsapp-order {
+        .whatsapp-btn {
             display: block;
             width: 100%;
             text-align: center;
@@ -272,13 +278,16 @@
             text-decoration: none;
             font-weight: 600;
             transition: all 0.2s ease;
+            border: none;
+            font-size: 15px;
+            cursor: pointer;
         }
-        .whatsapp-order:hover {
+        .whatsapp-btn:hover {
             background: #20bd5a;
             transform: translateY(-1px);
         }
 
-        /* 复制成功提示浮窗 */
+        /* 复制成功提示 */
         .copy-toast {
             position: fixed;
             left: 50%;
@@ -290,10 +299,15 @@
             border-radius: 8px;
             font-size: 14px;
             z-index: 9999;
-            display: none;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+            pointer-events: none;
+        }
+        .copy-toast.show {
+            opacity: 1;
         }
 
-        /* 回到顶部按钮 */
+        /* 回到顶部 */
         .back-top {
             position: fixed;
             bottom: 30px;
@@ -323,7 +337,7 @@
             transform: translateY(-3px);
         }
 
-        /* 悬浮WhatsApp咨询按钮 */
+        /* 悬浮WhatsApp */
         .float-whatsapp {
             position: fixed;
             bottom: 90px;
@@ -336,7 +350,6 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            cursor: pointer;
             box-shadow: 0 4px 14px rgba(37, 211, 102, 0.4);
             z-index: 99;
             font-size: 28px;
@@ -348,7 +361,7 @@
             box-shadow: 0 6px 20px rgba(37, 211, 102, 0.5);
         }
 
-        /* 页脚样式 */
+        /* 页脚 */
         footer {
             margin-top: 80px;
             padding-top: 40px;
@@ -357,31 +370,28 @@
             color: #884a60;
             font-size: 14px;
         }
+        footer h3 {
+            color: #781f3e;
+            margin-bottom: 16px;
+            font-size: 18px;
+        }
         footer p {
             margin-bottom: 10px;
         }
-        .jump-link {
-            color: #d65076;
-            text-decoration: underline;
-            margin: 0 6px;
-        }
-        .jump-link:hover {
-            color: #b32e52;
-        }
-        .copy-link {
+        .copy-text {
             color: #d65076;
             text-decoration: underline;
             cursor: pointer;
-            margin: 0 6px;
+            margin-left: 4px;
         }
-        .copy-link:hover {
+        .copy-text:hover {
             color: #b32e52;
         }
 
         /* 移动端适配 */
         @media (max-width: 600px) {
             body { padding: 0 15px 20px; }
-            header h1 { font-size: 26px; }
+            header h1 { font-size: 24px; }
             #searchInput { width: 100%; font-size: 15px; }
             .filter-tab { padding: 10px 20px; font-size: 15px; }
             .product-grid { gap: 24px; }
@@ -391,304 +401,782 @@
     </style>
 </head>
 <body>
+
 <header>
-    <h1>永玲卫浴镜厂</h1>
+    <h1>Yongling LED Sanitary Mirror Factory</h1>
     <div class="search-wrap">
-        <input type="text" id="searchInput" placeholder="按型号/尺寸/关键词搜索..." oninput="searchProduct()">
+        <input type="text" id="searchInput" placeholder="Search by model / size / keyword...">
     </div>
     <div class="filter-tabs">
-        <span class="filter-tab active" onclick="showAllProducts()">所有产品</span>
-        <span class="filter-tab" onclick="filterAModel()">LED镜子</span>
-        <span class="filter-tab" onclick="filterBModel()">镜柜</span>
+        <span class="filter-tab active" data-filter="all">All Products</span>
+        <span class="filter-tab" data-filter="A">LED Mirror</span>
+        <span class="filter-tab" data-filter="B">Mirror Cabinet</span>
     </div>
 </header>
 
 <div class="oem-entry">
-    <span class="oem-btn" onclick="showOEM()">🎨 OEM & ODM 定制服务</span>
+    <span class="oem-btn" onclick="openOEMModal()">🎨 OEM & ODM Custom Service</span>
 </div>
 
-<div class="copy-toast" id="copyToast">复制成功！</div>
+<div class="copy-toast" id="copyToast">Copied successfully!</div>
 
 <div class="product-grid">
-    <!-- ========== A系列 LED镜子 29款 (Model A开头) 长宽相等保留图片，长方形图片空白 ========== -->
-    <div class="product-card data-type="A">
-        <div class="img-box"><img class="product-img" src="微信图片_20260707164222_511_35.jpg" alt="Model A001 LED防雾浴室镜"></div>
+    <!-- ========== A系列 LED镜子 29款 (Model A开头) 长宽相等保留图片 ========== -->
+    <div class="product-card" data-type="A">
+        <div class="img-box"><img class="product-img" src="微信图片_20260707164222_511_35.jpg" alt="Model A001 LED Anti-Fog Round Bathroom Mirror"></div>
         <div class="product-info">
-            <h3 class="product-name">Model A001 LED防雾浴室镜</h3>
-            <p class="product-desc">材质：桐木镜框<br>尺寸：70×70cm<br>功能：LED灯光+除雾+置物<br>质保：2年 | 起订量：500件</p>
-            <div class="product-price">单价：$19.50</div>
-            <button class="order-btn" onclick="openModal('Model A001','圆形LED防雾镜','材质：桐木镜框\n尺寸：70×70cm\n功能：LED灯光+除雾+置物\n质保：2年\n起订量：500件','$19.50')">查看详情&询价</button>
+            <h3 class="product-name">Model A001 LED Anti-Fog Bathroom Mirror</h3>
+            <p class="product-desc">Material: Paulownia Frame Mirror<br>Size: 70×70cm<br>Function: LED + Anti-Fog + Storage<br>Warranty: 2 Years | MOQ: 500pcs</p>
+            <div class="product-price">Unit Price: $19.50</div>
+            <button class="order-btn" onclick="openProductModal('Model A001','Round LED Anti-Fog Mirror','Material: Paulownia Frame Mirror\nSize: 70×70cm\nFunction: LED Lighting + Anti-Fog + Storage\nWarranty: 2 Years\nMOQ: 500pcs','$19.50')">View Details & Inquiry</button>
         </div>
     </div>
 
     <div class="product-card" data-type="A">
-        <div class="img-box"><img class="product-img" src="微信图片_20260707164222_511_35.jpg" alt="Model A002 LED防雾浴室镜"></div>
+        <div class="img-box"><img class="product-img" src="微信图片_20260707164222_511_35.jpg" alt="Model A002 LED Anti-Fog Round Bathroom Mirror"></div>
         <div class="product-info">
-            <h3 class="product-name">Model A002 LED防雾浴室镜</h3>
-            <p class="product-desc">材质：桐木镜框<br>尺寸：50×50cm<br>功能：LED灯光+除雾+置物<br>质保：2年 | 起订量：500件</p>
-            <div class="product-price">单价：$14.90</div>
-            <button class="order-btn" onclick="openModal('Model A002','小型圆形LED镜','材质：桐木镜框\n尺寸：50×50cm\n功能：LED灯光+除雾+置物\n质保：2年\n起订量：500件','$14.90')">查看详情&询价</button>
+            <h3 class="product-name">Model A002 LED Anti-Fog Bathroom Mirror</h3>
+            <p class="product-desc">Material: Paulownia Frame Mirror<br>Size: 50×50cm<br>Function: LED + Anti-Fog + Storage<br>Warranty: 2 Years | MOQ: 500pcs</p>
+            <div class="product-price">Unit Price: $14.90</div>
+            <button class="order-btn" onclick="openProductModal('Model A002','Small Round LED Mirror','Material: Paulownia Frame Mirror\nSize: 50×50cm\nFunction: LED Lighting + Anti-Fog + Storage\nWarranty: 2 Years\nMOQ: 500pcs','$14.90')">View Details & Inquiry</button>
         </div>
     </div>
 
     <div class="product-card" data-type="A">
-        <div class="img-box"><img class="product-img" alt="Model A003 LED防雾浴室镜"></div>
+        <div class="img-box">Product Image</div>
         <div class="product-info">
-            <h3 class="product-name">Model A003 LED防雾浴室镜</h3>
-            <p class="product-desc">材质：桐木镜框<br>尺寸：50×60cm<br>功能：LED灯光+除雾+置物<br>质保：2年 | 起订量：500件</p>
-            <div class="product-price">单价：$16.50</div>
-            <button class="order-btn" onclick="openModal('Model A003','长方形LED镜','材质：桐木镜框\n尺寸：50×60cm\n功能：LED灯光+除雾+置物\n质保：2年\n起订量：500件','$16.50')">查看详情&询价</button>
+            <h3 class="product-name">Model A003 LED Anti-Fog Bathroom Mirror</h3>
+            <p class="product-desc">Material: Paulownia Frame Mirror<br>Size: 50×60cm<br>Function: LED + Anti-Fog + Storage<br>Warranty: 2 Years | MOQ: 500pcs</p>
+            <div class="product-price">Unit Price: $16.50</div>
+            <button class="order-btn" onclick="openProductModal('Model A003','Rectangle LED Mirror','Material: Paulownia Frame Mirror\nSize: 50×60cm\nFunction: LED Lighting + Anti-Fog + Storage\nWarranty: 2 Years\nMOQ: 500pcs','$16.50')">View Details & Inquiry</button>
         </div>
     </div>
 
     <div class="product-card" data-type="A">
-        <div class="img-box"><img class="product-img" src="微信图片_20260707164222_511_35.jpg" alt="Model A004 LED防雾浴室镜"></div>
+        <div class="img-box"><img class="product-img" src="微信图片_20260707164222_511_35.jpg" alt="Model A004 LED Anti-Fog Square Bathroom Mirror"></div>
         <div class="product-info">
-            <h3 class="product-name">Model A004 LED防雾浴室镜</h3>
-            <p class="product-desc">材质：桐木镜框<br>尺寸：55×55cm<br>功能：LED灯光+除雾+置物<br>质保：2年 | 起订量：500件</p>
-            <div class="product-price">单价：$16.90</div>
-            <button class="order-btn" onclick="openModal('Model A004','方形LED镜','材质：桐木镜框\n尺寸：55×55cm\n功能：LED灯光+除雾+置物\n质保：2年\n起订量：500件','$16.90')">查看详情&询价</button>
+            <h3 class="product-name">Model A004 LED Anti-Fog Bathroom Mirror</h3>
+            <p class="product-desc">Material: Paulownia Frame Mirror<br>Size: 55×55cm<br>Function: LED + Anti-Fog + Storage<br>Warranty: 2 Years | MOQ: 500pcs</p>
+            <div class="product-price">Unit Price: $16.90</div>
+            <button class="order-btn" onclick="openProductModal('Model A004','Square LED Mirror','Material: Paulownia Frame Mirror\nSize: 55×55cm\nFunction: LED Lighting + Anti-Fog + Storage\nWarranty: 2 Years\nMOQ: 500pcs','$16.90')">View Details & Inquiry</button>
         </div>
     </div>
 
     <div class="product-card" data-type="A">
-        <div class="img-box"><img class="product-img" alt="Model A005 LED防雾浴室镜"></div>
+        <div class="img-box">Product Image</div>
         <div class="product-info">
-            <h3 class="product-name">Model A005 LED防雾浴室镜</h3>
-            <p class="product-desc">材质：桐木镜框<br>尺寸：50×70cm<br>功能：LED灯光+除雾+置物<br>质保：2年 | 起订量：500件</p>
-            <div class="product-price">单价：$18.20</div>
-            <button class="order-btn" onclick="openModal('Model A005','竖款LED镜','材质：桐木镜框\n尺寸：50×70cm\n功能：LED灯光+除雾+置物\n质保：2年\n起订量：500件','$18.20')">查看详情&询价</button>
+            <h3 class="product-name">Model A005 LED Anti-Fog Bathroom Mirror</h3>
+            <p class="product-desc">Material: Paulownia Frame Mirror<br>Size: 50×70cm<br>Function: LED + Anti-Fog + Storage<br>Warranty: 2 Years | MOQ: 500pcs</p>
+            <div class="product-price">Unit Price: $18.20</div>
+            <button class="order-btn" onclick="openProductModal('Model A005','Vertical LED Mirror','Material: Paulownia Frame Mirror\nSize: 50×70cm\nFunction: LED Lighting + Anti-Fog + Storage\nWarranty: 2 Years\nMOQ: 500pcs','$18.20')">View Details & Inquiry</button>
         </div>
     </div>
 
     <div class="product-card" data-type="A">
-        <div class="img-box"><img class="product-img" src="微信图片_20260707164222_511_35.jpg" alt="Model A006 LED防雾浴室镜"></div>
+        <div class="img-box"><img class="product-img" src="微信图片_20260707164222_511_35.jpg" alt="Model A006 LED Anti-Fog Square Bathroom Mirror"></div>
         <div class="product-info">
-            <h3 class="product-name">Model A006 LED防雾浴室镜</h3>
-            <p class="product-desc">材质：桐木镜框<br>尺寸：60×60cm<br>功能：LED灯光+除雾+置物<br>质保：2年 | 起订量：500件</p>
-            <div class="product-price">单价：$17.90</div>
-            <button class="order-btn" onclick="openModal('Model A006','方形LED镜','材质：桐木镜框\n尺寸：60×60cm\n功能：LED灯光+除雾+置物\n质保：2年\n起订量：500件','$17.90')">查看详情&询价</button>
+            <h3 class="product-name">Model A006 LED Anti-Fog Bathroom Mirror</h3>
+            <p class="product-desc">Material: Paulownia Frame Mirror<br>Size: 60×60cm<br>Function: LED + Anti-Fog + Storage<br>Warranty: 2 Years | MOQ: 500pcs</p>
+            <div class="product-price">Unit Price: $17.90</div>
+            <button class="order-btn" onclick="openProductModal('Model A006','Square LED Mirror','Material: Paulownia Frame Mirror\nSize: 60×60cm\nFunction: LED Lighting + Anti-Fog + Storage\nWarranty: 2 Years\nMOQ: 500pcs','$17.90')">View Details & Inquiry</button>
         </div>
     </div>
 
     <div class="product-card" data-type="A">
-        <div class="img-box"><img class="product-img" alt="Model A007 LED防雾浴室镜"></div>
+        <div class="img-box">Product Image</div>
         <div class="product-info">
-            <h3 class="product-name">Model A007 LED防雾浴室镜</h3>
-            <p class="product-desc">材质：桐木镜框<br>尺寸：60×70cm<br>功能：LED灯光+除雾+置物<br>质保：2年 | 起订量：500件</p>
-            <div class="product-price">单价：$19.20</div>
-            <button class="order-btn" onclick="openModal('Model A007','长方形LED镜','材质：桐木镜框\n尺寸：60×70cm\n功能：LED灯光+除雾+置物\n质保：2年\n起订量：500件','$19.20')">查看详情&询价</button>
+            <h3 class="product-name">Model A007 LED Anti-Fog Bathroom Mirror</h3>
+            <p class="product-desc">Material: Paulownia Frame Mirror<br>Size: 60×70cm<br>Function: LED + Anti-Fog + Storage<br>Warranty: 2 Years | MOQ: 500pcs</p>
+            <div class="product-price">Unit Price: $19.20</div>
+            <button class="order-btn" onclick="openProductModal('Model A007','Rectangle LED Mirror','Material: Paulownia Frame Mirror\nSize: 60×70cm\nFunction: LED Lighting + Anti-Fog + Storage\nWarranty: 2 Years\nMOQ: 500pcs','$19.20')">View Details & Inquiry</button>
         </div>
     </div>
 
     <div class="product-card" data-type="A">
-        <div class="img-box"><img class="product-img" src="微信图片_20260707164222_511_35.jpg" alt="Model A008 LED防雾浴室镜"></div>
+        <div class="img-box"><img class="product-img" src="微信图片_20260707164222_511_35.jpg" alt="Model A008 LED Anti-Fog Round Bathroom Mirror"></div>
         <div class="product-info">
-            <h3 class="product-name">Model A008 LED防雾浴室镜</h3>
-            <p class="product-desc">材质：桐木镜框<br>尺寸：65×65cm<br>功能：LED灯光+除雾+置物<br>质保：2年 | 起订量：500件</p>
-            <div class="product-price">单价：$18.90</div>
-            <button class="order-btn" onclick="openModal('Model A008','圆形LED镜','材质：桐木镜框\n尺寸：65×65cm\n功能：LED灯光+除雾+置物\n质保：2年\n起订量：500件','$18.90')">查看详情&询价</button>
+            <h3 class="product-name">Model A008 LED Anti-Fog Bathroom Mirror</h3>
+            <p class="product-desc">Material: Paulownia Frame Mirror<br>Size: 65×65cm<br>Function: LED + Anti-Fog + Storage<br>Warranty: 2 Years | MOQ: 500pcs</p>
+            <div class="product-price">Unit Price: $18.90</div>
+            <button class="order-btn" onclick="openProductModal('Model A008','Round LED Mirror','Material: Paulownia Frame Mirror\nSize: 65×65cm\nFunction: LED Lighting + Anti-Fog + Storage\nWarranty: 2 Years\nMOQ: 500pcs','$18.90')">View Details & Inquiry</button>
         </div>
     </div>
 
     <div class="product-card" data-type="A">
-        <div class="img-box"><img class="product-img" alt="Model A009 LED防雾浴室镜"></div>
+        <div class="img-box">Product Image</div>
         <div class="product-info">
-            <h3 class="product-name">Model A009 LED防雾浴室镜</h3>
-            <p class="product-desc">材质：桐木镜框<br>尺寸：60×80cm<br>功能：LED灯光+除雾+置物<br>质保：2年 | 起订量：500件</p>
-            <div class="product-price">单价：$20.50</div>
-            <button class="order-btn" onclick="openModal('Model A009','大长方形镜','材质：桐木镜框\n尺寸：60×80cm\n功能：LED灯光+除雾+置物\n质保：2年\n起订量：500件','$20.50')">查看详情&询价</button>
+            <h3 class="product-name">Model A009 LED Anti-Fog Bathroom Mirror</h3>
+            <p class="product-desc">Material: Paulownia Frame Mirror<br>Size: 60×80cm<br>Function: LED + Anti-Fog + Storage<br>Warranty: 2 Years | MOQ: 500pcs</p>
+            <div class="product-price">Unit Price: $20.50</div>
+            <button class="order-btn" onclick="openProductModal('Model A009','Large Rectangle Mirror','Material: Paulownia Frame Mirror\nSize: 60×80cm\nFunction: LED Lighting + Anti-Fog + Storage\nWarranty: 2 Years\nMOQ: 500pcs','$20.50')">View Details & Inquiry</button>
         </div>
     </div>
 
     <div class="product-card" data-type="A">
-        <div class="img-box"><img class="product-img" alt="Model A010 LED防雾浴室镜"></div>
+        <div class="img-box">Product Image</div>
         <div class="product-info">
-            <h3 class="product-name">Model A010 LED防雾浴室镜</h3>
-            <p class="product-desc">材质：桐木镜框<br>尺寸：70×75cm<br>功能：LED灯光+除雾+置物<br>质保：2年 | 起订量：500件</p>
-            <div class="product-price">单价：$20.90</div>
-            <button class="order-btn" onclick="openModal('Model A010','椭圆LED镜','材质：桐木镜框\n尺寸：70×75cm\n功能：LED灯光+除雾+置物\n质保：2年\n起订量：500件','$20.90')">查看详情&询价</button>
+            <h3 class="product-name">Model A010 LED Anti-Fog Bathroom Mirror</h3>
+            <p class="product-desc">Material: Paulownia Frame Mirror<br>Size: 70×75cm<br>Function: LED + Anti-Fog + Storage<br>Warranty: 2 Years | MOQ: 500pcs</p>
+            <div class="product-price">Unit Price: $20.90</div>
+            <button class="order-btn" onclick="openProductModal('Model A010','Oval LED Mirror','Material: Paulownia Frame Mirror\nSize: 70×75cm\nFunction: LED Lighting + Anti-Fog + Storage\nWarranty: 2 Years\nMOQ: 500pcs','$20.90')">View Details & Inquiry</button>
         </div>
     </div>
 
     <div class="product-card" data-type="A">
-        <div class="img-box"><img class="product-img" src="微信图片_20260707164222_511_35.jpg" alt="Model A011 LED防雾浴室镜"></div>
+        <div class="img-box"><img class="product-img" src="微信图片_20260707164222_511_35.jpg" alt="Model A011 LED Anti-Fog Round Bathroom Mirror"></div>
         <div class="product-info">
-            <h3 class="product-name">Model A011 LED防雾浴室镜</h3>
-            <p class="product-desc">材质：桐木镜框<br>尺寸：75×75cm<br>功能：LED灯光+除雾+置物<br>质保：2年 | 起订量：500件</p>
-            <div class="product-price">单价：$21.50</div>
-            <button class="order-btn" onclick="openModal('Model A011','大圆形镜','材质：桐木镜框\n尺寸：75×75cm\n功能：LED灯光+除雾+置物\n质保：2年\n起订量：500件','$21.50')">查看详情&询价</button>
+            <h3 class="product-name">Model A011 LED Anti-Fog Bathroom Mirror</h3>
+            <p class="product-desc">Material: Paulownia Frame Mirror<br>Size: 75×75cm<br>Function: LED + Anti-Fog + Storage<br>Warranty: 2 Years | MOQ: 500pcs</p>
+            <div class="product-price">Unit Price: $21.50</div>
+            <button class="order-btn" onclick="openProductModal('Model A011','Large Round Mirror','Material: Paulownia Frame Mirror\nSize: 75×75cm\nFunction: LED Lighting + Anti-Fog + Storage\nWarranty: 2 Years\nMOQ: 500pcs','$21.50')">View Details & Inquiry</button>
         </div>
     </div>
 
     <div class="product-card" data-type="A">
-        <div class="img-box"><img class="product-img" alt="Model A012 LED防雾浴室镜"></div>
+        <div class="img-box">Product Image</div>
         <div class="product-info">
-            <h3 class="product-name">Model A012 LED防雾浴室镜</h3>
-            <p class="product-desc">材质：桐木镜框<br>尺寸：70×80cm<br>功能：LED灯光+除雾+置物<br>质保：2年 | 起订量：500件</p>
-            <div class="product-price">单价：$21.90</div>
-            <button class="order-btn" onclick="openModal('Model A012','长方形LED镜','材质：桐木镜框\n尺寸：70×80cm\n功能：LED灯光+除雾+置物\n质保：2年\n起订量：500件','$21.90')">查看详情&询价</button>
+            <h3 class="product-name">Model A012 LED Anti-Fog Bathroom Mirror</h3>
+            <p class="product-desc">Material: Paulownia Frame Mirror<br>Size: 70×80cm<br>Function: LED + Anti-Fog + Storage<br>Warranty: 2 Years | MOQ: 500pcs</p>
+            <div class="product-price">Unit Price: $21.90</div>
+            <button class="order-btn" onclick="openProductModal('Model A012','Rectangle LED Mirror','Material: Paulownia Frame Mirror\nSize: 70×80cm\nFunction: LED Lighting + Anti-Fog + Storage\nWarranty: 2 Years\nMOQ: 500pcs','$21.90')">View Details & Inquiry</button>
         </div>
     </div>
 
     <div class="product-card" data-type="A">
-        <div class="img-box"><img class="product-img" alt="Model A013 LED防雾浴室镜"></div>
+        <div class="img-box">Product Image</div>
         <div class="product-info">
-            <h3 class="product-name">Model A013 LED防雾浴室镜</h3>
-            <p class="product-desc">材质：桐木镜框<br>尺寸：70×90cm<br>功能：LED灯光+除雾+置物<br>质保：2年 | 起订量：500件</p>
-            <div class="product-price">单价：$24.50</div>
-            <button class="order-btn" onclick="openModal('Model A013','竖款大镜子','材质：桐木镜框\n尺寸：70×90cm\n功能：LED灯光+除雾+置物\n质保：2年\n起订量：500件','$24.50')">查看详情&询价</button>
+            <h3 class="product-name">Model A013 LED Anti-Fog Bathroom Mirror</h3>
+            <p class="product-desc">Material: Paulownia Frame Mirror<br>Size: 70×90cm<br>Function: LED + Anti-Fog + Storage<br>Warranty: 2 Years | MOQ: 500pcs</p>
+            <div class="product-price">Unit Price: $24.50</div>
+            <button class="order-btn" onclick="openProductModal('Model A013','Large Vertical Mirror','Material: Paulownia Frame Mirror\nSize: 70×90cm\nFunction: LED Lighting + Anti-Fog + Storage\nWarranty: 2 Years\nMOQ: 500pcs','$24.50')">View Details & Inquiry</button>
         </div>
     </div>
 
     <div class="product-card" data-type="A">
-        <div class="img-box"><img class="product-img" src="微信图片_20260707164222_511_35.jpg" alt="Model A014 LED防雾浴室镜"></div>
+        <div class="img-box"><img class="product-img" src="微信图片_20260707164222_511_35.jpg" alt="Model A014 LED Anti-Fog Square Bathroom Mirror"></div>
         <div class="product-info">
-            <h3 class="product-name">Model A014 LED防雾浴室镜</h3>
-            <p class="product-desc">材质：桐木镜框<br>尺寸：80×80cm<br>功能：LED灯光+除雾+置物<br>质保：2年 | 起订量：500件</p>
-            <div class="product-price">单价：$24.90</div>
-            <button class="order-btn" onclick="openModal('Model A014','大方镜','材质：桐木镜框\n尺寸：80×80cm\n功能：LED灯光+除雾+置物\n质保：2年\n起订量：500件','$24.90')">查看详情&询价</button>
+            <h3 class="product-name">Model A014 LED Anti-Fog Bathroom Mirror</h3>
+            <p class="product-desc">Material: Paulownia Frame Mirror<br>Size: 80×80cm<br>Function: LED + Anti-Fog + Storage<br>Warranty: 2 Years | MOQ: 500pcs</p>
+            <div class="product-price">Unit Price: $24.90</div>
+            <button class="order-btn" onclick="openProductModal('Model A014','Large Square Mirror','Material: Paulownia Frame Mirror\nSize: 80×80cm\nFunction: LED Lighting + Anti-Fog + Storage\nWarranty: 2 Years\nMOQ: 500pcs','$24.90')">View Details & Inquiry</button>
         </div>
     </div>
 
     <div class="product-card" data-type="A">
-        <div class="img-box"><img class="product-img" alt="Model A015 LED防雾浴室镜"></div>
+        <div class="img-box">Product Image</div>
         <div class="product-info">
-            <h3 class="product-name">Model A015 LED防雾浴室镜</h3>
-            <p class="product-desc">材质：桐木镜框<br>尺寸：75×90cm<br>功能：LED灯光+除雾+置物<br>质保：2年 | 起订量：500件</p>
-            <div class="product-price">单价：$25.90</div>
-            <button class="order-btn" onclick="openModal('Model A015','长方形LED镜','材质：桐木镜框\n尺寸：75×90cm\n功能：LED灯光+除雾+置物\n质保：2年\n起订量：500件','$25.90')">查看详情&询价</button>
+            <h3 class="product-name">Model A015 LED Anti-Fog Bathroom Mirror</h3>
+            <p class="product-desc">Material: Paulownia Frame Mirror<br>Size: 75×90cm<br>Function: LED + Anti-Fog + Storage<br>Warranty: 2 Years | MOQ: 500pcs</p>
+            <div class="product-price">Unit Price: $25.90</div>
+            <button class="order-btn" onclick="openProductModal('Model A015','Rectangle LED Mirror','Material: Paulownia Frame Mirror\nSize: 75×90cm\nFunction: LED Lighting + Anti-Fog + Storage\nWarranty: 2 Years\nMOQ: 500pcs','$25.90')">View Details & Inquiry</button>
         </div>
     </div>
 
     <div class="product-card" data-type="A">
-        <div class="img-box"><img class="product-img" alt="Model A016 LED防雾浴室镜"></div>
+        <div class="img-box">Product Image</div>
         <div class="product-info">
-            <h3 class="product-name">Model A016 LED防雾浴室镜</h3>
-            <p class="product-desc">材质：桐木镜框<br>尺寸：80×90cm<br>功能：LED灯光+除雾+置物<br>质保：2年 | 起订量：500件</p>
-            <div class="product-price">单价：$27.50</div>
-            <button class="order-btn" onclick="openModal('Model A016','大号LED镜','材质：桐木镜框\n尺寸：80×90cm\n功能：LED灯光+除雾+置物\n质保：2年\n起订量：500件','$27.50')">查看详情&询价</button>
+            <h3 class="product-name">Model A016 LED Anti-Fog Bathroom Mirror</h3>
+            <p class="product-desc">Material: Paulownia Frame Mirror<br>Size: 80×90cm<br>Function: LED + Anti-Fog + Storage<br>Warranty: 2 Years | MOQ: 500pcs</p>
+            <div class="product-price">Unit Price: $27.50</div>
+            <button class="order-btn" onclick="openProductModal('Model A016','Large LED Mirror','Material: Paulownia Frame Mirror\nSize: 80×90cm\nFunction: LED Lighting + Anti-Fog + Storage\nWarranty: 2 Years\nMOQ: 500pcs','$27.50')">View Details & Inquiry</button>
         </div>
     </div>
 
     <div class="product-card" data-type="A">
-        <div class="img-box"><img class="product-img" src="微信图片_20260707164222_511_35.jpg" alt="Model A017 LED防雾浴室镜"></div>
+        <div class="img-box"><img class="product-img" src="微信图片_20260707164222_511_35.jpg" alt="Model A017 LED Anti-Fog Round Bathroom Mirror"></div>
         <div class="product-info">
-            <h3 class="product-name">Model A017 LED防雾浴室镜</h3>
-            <p class="product-desc">材质：桐木镜框<br>尺寸：90×90cm<br>功能：LED灯光+除雾+置物<br>质保：2年 | 起订量：500件</p>
-            <div class="product-price">单价：$29.90</div>
-            <button class="order-btn" onclick="openModal('Model A017','超大圆形镜','材质：桐木镜框\n尺寸：90×90cm\n功能：LED灯光+除雾+置物\n质保：2年\n起订量：500件','$29.90')">查看详情&询价</button>
+            <h3 class="product-name">Model A017 LED Anti-Fog Bathroom Mirror</h3>
+            <p class="product-desc">Material: Paulownia Frame Mirror<br>Size: 90×90cm<br>Function: LED + Anti-Fog + Storage<br>Warranty: 2 Years | MOQ: 500pcs</p>
+            <div class="product-price">Unit Price: $29.90</div>
+            <button class="order-btn" onclick="openProductModal('Model A017','Extra Large Round Mirror','Material: Paulownia Frame Mirror\nSize: 90×90cm\nFunction: LED Lighting + Anti-Fog + Storage\nWarranty: 2 Years\nMOQ: 500pcs','$29.90')">View Details & Inquiry</button>
         </div>
     </div>
 
     <div class="product-card" data-type="A">
-        <div class="img-box"><img class="product-img" alt="Model A018 LED防雾浴室镜"></div>
+        <div class="img-box">Product Image</div>
         <div class="product-info">
-            <h3 class="product-name">Model A018 LED防雾浴室镜</h3>
-            <p class="product-desc">材质：桐木镜框<br>尺寸：80×100cm<br>功能：LED灯光+除雾+置物<br>质保：2年 | 起订量：500件</p>
-            <div class="product-price">单价：$29.50</div>
-            <button class="order-btn" onclick="openModal('Model A018','全身镜','材质：桐木镜框\n尺寸：80×100cm\n功能：LED灯光+除雾+置物\n质保：2年\n起订量：500件','$29.50')">查看详情&询价</button>
+            <h3 class="product-name">Model A018 LED Anti-Fog Bathroom Mirror</h3>
+            <p class="product-desc">Material: Paulownia Frame Mirror<br>Size: 80×100cm<br>Function: LED + Anti-Fog + Storage<br>Warranty: 2 Years | MOQ: 500pcs</p>
+            <div class="product-price">Unit Price: $29.50</div>
+            <button class="order-btn" onclick="openProductModal('Model A018','Full Length Mirror','Material: Paulownia Frame Mirror\nSize: 80×100cm\nFunction: LED Lighting + Anti-Fog + Storage\nWarranty: 2 Years\nMOQ: 500pcs','$29.50')">View Details & Inquiry</button>
         </div>
     </div>
 
     <div class="product-card" data-type="A">
-        <div class="img-box"><img class="product-img" alt="Model A019 LED防雾浴室镜"></div>
+        <div class="img-box">Product Image</div>
         <div class="product-info">
-            <h3 class="product-name">Model A019 LED防雾浴室镜</h3>
-            <p class="product-desc">材质：桐木镜框<br>尺寸：85×100cm<br>功能：LED灯光+除雾+置物<br>质保：2年 | 起订量：500件</p>
-            <div class="product-price">单价：$31.50</div>
-            <button class="order-btn" onclick="openModal('Model A019','大长方形镜','材质：桐木镜框\n尺寸：85×100cm\n功能：LED灯光+除雾+置物\n质保：2年\n起订量：500件','$31.50')">查看详情&询价</button>
+            <h3 class="product-name">Model A019 LED Anti-Fog Bathroom Mirror</h3>
+            <p class="product-desc">Material: Paulownia Frame Mirror<br>Size: 85×100cm<br>Function: LED + Anti-Fog + Storage<br>Warranty: 2 Years | MOQ: 500pcs</p>
+            <div class="product-price">Unit Price: $31.50</div>
+            <button class="order-btn" onclick="openProductModal('Model A019','Large Rectangle Mirror','Material: Paulownia Frame Mirror\nSize: 85×100cm\nFunction: LED Lighting + Anti-Fog + Storage\nWarranty: 2 Years\nMOQ: 500pcs','$31.50')">View Details & Inquiry</button>
         </div>
     </div>
 
     <div class="product-card" data-type="A">
-        <div class="img-box"><img class="product-img" alt="Model A020 LED防雾浴室镜"></div>
+        <div class="img-box">Product Image</div>
         <div class="product-info">
-            <h3 class="product-name">Model A020 LED防雾浴室镜</h3>
-            <p class="product-desc">材质：桐木镜框<br>尺寸：90×100cm<br>功能：LED灯光+除雾+置物<br>质保：2年 | 起订量：500件</p>
-            <div class="product-price">单价：$32.90</div>
-            <button class="order-btn" onclick="openModal('Model A020','大号壁挂镜','材质：桐木镜框\n尺寸：90×100cm\n功能：LED灯光+除雾+置物\n质保：2年\n起订量：500件','$32.90')">查看详情&询价</button>
+            <h3 class="product-name">Model A020 LED Anti-Fog Bathroom Mirror</h3>
+            <p class="product-desc">Material: Paulownia Frame Mirror<br>Size: 90×100cm<br>Function: LED + Anti-Fog + Storage<br>Warranty: 2 Years | MOQ: 500pcs</p>
+            <div class="product-price">Unit Price: $32.90</div>
+            <button class="order-btn" onclick="openProductModal('Model A020','Large Wall Mirror','Material: Paulownia Frame Mirror\nSize: 90×100cm\nFunction: LED Lighting + Anti-Fog + Storage\nWarranty: 2 Years\nMOQ: 500pcs','$32.90')">View Details & Inquiry</button>
         </div>
     </div>
 
     <div class="product-card" data-type="A">
-        <div class="img-box"><img class="product-img" src="微信图片_20260707164222_511_35.jpg" alt="Model A021 LED防雾浴室镜"></div>
+        <div class="img-box"><img class="product-img" src="微信图片_20260707164222_511_35.jpg" alt="Model A021 LED Anti-Fog Square Bathroom Mirror"></div>
         <div class="product-info">
-            <h3 class="product-name">Model A021 LED防雾浴室镜</h3>
-            <p class="product-desc">材质：桐木镜框<br>尺寸：95×95cm<br>功能：LED灯光+除雾+置物<br>质保：2年 | 起订量：500件</p>
-            <div class="product-price">单价：$33.50</div>
-            <button class="order-btn" onclick="openModal('Model A021','超大方镜','材质：桐木镜框\n尺寸：95×95cm\n功能：LED灯光+除雾+置物\n质保：2年\n起订量：500件','$33.50')">查看详情&询价</button>
+            <h3 class="product-name">Model A021 LED Anti-Fog Bathroom Mirror</h3>
+            <p class="product-desc">Material: Paulownia Frame Mirror<br>Size: 95×95cm<br>Function: LED + Anti-Fog + Storage<br>Warranty: 2 Years | MOQ: 500pcs</p>
+            <div class="product-price">Unit Price: $33.50</div>
+            <button class="order-btn" onclick="openProductModal('Model A021','Extra Large Square Mirror','Material: Paulownia Frame Mirror\nSize: 95×95cm\nFunction: LED Lighting + Anti-Fog + Storage\nWarranty: 2 Years\nMOQ: 500pcs','$33.50')">View Details & Inquiry</button>
         </div>
     </div>
 
     <div class="product-card" data-type="A">
-        <div class="img-box"><img class="product-img" alt="Model A022 LED防雾浴室镜"></div>
+        <div class="img-box">Product Image</div>
         <div class="product-info">
-            <h3 class="product-name">Model A022 LED防雾浴室镜</h3>
-            <p class="product-desc">材质：桐木镜框<br>尺寸：90×110cm<br>功能：LED灯光+除雾+置物<br>质保：2年 | 起订量：500件</p>
-            <div class="product-price">单价：$35.90</div>
-            <button class="order-btn" onclick="openModal('Model A022','全身LED镜','材质：桐木镜框\n尺寸：90×110cm\n功能：LED灯光+除雾+置物\n质保：2年\n起订量：500件','$35.90')">查看详情&询价</button>
+            <h3 class="product-name">Model A022 LED Anti-Fog Bathroom Mirror</h3>
+            <p class="product-desc">Material: Paulownia Frame Mirror<br>Size: 90×110cm<br>Function: LED + Anti-Fog + Storage<br>Warranty: 2 Years | MOQ: 500pcs</p>
+            <div class="product-price">Unit Price: $35.90</div>
+            <button class="order-btn" onclick="openProductModal('Model A022','Full Length LED Mirror','Material: Paulownia Frame Mirror\nSize: 90×110cm\nFunction: LED Lighting + Anti-Fog + Storage\nWarranty: 2 Years\nMOQ: 500pcs','$35.90')">View Details & Inquiry</button>
         </div>
     </div>
 
     <div class="product-card" data-type="A">
-        <div class="img-box"><img class="product-img" src="微信图片_20260707164222_511_35.jpg" alt="Model A023 LED防雾浴室镜"></div>
+        <div class="img-box"><img class="product-img" src="微信图片_20260707164222_511_35.jpg" alt="Model A023 LED Anti-Fog Round Bathroom Mirror"></div>
         <div class="product-info">
-            <h3 class="product-name">Model A023 LED防雾浴室镜</h3>
-            <p class="product-desc">材质：桐木镜框<br>尺寸：100×100cm<br>功能：LED灯光+除雾+置物<br>质保：2年 | 起订量：500件</p>
-            <div class="product-price">单价：$36.50</div>
-            <button class="order-btn" onclick="openModal('Model A023','1米大圆镜','材质：桐木镜框\n尺寸：100×100cm\n功能：LED灯光+除雾+置物\n质保：2年\n起订量：500件','$36.50')">查看详情&询价</button>
+            <h3 class="product-name">Model A023 LED Anti-Fog Bathroom Mirror</h3>
+            <p class="product-desc">Material: Paulownia Frame Mirror<br>Size: 100×100cm<br>Function: LED + Anti-Fog + Storage<br>Warranty: 2 Years | MOQ: 500pcs</p>
+            <div class="product-price">Unit Price: $36.50</div>
+            <button class="order-btn" onclick="openProductModal('Model A023','1m Large Round Mirror','Material: Paulownia Frame Mirror\nSize: 100×100cm\nFunction: LED Lighting + Anti-Fog + Storage\nWarranty: 2 Years\nMOQ: 500pcs','$36.50')">View Details & Inquiry</button>
         </div>
     </div>
 
     <div class="product-card" data-type="A">
-        <div class="img-box"><img class="product-img" alt="Model A024 LED防雾浴室镜"></div>
+        <div class="img-box">Product Image</div>
         <div class="product-info">
-            <h3 class="product-name">Model A024 LED防雾浴室镜</h3>
-            <p class="product-desc">材质：桐木镜框<br>尺寸：95×110cm<br>功能：LED灯光+除雾+置物<br>质保：2年 | 起订量：500件</p>
-            <div class="product-price">单价：$37.50</div>
-            <button class="order-btn" onclick="openModal('Model A024','大长方形镜','材质：桐木镜框\n尺寸：95×110cm\n功能：LED灯光+除雾+置物\n质保：2年\n起订量：500件','$37.50')">查看详情&询价</button>
+            <h3 class="product-name">Model A024 LED Anti-Fog Bathroom Mirror</h3>
+            <p class="product-desc">Material: Paulownia Frame Mirror<br>Size: 95×110cm<br>Function: LED + Anti-Fog + Storage<br>Warranty: 2 Years | MOQ: 500pcs</p>
+            <div class="product-price">Unit Price: $37.50</div>
+            <button class="order-btn" onclick="openProductModal('Model A024','Large Rectangle Mirror','Material: Paulownia Frame Mirror\nSize: 95×110cm\nFunction: LED Lighting + Anti-Fog + Storage\nWarranty: 2 Years\nMOQ: 500pcs','$37.50')">View Details & Inquiry</button>
         </div>
     </div>
 
     <div class="product-card" data-type="A">
-        <div class="img-box"><img class="product-img" alt="Model A025 LED防雾浴室镜"></div>
+        <div class="img-box">Product Image</div>
         <div class="product-info">
-            <h3 class="product-name">Model A025 LED防雾浴室镜</h3>
-            <p class="product-desc">材质：桐木镜框<br>尺寸：100×110cm<br>功能：LED灯光+除雾+置物<br>质保：2年 | 起订量：500件</p>
-            <div class="product-price">单价：$38.50</div>
-            <button class="order-btn" onclick="openModal('Model A025','超大浴室镜','材质：桐木镜框\n尺寸：100×110cm\n功能：LED灯光+除雾+置物\n质保：2年\n起订量：500件','$38.50')">查看详情&询价</button>
+            <h3 class="product-name">Model A025 LED Anti-Fog Bathroom Mirror</h3>
+            <p class="product-desc">Material: Paulownia Frame Mirror<br>Size: 100×110cm<br>Function: LED + Anti-Fog + Storage<br>Warranty: 2 Years | MOQ: 500pcs</p>
+            <div class="product-price">Unit Price: $38.50</div>
+            <button class="order-btn" onclick="openProductModal('Model A025','Extra Large Mirror','Material: Paulownia Frame Mirror\nSize: 100×110cm\nFunction: LED Lighting + Anti-Fog + Storage\nWarranty: 2 Years\nMOQ: 500pcs','$38.50')">View Details & Inquiry</button>
         </div>
     </div>
 
     <div class="product-card" data-type="A">
-        <div class="img-box"><img class="product-img" src="微信图片_20260707164222_511_35.jpg" alt="Model A026 LED防雾浴室镜"></div>
+        <div class="img-box"><img class="product-img" src="微信图片_20260707164222_511_35.jpg" alt="Model A026 LED Anti-Fog Square Bathroom Mirror"></div>
         <div class="product-info">
-            <h3 class="product-name">Model A026 LED防雾浴室镜</h3>
-            <p class="product-desc">材质：桐木镜框<br>尺寸：105×105cm<br>功能：LED灯光+除雾+置物<br>质保：2年 | 起订量：500件</p>
-            <div class="product-price">单价：$38.90</div>
-            <button class="order-btn" onclick="openModal('Model A026','特大方形镜','材质：桐木镜框\n尺寸：105×105cm\n功能：LED灯光+除雾+置物\n质保：2年\n起订量：500件','$38.90')">查看详情&询价</button>
+            <h3 class="product-name">Model A026 LED Anti-Fog Bathroom Mirror</h3>
+            <p class="product-desc">Material: Paulownia Frame Mirror<br>Size: 105×105cm<br>Function: LED + Anti-Fog + Storage<br>Warranty: 2 Years | MOQ: 500pcs</p>
+            <div class="product-price">Unit Price: $38.90</div>
+            <button class="order-btn" onclick="openProductModal('Model A026','Oversized Square Mirror','Material: Paulownia Frame Mirror\nSize: 105×105cm\nFunction: LED Lighting + Anti-Fog + Storage\nWarranty: 2 Years\nMOQ: 500pcs','$38.90')">View Details & Inquiry</button>
         </div>
     </div>
 
     <div class="product-card" data-type="A">
-        <div class="img-box"><img class="product-img" alt="Model A027 LED防雾浴室镜"></div>
-        <div class="product-info>
-            <h3 class="product-name">Model A027 LED防雾浴室镜</h3>
-            <p class="product-desc">材质：桐木镜框<br>尺寸：100×120cm<br>功能：LED灯光+除雾+置物<br>质保：2年 | 起订量：500件</p>
-            <div class="product-price">单价：$39.90</div>
-            <button class="order-btn" onclick="openModal('Model A027','全身壁挂镜','材质：桐木镜框\n尺寸：100×120cm\n功能：LED灯光+除雾+置物\n质保：2年\n起订量：500件','$39.90')">查看详情&询价</button>
+        <div class="img-box">Product Image</div>
+        <div class="product-info">
+            <h3 class="product-name">Model A027 LED Anti-Fog Bathroom Mirror</h3>
+            <p class="product-desc">Material: Paulownia Frame Mirror<br>Size: 100×120cm<br>Function: LED + Anti-Fog + Storage<br>Warranty: 2 Years | MOQ: 500pcs</p>
+            <div class="product-price">Unit Price: $39.90</div>
+            <button class="order-btn" onclick="openProductModal('Model A027','Full Length Wall Mirror','Material: Paulownia Frame Mirror\nSize: 100×120cm\nFunction: LED Lighting + Anti-Fog + Storage\nWarranty: 2 Years\nMOQ: 500pcs','$39.90')">View Details & Inquiry</button>
         </div>
     </div>
 
     <div class="product-card" data-type="A">
-        <div class="img-box"><img class="product-img" src="微信图片_20260707164222_511_35.jpg" alt="Model A028 LED防雾浴室镜"></div>
+        <div class="img-box"><img class="product-img" src="微信图片_20260707164222_511_35.jpg" alt="Model A028 LED Anti-Fog Round Bathroom Mirror"></div>
         <div class="product-info">
-            <h3 class="product-name">Model A028 LED防雾浴室镜</h3>
-            <p class="product-desc">材质：桐木镜框<br>尺寸：110×110cm<br>功能：LED灯光+除雾+置物<br>质保：2年 | 起订量：500件</p>
-            <div class="product-price">单价：$40.90</div>
-            <button class="order-btn" onclick="openModal('Model A028','特大圆形镜','材质：桐木镜框\n尺寸：110×110cm\n功能：LED灯光+除雾+置物\n质保：2年\n起订量：500件','$40.90')">查看详情&询价</button>
+            <h3 class="product-name">Model A028 LED Anti-Fog Bathroom Mirror</h3>
+            <p class="product-desc">Material: Paulownia Frame Mirror<br>Size: 110×110cm<br>Function: LED + Anti-Fog + Storage<br>Warranty: 2 Years | MOQ: 500pcs</p>
+            <div class="product-price">Unit Price: $40.90</div>
+            <button class="order-btn" onclick="openProductModal('Model A028','Oversized Round Mirror','Material: Paulownia Frame Mirror\nSize: 110×110cm\nFunction: LED Lighting + Anti-Fog + Storage\nWarranty: 2 Years\nMOQ: 500pcs','$40.90')">View Details & Inquiry</button>
         </div>
     </div>
 
-    <div class="product-card" data-type
+    <div class="product-card" data-type="A">
+        <div class="img-box"><img class="product-img" src="微信图片_20260707164222_511_35.jpg" alt="Model A029 LED Anti-Fog Round Bathroom Mirror"></div>
+        <div class="product-info">
+            <h3 class="product-name">Model A029 LED Anti-Fog Bathroom Mirror</h3>
+            <p class="product-desc">Material: Paulownia Frame Mirror<br>Size: 120×120cm<br>Function: LED + Anti-Fog + Storage<br>Warranty: 2 Years | MOQ: 500pcs</p>
+            <div class="product-price">Unit Price: $42.90</div>
+            <button class="order-btn" onclick="openProductModal('Model A029','Max Size LED Mirror','Material: Paulownia Frame Mirror\nSize: 120×120cm\nFunction: LED Lighting + Anti-Fog + Storage\nWarranty: 2 Years\nMOQ: 500pcs','$42.90')">View Details & Inquiry</button>
+        </div>
+    </div>
+
+    <!-- ========== B系列 智能镜柜 29款 (Model B开头) 长宽差≥10cm保留图片 ========== -->
+    <div class="product-card" data-type="B">
+        <div class="img-box"><img class="product-img" src="微信图片_20260707164044_510_35.jpg" alt="Model B001 Smart Bathroom Mirror Cabinet Set"></div>
+        <div class="product-info">
+            <h3 class="product-name">Model B001 Smart Bathroom Mirror Cabinet</h3>
+            <p class="product-desc">Material: Solid Wood + Paulownia Frame<br>Size: 70×90cm | Full Storage Cabinet<br>Warranty: 2 Years | MOQ: 100pcs</p>
+            <div class="product-price">Unit Price: $89.00</div>
+            <button class="order-btn" onclick="openProductModal('Model B001','Smart Mirror Cabinet Set','Material: Solid Wood + Paulownia Mirror Frame\nSize: 70×90cm\nFull Storage Cabinet Design\nWarranty: 2 Years\nMOQ: 100pcs','$89.00')">View Details & Inquiry</button>
+        </div>
+    </div>
+
+    <div class="product-card" data-type="B">
+        <div class="img-box"><img class="product-img" src="微信图片_20260707164044_510_35.jpg" alt="Model B002 Smart Bathroom Mirror Cabinet"></div>
+        <div class="product-info">
+            <h3 class="product-name">Model B002 Smart Bathroom Mirror Cabinet</h3>
+            <p class="product-desc">Material: Solid Wood + Paulownia Frame<br>Size: 50×60cm | Full Storage Cabinet<br>Warranty: 2 Years | MOQ: 100pcs</p>
+            <div class="product-price">Unit Price: $79.00</div>
+            <button class="order-btn" onclick="openProductModal('Model B002','Mini Mirror Cabinet','Material: Solid Wood + Paulownia Mirror Frame\nSize: 50×60cm\nFull Storage Cabinet Design\nWarranty: 2 Years\nMOQ: 100pcs','$79.00')">View Details & Inquiry</button>
+        </div>
+    </div>
+
+    <div class="product-card" data-type="B">
+        <div class="img-box"><img class="product-img" src="微信图片_20260707164044_510_35.jpg" alt="Model B003 Smart Bathroom Mirror Cabinet"></div>
+        <div class="product-info">
+            <h3 class="product-name">Model B003 Smart Bathroom Mirror Cabinet</h3>
+            <p class="product-desc">Material: Solid Wood + Paulownia Frame<br>Size: 50×70cm | Full Storage Cabinet<br>Warranty: 2 Years | MOQ: 100pcs</p>
+            <div class="product-price">Unit Price: $86.00</div>
+            <button class="order-btn" onclick="openProductModal('Model B003','Small Vertical Cabinet','Material: Solid Wood + Paulownia Mirror Frame\nSize: 50×70cm\nFull Storage Cabinet Design\nWarranty: 2 Years\nMOQ: 100pcs','$86.00')">View Details & Inquiry</button>
+        </div>
+    </div>
+
+    <div class="product-card" data-type="B">
+        <div class="img-box"><img class="product-img" src="微信图片_20260707164044_510_35.jpg" alt="Model B004 Smart Bathroom Mirror Cabinet"></div>
+        <div class="product-info">
+            <h3 class="product-name">Model B004 Smart Bathroom Mirror Cabinet</h3>
+            <p class="product-desc">Material: Solid Wood + Paulownia Frame<br>Size: 55×70cm | Full Storage Cabinet<br>Warranty: 2 Years | MOQ: 100pcs</p>
+            <div class="product-price">Unit Price: $91.00</div>
+            <button class="order-btn" onclick="openProductModal('Model B004','Compact Mirror Cabinet','Material: Solid Wood + Paulownia Mirror Frame\nSize: 55×70cm\nFull Storage Cabinet Design\nWarranty: 2 Years\nMOQ: 100pcs','$91.00')">View Details & Inquiry</button>
+        </div>
+    </div>
+
+    <div class="product-card" data-type="B">
+        <div class="img-box"><img class="product-img" src="微信图片_20260707164044_510_35.jpg" alt="Model B005 Smart Bathroom Mirror Cabinet"></div>
+        <div class="product-info">
+            <h3 class="product-name">Model B005 Smart Bathroom Mirror Cabinet</h3>
+            <p class="product-desc">Material: Solid Wood + Paulownia Frame<br>Size: 60×70cm | Full Storage Cabinet<br>Warranty: 2 Years | MOQ: 100pcs</p>
+            <div class="product-price">Unit Price: $96.00</div>
+            <button class="order-btn" onclick="openProductModal('Model B005','Standard Small Cabinet','Material: Solid Wood + Paulownia Mirror Frame\nSize: 60×70cm\nFull Storage Cabinet Design\nWarranty: 2 Years\nMOQ: 100pcs','$96.00')">View Details & Inquiry</button>
+        </div>
+    </div>
+
+    <div class="product-card" data-type="B">
+        <div class="img-box"><img class="product-img" src="微信图片_20260707164044_510_35.jpg" alt="Model B006 Smart Bathroom Mirror Cabinet"></div>
+        <div class="product-info">
+            <h3 class="product-name">Model B006 Smart Bathroom Mirror Cabinet</h3>
+            <p class="product-desc">Material: Solid Wood + Paulownia Frame<br>Size: 60×80cm | Full Storage Cabinet<br>Warranty: 2 Years | MOQ: 100pcs</p>
+            <div class="product-price">Unit Price: $102.00</div>
+            <button class="order-btn" onclick="openProductModal('Model B006','Medium Mirror Cabinet','Material: Solid Wood + Paulownia Mirror Frame\nSize: 60×80cm\nFull Storage Cabinet Design\nWarranty: 2 Years\nMOQ: 100pcs','$102.00')">View Details & Inquiry</button>
+        </div>
+    </div>
+
+    <div class="product-card" data-type="B">
+        <div class="img-box"><img class="product-img" src="微信图片_20260707164044_510_35.jpg" alt="Model B007 Smart Bathroom Mirror Cabinet"></div>
+        <div class="product-info">
+            <h3 class="product-name">Model B007 Smart Bathroom Mirror Cabinet</h3>
+            <p class="product-desc">Material: Solid Wood + Paulownia Frame<br>Size: 65×80cm | Full Storage Cabinet<br>Warranty: 2 Years | MOQ: 100pcs</p>
+            <div class="product-price">Unit Price: $107.00</div>
+            <button class="order-btn" onclick="openProductModal('Model B007','Medium Vertical Cabinet','Material: Solid Wood + Paulownia Mirror Frame\nSize: 65×80cm\nFull Storage Cabinet Design\nWarranty: 2 Years\nMOQ: 100pcs','$107.00')">View Details & Inquiry</button>
+        </div>
+    </div>
+
+    <div class="product-card" data-type="B">
+        <div class="img-box"><img class="product-img" src="微信图片_20260707164044_510_35.jpg" alt="Model B008 Smart Bathroom Mirror Cabinet"></div>
+        <div class="product-info">
+            <h3 class="product-name">Model B008 Smart Bathroom Mirror Cabinet</h3>
+            <p class="product-desc">Material: Solid Wood + Paulownia Frame<br>Size: 60×90cm | Full Storage Cabinet<br>Warranty: 2 Years | MOQ: 100pcs</p>
+            <div class="product-price">Unit Price: $110.00</div>
+            <button class="order-btn" onclick="openProductModal('Model B008','Tall Mirror Cabinet','Material: Solid Wood + Paulownia Mirror Frame\nSize: 60×90cm\nFull Storage Cabinet Design\nWarranty: 2 Years\nMOQ: 100pcs','$110.00')">View Details & Inquiry</button>
+        </div>
+    </div>
+
+    <div class="product-card" data-type="B">
+        <div class="img-box"><img class="product-img" src="微信图片_20260707164044_510_35.jpg" alt="Model B009 Smart Bathroom Mirror Cabinet"></div>
+        <div class="product-info">
+            <h3 class="product-name">Model B009 Smart Bathroom Mirror Cabinet</h3>
+            <p class="product-desc">Material: Solid Wood + Paulownia Frame<br>Size: 70×80cm | Full Storage Cabinet<br>Warranty: 2 Years | MOQ: 100pcs</p>
+            <div class="product-price">Unit Price: $103.00</div>
+            <button class="order-btn" onclick="openProductModal('Model B009','Standard Cabinet','Material: Solid Wood + Paulownia Mirror Frame\nSize: 70×80cm\nFull Storage Cabinet Design\nWarranty: 2 Years\nMOQ: 100pcs','$103.00')">View Details & Inquiry</button>
+        </div>
+    </div>
+
+    <div class="product-card" data-type="B">
+        <div class="img-box">Product Image</div>
+        <div class="product-info">
+            <h3 class="product-name">Model B010 Smart Bathroom Mirror Cabinet</h3>
+            <p class="product-desc">Material: Solid Wood + Paulownia Frame<br>Size: 75×85cm | Full Storage Cabinet<br>Warranty: 2 Years | MOQ: 100pcs</p>
+            <div class="product-price">Unit Price: $108.00</div>
+            <button class="order-btn" onclick="openProductModal('Model B010','Medium Large Cabinet','Material: Solid Wood + Paulownia Mirror Frame\nSize: 75×85cm\nFull Storage Cabinet Design\nWarranty: 2 Years\nMOQ: 100pcs','$108.00')">View Details & Inquiry</button>
+        </div>
+    </div>
+
+    <div class="product-card" data-type="B">
+        <div class="img-box"><img class="product-img" src="微信图片_20260707164044_510_35.jpg" alt="Model B011 Smart Bathroom Mirror Cabinet"></div>
+        <div class="product-info">
+            <h3 class="product-name">Model B011 Smart Bathroom Mirror Cabinet</h3>
+            <p class="product-desc">Material: Solid Wood + Paulownia Frame<br>Size: 70×100cm | Full Storage Cabinet<br>Warranty: 2 Years | MOQ: 100pcs</p>
+            <div class="product-price">Unit Price: $118.00</div>
+            <button class="order-btn" onclick="openProductModal('Model B011','Tall Storage Cabinet','Material: Solid Wood + Paulownia Mirror Frame\nSize: 70×100cm\nFull Storage Cabinet Design\nWarranty: 2 Years\nMOQ: 100pcs','$118.00')">View Details & Inquiry</button>
+        </div>
+    </div>
+
+    <div class="product-card" data-type="B">
+        <div class="img-box"><img class="product-img" src="微信图片_20260707164044_510_35.jpg" alt="Model B012 Smart Bathroom Mirror Cabinet"></div>
+        <div class="product-info">
+            <h3 class="product-name">Model B012 Smart Bathroom Mirror Cabinet</h3>
+            <p class="product-desc">Material: Solid Wood + Paulownia Frame<br>Size: 80×90cm | Full Storage Cabinet<br>Warranty: 2 Years | MOQ: 100pcs</p>
+            <div class="product-price">Unit Price: $112.00</div>
+            <button class="order-btn" onclick="openProductModal('Model B012','Large Mirror Cabinet','Material: Solid Wood + Paulownia Mirror Frame\nSize: 80×90cm\nFull Storage Cabinet Design\nWarranty: 2 Years\nMOQ: 100pcs','$112.00')">View Details & Inquiry</button>
+        </div>
+    </div>
+
+    <div class="product-card" data-type="B">
+        <div class="img-box"><img class="product-img" src="微信图片_20260707164044_510_35.jpg" alt="Model B013 Smart Bathroom Mirror Cabinet"></div>
+        <div class="product-info">
+            <h3 class="product-name">Model B013 Smart Bathroom Mirror Cabinet</h3>
+            <p class="product-desc">Material: Solid Wood + Paulownia Frame<br>Size: 75×100cm | Full Storage Cabinet<br>Warranty: 2 Years | MOQ: 100pcs</p>
+            <div class="product-price">Unit Price: $119.00</div>
+            <button class="order-btn" onclick="openProductModal('Model B013','Large Vertical Cabinet','Material: Solid Wood + Paulownia Mirror Frame\nSize: 75×100cm\nFull Storage Cabinet Design\nWarranty: 2 Years\nMOQ: 100pcs','$119.00')">View Details & Inquiry</button>
+        </div>
+    </div>
+
+    <div class="product-card" data-type="B">
+        <div class="img-box"><img class="product-img" src="微信图片_20260707164044_510_35.jpg" alt="Model B014 Smart Bathroom Mirror Cabinet"></div>
+        <div class="product-info">
+            <h3 class="product-name">Model B014 Smart Bathroom Mirror Cabinet</h3>
+            <p class="product-desc">Material: Solid Wood + Paulownia Frame<br>Size: 80×100cm | Full Storage Cabinet<br>Warranty: 2 Years | MOQ: 100pcs</p>
+            <div class="product-price">Unit Price: $125.00</div>
+            <button class="order-btn" onclick="openProductModal('Model B014','Extra Large Cabinet','Material: Solid Wood + Paulownia Mirror Frame\nSize: 80×100cm\nFull Storage Cabinet Design\nWarranty: 2 Years\nMOQ: 100pcs','$125.00')">View Details & Inquiry</button>
+        </div>
+    </div>
+
+    <div class="product-card" data-type="B">
+        <div class="img-box">Product Image</div>
+        <div class="product-info">
+            <h3 class="product-name">Model B015 Smart Bathroom Mirror Cabinet</h3>
+            <p class="product-desc">Material: Solid Wood + Paulownia Frame<br>Size: 85×95cm | Full Storage Cabinet<br>Warranty: 2 Years | MOQ: 100pcs</p>
+            <div class="product-price">Unit Price: $127.00</div>
+            <button class="order-btn" onclick="openProductModal('Model B015','Square Large Cabinet','Material: Solid Wood + Paulownia Mirror Frame\nSize: 85×95cm\nFull Storage Cabinet Design\nWarranty: 2 Years\nMOQ: 100pcs','$127.00')">View Details & Inquiry</button>
+        </div>
+    </div>
+
+    <div class="product-card" data-type="B">
+        <div class="img-box">Product Image</div>
+        <div class="product-info">
+            <h3 class="product-name">Model B016 Smart Bathroom Mirror Cabinet</h3>
+            <p class="product-desc">Material: Solid Wood + Paulownia Frame<br>Size: 90×90cm | Full Storage Cabinet<br>Warranty: 2 Years | MOQ: 100pcs</p>
+            <div class="product-price">Unit Price: $128.00</div>
+            <button class="order-btn" onclick="openProductModal('Model B016','Square Mirror Cabinet','Material: Solid Wood + Paulownia Mirror Frame\nSize: 90×90cm\nFull Storage Cabinet Design\nWarranty: 2 Years\nMOQ: 100pcs','$128.00')">View Details & Inquiry</button>
+        </div>
+    </div>
+
+    <div class="product-card" data-type="B">
+        <div class="img-box"><img class="product-img" src="微信图片_20260707164044_510_35.jpg" alt="Model B017 Smart Bathroom Mirror Cabinet"></div>
+        <div class="product-info">
+            <h3 class="product-name">Model B017 Smart Bathroom Mirror Cabinet</h3>
+            <p class="product-desc">Material: Solid Wood + Paulownia Frame<br>Size: 85×105cm | Full Storage Cabinet<br>Warranty: 2 Years | MOQ: 100pcs</p>
+            <div class="product-price">Unit Price: $135.00</div>
+            <button class="order-btn" onclick="openProductModal('Model B017','Tall Large Cabinet','Material: Solid Wood + Paulownia Mirror Frame\nSize: 85×105cm\nFull Storage Cabinet Design\nWarranty: 2 Years\nMOQ: 100pcs','$135.00')">View Details & Inquiry</button>
+        </div>
+    </div>
+
+    <div class="product-card" data-type="B">
+        <div class="img-box"><img class="product-img" src="微信图片_20260707164044_510_35.jpg" alt="Model B018 Smart Bathroom Mirror Cabinet"></div>
+        <div class="product-info">
+            <h3 class="product-name">Model B018 Smart Bathroom Mirror Cabinet</h3>
+            <p class="product-desc">Material: Solid Wood + Paulownia Frame<br>Size: 90×100cm | Full Storage Cabinet<br>Warranty: 2 Years | MOQ: 100pcs</p>
+            <div class="product-price">Unit Price: $138.00</div>
+            <button class="order-btn" onclick="openProductModal('Model B018','Large Storage Cabinet','Material: Solid Wood + Paulownia Mirror Frame\nSize: 90×100cm\nFull Storage Cabinet Design\nWarranty: 2 Years\nMOQ: 100pcs','$138.00')">View Details & Inquiry</button>
+        </div>
+    </div>
+
+    <div class="product-card" data-type="B">
+        <div class="img-box"><img class="product-img" src="微信图片_20260707164044_510_35.jpg" alt="Model B019 Smart Bathroom Mirror Cabinet"></div>
+        <div class="product-info">
+            <h3 class="product-name">Model B019 Smart Bathroom Mirror Cabinet</h3>
+            <p class="product-desc">Material: Solid Wood + Paulownia Frame<br>Size: 95×100cm | Full Storage Cabinet<br>Warranty: 2 Years | MOQ: 100pcs</p>
+            <div class="product-price">Unit Price: $142.00</div>
+            <button class="order-btn" onclick="openProductModal('Model B019','Wide Mirror Cabinet','Material: Solid Wood + Paulownia Mirror Frame\nSize: 95×100cm\nFull Storage Cabinet Design\nWarranty: 2 Years\nMOQ: 100pcs','$142.00')">View Details & Inquiry</button>
+        </div>
+    </div>
+
+    <div class="product-card" data-type="B">
+        <div class="img-box"><img class="product-img" src="微信图片_20260707164044_510_35.jpg" alt="Model B020 Smart Bathroom Mirror Cabinet"></div>
+        <div class="product-info">
+            <h3 class="product-name">Model B020 Smart Bathroom Mirror Cabinet</h3>
+            <p class="product-desc">Material: Solid Wood + Paulownia Frame<br>Size: 90×110cm | Full Storage Cabinet<br>Warranty: 2 Years | MOQ: 100pcs</p>
+            <div class="product-price">Unit Price: $148.00</div>
+            <button class="order-btn" onclick="openProductModal('Model B020','Extra Tall Cabinet','Material: Solid Wood + Paulownia Mirror Frame\nSize: 90×110cm\nFull Storage Cabinet Design\nWarranty: 2 Years\nMOQ: 100pcs','$148.00')">View Details & Inquiry</button>
+        </div>
+    </div>
+
+    <div class="product-card" data-type="B">
+        <div class="img-box"><img class="product-img" src="微信图片_20260707164044_510_35.jpg" alt="Model B021 Smart Bathroom Mirror Cabinet"></div>
+        <div class="product-info">
+            <h3 class="product-name">Model B021 Smart Bathroom Mirror Cabinet</h3>
+            <p class="product-desc">Material: Solid Wood + Paulownia Frame<br>Size: 100×100cm | Full Storage Cabinet<br>Warranty: 2 Years | MOQ: 100pcs</p>
+            <div class="product-price">Unit Price: $150.00</div>
+            <button class="order-btn" onclick="openProductModal('Model B021','Square Large Cabinet','Material: Solid Wood + Paulownia Mirror Frame\nSize: 100×100cm\nFull Storage Cabinet Design\nWarranty: 2 Years\nMOQ: 100pcs','$150.00')">View Details & Inquiry</button>
+        </div>
+    </div>
+
+    <div class="product-card" data-type="B">
+        <div class="img-box"><img class="product-img" src="微信图片_20260707164044_510_35.jpg" alt="Model B022 Smart Bathroom Mirror Cabinet"></div>
+        <div class="product-info">
+            <h3 class="product-name">Model B022 Smart Bathroom Mirror Cabinet</h3>
+            <p class="product-desc">Material: Solid Wood + Paulownia Frame<br>Size: 95×115cm | Full Storage Cabinet<br>Warranty: 2 Years | MOQ: 100pcs</p>
+            <div class="product-price">Unit Price: $156.00</div>
+            <button class="order-btn" onclick="openProductModal('Model B022','Wide Tall Cabinet','Material: Solid Wood + Paulownia Mirror Frame\nSize: 95×115cm\nFull Storage Cabinet Design\nWarranty: 2 Years\nMOQ: 100pcs','$156.00')">View Details & Inquiry</button>
+        </div>
+    </div>
+
+    <div class="product-card" data-type="B">
+        <div class="img-box"><img class="product-img" src="微信图片_20260707164044_510_35.jpg" alt="Model B023 Smart Bathroom Mirror Cabinet"></div>
+        <div class="product-info">
+            <h3 class="product-name">Model B023 Smart Bathroom Mirror Cabinet</h3>
+            <p class="product-desc">Material: Solid Wood + Paulownia Frame<br>Size: 100×110cm | Full Storage Cabinet<br>Warranty: 2 Years | MOQ: 100pcs</p>
+            <div class="product-price">Unit Price: $159.00</div>
+            <button class="order-btn" onclick="openProductModal('Model B023','Extra Large Cabinet','Material: Solid Wood + Paulownia Mirror Frame\nSize: 100×110cm\nFull Storage Cabinet Design\nWarranty: 2 Years\nMOQ: 100pcs','$159.00')">View Details & Inquiry</button>
+        </div>
+    </div>
+
+    <div class="product-card" data-type="B">
+        <div class="img-box"><img class="product-img" src="微信图片_20260707164044_510_35.jpg" alt="Model B024 Smart Bathroom Mirror Cabinet"></div>
+        <div class="product-info">
+            <h3 class="product-name">Model B024 Smart Bathroom Mirror Cabinet</h3>
+            <p class="product-desc">Material: Solid Wood + Paulownia Frame<br>Size: 105×115cm | Full Storage Cabinet<br>Warranty: 2 Years | MOQ: 100pcs</p>
+            <div class="product-price">Unit Price: $168.00</div>
+            <button class="order-btn" onclick="openProductModal('Model B024','Oversized Cabinet','Material: Solid Wood + Paulownia Mirror Frame\nSize: 105×115cm\nFull Storage Cabinet Design\nWarranty: 2 Years\nMOQ: 100pcs','$168.00')">View Details & Inquiry</button>
+        </div>
+    </div>
+
+    <div class="product-card" data-type="B">
+        <div class="img-box"><img class="product-img" src="微信图片_20260707164044_510_35.jpg" alt="Model B025 Smart Bathroom Mirror Cabinet"></div>
+        <div class="product-info">
+            <h3 class="product-name">Model B025 Smart Bathroom Mirror Cabinet</h3>
+            <p class="product-desc">Material: Solid Wood + Paulownia Frame<br>Size: 110×120cm | Full Storage Cabinet<br>Warranty: 2 Years | MOQ: 100pcs</p>
+            <div class="product-price">Unit Price: $175.00</div>
+            <button class="order-btn" onclick="openProductModal('Model B025','Full Size Cabinet','Material: Solid Wood + Paulownia Mirror Frame\nSize: 110×120cm\nFull Storage Cabinet Design\nWarranty: 2 Years\nMOQ: 100pcs','$175.00')">View Details & Inquiry</button>
+        </div>
+    </div>
+
+    <div class="product-card" data-type="B">
+        <div class="img-box"><img class="product-img" src="微信图片_20260707164044_510_35.jpg" alt="Model B026 Smart Bathroom Mirror Cabinet"></div>
+        <div class="product-info">
+            <h3 class="product-name">Model B026 Smart Bathroom Mirror Cabinet</h3>
+            <p class="product-desc">Material: Solid Wood + Paulownia Frame<br>Size: 115×125cm | Full Storage Cabinet<br>Warranty: 2 Years | MOQ: 100pcs</p>
+            <div class="product-price">Unit Price: $182.00</div>
+            <button class="order-btn" onclick="openProductModal('Model B026','Max Wide Cabinet','Material: Solid Wood + Paulownia Mirror Frame\nSize: 115×125cm\nFull Storage Cabinet Design\nWarranty: 2 Years\nMOQ: 100pcs','$182.00')">View Details & Inquiry</button>
+        </div>
+    </div>
+
+    <div class="product-card" data-type="B">
+        <div class="img-box"><img class="product-img" src="微信图片_20260707164044_510_35.jpg" alt="Model B027 Smart Bathroom Mirror Cabinet"></div>
+        <div class="product-info">
+            <h3 class="product-name">Model B027 Smart Bathroom Mirror Cabinet</h3>
+            <p class="product-desc">Material: Solid Wood + Paulownia Frame<br>Size: 120×130cm | Full Storage Cabinet<br>Warranty: 2 Years | MOQ: 100pcs</p>
+            <div class="product-price">Unit Price: $189.00</div>
+            <button class="order-btn" onclick="openProductModal('Model B027','Max Size Cabinet','Material: Solid Wood + Paulownia Mirror Frame\nSize: 120×130cm\nFull Storage Cabinet Design\nWarranty: 2 Years\nMOQ: 100pcs','$189.00')">View Details & Inquiry</button>
+        </div>
+    </div>
+
+    <div class="product-card" data-type="B">
+        <div class="img-box"><img class="product-img" src="微信图片_20260707164044_510_35.jpg" alt="Model B028 Smart Bathroom Mirror Cabinet"></div>
+        <div class="product-info">
+            <h3 class="product-name">Model B028 Smart Bathroom Mirror Cabinet</h3>
+            <p class="product-desc">Material: Solid Wood + Paulownia Frame<br>Size: 100×140cm | Full Storage Cabinet<br>Warranty: 2 Years | MOQ: 100pcs</p>
+            <div class="product-price">Unit Price: $186.00</div>
+            <button class="order-btn" onclick="openProductModal('Model B028','Extra Tall Cabinet','Material: Solid Wood + Paulownia Mirror Frame\nSize: 100×140cm\nFull Storage Cabinet Design\nWarranty: 2 Years\nMOQ: 100pcs','$186.00')">View Details & Inquiry</button>
+        </div>
+    </div>
+
+    <div class="product-card" data-type="B">
+        <div class="img-box"><img class="product-img" src="微信图片_20260707164044_510_35.jpg" alt="Model B029 Smart Bathroom Mirror Cabinet"></div>
+        <div class="product-info">
+            <h3 class="product-name">Model B029 Smart Bathroom Mirror Cabinet</h3>
+            <p class="product-desc">Material: Solid Wood + Paulownia Frame<br>Size: 120×150cm | Full Storage Cabinet<br>Warranty: 2 Years | MOQ: 100pcs</p>
+            <div class="product-price">Unit Price: $189.00</div>
+            <button class="order-btn" onclick="openProductModal('Model B029','Full Length Cabinet','Material: Solid Wood + Paulownia Mirror Frame\nSize: 120×150cm\nFull Storage Cabinet Design\nWarranty: 2 Years\nMOQ: 100pcs','$189.00')">View Details & Inquiry</button>
+        </div>
+    </div>
+</div>
+
+<!-- 商品详情弹窗 -->
+<div class="modal-mask" id="productModal">
+    <div class="modal-box">
+        <span class="close-modal" onclick="closeProductModal()">×</span>
+        <h2 class="modal-title" id="modalTitle">Product Details</h2>
+        <div class="modal-text" id="modalContent"></div>
+        <button class="whatsapp-btn" onclick="contactWhatsApp()">💬 Contact via WhatsApp</button>
+    </div>
+</div>
+
+<!-- OEM定制弹窗 -->
+<div class="modal-mask" id="oemModal">
+    <div class="modal-box">
+        <span class="close-modal" onclick="closeOEMModal()">×</span>
+        <h2 class="modal-title">OEM & ODM Custom Service</h2>
+        <div class="modal-text">
+✅ Custom Size & Shape
+✅ Custom Logo Printing
+✅ Custom Light Color (Warm / Cool / Dimmable)
+✅ Custom Function (Anti-fog, Bluetooth, Speaker, Touch Switch)
+✅ Custom Packaging
+
+Minimum Order for Custom: 100pcs
+Sample Lead Time: 7-10 Days
+Bulk Production: 25-35 Days
+        </div>
+        <button class="whatsapp-btn" onclick="contactWhatsApp()">💬 Get Custom Quote</button>
+    </div>
+</div>
+
+<!-- 悬浮WhatsApp -->
+<a class="float-whatsapp" href="https://wa.me/8617799215074" target="_blank" title="Contact WhatsApp">💬</a>
+
+<!-- 回到顶部 -->
+<div class="back-top" id="backTop" onclick="scrollToTop()">↑</div>
+
+<!-- 页脚 -->
+<footer>
+    <h3>Contact Information</h3>
+    <p>WhatsApp: <span class="copy-text" onclick="copyText('+86 17799215074')">+86 17799215074</span></p>
+    <p>Email: <span class="copy-text" onclick="copyText('esra040510@gmail.com')">esra040510@gmail.com</span></p>
+    <p>WeChat ID: <span class="copy-text" onclick="copyText('zrqy716')">zrqy716</span></p>
+    <p>Factory Address: Guali Qianxing Village, Xiaoshan District, Hangzhou City, Zhejiang Province, China</p>
+    <p style="margin-top:20px; color:#a86b7e;">© 2026 Yongling LED Sanitary Mirror Factory. All Rights Reserved.</p>
+</footer>
+
+<div class="copy-toast" id="copyToast">Copied successfully!</div>
+
+<script>
+    // 全局状态：当前筛选类型
+    let currentFilter = 'all';
+    const WHATSAPP_NUMBER = '8617799215074';
+
+    // 页面加载完成后初始化
+    document.addEventListener('DOMContentLoaded', function() {
+        initFilterTabs();
+        initSearch();
+        initBackTop();
+    });
+
+    // 初始化分类标签点击事件
+    function initFilterTabs() {
+        const tabs = document.querySelectorAll('.filter-tab');
+        tabs.forEach(tab => {
+            tab.addEventListener('click', function() {
+                // 切换激活状态
+                tabs.forEach(t => t.classList.remove('active'));
+                this.classList.add('active');
+                // 更新当前筛选类型
+                currentFilter = this.getAttribute('data-filter');
+                // 重新执行筛选+搜索
+                filterProducts();
+            });
+        });
+    }
+
+    // 初始化搜索框
+    function initSearch() {
+        const searchInput = document.getElementById('searchInput');
+        searchInput.addEventListener('input', filterProducts);
+    }
+
+    // 核心筛选函数：同时处理分类+搜索
+    function filterProducts() {
+        const keyword = document.getElementById('searchInput').value.trim().toLowerCase();
+        const allCards = document.querySelectorAll('.product-card');
+
+        allCards.forEach(card => {
+            const type = card.getAttribute('data-type');
+            const text = card.innerText.toLowerCase();
+            
+            // 分类判断
+            const matchType = currentFilter === 'all' || type === currentFilter;
+            // 关键词判断
+            const matchKeyword = keyword === '' || text.includes(keyword);
+
+            if (matchType && matchKeyword) {
+                card.classList.remove('hide');
+            } else {
+                card.classList.add('hide');
+            }
+        });
+    }
+
+    // 打开商品详情弹窗
+    function openProductModal(model, name, specs, price) {
+        document.getElementById('modalTitle').innerText = model + ' - ' + name;
+        document.getElementById('modalContent').innerText = specs + '\n\nUnit Price: ' + price;
+        document.getElementById('productModal').classList.add('show');
+    }
+
+    // 关闭商品详情弹窗
+    function closeProductModal() {
+        document.getElementById('productModal').classList.remove('show');
+    }
+
+    // 打开OEM弹窗
+    function openOEMModal() {
+        document.getElementById('oemModal').classList.add('show');
+    }
+
+    // 关闭OEM弹窗
+    function closeOEMModal() {
+        document.getElementById('oemModal').classList.remove('show');
+    }
+
+    // 跳转到WhatsApp
+    function contactWhatsApp() {
+        window.open('https://wa.me/' + WHATSAPP_NUMBER, '_blank');
+    }
+
+    // 复制文本
+    function copyText(text) {
+        navigator.clipboard.writeText(text).then(() => {
+            showToast();
+        });
+    }
+
+    // 显示复制成功提示
+    function showToast() {
+        const toast = document.getElementById('copyToast');
+        toast.classList.add('show');
+        setTimeout(() => {
+            toast.classList.remove('show');
+        }, 2000);
+    }
+
+    // 回到顶部按钮显示控制
+    function initBackTop() {
+        const backTop = document.getElementById('backTop');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 300) {
+                backTop.classList.add('show');
+            } else {
+                backTop.classList.remove('show');
+            }
+        });
+    }
+
+    // 滚动到顶部
+    function scrollToTop() {
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+
+    // 点击弹窗遮罩关闭弹窗
+    document.querySelectorAll('.modal-mask').forEach(mask => {
+        mask.addEventListener('click', function(e) {
+            if (e.target === this) {
+                this.classList.remove('show');
+            }
+        });
+    });
+</script>
+
+</body>
+</html>
