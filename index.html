@@ -1,4 +1,3 @@
-html
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -15,9 +14,14 @@ html
             --primary-light: #b03860;
             --bg-soft: #ffe8ec;
             --border-soft: #f8c8d2;
+            --border-input: #f0a8b8;
             --text-dark: #333;
             --text-muted: #66394a;
+            --text-placeholder: #bb7989;
+            --price-color: #c42e5a;
             --white: #ffffff;
+            --whatsapp: #25D366;
+            --whatsapp-dark: #20bd5a;
             --shadow-sm: 0 4px 18px rgba(145, 40, 75, 0.08);
             --shadow-hover: 0 12px 32px rgba(145, 40, 75, 0.15);
             --radius-card: 16px;
@@ -55,7 +59,7 @@ html
             position: sticky;
             top: 0;
             z-index: 100;
-            background-color: var(--bg-soft);
+            background-color: rgba(255, 232, 236, 0.95);
             backdrop-filter: blur(8px);
         }
         header h1 {
@@ -75,14 +79,14 @@ html
         #searchInput {
             padding: 14px 20px;
             width: 420px;
-            border: 2px solid #f0a8b8;
+            border: 2px solid var(--border-input);
             border-radius: 16px;
             font-size: 16px;
             background: var(--white);
             transition: var(--transition);
         }
         #searchInput::placeholder {
-            color: #bb7989;
+            color: var(--text-placeholder);
         }
         #searchInput:focus {
             outline: none;
@@ -128,7 +132,7 @@ html
             padding: 10px 24px;
             border-radius: 28px;
             background: var(--white);
-            border: 1px solid #f0a8b8;
+            border: 1px solid var(--border-input);
             color: var(--primary);
             cursor: pointer;
             font-size: 14px;
@@ -236,13 +240,11 @@ html
             line-height: 1.7;
             margin-bottom: 14px;
             flex: 1;
-        }
-        .product-desc strong {
-            color: var(--primary-dark);
+            white-space: pre-line;
         }
         .product-price {
             font-size: 18px;
-            color: #c42e5a;
+            color: var(--price-color);
             font-weight: 700;
             margin-bottom: 16px;
         }
@@ -327,21 +329,12 @@ html
             margin-bottom: 24px;
             white-space: pre-line;
         }
-        .modal-text .spec-item {
-            display: inline-block;
-            background: var(--bg-soft);
-            padding: 2px 12px;
-            border-radius: 12px;
-            margin: 2px 4px 2px 0;
-            font-size: 13px;
-            color: var(--primary-dark);
-        }
         .whatsapp-btn {
             display: block;
             width: 100%;
             text-align: center;
             padding: 14px;
-            background: #25D366;
+            background: var(--whatsapp);
             color: white;
             border-radius: 10px;
             text-decoration: none;
@@ -352,7 +345,7 @@ html
             cursor: pointer;
         }
         .whatsapp-btn:hover {
-            background: #20bd5a;
+            background: var(--whatsapp-dark);
             transform: translateY(-1px);
         }
 
@@ -380,7 +373,7 @@ html
         .back-top {
             position: fixed;
             bottom: 30px;
-            left: 30px;
+            right: 30px;
             width: 48px;
             height: 48px;
             border-radius: 50%;
@@ -415,7 +408,7 @@ html
             width: 56px;
             height: 56px;
             border-radius: 50%;
-            background: #25D366;
+            background: var(--whatsapp);
             color: #fff;
             display: flex;
             align-items: center;
@@ -466,7 +459,7 @@ html
             .filter-tab { padding: 10px 20px; font-size: 15px; }
             .product-grid { gap: 24px; }
             .float-whatsapp { right: 20px; bottom: 80px; width: 50px; height: 50px; font-size: 24px; }
-            .back-top { left: 20px; bottom: 20px; width: 42px; height: 42px; }
+            .back-top { right: 20px; bottom: 20px; width: 42px; height: 42px; }
             .modal-box { padding: 28px 20px; }
         }
     </style>
@@ -491,12 +484,10 @@ html
 
 <div class="product-grid" id="productGrid">
     <!-- 产品卡片由 JavaScript 动态渲染 -->
-</div>
-
-<!-- 空状态提示 -->
-<div class="empty-state" id="emptyState">
-    <span>🔍</span>
-    No products found. Try a different keyword.
+    <div class="empty-state" id="emptyState">
+        <span>🔍</span>
+        No products found. Try a different keyword.
+    </div>
 </div>
 
 <!-- 商品详情弹窗 -->
@@ -599,4 +590,213 @@ Bulk Production: 25-35 Days
         { id: 'B013', type: 'B', name: 'Model B013 Smart Bathroom Mirror Cabinet', desc: 'Material: Solid Wood + Paulownia Frame\nSize: 75×100cm | Full Storage Cabinet\nWarranty: 2 Years | MOQ: 100pcs', price: '$119.00', img: '微信图片_20260707164044_510_35.jpg' },
         { id: 'B014', type: 'B', name: 'Model B014 Smart Bathroom Mirror Cabinet', desc: 'Material: Solid Wood + Paulownia Frame\nSize: 80×100cm | Full Storage Cabinet\nWarranty: 2 Years | MOQ: 100pcs', price: '$125.00', img: '微信图片_20260707164044_510_35.jpg' },
         { id: 'B015', type: 'B', name: 'Model B015 Smart Bathroom Mirror Cabinet', desc: 'Material: Solid Wood + Paulownia Frame\nSize: 85×95cm | Full Storage Cabinet\nWarranty: 2 Years | MOQ: 100pcs', price: '$127.00', img: '' },
-       
+        { id: 'B016', type: 'B', name: 'Model B016 Smart Bathroom Mirror Cabinet', desc: 'Material: Solid Wood + Paulownia Frame\nSize: 90×90cm | Full Storage Cabinet\nWarranty: 2 Years | MOQ: 100pcs', price: '$128.00', img: '' },
+        { id: 'B017', type: 'B', name: 'Model B017 Smart Bathroom Mirror Cabinet', desc: 'Material: Solid Wood + Paulownia Frame\nSize: 85×105cm | Full Storage Cabinet\nWarranty: 2 Years | MOQ: 100pcs', price: '$135.00', img: '微信图片_20260707164044_510_35.jpg' },
+        { id: 'B018', type: 'B', name: 'Model B018 Smart Bathroom Mirror Cabinet', desc: 'Material: Solid Wood + Paulownia Frame\nSize: 90×100cm | Full Storage Cabinet\nWarranty: 2 Years | MOQ: 100pcs', price: '$138.00', img: '微信图片_20260707164044_510_35.jpg' },
+        { id: 'B019', type: 'B', name: 'Model B019 Smart Bathroom Mirror Cabinet', desc: 'Material: Solid Wood + Paulownia Frame\nSize: 95×100cm | Full Storage Cabinet\nWarranty: 2 Years | MOQ: 100pcs', price: '$142.00', img: '微信图片_20260707164044_510_35.jpg' },
+        { id: 'B020', type: 'B', name: 'Model B020 Smart Bathroom Mirror Cabinet', desc: 'Material: Solid Wood + Paulownia Frame\nSize: 90×110cm | Full Storage Cabinet\nWarranty: 2 Years | MOQ: 100pcs', price: '$148.00', img: '微信图片_20260707164044_510_35.jpg' },
+        { id: 'B021', type: 'B', name: 'Model B021 Smart Bathroom Mirror Cabinet', desc: 'Material: Solid Wood + Paulownia Frame\nSize: 100×100cm | Full Storage Cabinet\nWarranty: 2 Years | MOQ: 100pcs', price: '$150.00', img: '微信图片_20260707164044_510_35.jpg' },
+        { id: 'B022', type: 'B', name: 'Model B022 Smart Bathroom Mirror Cabinet', desc: 'Material: Solid Wood + Paulownia Frame\nSize: 95×115cm | Full Storage Cabinet\nWarranty: 2 Years | MOQ: 100pcs', price: '$156.00', img: '微信图片_20260707164044_510_35.jpg' },
+        { id: 'B023', type: 'B', name: 'Model B023 Smart Bathroom Mirror Cabinet', desc: 'Material: Solid Wood + Paulownia Frame\nSize: 100×110cm | Full Storage Cabinet\nWarranty: 2 Years | MOQ: 100pcs', price: '$159.00', img: '微信图片_20260707164044_510_35.jpg' },
+        { id: 'B024', type: 'B', name: 'Model B024 Smart Bathroom Mirror Cabinet', desc: 'Material: Solid Wood + Paulownia Frame\nSize: 105×115cm | Full Storage Cabinet\nWarranty: 2 Years | MOQ: 100pcs', price: '$168.00', img: '微信图片_20260707164044_510_35.jpg' },
+        { id: 'B025', type: 'B', name: 'Model B025 Smart Bathroom Mirror Cabinet', desc: 'Material: Solid Wood + Paulownia Frame\nSize: 110×120cm | Full Storage Cabinet\nWarranty: 2 Years | MOQ: 100pcs', price: '$175.00', img: '微信图片_20260707164044_510_35.jpg' },
+        { id: 'B026', type: 'B', name: 'Model B026 Smart Bathroom Mirror Cabinet', desc: 'Material: Solid Wood + Paulownia Frame\nSize: 115×125cm | Full Storage Cabinet\nWarranty: 2 Years | MOQ: 100pcs', price: '$182.00', img: '微信图片_20260707164044_510_35.jpg' },
+        { id: 'B027', type: 'B', name: 'Model B027 Smart Bathroom Mirror Cabinet', desc: 'Material: Solid Wood + Paulownia Frame\nSize: 120×130cm | Full Storage Cabinet\nWarranty: 2 Years | MOQ: 100pcs', price: '$189.00', img: '微信图片_20260707164044_510_35.jpg' },
+        { id: 'B028', type: 'B', name: 'Model B028 Smart Bathroom Mirror Cabinet', desc: 'Material: Solid Wood + Paulownia Frame\nSize: 100×140cm | Full Storage Cabinet\nWarranty: 2 Years | MOQ: 100pcs', price: '$186.00', img: '微信图片_20260707164044_510_35.jpg' },
+        { id: 'B029', type: 'B', name: 'Model B029 Smart Bathroom Mirror Cabinet', desc: 'Material: Solid Wood + Paulownia Frame\nSize: 120×150cm | Full Storage Cabinet\nWarranty: 2 Years | MOQ: 100pcs', price: '$189.00', img: '微信图片_20260707164044_510_35.jpg' }
+    ];
+
+    // ============================================================
+    // 2. 全局配置
+    // ============================================================
+    const WHATSAPP_NUMBER = '8617799215074';
+    let currentFilter = 'all';
+
+    // ============================================================
+    // 3. 初始化
+    // ============================================================
+    document.addEventListener('DOMContentLoaded', function() {
+        renderProducts();
+        initFilterTabs();
+        initSearch();
+        initBackTop();
+        initModalClose();
+    });
+
+    // ============================================================
+    // 4. 渲染产品列表
+    // ============================================================
+    function renderProducts() {
+        const grid = document.getElementById('productGrid');
+        const emptyState = document.getElementById('emptyState');
+        
+        // 清空现有内容（保留空状态元素）
+        grid.innerHTML = '';
+        grid.appendChild(emptyState);
+
+        PRODUCTS.forEach(product => {
+            const card = document.createElement('div');
+            card.className = 'product-card';
+            card.setAttribute('data-type', product.type);
+            card.setAttribute('data-id', product.id);
+
+            // 图片区域
+            const imgBox = document.createElement('div');
+            imgBox.className = 'img-box';
+            if (product.img) {
+                imgBox.innerHTML = `<img class="product-img" src="${product.img}" alt="${product.name}">`;
+            } else {
+                imgBox.innerHTML = `<div class="img-placeholder">Product Image<br>(Coming Soon)</div>`;
+            }
+
+            // 信息区域
+            const info = document.createElement('div');
+            info.className = 'product-info';
+            info.innerHTML = `
+                <h3 class="product-name">${product.name}</h3>
+                <p class="product-desc">${product.desc}</p>
+                <div class="product-price">Unit Price: ${product.price}</div>
+                <button class="order-btn" onclick="openProductModal('${product.id}')">View Details & Inquiry</button>
+            `;
+
+            card.appendChild(imgBox);
+            card.appendChild(info);
+            grid.appendChild(card);
+        });
+
+        // 执行一次筛选
+        filterProducts();
+    }
+
+    // ============================================================
+    // 5. 分类筛选
+    // ============================================================
+    function initFilterTabs() {
+        const tabs = document.querySelectorAll('.filter-tab');
+        tabs.forEach(tab => {
+            tab.addEventListener('click', function() {
+                tabs.forEach(t => t.classList.remove('active'));
+                this.classList.add('active');
+                currentFilter = this.getAttribute('data-filter');
+                filterProducts();
+            });
+        });
+    }
+
+    // ============================================================
+    // 6. 搜索功能
+    // ============================================================
+    function initSearch() {
+        const searchInput = document.getElementById('searchInput');
+        searchInput.addEventListener('input', filterProducts);
+    }
+
+    // 核心筛选逻辑：分类 + 搜索关键词联动
+    function filterProducts() {
+        const keyword = document.getElementById('searchInput').value.trim().toLowerCase();
+        const allCards = document.querySelectorAll('.product-card');
+        const emptyState = document.getElementById('emptyState');
+        let visibleCount = 0;
+
+        allCards.forEach(card => {
+            const type = card.getAttribute('data-type');
+            const text = card.innerText.toLowerCase();
+            
+            const matchType = currentFilter === 'all' || type === currentFilter;
+            const matchKeyword = keyword === '' || text.includes(keyword);
+
+            if (matchType && matchKeyword) {
+                card.classList.remove('hide');
+                visibleCount++;
+            } else {
+                card.classList.add('hide');
+            }
+        });
+
+        // 控制空状态显示
+        if (visibleCount === 0) {
+            emptyState.classList.add('show');
+        } else {
+            emptyState.classList.remove('show');
+        }
+    }
+
+    // ============================================================
+    // 7. 弹窗逻辑
+    // ============================================================
+    function openProductModal(productId) {
+        const product = PRODUCTS.find(p => p.id === productId);
+        if (!product) return;
+
+        document.getElementById('modalTitle').innerText = product.name;
+        document.getElementById('modalContent').innerText = `${product.desc}\n\nUnit Price: ${product.price}`;
+        document.getElementById('productModal').classList.add('show');
+        document.body.classList.add('no-scroll');
+    }
+
+    function closeProductModal() {
+        document.getElementById('productModal').classList.remove('show');
+        document.body.classList.remove('no-scroll');
+    }
+
+    function openOEMModal() {
+        document.getElementById('oemModal').classList.add('show');
+        document.body.classList.add('no-scroll');
+    }
+
+    function closeOEMModal() {
+        document.getElementById('oemModal').classList.remove('show');
+        document.body.classList.remove('no-scroll');
+    }
+
+    // 点击遮罩关闭弹窗
+    function initModalClose() {
+        document.querySelectorAll('.modal-mask').forEach(mask => {
+            mask.addEventListener('click', function(e) {
+                if (e.target === this) {
+                    this.classList.remove('show');
+                    document.body.classList.remove('no-scroll');
+                }
+            });
+        });
+    }
+
+    // ============================================================
+    // 8. 工具函数
+    // ============================================================
+    function contactWhatsApp() {
+        window.open(`https://wa.me/${WHATSAPP_NUMBER}`, '_blank');
+    }
+
+    function copyText(text) {
+        navigator.clipboard.writeText(text).then(() => {
+            showToast();
+        });
+    }
+
+    function showToast() {
+        const toast = document.getElementById('copyToast');
+        toast.classList.add('show');
+        setTimeout(() => {
+            toast.classList.remove('show');
+        }, 2000);
+    }
+
+    function initBackTop() {
+        const backTop = document.getElementById('backTop');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 300) {
+                backTop.classList.add('show');
+            } else {
+                backTop.classList.remove('show');
+            }
+        });
+    }
+
+    function scrollToTop() {
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+</script>
+
+</body>
+</html>
