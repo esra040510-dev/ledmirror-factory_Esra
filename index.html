@@ -1,800 +1,3 @@
-非常抱歉，是我之前输出的时候出现代码拼接错乱，把CSS和JS混在一起，给你造成麻烦了，现在一次性拆分两份**无语法错误、结构完全分开**的完整代码，你直接复制对应区域使用即可。
-
-## 第一份：完整纯CSS（只放进<head>里的<style>标签，不含任何JS）
-```css
-/* ============================================================
-       1. 全局变量 & 重置
-       ============================================================ */
-:root {
-    --primary: #91284b;
-    --primary-dark: #781f3e;
-    --primary-light: #b03860;
-    --primary-rgba: rgba(145, 40, 75, 0.08);
-    --bg-soft: #ffe8ec;
-    --border-soft: #f8c8d2;
-    --border-input: #f0a8b8;
-    --text-dark: #333;
-    --text-muted: #66394a;
-    --text-placeholder: #bb7989;
-    --price-color: #c42e5a;
-    --white: #ffffff;
-    --whatsapp: #25D366;
-    --whatsapp-dark: #20bd5a;
-    --shadow-sm: 0 4px 18px rgba(145, 40, 75, 0.08);
-    --shadow-md: 0 8px 24px rgba(145, 40, 75, 0.12);
-    --shadow-hover: 0 12px 32px rgba(145, 40, 75, 0.15);
-    --radius-card: 16px;
-    --radius-btn: 30px;
-    --radius-modal: 18px;
-    --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-    --font-body: system-ui, Arial, Helvetica, sans-serif;
-    --bg-body: var(--bg-soft);
-    --bg-card: var(--white);
-    --text-body: var(--text-dark);
-    --border-color: var(--border-soft);
-    --shadow-card: var(--shadow-sm);
-}
-[data-theme="dark"] {
-    --bg-soft: #1a1a2e;
-    --bg-body: #12121e;
-    --bg-card: #1e1e32;
-    --border-soft: #3a3a5a;
-    --border-input: #4a4a6a;
-    --text-dark: #e8e8f0;
-    --text-muted: #b0aac8;
-    --text-placeholder: #88809a;
-    --shadow-sm: 0 4px 18px rgba(0, 0, 0, 0.4);
-    --shadow-md: 0 8px 24px rgba(0, 0, 0, 0.5);
-    --shadow-hover: 0 12px 32px rgba(145, 40, 75, 0.25);
-    --border-color: #3a3a5a;
-    --shadow-card: 0 4px 18px rgba(0, 0, 0, 0.4);
-    --white: #1e1e32;
-}
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: var(--font-body);
-}
-html {
-    scroll-behavior: smooth;
-}
-body {
-    background-color: var(--bg-body);
-    color: var(--text-body);
-    max-width: 1360px;
-    margin: 0 auto;
-    padding: 0 20px 30px;
-    line-height: 1.6;
-    transition: background 0.3s, color 0.3s, padding-bottom 0.3s;
-}
-body.no-scroll {
-    overflow: hidden;
-}
-body.batch-open {
-    padding-bottom: 100px !important;
-}
-a, button, input, select, textarea {
-    font-family: inherit;
-}
-img {
-    display: block;
-    max-width: 100%;
-}
-
-/* ============================================================
-       2. 打印样式
-       ============================================================ */
-@media print {
-    .no-print { display: none !important; }
-    body {
-        background: #fff !important;
-        color: #000 !important;
-        padding: 0.5in !important;
-        max-width: 100% !important;
-    }
-    .product-card {
-        break-inside: avoid;
-        box-shadow: none !important;
-        border: 1px solid #ddd !important;
-    }
-    .filter-tabs, .search-wrap, .oem-entry, .float-whatsapp, .back-top, .pagination-wrap, .batch-bar, .lang-switch, .theme-toggle {
-        display: none !important;
-    }
-    header {
-        position: static !important;
-        background: #fff !important;
-        backdrop-filter: none !important;
-        box-shadow: none !important;
-    }
-    .modal-mask {
-        position: static !important;
-        background: transparent !important;
-        opacity: 1 !important;
-        display: none !important;
-    }
-    .img-box { height: 160px !important; }
-    .product-grid { grid-template-columns: repeat(3,1fr) !important; gap:16px !important; }
-}
-
-/* ============================================================
-       3. 头部 & 导航
-       ============================================================ */
-header {
-    text-align: center;
-    padding: 24px 0 18px;
-    border-bottom: 1px solid var(--border-color);
-    margin-bottom: 24px;
-    position: sticky;
-    top: 0;
-    z-index: 100;
-    background-color: rgba(255, 232, 236, 0.95);
-    backdrop-filter: blur(8px);
-    transition: var(--transition);
-}
-[data-theme="dark"] header {
-    background-color: rgba(18, 18, 30, 0.95);
-}
-header.scrolled {
-    padding: 14px 0 12px;
-    box-shadow: var(--shadow-sm);
-}
-.header-top {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
-    align-items: center;
-    margin-bottom: 16px;
-    gap: 12px;
-}
-header h1 {
-    font-size: 32px;
-    color: var(--primary);
-    font-weight: 600;
-    letter-spacing: 0.5px;
-    flex: 1;
-    min-width: 200px;
-    text-align: left;
-}
-.header-controls {
-    display: flex;
-    flex-wrap: wrap;
-    align-items: center;
-    gap: 10px;
-}
-.lang-switch {
-    display: flex;
-    gap: 4px;
-    background: var(--white);
-    border-radius: 20px;
-    padding: 4px;
-    border: 1px solid var(--border-input);
-}
-.lang-switch button {
-    background: transparent;
-    border: none;
-    padding: 4px 12px;
-    border-radius: 16px;
-    font-size: 13px;
-    font-weight: 500;
-    cursor: pointer;
-    color: var(--text-muted);
-    transition: var(--transition);
-}
-.lang-switch button.active {
-    background: var(--primary);
-    color: #fff;
-}
-.lang-switch button:hover:not(.active) {
-    background: var(--bg-soft);
-}
-.theme-toggle {
-    background: var(--white);
-    border: 1px solid var(--border-input);
-    border-radius: 50%;
-    width: 40px;
-    height: 40px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    cursor: pointer;
-    font-size: 18px;
-    transition: var(--transition);
-    color: var(--text-muted);
-}
-.theme-toggle:hover {
-    background: var(--bg-soft);
-    transform: rotate(20deg);
-}
-.breadcrumb {
-    font-size: 13px;
-    color: var(--text-muted);
-    margin-bottom: 12px;
-    text-align: left;
-    padding: 0 4px;
-}
-.breadcrumb span {
-    color: var(--primary);
-    font-weight: 500;
-}
-.breadcrumb .sep {
-    margin: 0 6px;
-    color: var(--border-input);
-}
-
-/* ============================================================
-       4. 搜索 & 筛选
-       ============================================================ */
-.search-wrap {
-    display: flex;
-    justify-content: center;
-    gap: 12px;
-    flex-wrap: wrap;
-    margin-bottom: 18px;
-    align-items: center;
-}
-#searchInput {
-    padding: 12px 18px;
-    width: 380px;
-    border: 2px solid var(--border-input);
-    border-radius: 16px;
-    font-size: 15px;
-    background: var(--white);
-    transition: var(--transition);
-    color: var(--text-body);
-}
-#searchInput::placeholder { color: var(--text-placeholder); }
-#searchInput:focus {
-    outline: none;
-    border-color: var(--primary-light);
-    box-shadow: 0 0 0 4px rgba(214, 80, 118, 0.12);
-}
-.result-count {
-    font-size: 14px;
-    color: var(--text-muted);
-    font-weight: 500;
-}
-.filter-tabs {
-    display: flex;
-    justify-content: center;
-    gap: 12px;
-    flex-wrap: wrap;
-    margin-bottom: 16px;
-}
-.filter-tab {
-    padding: 10px 28px;
-    border-radius: var(--radius-btn);
-    background: var(--white);
-    border: 2px solid var(--primary);
-    color: var(--primary);
-    cursor: pointer;
-    font-size: 16px;
-    transition: var(--transition);
-    user-select: none;
-    font-weight: 500;
-    position: relative;
-    overflow: hidden;
-}
-.filter-tab::after {
-    content: '';
-    position: absolute;
-    top:0; left:-100%; width:100%; height:100%;
-    background: linear-gradient(90deg, transparent, rgba(255,255,255,0.25), transparent);
-    transition: left 0.5s ease;
-}
-.filter-tab:hover::after { left:100%; }
-.filter-tab:hover {
-    background: var(--bg-soft);
-    transform: translateY(-2px);
-}
-.filter-tab.active {
-    background: var(--primary);
-    color: var(--white);
-    border-color: var(--primary);
-    box-shadow: var(--shadow-sm);
-}
-.advanced-filter {
-    display: flex;
-    flex-wrap: wrap;
-    align-items: center;
-    justify-content: center;
-    gap: 12px 20px;
-    background: var(--white);
-    padding: 14px 20px;
-    border-radius: 14px;
-    margin-bottom: 20px;
-    border: 1px solid var(--border-soft);
-}
-[data-theme="dark"] .advanced-filter { background: var(--bg-card); }
-.filter-group {
-    display: flex;
-    align-items: center;
-    gap: 6px;
-    flex-wrap: wrap;
-}
-.filter-group label {
-    font-size: 13px;
-    color: var(--text-muted);
-    font-weight: 500;
-}
-.filter-group input, .filter-group select {
-    padding: 6px 10px;
-    border: 1px solid var(--border-input);
-    border-radius: 8px;
-    font-size: 13px;
-    background: var(--bg-body);
-    color: var(--text-body);
-    width: 80px;
-    transition: var(--transition);
-}
-.filter-group select { width: auto; min-width:100px; }
-.filter-group input:focus, .filter-group select:focus {
-    outline: none;
-    border-color: var(--primary-light);
-}
-.filter-actions { display: flex; gap:6px; }
-.filter-actions button {
-    padding: 6px 16px;
-    border-radius: 10px;
-    border: none;
-    background: var(--primary);
-    color: #fff;
-    font-size:13px;
-    cursor: pointer;
-    transition: var(--transition);
-}
-.filter-actions button:hover { background: var(--primary-light); }
-.filter-actions button.reset-filter {
-    background: transparent;
-    color: var(--text-muted);
-    border:1px solid var(--border-input);
-}
-.filter-actions button.reset-filter:hover { background: var(--bg-soft); }
-
-/* ============================================================
-       5. 产品网格
-       ============================================================ */
-.product-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-    gap: 28px;
-    justify-items: center;
-    min-height: 400px;
-    position: relative;
-}
-.skeleton-card {
-    background: var(--white);
-    border-radius: var(--radius-card);
-    overflow: hidden;
-    width:100%; max-width:320px;
-    animation: skeleton-shimmer 1.5s infinite ease-in-out;
-}
-[data-theme="dark"] .skeleton-card { background: var(--bg-card); }
-.skeleton-img {
-    height:220px;
-    background: linear-gradient(90deg, var(--bg-soft)25%, #f0d8de 50%, var(--bg-soft)75%);
-    background-size:200% 100%;
-}
-.skeleton-content { padding:20px; }
-.skeleton-line {
-    height:14px; border-radius:6px;
-    background: linear-gradient(90deg, var(--bg-soft)25%, #f0d8de 50%, var(--bg-soft)75%);
-    background-size:200% 100%;
-    margin-bottom:10px;
-}
-.skeleton-line.short { width:60%; }
-.skeleton-line.price { width:40%; height:20px; }
-.skeleton-line.btn { width:100%; height:38px; border-radius:8px; margin-top:14px; }
-@keyframes skeleton-shimmer {
-    0% { background-position: 200% 0; }
-    100% { background-position: -200% 0; }
-}
-.empty-state {
-    grid-column:1/-1;
-    text-align:center;
-    padding:80px 20px;
-    color: var(--text-muted);
-    font-size:18px;
-    display:none;
-}
-.empty-state.show { display:block; }
-.empty-state span { font-size:56px; display:block; margin-bottom:12px; }
-
-/* ============================================================
-       6. 产品卡片
-       ============================================================ */
-.product-card {
-    background: var(--bg-card);
-    border-radius: var(--radius-card);
-    overflow: hidden;
-    box-shadow: var(--shadow-card);
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-    width:100%; max-width:320px;
-    display:flex; flex-direction:column;
-    position:relative; will-change:transform;
-    border:1px solid var(--border-color);
-}
-.product-card:hover {
-    transform: translateY(-6px);
-    box-shadow: var(--shadow-hover);
-}
-.product-card .img-box {
-    overflow:hidden; height:220px;
-    background: var(--bg-soft);
-    display:flex; align-items:center; justify-content:center;
-    flex-shrink:0; position:relative;
-}
-.product-card .product-img {
-    width:100%; height:100%; object-fit:cover;
-    transition: transform 0.4s ease;
-}
-.product-card:hover .product-img { transform: scale(1.04); }
-.product-card .img-placeholder {
-    width:100%; height:100%;
-    display:flex; align-items:center; justify-content:center;
-    background: var(--bg-soft);
-}
-.product-card .img-placeholder svg { width:80px; height:80px; fill:#c890a0; }
-.product-card .model-tag {
-    position:absolute; top:10px; left:10px;
-    background: var(--primary); color:#fff;
-    padding:3px 10px; border-radius:12px;
-    font-size:11px; font-weight:500; z-index:2;
-}
-.product-card .favorite-btn {
-    position:absolute; top:10px; right:10px;
-    width:32px; height:32px; border-radius:50%;
-    background:rgba(255,255,255,0.9); border:none;
-    color: var(--primary); cursor:pointer; font-size:15px;
-    z-index:2; transition: var(--transition);
-    display:flex; align-items:center; justify-content:center;
-}
-.product-card .favorite-btn:hover { background:#fff; transform:scale(1.1); }
-.product-card .favorite-btn.active { color:#e63946; }
-.product-card .product-check {
-    position:absolute; top:10px; right:48px; z-index:2;
-    width:22px; height:22px; accent-color: var(--primary);
-    cursor:pointer; background:rgba(255,255,255,0.85);
-    border-radius:4px;
-}
-.product-card .product-info { padding:16px 18px 18px; flex:1; display:flex; flex-direction:column; }
-.product-card .product-name {
-    font-size:16px; font-weight:600;
-    margin-bottom:6px; color: var(--primary-dark);
-    line-height:1.4;
-}
-.product-card .product-desc {
-    font-size:13px; color: var(--text-muted); line-height:1.6;
-    margin-bottom:10px; flex:1;
-    display:-webkit-box; -webkit-line-clamp:2; -webkit-box-orient:vertical; overflow:hidden;
-    white-space:pre-line;
-}
-.product-card .product-price {
-    font-size:20px; color: var(--price-color); font-weight:700;
-    margin-bottom:14px;
-}
-.product-card .product-price small {
-    font-size:12px; font-weight:400; color: var(--text-muted); margin-left:4px;
-}
-.product-card .card-actions { display:flex; gap:8px; }
-.product-card .order-btn {
-    flex:1; padding:10px;
-    background: var(--primary); color:#fff; border:none;
-    border-radius:10px; font-size:14px; font-weight:500;
-    cursor:pointer; transition: var(--transition);
-}
-.product-card .order-btn:hover { background: var(--primary-light); transform:translateY(-1px); }
-.product-card .quick-whatsapp {
-    width:40px; padding:10px 0;
-    background: var(--whatsapp); color:#fff; border:none;
-    border-radius:10px; cursor:pointer; font-size:16px;
-    transition: var(--transition);
-}
-.product-card .quick-whatsapp:hover { background: var(--whatsapp-dark); transform:translateY(-1px); }
-
-/* ============================================================
-       7. 分页控件
-       ============================================================ */
-.pagination-wrap {
-    display:flex; justify-content:center; align-items:center;
-    gap:8px; flex-wrap:wrap;
-    margin:32px 0 16px; padding:12px 0;
-}
-.pagination-wrap button {
-    padding:8px 16px; border:1px solid var(--border-input);
-    border-radius:8px; background: var(--white); color: var(--text-body);
-    cursor:pointer; font-size:14px; transition: var(--transition); min-width:40px;
-}
-.pagination-wrap button:hover:not(:disabled) {
-    background: var(--bg-soft); border-color: var(--primary);
-}
-.pagination-wrap button.active {
-    background: var(--primary); color:#fff; border-color: var(--primary);
-}
-.pagination-wrap button:disabled { opacity:0.4; cursor:not-allowed; }
-.pagination-wrap .page-info { font-size:14px; color: var(--text-muted); padding:0 12px; }
-
-/* ============================================================
-       8. 批量操作栏
-       ============================================================ */
-.batch-bar {
-    position:fixed; bottom:0; left:0; right:0;
-    background: var(--bg-card); border-top:2px solid var(--primary);
-    padding:10px 20px; display:none;
-    align-items:center; justify-content:center; gap:16px; flex-wrap:wrap;
-    z-index:200; box-shadow:0 -4px 20px rgba(0,0,0,0.1);
-}
-.batch-bar.show { display:flex; }
-.batch-bar .batch-info { font-size:14px; font-weight:500; color: var(--text-body); }
-.batch-bar .batch-info strong { color: var(--primary); }
-.batch-bar button {
-    padding:8px 20px; border-radius:10px; border:none;
-    font-size:14px; font-weight:500; cursor:pointer; transition: var(--transition);
-}
-.batch-bar .batch-copy { background: var(--primary); color:#fff; }
-.batch-bar .batch-copy:hover { background: var(--primary-light); }
-.batch-bar .batch-whatsapp { background: var(--whatsapp); color:#fff; }
-.batch-bar .batch-whatsapp:hover { background: var(--whatsapp-dark); }
-.batch-bar .batch-clear {
-    background:transparent; color: var(--text-muted); border:1px solid var(--border-input);
-}
-.batch-bar .batch-clear:hover { background: var(--bg-soft); }
-
-/* ============================================================
-       9. 弹窗通用
-       ============================================================ */
-.modal-mask {
-    display:none; position:fixed; top:0; left:0; width:100%; height:100%;
-    background:rgba(0,0,0,0.55); z-index:999;
-    align-items:center; justify-content:center; padding:20px;
-    opacity:0; transition:opacity 0.3s ease;
-}
-.modal-mask.show { display:flex; opacity:1; }
-.modal-box {
-    background: var(--bg-card); width:100%; max-width:560px;
-    border-radius: var(--radius-modal); padding:32px 28px;
-    position:relative; transform:translateY(20px); transition:transform 0.3s ease;
-    max-height:90vh; overflow-y:auto;
-    border:1px solid var(--border-color); box-shadow: var(--shadow-md);
-}
-.modal-mask.show .modal-box { transform:translateY(0); }
-.modal-box .close-modal {
-    position:absolute; top:14px; right:18px; font-size:28px; cursor:pointer;
-    color:#999; transition:color 0.2s; line-height:1;
-    width:36px; height:36px; border-radius:50%;
-    display:flex; align-items:center; justify-content:center;
-    background:transparent; border:none;
-}
-.modal-box .close-modal:hover { color: var(--primary-dark); background: var(--bg-soft); }
-.modal-box .modal-title {
-    font-size:22px; color: var(--primary-dark); margin-bottom:16px; font-weight:600;
-    padding-right:40px;
-}
-.modal-box .modal-text { line-height:1.9; font-size:15px; color: var(--text-body); margin-bottom:20px; white-space:pre-line; }
-.modal-box .modal-meta { display:flex; gap:12px; margin-bottom:18px; flex-wrap:wrap; }
-.modal-box .meta-item {
-    background: var(--bg-soft); padding:6px 14px; border-radius:8px; font-size:13px; color: var(--primary-dark);
-}
-.modal-box .whatsapp-btn {
-    display:block; width:100%; text-align:center; padding:12px;
-    background: var(--whatsapp); color:#fff; border-radius:10px; text-decoration:none;
-    font-weight:600; transition: var(--transition); border:none; font-size:15px; cursor:pointer;
-}
-.modal-box .whatsapp-btn:hover {
-    background: var(--whatsapp-dark); transform:translateY(-1px);
-    box-shadow:0 4px 12px rgba(37,211,102,0.3);
-}
-.modal-box .copy-model-btn {
-    display:inline-block; margin-left:8px; padding:4px 12px; font-size:12px;
-    background: var(--bg-soft); color: var(--primary); border:none; border-radius:6px;
-    cursor:pointer; transition: var(--transition);
-}
-.modal-box .copy-model-btn:hover { background: var(--border-soft); }
-
-/* ============================================================
-       10. OEM弹窗
-       ============================================================ */
-.oem-list { margin-bottom:20px; }
-.oem-item {
-    display:flex; align-items:flex-start; gap:12px; padding:10px 0;
-    border-bottom:1px dashed var(--border-soft);
-}
-.oem-item:last-child { border-bottom:none; }
-.oem-item .oem-icon { color: var(--primary); font-size:18px; flex-shrink:0; margin-top:2px; }
-.oem-item .oem-content h4 { font-size:15px; color: var(--primary-dark); margin-bottom:2px; }
-.oem-item .oem-content p { font-size:13px; color: var(--text-muted); line-height:1.5; }
-.oem-info {
-    background: var(--bg-soft); padding:14px 16px; border-radius:10px; margin-bottom:18px;
-}
-.oem-info p { font-size:14px; color: var(--primary-dark); margin-bottom:4px; }
-
-/* ============================================================
-       11. 询价表单弹窗
-       ============================================================ */
-.inquiry-form label {
-    display:block; font-size:14px; font-weight:500; color: var(--text-muted); margin-bottom:4px;
-}
-.inquiry-form input, .inquiry-form textarea, .inquiry-form select {
-    width:100%; padding:10px 14px; border:1px solid var(--border-input); border-radius:10px;
-    font-size:14px; background: var(--bg-body); color: var(--text-body);
-    transition: var(--transition); margin-bottom:14px;
-}
-.inquiry-form input:focus, .inquiry-form textarea:focus, .inquiry-form select:focus {
-    outline:none; border-color: var(--primary-light); box-shadow:0 0 0 3px rgba(214,80,118,0.1);
-}
-.inquiry-form textarea { min-height:80px; resize:vertical; }
-.inquiry-form .form-row { display:grid; grid-template-columns:1fr 1fr; gap:12px; }
-@media (max-width:480px) {
-    .inquiry-form .form-row { grid-template-columns:1fr; }
-}
-
-/* ============================================================
-       12. 收藏弹窗
-       ============================================================ */
-.fav-list { max-height:300px; overflow-y:auto; margin-bottom:16px; }
-.fav-list .fav-item {
-    display:flex; justify-content:space-between; align-items:center;
-    padding:8px 0; border-bottom:1px solid var(--border-soft); font-size:14px;
-}
-.fav-list .fav-item .fav-remove {
-    background:transparent; border:none; color:#e63946; cursor:pointer; font-size:16px; padding:0 8px;
-}
-.fav-actions { display:flex; gap:10px; flex-wrap:wrap; }
-.fav-actions button {
-    padding:8px 18px; border-radius:10px; border:none; font-size:14px; cursor:pointer; transition: var(--transition);
-}
-.fav-actions .fav-clear { background:#e63946; color:#fff; }
-.fav-actions .fav-clear:hover { background:#c62828; }
-.fav-actions .fav-close { background: var(--bg-soft); color: var(--text-muted); }
-.fav-actions .fav-close:hover { background: var(--border-soft); }
-
-/* ============================================================
-       13. Catalog弹窗
-       ============================================================ */
-.catalog-list {
-    max-height:360px; overflow-y:auto; background: var(--bg-body); border-radius:10px;
-    padding:12px 16px; font-size:13px; font-family:monospace; white-space:pre-wrap; word-break:break-all;
-    margin-bottom:16px; border:1px solid var(--border-soft); color: var(--text-body);
-}
-.catalog-actions { display:flex; gap:10px; flex-wrap:wrap; }
-.catalog-actions button {
-    padding:8px 20px; border-radius:10px; border:none; font-size:14px; cursor:pointer; transition: var(--transition);
-}
-.catalog-actions .catalog-copy { background: var(--primary); color:#fff; }
-.catalog-actions .catalog-copy:hover { background: var(--primary-light); }
-.catalog-actions .catalog-close { background: var(--bg-soft); color: var(--text-muted); }
-.catalog-actions .catalog-close:hover { background: var(--border-soft); }
-
-/* ============================================================
-       14. 工厂相册 & 证书
-       ============================================================ */
-.gallery-section { margin:40px 0 30px; }
-.gallery-section h2 {
-    font-size:24px; color: var(--primary-dark); margin-bottom:16px; text-align:center;
-}
-.gallery-grid {
-    display:grid; grid-template-columns: repeat(auto-fill, minmax(160px,1fr)); gap:14px;
-}
-.gallery-grid .gallery-item {
-    border-radius:12px; overflow:hidden; aspect-ratio:4/3;
-    background: var(--bg-soft); display:flex; align-items:center; justify-content:center;
-    border:1px solid var(--border-soft);
-}
-.gallery-grid .gallery-item img { width:100%; height:100%; object-fit:cover; }
-.gallery-grid .gallery-item .noimg-svg { width:60px; height:60px; fill:#c890a0; }
-.cert-grid {
-    display:flex; flex-wrap:wrap; gap:20px; justify-content:center; margin-top:16px;
-}
-.cert-card {
-    background: var(--bg-card); border-radius:12px; padding:16px 24px; border:1px solid var(--border-soft);
-    text-align:center; min-width:120px; box-shadow: var(--shadow-sm);
-}
-.cert-card .cert-icon { font-size:36px; display:block; margin-bottom:6px; }
-.cert-card .cert-name { font-size:14px; font-weight:600; color: var(--primary-dark); }
-
-/* ============================================================
-       15. FAQ & Footer
-       ============================================================ */
-.faq-section {
-    margin:40px 0 30px; border-top:1px solid var(--border-color); padding-top:30px;
-}
-.faq-section h2 {
-    font-size:24px; color: var(--primary-dark); margin-bottom:18px; text-align:center;
-}
-.faq-item { border-bottom:1px solid var(--border-soft); padding:14px 0; }
-.faq-item .faq-q {
-    font-size:16px; font-weight:600; color: var(--primary-dark); cursor:pointer;
-    display:flex; justify-content:space-between; align-items:center;
-}
-.faq-item .faq-q .arrow { transition:transform 0.3s; font-size:18px; }
-.faq-item .faq-q.open .arrow { transform:rotate(180deg); }
-.faq-item .faq-a {
-    font-size:14px; color: var(--text-muted); padding-top:6px; display:none; line-height:1.7;
-}
-.faq-item .faq-a.open { display:block; }
-footer {
-    margin-top:60px; padding-top:32px; border-top:1px solid var(--border-color); color: var(--text-muted); font-size:14px;
-}
-.footer-grid {
-    display:grid; grid-template-columns: repeat(auto-fit, minmax(180px,1fr)); gap:30px; text-align:left; margin-bottom:24px;
-}
-.footer-grid .footer-col h4 { color: var(--primary-dark); margin-bottom:12px; font-size:16px; }
-.footer-grid .footer-col ul { list-style:none; }
-.footer-grid .footer-col li { margin-bottom:6px; font-size:13px; }
-.footer-grid .footer-col .social-icons { display:flex; gap:12px; margin-top:8px; }
-.footer-grid .footer-col .social-icons a {
-    color: var(--primary); font-size:22px; text-decoration:none; transition: var(--transition);
-}
-.footer-grid .footer-col .social-icons a:hover { color: var(--primary-light); transform:translateY(-2px); }
-.copy-text { color: var(--primary); text-decoration:underline; cursor:pointer; transition:color 0.2s; }
-.copy-text:hover { color: var(--primary-light); }
-.copyright {
-    text-align:center; padding-top:16px; border-top:1px solid var(--border-color); font-size:13px;
-}
-
-/* ============================================================
-       16. Toast提示
-       ============================================================ */
-.copy-toast {
-    position:fixed; left:50%; bottom:140px; transform:translateX(-50%);
-    background:rgba(0,0,0,0.75); color:#fff;
-    padding:10px 28px; border-radius:10px; font-size:14px; z-index:9999;
-    opacity:0; transition:opacity 0.3s ease; pointer-events:none;
-}
-.copy-toast.show { opacity:1; }
-
-/* ============================================================
-       17. 悬浮WhatsApp & 返回顶部
-       ============================================================ */
-.float-whatsapp {
-    position:fixed; bottom:90px; right:24px;
-    width:56px; height:56px; border-radius:50%;
-    background: var(--whatsapp); color:#fff;
-    display:flex; align-items:center; justify-content:center;
-    box-shadow:0 4px 14px rgba(37,211,102,0.4); z-index:99; font-size:28px;
-    transition: var(--transition); text-decoration:none;
-    animation:pulse-wa 2s infinite;
-}
-@keyframes pulse-wa {
-    0% { box-shadow:0 0 0 0 rgba(37,211,102,0.4); }
-    70% { box-shadow:0 0 0 14px rgba(37,211,102,0); }
-    100% { box-shadow:0 0 0 0 rgba(37,211,102,0); }
-}
-.float-whatsapp:hover {
-    transform:scale(1.1); box-shadow:0 6px 20px rgba(37,211,102,0.5); animation:none;
-}
-.back-top {
-    position:fixed; bottom:30px; right:24px;
-    width:46px; height:46px; border-radius:50%;
-    background: var(--primary); color:#fff; border:none;
-    display:flex; align-items:center; justify-content:center;
-    box-shadow:0 4px 12px rgba(145,40,75,0.3); opacity:0; visibility:hidden;
-    transition: var(--transition); z-index:99; font-size:18px; cursor:pointer;
-}
-.back-top.show { opacity:1; visibility:visible; }
-.back-top:hover { background: var(--primary-light); transform:translateY(-3px); }
-
-/* ============================================================
-       18. 响应式适配
-       ============================================================ */
-@media (max-width:1024px) and (min-width:768px) {
-    .product-grid { grid-template-columns: repeat(auto-fill, minmax(240px,1fr)); gap:24px; }
-    header h1 { font-size:28px; }
-    #searchInput { width:300px; }
-    .filter-tab { padding:8px 20px; font-size:15px; }
-    .advanced-filter { padding:12px 16px; gap:10px; }
-    .modal-box { max-width:480px; padding:28px 22px; }
-}
-@media (max-width:767px) {
-    body { padding:0 12px 20px; }
-    header { padding:16px 0 12px; }
-    header h1 { font-size:20px; text-align:center; }
-    .header-top { flex-direction:column; align-items:center; }
-}
-```
-
-## 第二份：完整纯JS（放在</body>上方的<script>标签内，和CSS完全分离，无语法错误）
-```javascript
 // ====================== 全局基础配置 ======================
 const CONFIG = {
     WHATSAPP_NUM: '8617799215074',
@@ -802,10 +5,10 @@ const CONFIG = {
     WECHAT_ID: 'zrqy716',
     PER_PAGE_NUM: 24,
     USD_EUR_RATE: 1.09,
-    PVC_PRICE_RATIO: 0.67 // PVC价格=同尺寸实木67%，便宜33%
+    PVC_PRICE_RATIO: 0.67 // PVC定价：同尺寸实木价格 * 0.67
 };
 
-// 全局状态
+// 全局状态变量
 let filterType = 'all';
 let pageIndex = 1;
 let searchText = '';
@@ -819,10 +22,10 @@ let activeProductData = null;
 let siteLang = localStorage.getItem('yl_lang') || 'en';
 let darkThemeSwitch = localStorage.getItem('yl_dark') === 'true';
 
-// 总产品容器
+// 总产品存储数组
 const ALL_PRODUCTS = [];
 
-// ====================== A系列 LED镜子 29款 ======================
+// ====================== A系列 LED防雾镜 29款 ======================
 const A_SERIES_DATA = [
     { id: 'A001', name: 'A001 LED Anti-Fog Bathroom Mirror', desc: 'Material: Paulownia Frame\nSize:50×50cm | LED + Defogger\nMOQ:500pcs | Warranty:2Y', price: '14.90', img: 'A001.jpg' },
     { id: 'A002', name: 'A002 LED Anti-Fog Bathroom Mirror', desc: 'Material: Paulownia Frame\nSize:55×55cm | LED + Defogger\nMOQ:500pcs | Warranty:2Y', price: '15.90', img: 'A002.jpg' },
@@ -854,6 +57,7 @@ const A_SERIES_DATA = [
     { id: 'A028', name: 'A028 LED Anti-Fog Bathroom Mirror', desc: 'Material: Paulownia Frame\nSize:70×120cm | LED + Defogger\nMOQ:500pcs | Warranty:2Y', price: '32.90', img: 'A028.jpg' },
     { id: 'A029', name: 'A029 LED Anti-Fog Bathroom Mirror', desc: 'Material: Paulownia Frame\nSize:80×120cm | LED + Defogger\nMOQ:500pcs | Warranty:2Y', price: '42.90', img: 'A029.jpg' },
 ];
+// 将A系列推入总产品数组
 A_SERIES_DATA.forEach(item => {
     ALL_PRODUCTS.push({
         id: item.id,
@@ -865,40 +69,39 @@ A_SERIES_DATA.forEach(item => {
     });
 });
 
-// ====================== B系列 实木高级镜柜 29款 ======================
+// ====================== B系列 实木镜柜 29款 ======================
 const B_SERIES_DATA = [
     { id: 'B001', name: 'B001 Premium Solid Wood Mirror Cabinet', desc: 'Material: Solid Wood + Paulownia Frame\nSize:70×90cm | Full Storage\nMOQ:100pcs | Warranty:2Y', price: '99.68', img: 'B001.jpg' },
-    { id: 'B00
-     { id: 'B001', name: 'B001 Premium Solid Wood Mirror Cabinet', desc: 'Material: Solid Wood + Paulownia Frame\nSize:70×90cm | Full Storage\nMOQ:100pcs | Warranty:2Y', price: '99.68', img: 'B001.jpg' },
-{ id: 'B002', name: 'B002 Premium Solid Wood Mirror Cabinet', desc: 'Material: Solid Wood + Paulownia Frame\nSize:50×60cm | Full Storage\nMOQ:100pcs | Warranty:2Y', price: '88.48', img: 'B002.jpg' },
-{ id: 'B003', name: 'B003 Premium Solid Wood Mirror Cabinet', desc: 'Material: Solid Wood + Paulownia Frame\nSize:50×70cm | Full Storage\nMOQ:100pcs | Warranty:2Y', price: '96.32', img: 'B003.jpg' },
-{ id: 'B004', name: 'B004 Premium Solid Wood Mirror Cabinet', desc: 'Material: Solid Wood + Paulownia Frame\nSize:55×70cm | Full Storage\nMOQ:100pcs | Warranty:2Y', price: '101.92', img: 'B004.jpg' },
-{ id: 'B005', name: 'B005 Premium Solid Wood Mirror Cabinet', desc: 'Material: Solid Wood + Paulownia Frame\nSize:60×70cm | Full Storage\nMOQ:100pcs | Warranty:2Y', price: '107.52', img: 'B005.jpg' },
-{ id: 'B006', name: 'B006 Premium Solid Wood Mirror Cabinet', desc: 'Material: Solid Wood + Paulownia Frame\nSize:60×80cm | Full Storage\nMOQ:100pcs | Warranty:2Y', price: '114.24', img: 'B006.jpg' },
-{ id: 'B007', name: 'B007 Premium Solid Wood Mirror Cabinet', desc: 'Material: Solid Wood + Paulownia Frame\nSize:65×80cm | Full Storage\nMOQ:100pcs | Warranty:2Y', price: '119.84', img: 'B007.jpg' },
-{ id: 'B008', name: 'B008 Premium Solid Wood Mirror Cabinet', desc: 'Material: Solid Wood + Paulownia Frame\nSize:60×90cm | Full Storage\nMOQ:100pcs | Warranty:2Y', price: '123.20', img: 'B008.jpg' },
-{ id: 'B009', name: 'B009 Premium Solid Wood Mirror Cabinet', desc: 'Material: Solid Wood + Paulownia Frame\nSize:70×80cm | Full Storage\nMOQ:100pcs | Warranty:2Y', price: '115.36', img: 'B009.jpg' },
-{ id: 'B010', name: 'B010 Premium Solid Wood Mirror Cabinet', desc: 'Material: Solid Wood + Paulownia Frame\nSize:75×85cm | Full Storage\nMOQ:100pcs | Warranty:2Y', price: '120.96', img: 'B010.jpg' },
-{ id: 'B011', name: 'B011 Premium Solid Wood Mirror Cabinet', desc: 'Material: Solid Wood + Paulownia Frame\nSize:70×100cm | Full Storage\nMOQ:100pcs | Warranty:2Y', price: '132.16', img: 'B011.jpg' },
-{ id: 'B012', name: 'B012 Premium Solid Wood Mirror Cabinet', desc: 'Material: Solid Wood + Paulownia Frame\nSize:80×90cm | Full Storage\nMOQ:100pcs | Warranty:2Y', price: '125.44', img: 'B012.jpg' },
-{ id: 'B013', name: 'B013 Premium Solid Wood Mirror Cabinet', desc: 'Material: Solid Wood + Paulownia Frame\nSize:75×100cm | Full Storage\nMOQ:100pcs | Warranty:2Y', price: '133.28', img: 'B013.jpg' },
-{ id: 'B014', name: 'B014 Premium Solid Wood Mirror Cabinet', desc: 'Material: Solid Wood + Paulownia Frame\nSize:80×100cm | Full Storage\nMOQ:100pcs | Warranty:2Y', price: '140.00', img: 'B014.jpg' },
-{ id: 'B015', name: 'B015 Premium Solid Wood Mirror Cabinet', desc: 'Material: Solid Wood + Paulownia Frame\nSize:85×95cm | Full Storage\nMOQ:100pcs | Warranty:2Y', price: '142.24', img: 'B015.jpg' },
-{ id: 'B016', name: 'B016 Premium Solid Wood Mirror Cabinet', desc: 'Material: Solid Wood + Paulownia Frame\nSize:90×90cm | Full Storage\nMOQ:100pcs | Warranty:2Y', price: '143.36', img: 'B016.jpg' },
-{ id: 'B017', name: 'B017 Premium Solid Wood Mirror Cabinet', desc: 'Material: Solid Wood + Paulownia Frame\nSize:85×105cm | Full Storage\nMOQ:100pcs | Warranty:2Y', price: '151.20', img: 'B017.jpg' },
-{ id: 'B018', name: 'B018 Premium Solid Wood Mirror Cabinet', desc: 'Material: Solid Wood + Paulownia Frame\nSize:90×100cm | Full Storage\nMOQ:100pcs | Warranty:2Y', price: '154.56', img: 'B018.jpg' },
-{ id: 'B019', name: 'B019 Premium Solid Wood Mirror Cabinet', desc: 'Material: Solid Wood + Paulownia Frame\nSize:95×100cm | Full Storage\nMOQ:100pcs | Warranty:2Y', price: '159.04', img: 'B019.jpg' },
-{ id: 'B020', name: 'B020 Premium Solid Wood Mirror Cabinet', desc: 'Material: Solid Wood + Paulownia Frame\nSize:90×110cm | Full Storage\nMOQ:100pcs | Warranty:2Y', price: '165.76', img: 'B020.jpg' },
-{ id: 'B021', name: 'B021 Premium Solid Wood Mirror Cabinet', desc: 'Material: Solid Wood + Paulownia Frame\nSize:100×100cm | Full Storage\nMOQ:100pcs | Warranty:2Y', price: '168.00', img: 'B021.jpg' },
-{ id: 'B022', name: 'B022 Premium Solid Wood Mirror Cabinet', desc: 'Material: Solid Wood + Paulownia Frame\nSize:95×115cm | Full Storage\nMOQ:100pcs | Warranty:2Y', price: '174.72', img: 'B022.jpg' },
-{ id: 'B023', name: 'B023 Premium Solid Wood Mirror Cabinet', desc: 'Material: Solid Wood + Paulownia Frame\nSize:100×110cm | Full Storage\nMOQ:100pcs | Warranty:2Y', price: '178.08', img: 'B023.jpg' },
-{ id: 'B024', name: 'B024 Premium Solid Wood Mirror Cabinet', desc: 'Material: Solid Wood + Paulownia Frame\nSize:105×115cm | Full Storage\nMOQ:100pcs | Warranty:2Y', price: '188.16', img: 'B024.jpg' },
-{ id: 'B025', name: 'B025 Premium Solid Wood Mirror Cabinet', desc: 'Material: Solid Wood + Paulownia Frame\nSize:110×120cm | Full Storage\nMOQ:100pcs | Warranty:2Y', price: '196.00', img: 'B025.jpg' },
-{ id: 'B026', name: 'B026 Premium Solid Wood Mirror Cabinet', desc: 'Material: Solid Wood + Paulownia Frame\nSize:115×125cm | Full Storage\nMOQ:100pcs | Warranty:2Y', price: '203.84', img: 'B026.jpg' },
-{ id: 'B027', name: 'B027 Premium Solid Wood Mirror Cabinet', desc: 'Material: Solid Wood + Paulownia Frame\nSize:120×130cm | Full Storage\nMOQ:100pcs | Warranty:2Y', price: '211.68', img: 'B027.jpg' },
-{ id: 'B028', name: 'B028 Premium Solid Wood Mirror Cabinet', desc: 'Material: Solid Wood + Paulownia Frame\nSize:100×140cm | Full Storage\nMOQ:100pcs | Warranty:2Y', price: '208.32', img: 'B028.jpg' },
-{ id: 'B029', name: 'B029 Premium Solid Wood Mirror Cabinet', desc: 'Material: Solid Wood + Paulownia Frame\nSize:120×150cm | Full Storage\nMOQ:100pcs | Warranty:2Y', price: '211.68', img: 'B029.jpg' },
+    { id: 'B002', name: 'B002 Premium Solid Wood Mirror Cabinet', desc: 'Material: Solid Wood + Paulownia Frame\nSize:50×60cm | Full Storage\nMOQ:100pcs | Warranty:2Y', price: '88.48', img: 'B002.jpg' },
+    { id: 'B003', name: 'B003 Premium Solid Wood Mirror Cabinet', desc: 'Material: Solid Wood + Paulownia Frame\nSize:50×70cm | Full Storage\nMOQ:100pcs | Warranty:2Y', price: '96.32', img: 'B003.jpg' },
+    { id: 'B004', name: 'B004 Premium Solid Wood Mirror Cabinet', desc: 'Material: Solid Wood + Paulownia Frame\nSize:55×70cm | Full Storage\nMOQ:100pcs | Warranty:2Y', price: '101.92', img: 'B004.jpg' },
+    { id: 'B005', name: 'B005 Premium Solid Wood Mirror Cabinet', desc: 'Material: Solid Wood + Paulownia Frame\nSize:60×70cm | Full Storage\nMOQ:100pcs | Warranty:2Y', price: '107.52', img: 'B005.jpg' },
+    { id: 'B006', name: 'B006 Premium Solid Wood Mirror Cabinet', desc: 'Material: Solid Wood + Paulownia Frame\nSize:60×80cm | Full Storage\nMOQ:100pcs | Warranty:2Y', price: '114.24', img: 'B006.jpg' },
+    { id: 'B007', name: 'B007 Premium Solid Wood Mirror Cabinet', desc: 'Material: Solid Wood + Paulownia Frame\nSize:65×80cm | Full Storage\nMOQ:100pcs | Warranty:2Y', price: '119.84', img: 'B007.jpg' },
+    { id: 'B008', name: 'B008 Premium Solid Wood Mirror Cabinet', desc: 'Material: Solid Wood + Paulownia Frame\nSize:60×90cm | Full Storage\nMOQ:100pcs | Warranty:2Y', price: '123.20', img: 'B008.jpg' },
+    { id: 'B009', name: 'B009 Premium Solid Wood Mirror Cabinet', desc: 'Material: Solid Wood + Paulownia Frame\nSize:70×80cm | Full Storage\nMOQ:100pcs | Warranty:2Y', price: '115.36', img: 'B009.jpg' },
+    { id: 'B010', name: 'B010 Premium Solid Wood Mirror Cabinet', desc: 'Material: Solid Wood + Paulownia Frame\nSize:75×85cm | Full Storage\nMOQ:100pcs | Warranty:2Y', price: '120.96', img: 'B010.jpg' },
+    { id: 'B011', name: 'B011 Premium Solid Wood Mirror Cabinet', desc: 'Material: Solid Wood + Paulownia Frame\nSize:70×100cm | Full Storage\nMOQ:100pcs | Warranty:2Y', price: '132.16', img: 'B011.jpg' },
+    { id: 'B012', name: 'B012 Premium Solid Wood Mirror Cabinet', desc: 'Material: Solid Wood + Paulownia Frame\nSize:80×90cm | Full Storage\nMOQ:100pcs | Warranty:2Y', price: '125.44', img: 'B012.jpg' },
+    { id: 'B013', name: 'B013 Premium Solid Wood Mirror Cabinet', desc: 'Material: Solid Wood + Paulownia Frame\nSize:75×100cm | Full Storage\nMOQ:100pcs | Warranty:2Y', price: '133.28', img: 'B013.jpg' },
+    { id: 'B014', name: 'B014 Premium Solid Wood Mirror Cabinet', desc: 'Material: Solid Wood + Paulownia Frame\nSize:80×100cm | Full Storage\nMOQ:100pcs | Warranty:2Y', price: '140.00', img: 'B014.jpg' },
+    { id: 'B015', name: 'B015 Premium Solid Wood Mirror Cabinet', desc: 'Material: Solid Wood + Paulownia Frame\nSize:85×95cm | Full Storage\nMOQ:100pcs | Warranty:2Y', price: '142.24', img: 'B015.jpg' },
+    { id: 'B016', name: 'B016 Premium Solid Wood Mirror Cabinet', desc: 'Material: Solid Wood + Paulownia Frame\nSize:90×90cm | Full Storage\nMOQ:100pcs | Warranty:2Y', price: '143.36', img: 'B016.jpg' },
+    { id: 'B017', name: 'B017 Premium Solid Wood Mirror Cabinet', desc: 'Material: Solid Wood + Paulownia Frame\nSize:85×105cm | Full Storage\nMOQ:100pcs | Warranty:2Y', price: '151.20', img: 'B017.jpg' },
+    { id: 'B018', name: 'B018 Premium Solid Wood Mirror Cabinet', desc: 'Material: Solid Wood + Paulownia Frame\nSize:90×100cm | Full Storage\nMOQ:100pcs | Warranty:2Y', price: '154.56', img: 'B018.jpg' },
+    { id: 'B019', name: 'B019 Premium Solid Wood Mirror Cabinet', desc: 'Material: Solid Wood + Paulownia Frame\nSize:95×100cm | Full Storage\nMOQ:100pcs | Warranty:2Y', price: '159.04', img: 'B019.jpg' },
+    { id: 'B020', name: 'B020 Premium Solid Wood Mirror Cabinet', desc: 'Material: Solid Wood + Paulownia Frame\nSize:90×110cm | Full Storage\nMOQ:100pcs | Warranty:2Y', price: '165.76', img: 'B020.jpg' },
+    { id: 'B021', name: 'B021 Premium Solid Wood Mirror Cabinet', desc: 'Material: Solid Wood + Paulownia Frame\nSize:100×100cm | Full Storage\nMOQ:100pcs | Warranty:2Y', price: '168.00', img: 'B021.jpg' },
+    { id: 'B022', name: 'B022 Premium Solid Wood Mirror Cabinet', desc: 'Material: Solid Wood + Paulownia Frame\nSize:95×115cm | Full Storage\nMOQ:100pcs | Warranty:2Y', price: '174.72', img: 'B022.jpg' },
+    { id: 'B023', name: 'B023 Premium Solid Wood Mirror Cabinet', desc: 'Material: Solid Wood + Paulownia Frame\nSize:100×110cm | Full Storage\nMOQ:100pcs | Warranty:2Y', price: '178.08', img: 'B023.jpg' },
+    { id: 'B024', name: 'B024 Premium Solid Wood Mirror Cabinet', desc: 'Material: Solid Wood + Paulownia Frame\nSize:105×115cm | Full Storage\nMOQ:100pcs | Warranty:2Y', price: '188.16', img: 'B024.jpg' },
+    { id: 'B025', name: 'B025 Premium Solid Wood Mirror Cabinet', desc: 'Material: Solid Wood + Paulownia Frame\nSize:110×120cm | Full Storage\nMOQ:100pcs | Warranty:2Y', price: '196.00', img: 'B025.jpg' },
+    { id: 'B026', name: 'B026 Premium Solid Wood Mirror Cabinet', desc: 'Material: Solid Wood + Paulownia Frame\nSize:115×125cm | Full Storage\nMOQ:100pcs | Warranty:2Y', price: '203.84', img: 'B026.jpg' },
+    { id: 'B027', name: 'B027 Premium Solid Wood Mirror Cabinet', desc: 'Material: Solid Wood + Paulownia Frame\nSize:120×130cm | Full Storage\nMOQ:100pcs | Warranty:2Y', price: '211.68', img: 'B027.jpg' },
+    { id: 'B028', name: 'B028 Premium Solid Wood Mirror Cabinet', desc: 'Material: Solid Wood + Paulownia Frame\nSize:100×140cm | Full Storage\nMOQ:100pcs | Warranty:2Y', price: '208.32', img: 'B028.jpg' },
+    { id: 'B029', name: 'B029 Premium Solid Wood Mirror Cabinet', desc: 'Material: Solid Wood + Paulownia Frame\nSize:120×150cm | Full Storage\nMOQ:100pcs | Warranty:2Y', price: '211.68', img: 'B029.jpg' },
 ];
+// 将B系列推入总产品数组
 B_SERIES_DATA.forEach(item => {
     ALL_PRODUCTS.push({
         id: item.id,
@@ -910,9 +113,7 @@ B_SERIES_DATA.forEach(item => {
     });
 });
 
-// ====================== C系列 PVC防水镜柜 共198款 ======================
-// 定价规则：同尺寸实木价格 × 0.67
-// 图片规则：图片命名C001.jpg ~ C198.jpg，路径/img/Cxxx.jpg
+// PVC尺寸-实木价格映射表
 const sizePriceMap = {
     "50×60cm": 88.48,
     "50×70cm": 96.32,
@@ -944,26 +145,26 @@ const sizePriceMap = {
     "120×150cm": 211.68,
     "70×90cm": 99.68
 };
-
-// 循环生成198个PVC产品
+// ====================== C系列 PVC防水镜柜 198款自动生成 ======================
+// 规则：ID C001-C198、图片/img/Cxxx.jpg、价格=同尺寸实木价*0.67
 for(let i = 1; i <= 198; i++){
     const cId = 'C' + String(i).padStart(3, '0');
     const sizeList = Object.keys(sizePriceMap);
     const targetSize = sizeList[i % sizeList.length];
-    const woodPrice = sizePriceMap[targetSize];
-    const pvcPrice = (woodPrice * CONFIG.PVC_PRICE_RATIO).toFixed(2);
+    const woodBasePrice = sizePriceMap[targetSize];
+    const pvcFinalPrice = (woodBasePrice * CONFIG.PVC_PRICE_RATIO).toFixed(2);
 
     ALL_PRODUCTS.push({
         id: cId,
         category: 'pvc-cabinet',
         name: `${cId} PVC Waterproof Mirror Cabinet`,
         desc: `Material: Eco PVC Waterproof Frame\nSize:${targetSize} | Moisture Proof\nMOQ:200pcs | Warranty:2Y`,
-        basePrice: Number(pvcPrice),
+        basePrice: Number(pvcFinalPrice),
         imgUrl: `/img/${cId}.jpg`
     });
 }
 
-// ====================== 页面初始化逻辑 ======================
+// ====================== 页面初始化入口函数 ======================
 function initPage(){
     // 暗黑模式初始化
     if(darkThemeSwitch){
@@ -979,7 +180,7 @@ function initPage(){
     renderFavList();
 }
 
-// 渲染产品列表、筛选、分页
+// ====================== 产品渲染、筛选、分页核心函数 ======================
 function renderProductList(){
     let filterArr = [...ALL_PRODUCTS];
     // 分类筛选
@@ -987,7 +188,7 @@ function renderProductList(){
     if(filterType === 'wood-cabinet') filterArr = filterArr.filter(p => p.category === 'wood-cabinet');
     if(filterType === 'pvc-cabinet') filterArr = filterArr.filter(p => p.category === 'pvc-cabinet');
 
-    // 搜索过滤
+    // 搜索关键词过滤
     if(searchText.trim()){
         const kw = searchText.toLowerCase();
         filterArr = filterArr.filter(p =>
@@ -1044,7 +245,7 @@ function renderProductList(){
     refreshBatchBar();
 }
 
-// 批量选择底部留白处理
+// 批量选择底部留白自动处理
 function refreshBatchBar(){
     const batchBar = document.querySelector('.batch-bar');
     const batchCount = batchSelectSet.size;
@@ -1058,8 +259,7 @@ function refreshBatchBar(){
         bodyDom.classList.remove('batch-open');
     }
 }
-
-// 全局事件绑定
+// ====================== 全局所有事件绑定 ======================
 function bindGlobalEvents(){
     const searchInput = document.getElementById('searchInput');
     searchInput.addEventListener('input', e=>{
@@ -1068,6 +268,7 @@ function bindGlobalEvents(){
         renderProductList();
     });
 
+    // 分类筛选按钮点击
     document.querySelectorAll('.filter-tab').forEach(tab=>{
         tab.addEventListener('click',()=>{
             document.querySelectorAll('.filter-tab').forEach(t=>t.classList.remove('active'));
@@ -1078,19 +279,21 @@ function bindGlobalEvents(){
         });
     });
 
+    // 暗黑模式切换
     document.querySelector('.theme-toggle').addEventListener('click',()=>{
         darkThemeSwitch = !darkThemeSwitch;
         localStorage.setItem('yl_dark', darkThemeSwitch);
         initPage();
     });
 
+    // 语言切换按钮
     document.querySelectorAll('.lang-switch button').forEach(btn=>{
         btn.addEventListener('click',()=>{
             setLang(btn.dataset.lang);
         });
     });
 
-    // 产品卡片委托事件
+    // 产品卡片委托事件（收藏、多选、详情、WhatsApp）
     document.querySelector('.product-grid').addEventListener('click',e=>{
         const card = e.target.closest('.product-card');
         if(!card) return;
@@ -1125,7 +328,7 @@ function bindGlobalEvents(){
         }
     });
 
-    // 批量操作按钮
+    // 批量操作按钮：复制型号、批量WhatsApp、清空多选
     document.querySelector('.batch-copy').addEventListener('click',()=>{
         const copyText = Array.from(batchSelectSet).map(id=>{
             const p = ALL_PRODUCTS.find(x=>x.id === id);
@@ -1146,7 +349,7 @@ function bindGlobalEvents(){
         renderProductList();
     });
 
-    // ESC关闭弹窗、弹窗点击遮罩关闭
+    // ESC键关闭弹窗、点击遮罩关闭弹窗
     window.addEventListener('keydown',e=>{
         if(e.key === 'Escape') document.querySelectorAll('.modal-mask.show').forEach(m=>m.classList.remove('show'));
     });
@@ -1157,20 +360,21 @@ function bindGlobalEvents(){
         mask.querySelector('.close-modal').addEventListener('click',()=>mask.classList.remove('show'));
     });
 
-    // 返回顶部按钮
+    // 返回顶部按钮滚动监听
     window.addEventListener('scroll',()=>{
         const backTopBtn = document.querySelector('.back-top');
         window.scrollY > 300 ? backTopBtn.classList.add('show') : backTopBtn.classList.remove('show');
     });
     document.querySelector('.back-top').addEventListener('click',()=>window.scrollTo({top:0,behavior:'smooth'}));
 
-    // 弹窗触发按钮
+    // 弹窗触发按钮：OEM、产品目录、收藏列表
     document.querySelector('.oem-entry').addEventListener('click',()=>document.querySelector('#oemModal').classList.add('show'));
     document.querySelector('.catalog-entry').addEventListener('click',openCatalogModal);
     document.querySelector('.fav-entry').addEventListener('click',()=>document.querySelector('#favModal').classList.add('show'));
 }
 
-// 工具函数：语言切换
+// ====================== 通用工具函数 ======================
+// 语言切换
 function setLang(lang){
     siteLang = lang;
     localStorage.setItem('yl_lang', lang);
@@ -1178,15 +382,13 @@ function setLang(lang){
         b.classList.toggle('active', b.dataset.lang === lang);
     });
 }
-
-// Toast提示
+// Toast弹窗提示
 function showToast(msg){
     const toast = document.querySelector('.copy-toast');
     toast.innerText = msg;
     toast.classList.add('show');
     setTimeout(()=>toast.classList.remove('show'), 2200);
 }
-
 // 产品详情弹窗
 function openDetailModal(product){
     activeProductData = product;
@@ -1197,7 +399,6 @@ function openDetailModal(product){
     modal.querySelector('.wa-detail-btn').href = `https://wa.me/${CONFIG.WHATSAPP_NUM}?text=Detail inquiry for ${product.id}: ${product.name}`;
     modal.classList.add('show');
 }
-
 // 完整产品目录弹窗
 function openCatalogModal(){
     const catalogWrap = document.querySelector('.catalog-list');
@@ -1205,7 +406,6 @@ function openCatalogModal(){
     catalogWrap.innerText = allText;
     document.querySelector('#catalogModal').classList.add('show');
 }
-
 // 收藏列表渲染
 function renderFavList(){
     const favWrap = document.querySelector('.fav-list');
@@ -1233,5 +433,5 @@ function renderFavList(){
     });
 }
 
-// 页面加载完成执行初始化
+// 页面DOM加载完成后执行初始化
 window.addEventListener('DOMContentLoaded', initPage);
