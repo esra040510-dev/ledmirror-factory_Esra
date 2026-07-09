@@ -192,6 +192,70 @@
         }
         .breadcrumb span { color: var(--primary); font-weight: 500; }
         .breadcrumb .sep { margin: 0 6px; color: var(--border-input); }
+
+        /* ---------- 新增：图片上传行 ---------- */
+        .upload-row {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 20px 40px;
+            margin-bottom: 16px;
+            padding: 10px 12px;
+            background: var(--bg-card);
+            border-radius: 14px;
+            border: 1px solid var(--border-soft);
+        }
+        .upload-group {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            flex-wrap: wrap;
+        }
+        .upload-group label {
+            font-weight: 600;
+            font-size: 14px;
+            color: var(--primary-dark);
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+        .upload-group label .badge {
+            display: inline-block;
+            padding: 0 12px;
+            border-radius: 20px;
+            font-size: 12px;
+            line-height: 24px;
+            background: var(--bg-soft);
+            color: var(--primary);
+        }
+        .upload-group input[type="file"] { display: none; }
+        .upload-group .file-name {
+            font-size: 13px;
+            color: var(--text-muted);
+            max-width: 120px;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+        }
+        .upload-group .upload-btn {
+            background: var(--primary);
+            color: #fff;
+            border: none;
+            padding: 6px 18px;
+            border-radius: 20px;
+            font-size: 13px;
+            cursor: pointer;
+            transition: var(--transition);
+        }
+        .upload-group .upload-btn:hover { background: var(--primary-light); transform: translateY(-1px); }
+        .upload-status {
+            font-size: 13px;
+            color: #22c55e;
+            font-weight: 500;
+        }
+        .upload-status.empty { color: #94a3b8; }
+
         .search-wrap {
             display: flex;
             justify-content: center;
@@ -974,6 +1038,8 @@
             .cert-card { min-width: 80px; padding: 12px 16px; }
             .breadcrumb { font-size: 12px; }
             .pagination-wrap button { padding: 6px 12px; font-size: 13px; min-width: 34px; }
+            .upload-row { gap: 12px; padding: 8px 10px; }
+            .upload-group { flex: 1 1 100%; justify-content: center; }
         }
         @media (max-width: 480px) {
             .product-grid { grid-template-columns: 1fr; }
@@ -1039,6 +1105,33 @@
         <div class="breadcrumb" id="breadcrumb">
             <span>🏠</span> <span class="sep">/</span> <span id="breadcrumbLabel">All Products</span>
         </div>
+
+        <!-- ========== 新增：图片上传行 ========== -->
+        <div class="upload-row">
+            <!-- 镜子（圆形）上传 -->
+            <div class="upload-group">
+                <label>
+                    <span class="badge">🪞 镜子</span>
+                    <span style="font-weight:400;color:var(--text-muted);font-size:13px;">(A系列 长=宽)</span>
+                </label>
+                <input type="file" id="uploadMirror" accept="image/*" />
+                <span class="file-name" id="mirrorFileName">未选择</span>
+                <button class="upload-btn" id="mirrorUploadBtn" type="button">上传</button>
+                <span class="upload-status empty" id="mirrorStatus">⚪ 未上传</span>
+            </div>
+            <!-- 柜子上传 -->
+            <div class="upload-group">
+                <label>
+                    <span class="badge">🗄️ 柜子</span>
+                    <span style="font-weight:400;color:var(--text-muted);font-size:13px;">(B系列 长>宽)</span>
+                </label>
+                <input type="file" id="uploadCabinet" accept="image/*" />
+                <span class="file-name" id="cabinetFileName">未选择</span>
+                <button class="upload-btn" id="cabinetUploadBtn" type="button">上传</button>
+                <span class="upload-status empty" id="cabinetStatus">⚪ 未上传</span>
+            </div>
+        </div>
+
         <div class="search-wrap">
             <input type="text" id="searchInput" placeholder="Search product model / size / material..." />
             <span class="result-count" id="resultCount">0 products</span>
@@ -1331,12 +1424,16 @@
         let darkMode = localStorage.getItem('yl_dark') === 'true';
         let batchSelected = new Set();
 
+        // ===== 新增：存储上传的图片 DataURL =====
+        let mirrorImgUrl = null;   // 圆形镜子
+        let cabinetImgUrl = null;  // 柜子
+
         // ============================================================
-        // 产品数据 (A29 + B29 + C198 = 256)
+        // 产品数据 (A29 + B29 + C198 = 256)  完全不动
         // ============================================================
         const PRODUCTS = [];
 
-        // A系列（29款）—— 全部恢复旧文件名
+        // A系列（29款）
         const aData = [
             { id: 'A001', name: 'Model A001 LED Anti-Fog Bathroom Mirror', desc: 'Material: Paulownia Frame Mirror\nSize: 50×50cm | LED + Anti-Fog + Storage\nWarranty: 2 Years | MOQ: 500pcs', price: '$14.90', img: '微信图片_20260707164222_511_35.jpg' },
             { id: 'A002', name: 'Model A002 LED Anti-Fog Bathroom Mirror', desc: 'Material: Paulownia Frame Mirror\nSize: 55×55cm | LED + Anti-Fog + Storage\nWarranty: 2 Years | MOQ: 500pcs', price: '$15.90', img: '微信图片_20260707164222_511_35.jpg' },
@@ -1370,7 +1467,7 @@
         ];
         aData.forEach(p => { PRODUCTS.push({ id: p.id, type: 'A', name: p.name, desc: p.desc, price: p.price, img: p.img ? '/img/' + p.img : '' }); });
 
-        // B系列（29款）—— 全部恢复旧文件名
+        // B系列（29款）
         const bData = [
             { id: 'B001', name: 'Model B001 Premium Solid Wood Mirror Cabinet', desc: 'Material: Solid Wood + Paulownia Frame\nSize: 70×90cm | Full Storage Cabinet\nWarranty: 2 Years | MOQ: 100pcs', price: '$99.68', img: '微信图片_20260707164044_510_35.jpg' },
             { id: 'B002', name: 'Model B002 Premium Solid Wood Mirror Cabinet', desc: 'Material: Solid Wood + Paulownia Frame\nSize: 50×60cm | Full Storage Cabinet\nWarranty: 2 Years | MOQ: 100pcs', price: '$88.48', img: '微信图片_20260707164044_510_35.jpg' },
@@ -1404,7 +1501,7 @@
         ];
         bData.forEach(p => { PRODUCTS.push({ id: p.id, type: 'B', name: p.name, desc: p.desc, price: p.price, img: p.img ? '/img/' + p.img : '' }); });
 
-        // C系列（198款）—— 完全不动
+        // C系列（198款）
         for (let i = 1; i <= 198; i++) {
             const id = 'C' + String(i).padStart(3, '0');
             let size = '80×50cm';
@@ -1425,7 +1522,7 @@
         }
 
         // ============================================================
-        // 语言映射 (EN/FR)
+        // 语言映射 (EN/FR) —— 完全不动
         // ============================================================
         const LANG = {
             en: {
@@ -1512,7 +1609,7 @@
         };
 
         // ============================================================
-        // 工具函数 (debounce, throttle, getSvgPlaceholder, showToast, copyToClipboard, getLangText)
+        // 工具函数 (完全不动)
         // ============================================================
         function debounce(fn, delay) { let t; return function(...a) { clearTimeout(t); t = setTimeout(() => fn.apply(this, a), delay); }; }
         function throttle(fn, limit) { let inThrottle = false; return function(...a) { if (!inThrottle) { fn.apply(this, a); inThrottle = true; setTimeout(() => inThrottle = false, limit); } }; }
@@ -1550,7 +1647,18 @@
         const batchCount = document.getElementById('batchCount');
 
         // ============================================================
-        // 核心渲染
+        // 新增：解析尺寸的工具函数
+        // ============================================================
+        function parseSize(desc) {
+            const match = desc.match(/Size:\s*(\d+)×(\d+)cm/);
+            if (match) {
+                return { length: parseInt(match[1]), width: parseInt(match[2]) };
+            }
+            return null;
+        }
+
+        // ============================================================
+        // 核心渲染 (修改图片生成逻辑)
         // ============================================================
         function getFilteredProducts() {
             let list = PRODUCTS;
@@ -1582,14 +1690,28 @@
             pageItems.forEach(item => {
                 const isFav = favorites.includes(item.id);
                 const checked = batchSelected.has(item.id) ? 'checked' : '';
-                const imgSrc = item.img || '';
-                const imgHtml = imgSrc ? `<img class="product-img" src="${imgSrc}" alt="${item.id} - ${item.name}" loading="lazy" width="320" height="220" onerror="this.style.display='none';this.parentElement.querySelector('.img-placeholder').style.display='flex'" />` : '';
+
+                // ===== 新增：判断是否匹配上传的图片 =====
+                let matchedImgUrl = null;
+                const size = parseSize(item.desc);
+                if (size && item.type === 'A' && size.length === size.width && mirrorImgUrl) {
+                    matchedImgUrl = mirrorImgUrl; // 镜子
+                } else if (size && item.type === 'B' && size.length > size.width && cabinetImgUrl) {
+                    matchedImgUrl = cabinetImgUrl; // 柜子
+                }
+                // 如果匹配，使用上传的图片；否则使用原有的 item.img（若有）
+                const finalImgSrc = matchedImgUrl || item.img || '';
+
+                const imgHtml = finalImgSrc ?
+                    `<img class="product-img" src="${finalImgSrc}" alt="${item.id} - ${item.name}" loading="lazy" width="320" height="220" onerror="this.style.display='none';this.parentElement.querySelector('.img-placeholder').style.display='flex'" />` :
+                    '';
+
                 const shortDesc = item.desc.length > 60 ? item.desc.substring(0,60)+'...' : item.desc;
                 html += `
                     <div class="product-card" data-id="${item.id}">
                         <div class="img-box">
                             ${imgHtml}
-                            <div class="img-placeholder" style="display:${imgSrc?'none':'flex'};align-items:center;justify-content:center;width:100%;height:100%;">${getSvgPlaceholder()}</div>
+                            <div class="img-placeholder" style="display:${finalImgSrc?'none':'flex'};align-items:center;justify-content:center;width:100%;height:100%;">${getSvgPlaceholder()}</div>
                             <span class="model-tag">${item.id}</span>
                             <button class="favorite-btn ${isFav?'active':''}" onclick="toggleFav('${item.id}')" title="${isFav?'Remove from favorites':'Add to favorites'}">${isFav?'♥':'♡'}</button>
                             <input type="checkbox" class="product-check" onchange="toggleBatch('${item.id}')" ${checked} />
@@ -1643,7 +1765,7 @@
         }
 
         // ============================================================
-        // 批量选择
+        // 批量选择 (完全不动)
         // ============================================================
         function toggleBatch(id) {
             if (batchSelected.has(id)) batchSelected.delete(id); else batchSelected.add(id);
@@ -1676,7 +1798,7 @@
         function batchClear() { batchSelected.clear(); document.querySelectorAll('.product-check').forEach(cb => cb.checked = false); updateBatchBar(); }
 
         // ============================================================
-        // 收藏
+        // 收藏 (完全不动)
         // ============================================================
         function toggleFav(id) {
             const idx = favorites.indexOf(id);
@@ -1701,7 +1823,7 @@
         function closeFavModal() { document.getElementById('favModal').classList.remove('show'); document.body.classList.remove('no-scroll'); }
 
         // ============================================================
-        // 产品详情
+        // 产品详情 (完全不动)
         // ============================================================
         function openProductModal(id) {
             const product = PRODUCTS.find(p => p.id === id);
@@ -1721,14 +1843,14 @@
         function quickWhatsApp(id) { const product = PRODUCTS.find(p => p.id === id); if (!product) return; window.open('https://wa.me/' + CONFIG.WHATSAPP + '?text=' + encodeURIComponent(getLangText('whatsappMsg') + ' ' + product.id + ' - ' + product.name + ' (' + product.price + ')'), '_blank'); }
 
         // ============================================================
-        // OEM
+        // OEM (完全不动)
         // ============================================================
         function openOEMModal() { document.getElementById('oemModal').classList.add('show'); document.body.classList.add('no-scroll'); applyLangToOEM(); }
         function closeOEMModal() { document.getElementById('oemModal').classList.remove('show'); document.body.classList.remove('no-scroll'); }
         function contactWhatsAppOEM() { window.open('https://wa.me/' + CONFIG.WHATSAPP + '?text=' + encodeURIComponent('Hi, I would like to request an OEM/ODM custom quote.'), '_blank'); }
 
         // ============================================================
-        // 询价表单
+        // 询价表单 (完全不动)
         // ============================================================
         function openInquiryModal() { document.getElementById('inquiryModal').classList.add('show'); document.body.classList.add('no-scroll'); }
         function closeInquiryModal() { document.getElementById('inquiryModal').classList.remove('show'); document.body.classList.remove('no-scroll'); }
@@ -1755,7 +1877,7 @@
         }
 
         // ============================================================
-        // Catalog
+        // Catalog (完全不动)
         // ============================================================
         function openCatalogModal() { document.getElementById('catalogModal').classList.add('show'); document.body.classList.add('no-scroll'); generateCatalog(); }
         function closeCatalogModal() { document.getElementById('catalogModal').classList.remove('show'); document.body.classList.remove('no-scroll'); }
@@ -1774,7 +1896,7 @@
         function copyCatalog() { copyToClipboard(document.getElementById('catalogContent').textContent, 'Catalog copied!'); }
 
         // ============================================================
-        // 工厂相册
+        // 工厂相册 (完全不动)
         // ============================================================
         function initGallery() {
             const carousel = document.getElementById('galleryCarousel');
@@ -1787,7 +1909,7 @@
         }
 
         // ============================================================
-        // FAQ
+        // FAQ (完全不动)
         // ============================================================
         function toggleFaq(el) {
             const ans = el.nextElementSibling;
@@ -1796,7 +1918,7 @@
         }
 
         // ============================================================
-        // 语言 & 主题
+        // 语言 & 主题 (不动，增加对上传控件的语言适配)
         // ============================================================
         function applyLangToUI() {
             document.querySelectorAll('[data-lang-key]').forEach(el => {
@@ -1854,7 +1976,7 @@
         }
 
         // ============================================================
-        // 筛选
+        // 筛选 (完全不动)
         // ============================================================
         function applyAdvancedFilter() {
             priceMin = document.getElementById('priceMin').value;
@@ -1875,7 +1997,7 @@
         }
 
         // ============================================================
-        // 滚动 & 搜索
+        // 滚动 & 搜索 (完全不动)
         // ============================================================
         const handleScroll = throttle(function() {
             const header = document.getElementById('siteHeader');
@@ -1886,7 +2008,7 @@
         const handleSearch = debounce(function() { searchKeyword = this.value; currentPage = 1; renderProducts(); }, 300);
 
         // ============================================================
-        // ESC & 遮罩关闭
+        // ESC & 遮罩关闭 (完全不动)
         // ============================================================
         document.addEventListener('keydown', function(e) {
             if (e.key === 'Escape') {
@@ -1915,11 +2037,60 @@
         });
 
         // ============================================================
-        // 复制 & Sitemap
+        // 复制 & Sitemap (完全不动)
         // ============================================================
         function copyText(text) { copyToClipboard(text, 'Copied: ' + text); }
         function copySitemap() { copyToClipboard('https://ledmirror-factory-esra.pages.dev/\nhttps://ledmirror-factory-esra.pages.dev/#products\nhttps://ledmirror-factory-esra.pages.dev/#oem\nhttps://ledmirror-factory-esra.pages.dev/#faq\n', 'Sitemap copied!'); }
         function scrollToTop() { window.scrollTo({ top: 0, behavior: 'smooth' }); }
+
+        // ============================================================
+        // 新增：图片上传处理
+        // ============================================================
+        const mirrorInput = document.getElementById('uploadMirror');
+        const cabinetInput = document.getElementById('uploadCabinet');
+        const mirrorFileName = document.getElementById('mirrorFileName');
+        const cabinetFileName = document.getElementById('cabinetFileName');
+        const mirrorStatus = document.getElementById('mirrorStatus');
+        const cabinetStatus = document.getElementById('cabinetStatus');
+        const mirrorUploadBtn = document.getElementById('mirrorUploadBtn');
+        const cabinetUploadBtn = document.getElementById('cabinetUploadBtn');
+
+        function handleImageUpload(file, type) {
+            if (!file) return;
+            if (!file.type.startsWith('image/')) {
+                alert('请选择图片文件');
+                return;
+            }
+            const reader = new FileReader();
+            reader.onload = function(e) {
+                const dataUrl = e.target.result;
+                if (type === 'mirror') {
+                    mirrorImgUrl = dataUrl;
+                    mirrorStatus.textContent = '✅ 已上传';
+                    mirrorStatus.className = 'upload-status';
+                    mirrorFileName.textContent = file.name.length > 20 ? file.name.slice(0, 18) + '…' : file.name;
+                } else {
+                    cabinetImgUrl = dataUrl;
+                    cabinetStatus.textContent = '✅ 已上传';
+                    cabinetStatus.className = 'upload-status';
+                    cabinetFileName.textContent = file.name.length > 20 ? file.name.slice(0, 18) + '…' : file.name;
+                }
+                renderProducts();
+            };
+            reader.onerror = function() { alert('读取图片失败，请重试'); };
+            reader.readAsDataURL(file);
+        }
+
+        mirrorUploadBtn.addEventListener('click', () => mirrorInput.click());
+        mirrorInput.addEventListener('change', function(e) {
+            if (this.files && this.files[0]) { handleImageUpload(this.files[0], 'mirror'); }
+            this.value = '';
+        });
+        cabinetUploadBtn.addEventListener('click', () => cabinetInput.click());
+        cabinetInput.addEventListener('change', function(e) {
+            if (this.files && this.files[0]) { handleImageUpload(this.files[0], 'cabinet'); }
+            this.value = '';
+        });
 
         // ============================================================
         // 初始化
@@ -1977,7 +2148,6 @@
             window.copyText = copyText;
             window.copySitemap = copySitemap;
             window.scrollToTop = scrollToTop;
-            // 兼容旧函数
             window.openDetail = openProductModal;
             window.closeModal = closeProductModal;
             window.copyInfo = copyModel;
