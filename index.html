@@ -85,15 +85,8 @@
             --white: #1e1e32;
             --bg-soft: #1a1a2e;
         }
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: var(--font-body);
-        }
-        html {
-            scroll-behavior: smooth;
-        }
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: var(--font-body); }
+        html { scroll-behavior: smooth; }
         body {
             background-color: var(--bg-body);
             color: var(--text-body);
@@ -103,68 +96,19 @@
             line-height: 1.6;
             transition: background 0.3s, color 0.3s;
         }
-        body.no-scroll {
-            overflow: hidden;
-        }
-        a,
-        button,
-        input,
-        select,
-        textarea {
-            font-family: inherit;
-        }
-        img {
-            display: block;
-            max-width: 100%;
-        }
+        body.no-scroll { overflow: hidden; }
+        a, button, input, select, textarea { font-family: inherit; }
+        img { display: block; max-width: 100%; }
         @media print {
-            .no-print {
-                display: none !important;
-            }
-            body {
-                background: #fff !important;
-                color: #000 !important;
-                padding: 0.5in !important;
-                max-width: 100% !important;
-            }
-            .product-card {
-                break-inside: avoid;
-                box-shadow: none !important;
-                border: 1px solid #ddd !important;
-            }
-            .filter-tabs,
-            .search-wrap,
-            .oem-entry,
-            .float-whatsapp,
-            .back-top,
-            .pagination-wrap,
-            .batch-bar,
-            .lang-switch,
-            .theme-toggle {
-                display: none !important;
-            }
-            header {
-                position: static !important;
-                background: #fff !important;
-                backdrop-filter: none !important;
-                box-shadow: none !important;
-            }
-            .modal-mask {
-                position: static !important;
-                background: transparent !important;
-                opacity: 1 !important;
-                display: none !important;
-            }
-            .modal-mask.show {
-                display: none !important;
-            }
-            .img-box {
-                height: 160px !important;
-            }
-            .product-grid {
-                grid-template-columns: repeat(3, 1fr) !important;
-                gap: 16px !important;
-            }
+            .no-print { display: none !important; }
+            body { background: #fff !important; color: #000 !important; padding: 0.5in !important; max-width: 100% !important; }
+            .product-card { break-inside: avoid; box-shadow: none !important; border: 1px solid #ddd !important; }
+            .filter-tabs, .search-wrap, .oem-entry, .float-whatsapp, .back-top, .pagination-wrap, .batch-bar, .lang-switch, .theme-toggle { display: none !important; }
+            header { position: static !important; background: #fff !important; backdrop-filter: none !important; box-shadow: none !important; }
+            .modal-mask { position: static !important; background: transparent !important; opacity: 1 !important; display: none !important; }
+            .modal-mask.show { display: none !important; }
+            .img-box { height: 160px !important; }
+            .product-grid { grid-template-columns: repeat(3, 1fr) !important; gap: 16px !important; }
         }
         header {
             text-align: center;
@@ -178,13 +122,8 @@
             backdrop-filter: blur(8px);
             transition: var(--transition);
         }
-        [data-theme="dark"] header {
-            background-color: rgba(18, 18, 30, 0.95);
-        }
-        header.scrolled {
-            padding: 14px 0 12px;
-            box-shadow: var(--shadow-sm);
-        }
+        [data-theme="dark"] header { background-color: rgba(18, 18, 30, 0.95); }
+        header.scrolled { padding: 14px 0 12px; box-shadow: var(--shadow-sm); }
         .header-top {
             display: flex;
             flex-wrap: wrap;
@@ -227,13 +166,8 @@
             color: var(--text-muted);
             transition: var(--transition);
         }
-        .lang-switch button.active {
-            background: var(--primary);
-            color: #fff;
-        }
-        .lang-switch button:hover:not(.active) {
-            background: var(--bg-soft);
-        }
+        .lang-switch button.active { background: var(--primary); color: #fff; }
+        .lang-switch button:hover:not(.active) { background: var(--bg-soft); }
         .theme-toggle {
             background: var(--white);
             border: 1px solid var(--border-input);
@@ -248,10 +182,7 @@
             transition: var(--transition);
             color: var(--text-muted);
         }
-        .theme-toggle:hover {
-            background: var(--bg-soft);
-            transform: rotate(20deg);
-        }
+        .theme-toggle:hover { background: var(--bg-soft); transform: rotate(20deg); }
         .breadcrumb {
             font-size: 13px;
             color: var(--text-muted);
@@ -259,14 +190,8 @@
             text-align: left;
             padding: 0 4px;
         }
-        .breadcrumb span {
-            color: var(--primary);
-            font-weight: 500;
-        }
-        .breadcrumb .sep {
-            margin: 0 6px;
-            color: var(--border-input);
-        }
+        .breadcrumb span { color: var(--primary); font-weight: 500; }
+        .breadcrumb .sep { margin: 0 6px; color: var(--border-input); }
         .search-wrap {
             display: flex;
             justify-content: center;
@@ -285,9 +210,7 @@
             transition: var(--transition);
             color: var(--text-body);
         }
-        #searchInput::placeholder {
-            color: var(--text-placeholder);
-        }
+        #searchInput::placeholder { color: var(--text-placeholder); }
         #searchInput:focus {
             outline: none;
             border-color: var(--primary-light);
@@ -326,16 +249,11 @@
             left: -100%;
             width: 100%;
             height: 100%;
-            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.25), transparent);
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.25), transparent);
             transition: left 0.5s ease;
         }
-        .filter-tab:hover::after {
-            left: 100%;
-        }
-        .filter-tab:hover {
-            background: var(--bg-soft);
-            transform: translateY(-2px);
-        }
+        .filter-tab:hover::after { left: 100%; }
+        .filter-tab:hover { background: var(--bg-soft); transform: translateY(-2px); }
         .filter-tab.active {
             background: var(--primary);
             color: var(--white);
@@ -354,9 +272,7 @@
             margin-bottom: 20px;
             border: 1px solid var(--border-soft);
         }
-        [data-theme="dark"] .advanced-filter {
-            background: var(--bg-card);
-        }
+        [data-theme="dark"] .advanced-filter { background: var(--bg-card); }
         .filter-group {
             display: flex;
             align-items: center;
@@ -368,8 +284,7 @@
             color: var(--text-muted);
             font-weight: 500;
         }
-        .filter-group input,
-        .filter-group select {
+        .filter-group input, .filter-group select {
             padding: 6px 10px;
             border: 1px solid var(--border-input);
             border-radius: 8px;
@@ -379,12 +294,8 @@
             width: 80px;
             transition: var(--transition);
         }
-        .filter-group select {
-            width: auto;
-            min-width: 100px;
-        }
-        .filter-group input:focus,
-        .filter-group select:focus {
+        .filter-group select { width: auto; min-width: 100px; }
+        .filter-group input:focus, .filter-group select:focus {
             outline: none;
             border-color: var(--primary-light);
         }
@@ -402,17 +313,13 @@
             cursor: pointer;
             transition: var(--transition);
         }
-        .filter-actions button:hover {
-            background: var(--primary-light);
-        }
+        .filter-actions button:hover { background: var(--primary-light); }
         .filter-actions button.reset-filter {
             background: transparent;
             color: var(--text-muted);
             border: 1px solid var(--border-input);
         }
-        .filter-actions button.reset-filter:hover {
-            background: var(--bg-soft);
-        }
+        .filter-actions button.reset-filter:hover { background: var(--bg-soft); }
         .product-grid {
             display: grid;
             grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
@@ -429,14 +336,8 @@
             font-size: 18px;
             display: none;
         }
-        .empty-state.show {
-            display: block;
-        }
-        .empty-state span {
-            font-size: 56px;
-            display: block;
-            margin-bottom: 12px;
-        }
+        .empty-state.show { display: block; }
+        .empty-state span { font-size: 56px; display: block; margin-bottom: 12px; }
         .product-card {
             background: var(--bg-card);
             border-radius: var(--radius-card);
@@ -451,10 +352,7 @@
             will-change: transform;
             border: 1px solid var(--border-color);
         }
-        .product-card:hover {
-            transform: translateY(-6px);
-            box-shadow: var(--shadow-hover);
-        }
+        .product-card:hover { transform: translateY(-6px); box-shadow: var(--shadow-hover); }
         .product-card .img-box {
             overflow: hidden;
             height: 220px;
@@ -471,9 +369,7 @@
             object-fit: cover;
             transition: transform 0.4s ease;
         }
-        .product-card:hover .product-img {
-            transform: scale(1.04);
-        }
+        .product-card:hover .product-img { transform: scale(1.04); }
         .product-card .img-placeholder {
             width: 100%;
             height: 100%;
@@ -482,11 +378,7 @@
             justify-content: center;
             background: var(--bg-soft);
         }
-        .product-card .img-placeholder svg {
-            width: 80px;
-            height: 80px;
-            fill: #c890a0;
-        }
+        .product-card .img-placeholder svg { width: 80px; height: 80px; fill: #c890a0; }
         .product-card .model-tag {
             position: absolute;
             top: 10px;
@@ -506,7 +398,7 @@
             width: 32px;
             height: 32px;
             border-radius: 50%;
-            background: rgba(255, 255, 255, 0.9);
+            background: rgba(255,255,255,0.9);
             border: none;
             color: var(--primary);
             cursor: pointer;
@@ -517,13 +409,8 @@
             align-items: center;
             justify-content: center;
         }
-        .product-card .favorite-btn:hover {
-            background: #fff;
-            transform: scale(1.1);
-        }
-        .product-card .favorite-btn.active {
-            color: #e63946;
-        }
+        .product-card .favorite-btn:hover { background: #fff; transform: scale(1.1); }
+        .product-card .favorite-btn.active { color: #e63946; }
         .product-card .product-check {
             position: absolute;
             top: 10px;
@@ -533,7 +420,7 @@
             height: 22px;
             accent-color: var(--primary);
             cursor: pointer;
-            background: rgba(255, 255, 255, 0.85);
+            background: rgba(255,255,255,0.85);
             border-radius: 4px;
         }
         .product-card .product-info {
@@ -583,10 +470,7 @@
             cursor: pointer;
             transition: var(--transition);
         }
-        .product-card .order-btn:hover {
-            background: var(--primary-light);
-            transform: translateY(-1px);
-        }
+        .product-card .order-btn:hover { background: var(--primary-light); transform: translateY(-1px); }
         .product-card .quick-whatsapp {
             width: 40px;
             padding: 10px 0;
@@ -598,10 +482,7 @@
             transition: var(--transition);
             font-size: 16px;
         }
-        .product-card .quick-whatsapp:hover {
-            background: var(--whatsapp-dark);
-            transform: translateY(-1px);
-        }
+        .product-card .quick-whatsapp:hover { background: var(--whatsapp-dark); transform: translateY(-1px); }
         .pagination-wrap {
             display: flex;
             justify-content: center;
@@ -622,24 +503,10 @@
             transition: var(--transition);
             min-width: 40px;
         }
-        .pagination-wrap button:hover:not(:disabled) {
-            background: var(--bg-soft);
-            border-color: var(--primary);
-        }
-        .pagination-wrap button.active {
-            background: var(--primary);
-            color: #fff;
-            border-color: var(--primary);
-        }
-        .pagination-wrap button:disabled {
-            opacity: 0.4;
-            cursor: not-allowed;
-        }
-        .pagination-wrap .page-info {
-            font-size: 14px;
-            color: var(--text-muted);
-            padding: 0 12px;
-        }
+        .pagination-wrap button:hover:not(:disabled) { background: var(--bg-soft); border-color: var(--primary); }
+        .pagination-wrap button.active { background: var(--primary); color: #fff; border-color: var(--primary); }
+        .pagination-wrap button:disabled { opacity: 0.4; cursor: not-allowed; }
+        .pagination-wrap .page-info { font-size: 14px; color: var(--text-muted); padding: 0 12px; }
         .batch-bar {
             position: fixed;
             bottom: 0;
@@ -654,19 +521,11 @@
             gap: 16px;
             flex-wrap: wrap;
             z-index: 200;
-            box-shadow: 0 -4px 20px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 -4px 20px rgba(0,0,0,0.1);
         }
-        .batch-bar.show {
-            display: flex;
-        }
-        .batch-bar .batch-info {
-            font-size: 14px;
-            font-weight: 500;
-            color: var(--text-body);
-        }
-        .batch-bar .batch-info strong {
-            color: var(--primary);
-        }
+        .batch-bar.show { display: flex; }
+        .batch-bar .batch-info { font-size: 14px; font-weight: 500; color: var(--text-body); }
+        .batch-bar .batch-info strong { color: var(--primary); }
         .batch-bar button {
             padding: 8px 20px;
             border-radius: 10px;
@@ -676,28 +535,12 @@
             cursor: pointer;
             transition: var(--transition);
         }
-        .batch-bar .batch-copy {
-            background: var(--primary);
-            color: #fff;
-        }
-        .batch-bar .batch-copy:hover {
-            background: var(--primary-light);
-        }
-        .batch-bar .batch-whatsapp {
-            background: var(--whatsapp);
-            color: #fff;
-        }
-        .batch-bar .batch-whatsapp:hover {
-            background: var(--whatsapp-dark);
-        }
-        .batch-bar .batch-clear {
-            background: transparent;
-            color: var(--text-muted);
-            border: 1px solid var(--border-input);
-        }
-        .batch-bar .batch-clear:hover {
-            background: var(--bg-soft);
-        }
+        .batch-bar .batch-copy { background: var(--primary); color: #fff; }
+        .batch-bar .batch-copy:hover { background: var(--primary-light); }
+        .batch-bar .batch-whatsapp { background: var(--whatsapp); color: #fff; }
+        .batch-bar .batch-whatsapp:hover { background: var(--whatsapp-dark); }
+        .batch-bar .batch-clear { background: transparent; color: var(--text-muted); border: 1px solid var(--border-input); }
+        .batch-bar .batch-clear:hover { background: var(--bg-soft); }
         .modal-mask {
             display: none;
             position: fixed;
@@ -705,7 +548,7 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background: rgba(0, 0, 0, 0.55);
+            background: rgba(0,0,0,0.55);
             z-index: 999;
             align-items: center;
             justify-content: center;
@@ -713,10 +556,7 @@
             opacity: 0;
             transition: opacity 0.3s ease;
         }
-        .modal-mask.show {
-            display: flex;
-            opacity: 1;
-        }
+        .modal-mask.show { display: flex; opacity: 1; }
         .modal-box {
             background: var(--bg-card);
             width: 100%;
@@ -731,9 +571,7 @@
             border: 1px solid var(--border-color);
             box-shadow: var(--shadow-md);
         }
-        .modal-mask.show .modal-box {
-            transform: translateY(0);
-        }
+        .modal-mask.show .modal-box { transform: translateY(0); }
         .modal-box .close-modal {
             position: absolute;
             top: 14px;
@@ -752,10 +590,7 @@
             background: transparent;
             border: none;
         }
-        .modal-box .close-modal:hover {
-            color: var(--primary-dark);
-            background: var(--bg-soft);
-        }
+        .modal-box .close-modal:hover { color: var(--primary-dark); background: var(--bg-soft); }
         .modal-box .modal-title {
             font-size: 22px;
             color: var(--primary-dark);
@@ -798,11 +633,7 @@
             font-size: 15px;
             cursor: pointer;
         }
-        .modal-box .whatsapp-btn:hover {
-            background: var(--whatsapp-dark);
-            transform: translateY(-1px);
-            box-shadow: 0 4px 12px rgba(37, 211, 102, 0.3);
-        }
+        .modal-box .whatsapp-btn:hover { background: var(--whatsapp-dark); transform: translateY(-1px); box-shadow: 0 4px 12px rgba(37,211,102,0.3); }
         .modal-box .copy-model-btn {
             display: inline-block;
             margin-left: 8px;
@@ -815,12 +646,8 @@
             cursor: pointer;
             transition: var(--transition);
         }
-        .modal-box .copy-model-btn:hover {
-            background: var(--border-soft);
-        }
-        .oem-list {
-            margin-bottom: 20px;
-        }
+        .modal-box .copy-model-btn:hover { background: var(--border-soft); }
+        .oem-list { margin-bottom: 20px; }
         .oem-item {
             display: flex;
             align-items: flex-start;
@@ -828,36 +655,17 @@
             padding: 10px 0;
             border-bottom: 1px dashed var(--border-soft);
         }
-        .oem-item:last-child {
-            border-bottom: none;
-        }
-        .oem-item .oem-icon {
-            color: var(--primary);
-            font-size: 18px;
-            flex-shrink: 0;
-            margin-top: 2px;
-        }
-        .oem-item .oem-content h4 {
-            font-size: 15px;
-            color: var(--primary-dark);
-            margin-bottom: 2px;
-        }
-        .oem-item .oem-content p {
-            font-size: 13px;
-            color: var(--text-muted);
-            line-height: 1.5;
-        }
+        .oem-item:last-child { border-bottom: none; }
+        .oem-item .oem-icon { color: var(--primary); font-size: 18px; flex-shrink: 0; margin-top: 2px; }
+        .oem-item .oem-content h4 { font-size: 15px; color: var(--primary-dark); margin-bottom: 2px; }
+        .oem-item .oem-content p { font-size: 13px; color: var(--text-muted); line-height: 1.5; }
         .oem-info {
             background: var(--bg-soft);
             padding: 14px 16px;
             border-radius: 10px;
             margin-bottom: 18px;
         }
-        .oem-info p {
-            font-size: 14px;
-            color: var(--primary-dark);
-            margin-bottom: 4px;
-        }
+        .oem-info p { font-size: 14px; color: var(--primary-dark); margin-bottom: 4px; }
         .inquiry-form label {
             display: block;
             font-size: 14px;
@@ -865,9 +673,7 @@
             color: var(--text-muted);
             margin-bottom: 4px;
         }
-        .inquiry-form input,
-        .inquiry-form textarea,
-        .inquiry-form select {
+        .inquiry-form input, .inquiry-form textarea, .inquiry-form select {
             width: 100%;
             padding: 10px 14px;
             border: 1px solid var(--border-input);
@@ -878,22 +684,13 @@
             transition: var(--transition);
             margin-bottom: 14px;
         }
-        .inquiry-form input:focus,
-        .inquiry-form textarea:focus,
-        .inquiry-form select:focus {
+        .inquiry-form input:focus, .inquiry-form textarea:focus, .inquiry-form select:focus {
             outline: none;
             border-color: var(--primary-light);
-            box-shadow: 0 0 0 3px rgba(214, 80, 118, 0.1);
+            box-shadow: 0 0 0 3px rgba(214,80,118,0.1);
         }
-        .inquiry-form textarea {
-            min-height: 80px;
-            resize: vertical;
-        }
-        .inquiry-form .form-row {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 12px;
-        }
+        .inquiry-form textarea { min-height: 80px; resize: vertical; }
+        .inquiry-form .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
         .fav-list {
             max-height: 300px;
             overflow-y: auto;
@@ -928,20 +725,10 @@
             cursor: pointer;
             transition: var(--transition);
         }
-        .fav-actions .fav-clear {
-            background: #e63946;
-            color: #fff;
-        }
-        .fav-actions .fav-clear:hover {
-            background: #c62828;
-        }
-        .fav-actions .fav-close {
-            background: var(--bg-soft);
-            color: var(--text-muted);
-        }
-        .fav-actions .fav-close:hover {
-            background: var(--border-soft);
-        }
+        .fav-actions .fav-clear { background: #e63946; color: #fff; }
+        .fav-actions .fav-clear:hover { background: #c62828; }
+        .fav-actions .fav-close { background: var(--bg-soft); color: var(--text-muted); }
+        .fav-actions .fav-close:hover { background: var(--border-soft); }
         .catalog-list {
             max-height: 360px;
             overflow-y: auto;
@@ -969,29 +756,12 @@
             cursor: pointer;
             transition: var(--transition);
         }
-        .catalog-actions .catalog-copy {
-            background: var(--primary);
-            color: #fff;
-        }
-        .catalog-actions .catalog-copy:hover {
-            background: var(--primary-light);
-        }
-        .catalog-actions .catalog-close {
-            background: var(--bg-soft);
-            color: var(--text-muted);
-        }
-        .catalog-actions .catalog-close:hover {
-            background: var(--border-soft);
-        }
-        .gallery-section {
-            margin: 40px 0 30px;
-        }
-        .gallery-section h2 {
-            font-size: 24px;
-            color: var(--primary-dark);
-            margin-bottom: 16px;
-            text-align: center;
-        }
+        .catalog-actions .catalog-copy { background: var(--primary); color: #fff; }
+        .catalog-actions .catalog-copy:hover { background: var(--primary-light); }
+        .catalog-actions .catalog-close { background: var(--bg-soft); color: var(--text-muted); }
+        .catalog-actions .catalog-close:hover { background: var(--border-soft); }
+        .gallery-section { margin: 40px 0 30px; }
+        .gallery-section h2 { font-size: 24px; color: var(--primary-dark); margin-bottom: 16px; text-align: center; }
         .gallery-carousel {
             display: flex;
             gap: 12px;
@@ -1012,16 +782,8 @@
             align-items: center;
             justify-content: center;
         }
-        .gallery-carousel .carousel-item img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-        }
-        .gallery-carousel .carousel-item .noimg-svg {
-            width: 60px;
-            height: 60px;
-            fill: #c890a0;
-        }
+        .gallery-carousel .carousel-item img { width: 100%; height: 100%; object-fit: cover; }
+        .gallery-carousel .carousel-item .noimg-svg { width: 60px; height: 60px; fill: #c890a0; }
         .cert-grid {
             display: flex;
             flex-wrap: wrap;
@@ -1038,27 +800,14 @@
             min-width: 120px;
             box-shadow: var(--shadow-sm);
         }
-        .cert-card .cert-icon {
-            font-size: 36px;
-            display: block;
-            margin-bottom: 6px;
-        }
-        .cert-card .cert-name {
-            font-size: 14px;
-            font-weight: 600;
-            color: var(--primary-dark);
-        }
+        .cert-card .cert-icon { font-size: 36px; display: block; margin-bottom: 6px; }
+        .cert-card .cert-name { font-size: 14px; font-weight: 600; color: var(--primary-dark); }
         .faq-section {
             margin: 40px 0 30px;
             border-top: 1px solid var(--border-color);
             padding-top: 30px;
         }
-        .faq-section h2 {
-            font-size: 24px;
-            color: var(--primary-dark);
-            margin-bottom: 18px;
-            text-align: center;
-        }
+        .faq-section h2 { font-size: 24px; color: var(--primary-dark); margin-bottom: 18px; text-align: center; }
         .faq-item {
             border-bottom: 1px solid var(--border-soft);
             padding: 14px 0;
@@ -1072,13 +821,8 @@
             justify-content: space-between;
             align-items: center;
         }
-        .faq-item .faq-q .arrow {
-            transition: transform 0.3s;
-            font-size: 18px;
-        }
-        .faq-item .faq-q.open .arrow {
-            transform: rotate(180deg);
-        }
+        .faq-item .faq-q .arrow { transition: transform 0.3s; font-size: 18px; }
+        .faq-item .faq-q.open .arrow { transform: rotate(180deg); }
         .faq-item .faq-a {
             font-size: 14px;
             color: var(--text-muted);
@@ -1086,9 +830,7 @@
             display: none;
             line-height: 1.7;
         }
-        .faq-item .faq-a.open {
-            display: block;
-        }
+        .faq-item .faq-a.open { display: block; }
         footer {
             margin-top: 60px;
             padding-top: 32px;
@@ -1103,18 +845,9 @@
             text-align: left;
             margin-bottom: 24px;
         }
-        .footer-grid .footer-col h4 {
-            color: var(--primary-dark);
-            margin-bottom: 12px;
-            font-size: 16px;
-        }
-        .footer-grid .footer-col ul {
-            list-style: none;
-        }
-        .footer-grid .footer-col li {
-            margin-bottom: 6px;
-            font-size: 13px;
-        }
+        .footer-grid .footer-col h4 { color: var(--primary-dark); margin-bottom: 12px; font-size: 16px; }
+        .footer-grid .footer-col ul { list-style: none; }
+        .footer-grid .footer-col li { margin-bottom: 6px; font-size: 13px; }
         .footer-grid .footer-col .social-icons {
             display: flex;
             gap: 12px;
@@ -1126,19 +859,14 @@
             text-decoration: none;
             transition: var(--transition);
         }
-        .footer-grid .footer-col .social-icons a:hover {
-            color: var(--primary-light);
-            transform: translateY(-2px);
-        }
+        .footer-grid .footer-col .social-icons a:hover { color: var(--primary-light); transform: translateY(-2px); }
         .copy-text {
             color: var(--primary);
             text-decoration: underline;
             cursor: pointer;
             transition: color 0.2s;
         }
-        .copy-text:hover {
-            color: var(--primary-light);
-        }
+        .copy-text:hover { color: var(--primary-light); }
         .copyright {
             text-align: center;
             padding-top: 16px;
@@ -1150,7 +878,7 @@
             left: 50%;
             bottom: 140px;
             transform: translateX(-50%);
-            background: rgba(0, 0, 0, 0.75);
+            background: rgba(0,0,0,0.75);
             color: #fff;
             padding: 10px 28px;
             border-radius: 10px;
@@ -1160,9 +888,7 @@
             transition: opacity 0.3s ease;
             pointer-events: none;
         }
-        .copy-toast.show {
-            opacity: 1;
-        }
+        .copy-toast.show { opacity: 1; }
         .float-whatsapp {
             position: fixed;
             bottom: 90px;
@@ -1175,7 +901,7 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            box-shadow: 0 4px 14px rgba(37, 211, 102, 0.4);
+            box-shadow: 0 4px 14px rgba(37,211,102,0.4);
             z-index: 99;
             font-size: 28px;
             transition: var(--transition);
@@ -1183,21 +909,11 @@
             animation: pulse-wa 2s infinite;
         }
         @keyframes pulse-wa {
-            0% {
-                box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.4);
-            }
-            70% {
-                box-shadow: 0 0 0 14px rgba(37, 211, 102, 0);
-            }
-            100% {
-                box-shadow: 0 0 0 0 rgba(37, 211, 102, 0);
-            }
+            0% { box-shadow: 0 0 0 0 rgba(37,211,102,0.4); }
+            70% { box-shadow: 0 0 0 14px rgba(37,211,102,0); }
+            100% { box-shadow: 0 0 0 0 rgba(37,211,102,0); }
         }
-        .float-whatsapp:hover {
-            transform: scale(1.1);
-            box-shadow: 0 6px 20px rgba(37, 211, 102, 0.5);
-            animation: none;
-        }
+        .float-whatsapp:hover { transform: scale(1.1); box-shadow: 0 6px 20px rgba(37,211,102,0.5); animation: none; }
         .back-top {
             position: fixed;
             bottom: 30px;
@@ -1211,7 +927,7 @@
             align-items: center;
             justify-content: center;
             cursor: pointer;
-            box-shadow: 0 4px 12px rgba(145, 40, 75, 0.3);
+            box-shadow: 0 4px 12px rgba(145,40,75,0.3);
             opacity: 0;
             visibility: hidden;
             transition: var(--transition);
@@ -1219,184 +935,57 @@
             font-size: 18px;
             border: none;
         }
-        .back-top.show {
-            opacity: 1;
-            visibility: visible;
-        }
-        .back-top:hover {
-            background: var(--primary-light);
-            transform: translateY(-3px);
-        }
+        .back-top.show { opacity: 1; visibility: visible; }
+        .back-top:hover { background: var(--primary-light); transform: translateY(-3px); }
         @media (max-width: 1024px) and (min-width: 768px) {
-            .product-grid {
-                grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
-                gap: 24px;
-            }
-            header h1 {
-                font-size: 28px;
-            }
-            #searchInput {
-                width: 300px;
-            }
-            .filter-tab {
-                padding: 8px 20px;
-                font-size: 15px;
-            }
-            .advanced-filter {
-                padding: 12px 16px;
-                gap: 10px;
-            }
-            .modal-box {
-                max-width: 480px;
-                padding: 28px 22px;
-            }
+            .product-grid { grid-template-columns: repeat(auto-fill, minmax(240px, 1fr)); gap: 24px; }
+            header h1 { font-size: 28px; }
+            #searchInput { width: 300px; }
+            .filter-tab { padding: 8px 20px; font-size: 15px; }
+            .advanced-filter { padding: 12px 16px; gap: 10px; }
+            .modal-box { max-width: 480px; padding: 28px 22px; }
         }
         @media (max-width: 767px) {
-            body {
-                padding: 0 12px 20px;
-            }
-            header {
-                padding: 16px 0 12px;
-            }
-            header h1 {
-                font-size: 20px;
-                text-align: center;
-            }
-            .header-top {
-                flex-direction: column;
-                align-items: stretch;
-            }
-            .header-controls {
-                justify-content: center;
-            }
-            #searchInput {
-                width: 100%;
-                font-size: 14px;
-            }
-            .filter-tab {
-                padding: 8px 14px;
-                font-size: 13px;
-            }
-            .filter-tabs {
-                gap: 6px;
-            }
-            .product-grid {
-                grid-template-columns: 1fr 1fr;
-                gap: 16px;
-            }
-            .product-card .img-box {
-                height: 170px;
-            }
-            .product-card .product-name {
-                font-size: 14px;
-            }
-            .product-card .product-price {
-                font-size: 17px;
-            }
-            .advanced-filter {
-                flex-direction: column;
-                align-items: stretch;
-                padding: 12px;
-            }
-            .filter-group {
-                justify-content: stretch;
-            }
-            .filter-group input,
-            .filter-group select {
-                width: 100%;
-            }
-            .filter-actions {
-                justify-content: center;
-            }
-            .modal-box {
-                padding: 24px 16px;
-                max-width: 100%;
-                margin: 10px;
-            }
-            .batch-bar {
-                padding: 8px 12px;
-                gap: 10px;
-                font-size: 13px;
-            }
-            .batch-bar button {
-                padding: 6px 14px;
-                font-size: 13px;
-            }
-            .float-whatsapp {
-                right: 16px;
-                bottom: 76px;
-                width: 48px;
-                height: 48px;
-                font-size: 22px;
-            }
-            .back-top {
-                right: 16px;
-                bottom: 20px;
-                width: 40px;
-                height: 40px;
-                font-size: 16px;
-            }
-            .footer-grid {
-                grid-template-columns: 1fr;
-                text-align: center;
-            }
-            .footer-grid .footer-col .social-icons {
-                justify-content: center;
-            }
-            .gallery-carousel .carousel-item {
-                flex: 0 0 140px;
-            }
-            .cert-grid {
-                gap: 12px;
-            }
-            .cert-card {
-                min-width: 80px;
-                padding: 12px 16px;
-            }
-            .breadcrumb {
-                font-size: 12px;
-            }
-            .pagination-wrap button {
-                padding: 6px 12px;
-                font-size: 13px;
-                min-width: 34px;
-            }
+            body { padding: 0 12px 20px; }
+            header { padding: 16px 0 12px; }
+            header h1 { font-size: 20px; text-align: center; }
+            .header-top { flex-direction: column; align-items: stretch; }
+            .header-controls { justify-content: center; }
+            #searchInput { width: 100%; font-size: 14px; }
+            .filter-tab { padding: 8px 14px; font-size: 13px; }
+            .filter-tabs { gap: 6px; }
+            .product-grid { grid-template-columns: 1fr 1fr; gap: 16px; }
+            .product-card .img-box { height: 170px; }
+            .product-card .product-name { font-size: 14px; }
+            .product-card .product-price { font-size: 17px; }
+            .advanced-filter { flex-direction: column; align-items: stretch; padding: 12px; }
+            .filter-group { justify-content: stretch; }
+            .filter-group input, .filter-group select { width: 100%; }
+            .filter-actions { justify-content: center; }
+            .modal-box { padding: 24px 16px; max-width: 100%; margin: 10px; }
+            .batch-bar { padding: 8px 12px; gap: 10px; font-size: 13px; }
+            .batch-bar button { padding: 6px 14px; font-size: 13px; }
+            .float-whatsapp { right: 16px; bottom: 76px; width: 48px; height: 48px; font-size: 22px; }
+            .back-top { right: 16px; bottom: 20px; width: 40px; height: 40px; font-size: 16px; }
+            .footer-grid { grid-template-columns: 1fr; text-align: center; }
+            .footer-grid .footer-col .social-icons { justify-content: center; }
+            .gallery-carousel .carousel-item { flex: 0 0 140px; }
+            .cert-grid { gap: 12px; }
+            .cert-card { min-width: 80px; padding: 12px 16px; }
+            .breadcrumb { font-size: 12px; }
+            .pagination-wrap button { padding: 6px 12px; font-size: 13px; min-width: 34px; }
         }
         @media (max-width: 480px) {
-            .product-grid {
-                grid-template-columns: 1fr;
-            }
-            .product-card {
-                max-width: 100%;
-            }
-            .product-card .img-box {
-                height: 200px;
-            }
-            .filter-tab {
-                padding: 6px 12px;
-                font-size: 12px;
-            }
-            .modal-box .modal-title {
-                font-size: 18px;
-            }
-            .inquiry-form .form-row {
-                grid-template-columns: 1fr;
-            }
-            .header-controls .lang-switch button {
-                padding: 2px 10px;
-                font-size: 12px;
-            }
-            .theme-toggle {
-                width: 36px;
-                height: 36px;
-                font-size: 16px;
-            }
+            .product-grid { grid-template-columns: 1fr; }
+            .product-card { max-width: 100%; }
+            .product-card .img-box { height: 200px; }
+            .filter-tab { padding: 6px 12px; font-size: 12px; }
+            .modal-box .modal-title { font-size: 18px; }
+            .inquiry-form .form-row { grid-template-columns: 1fr; }
+            .header-controls .lang-switch button { padding: 2px 10px; font-size: 12px; }
+            .theme-toggle { width: 36px; height: 36px; font-size: 16px; }
         }
-        a:focus-visible,
-        button:focus-visible,
-        input:focus-visible,
-        select:focus-visible,
-        textarea:focus-visible {
+        a:focus-visible, button:focus-visible, input:focus-visible, select:focus-visible, textarea:focus-visible {
             outline: 3px solid var(--primary-light);
             outline-offset: 2px;
         }
@@ -1405,45 +994,21 @@
             border-color: var(--primary-light);
             color: var(--primary-light);
         }
-        [data-theme="dark"] .filter-tab.active {
-            background: var(--primary);
-            color: #fff;
-            border-color: var(--primary);
-        }
-        [data-theme="dark"] .filter-tab:hover {
-            background: #2a2a44;
-        }
-        [data-theme="dark"] .batch-bar {
-            border-top-color: var(--primary-light);
-        }
-        [data-theme="dark"] .modal-box .close-modal:hover {
-            background: #2a2a44;
-        }
-        [data-theme="dark"] .product-card .favorite-btn {
-            background: rgba(30, 30, 50, 0.9);
-        }
-        [data-theme="dark"] .product-card .favorite-btn:hover {
-            background: #2a2a44;
-        }
-        [data-theme="dark"] .product-card .product-check {
-            background: rgba(30, 30, 50, 0.85);
-        }
-        [data-theme="dark"] .copy-toast {
-            background: rgba(0, 0, 0, 0.85);
-        }
+        [data-theme="dark"] .filter-tab.active { background: var(--primary); color: #fff; border-color: var(--primary); }
+        [data-theme="dark"] .filter-tab:hover { background: #2a2a44; }
+        [data-theme="dark"] .batch-bar { border-top-color: var(--primary-light); }
+        [data-theme="dark"] .modal-box .close-modal:hover { background: #2a2a44; }
+        [data-theme="dark"] .product-card .favorite-btn { background: rgba(30,30,50,0.9); }
+        [data-theme="dark"] .product-card .favorite-btn:hover { background: #2a2a44; }
+        [data-theme="dark"] .product-card .product-check { background: rgba(30,30,50,0.85); }
+        [data-theme="dark"] .copy-toast { background: rgba(0,0,0,0.85); }
         [data-theme="dark"] .pagination-wrap button {
             background: var(--bg-card);
             color: var(--text-body);
             border-color: var(--border-input);
         }
-        [data-theme="dark"] .pagination-wrap button.active {
-            background: var(--primary);
-            color: #fff;
-            border-color: var(--primary);
-        }
-        [data-theme="dark"] .pagination-wrap button:hover:not(:disabled) {
-            background: #2a2a44;
-        }
+        [data-theme="dark"] .pagination-wrap button.active { background: var(--primary); color: #fff; border-color: var(--primary); }
+        [data-theme="dark"] .pagination-wrap button:hover:not(:disabled) { background: #2a2a44; }
         .oem-btn {
             display: inline-block;
             padding: 10px 24px;
@@ -1455,11 +1020,7 @@
             font-size: 14px;
             transition: var(--transition);
         }
-        .oem-btn:hover {
-            background: var(--bg-soft);
-            transform: translateY(-1px);
-            box-shadow: var(--shadow-sm);
-        }
+        .oem-btn:hover { background: var(--bg-soft); transform: translateY(-1px); box-shadow: var(--shadow-sm); }
     </style>
 </head>
 <body>
@@ -1760,17 +1321,11 @@
         // ============================================================
         // 全局配置 & 状态
         // ============================================================
-        const CONFIG = {
-            WHATSAPP: '8617799215074',
-            PER_PAGE: 24
-        };
+        const CONFIG = { WHATSAPP: '8617799215074', PER_PAGE: 24 };
         let currentFilter = 'all';
         let currentPage = 1;
         let searchKeyword = '';
-        let priceMin = '';
-        let priceMax = '';
-        let filterMoq = '';
-        let sortBy = 'default';
+        let priceMin = '', priceMax = '', filterMoq = '', sortBy = 'default';
         let favorites = JSON.parse(localStorage.getItem('favorites') || '[]');
         let currentLang = localStorage.getItem('yl_lang') || 'en';
         let darkMode = localStorage.getItem('yl_dark') === 'true';
@@ -1780,132 +1335,76 @@
         // 产品数据 (A29 + B29 + C198 = 256)
         // ============================================================
         const PRODUCTS = [];
+
+        // A系列（29款）
         const aData = [
-            { id: 'A001', name: 'Model A001 LED Anti-Fog Bathroom Mirror', desc: 'Material: Paulownia Frame Mirror\nSize: 50×50cm | LED + Anti-Fog + Storage\nWarranty: 2 Years | MOQ: 500pcs', price: '$14.90',
-            img: '微信图片_20260707164222_511_35.jpg' },
-            { id: 'A002', name: 'Model A002 LED Anti-Fog Bathroom Mirror', desc: 'Material: Paulownia Frame Mirror\nSize: 55×55cm | LED + Anti-Fog + Storage\nWarranty: 2 Years | MOQ: 500pcs', price: '$15.90',
-            img: '微信图片_20260707164222_511_35.jpg' },
-            { id: 'A003', name: 'Model A003 LED Anti-Fog Bathroom Mirror', desc: 'Material: Paulownia Frame Mirror\nSize: 60×60cm | LED + Anti-Fog + Storage\nWarranty: 2 Years | MOQ: 500pcs', price: '$16.90',
-            img: '' },
-            { id: 'A004', name: 'Model A004 LED Anti-Fog Bathroom Mirror', desc: 'Material: Paulownia Frame Mirror\nSize: 65×65cm | LED + Anti-Fog + Storage\nWarranty: 2 Years | MOQ: 500pcs', price: '$17.90',
-            img: '微信图片_20260707164222_511_35.jpg' },
-            { id: 'A005', name: 'Model A005 LED Anti-Fog Bathroom Mirror', desc: 'Material: Paulownia Frame Mirror\nSize: 70×70cm | LED + Anti-Fog + Storage\nWarranty: 2 Years | MOQ: 500pcs', price: '$18.90',
-            img: '' },
-            { id: 'A006', name: 'Model A006 LED Anti-Fog Bathroom Mirror', desc: 'Material: Paulownia Frame Mirror\nSize: 75×75cm | LED + Anti-Fog + Storage\nWarranty: 2 Years | MOQ: 500pcs', price: '$19.90',
-            img: '微信图片_20260707164222_511_35.jpg' },
-            { id: 'A007', name: 'Model A007 LED Anti-Fog Bathroom Mirror', desc: 'Material: Paulownia Frame Mirror\nSize: 80×80cm | LED + Anti-Fog + Storage\nWarranty: 2 Years | MOQ: 500pcs', price: '$20.90',
-            img: '' },
-            { id: 'A008', name: 'Model A008 LED Anti-Fog Bathroom Mirror', desc: 'Material: Paulownia Frame Mirror\nSize: 85×85cm | LED + Anti-Fog + Storage\nWarranty: 2 Years | MOQ: 500pcs', price: '$21.90',
-            img: '微信图片_20260707164222_511_35.jpg' },
-            { id: 'A009', name: 'Model A009 LED Anti-Fog Bathroom Mirror', desc: 'Material: Paulownia Frame Mirror\nSize: 90×90cm | LED + Anti-Fog + Storage\nWarranty: 2 Years | MOQ: 500pcs', price: '$22.90',
-            img: '' },
-            { id: 'A010', name: 'Model A010 LED Anti-Fog Bathroom Mirror', desc: 'Material: Paulownia Frame Mirror\nSize: 95×95cm | LED + Anti-Fog + Storage\nWarranty: 2 Years | MOQ: 500pcs', price: '$23.90',
-            img: '' },
-            { id: 'A011', name: 'Model A011 LED Anti-Fog Bathroom Mirror', desc: 'Material: Paulownia Frame Mirror\nSize: 100×100cm | LED + Anti-Fog + Storage\nWarranty: 2 Years | MOQ: 500pcs', price: '$24.90',
-            img: '微信图片_20260707164222_511_35.jpg' },
-            { id: 'A012', name: 'Model A012 LED Anti-Fog Bathroom Mirror', desc: 'Material: Paulownia Frame Mirror\nSize: 105×105cm | LED + Anti-Fog + Storage\nWarranty: 2 Years | MOQ: 500pcs', price: '$26.40',
-            img: '' },
-            { id: 'A013', name: 'Model A013 LED Anti-Fog Bathroom Mirror', desc: 'Material: Paulownia Frame Mirror\nSize: 110×110cm | LED + Anti-Fog + Storage\nWarranty: 2 Years | MOQ: 500pcs', price: '$27.90',
-            img: '' },
-            { id: 'A014', name: 'Model A014 LED Anti-Fog Bathroom Mirror', desc: 'Material: Paulownia Frame Mirror\nSize: 115×115cm | LED + Anti-Fog + Storage\nWarranty: 2 Years | MOQ: 500pcs', price: '$29.40',
-            img: '微信图片_20260707164222_511_35.jpg' },
-            { id: 'A015', name: 'Model A015 LED Anti-Fog Bathroom Mirror', desc: 'Material: Paulownia Frame Mirror\nSize: 120×120cm | LED + Anti-Fog + Storage\nWarranty: 2 Years | MOQ: 500pcs', price: '$30.90',
-            img: '' },
-            { id: 'A016', name: 'Model A016 LED Anti-Fog Bathroom Mirror', desc: 'Material: Paulownia Frame Mirror\nSize: 50×70cm | LED + Anti-Fog + Storage\nWarranty: 2 Years | MOQ: 500pcs', price: '$15.90',
-            img: '' },
-            { id: 'A017', name: 'Model A017 LED Anti-Fog Bathroom Mirror', desc: 'Material: Paulownia Frame Mirror\nSize: 60×80cm | LED + Anti-Fog + Storage\nWarranty: 2 Years | MOQ: 500pcs', price: '$17.90',
-            img: '微信图片_20260707164222_511_35.jpg' },
-            { id: 'A018', name: 'Model A018 LED Anti-Fog Bathroom Mirror', desc: 'Material: Paulownia Frame Mirror\nSize: 70×90cm | LED + Anti-Fog + Storage\nWarranty: 2 Years | MOQ: 500pcs', price: '$19.90',
-            img: '' },
-            { id: 'A019', name: 'Model A019 LED Anti-Fog Bathroom Mirror', desc: 'Material: Paulownia Frame Mirror\nSize: 80×100cm | LED + Anti-Fog + Storage\nWarranty: 2 Years | MOQ: 500pcs', price: '$21.90',
-            img: '' },
-            { id: 'A020', name: 'Model A020 LED Anti-Fog Bathroom Mirror', desc: 'Material: Paulownia Frame Mirror\nSize: 90×110cm | LED + Anti-Fog + Storage\nWarranty: 2 Years | MOQ: 500pcs', price: '$24.90',
-            img: '' },
-            { id: 'A021', name: 'Model A021 LED Anti-Fog Bathroom Mirror', desc: 'Material: Paulownia Frame Mirror\nSize: 100×120cm | LED + Anti-Fog + Storage\nWarranty: 2 Years | MOQ: 500pcs', price: '$27.90',
-            img: '微信图片_20260707164222_511_35.jpg' },
-            { id: 'A022', name: 'Model A022 LED Anti-Fog Bathroom Mirror', desc: 'Material: Paulownia Frame Mirror\nSize: 50×80cm | LED + Anti-Fog + Storage\nWarranty: 2 Years | MOQ: 500pcs', price: '$16.90',
-            img: '' },
-            { id: 'A023', name: 'Model A023 LED Anti-Fog Bathroom Mirror', desc: 'Material: Paulownia Frame Mirror\nSize: 60×90cm | LED + Anti-Fog + Storage\nWarranty: 2 Years | MOQ: 500pcs', price: '$19.40',
-            img: '微信图片_20260707164222_511_35.jpg' },
-            { id: 'A024', name: 'Model A024 LED Anti-Fog Bathroom Mirror', desc: 'Material: Paulownia Frame Mirror\nSize: 70×100cm | LED + Anti-Fog + Storage\nWarranty: 2 Years | MOQ: 500pcs', price: '$21.90',
-            img: '' },
-            { id: 'A025', name: 'Model A025 LED Anti-Fog Bathroom Mirror', desc: 'Material: Paulownia Frame Mirror\nSize: 80×110cm | LED + Anti-Fog + Storage\nWarranty: 2 Years | MOQ: 500pcs', price: '$25.40',
-            img: '' },
-            { id: 'A026', name: 'Model A026 LED Anti-Fog Bathroom Mirror', desc: 'Material: Paulownia Frame Mirror\nSize: 90×120cm | LED + Anti-Fog + Storage\nWarranty: 2 Years | MOQ: 500pcs', price: '$28.90',
-            img: '微信图片_20260707164222_511_35.jpg' },
-            { id: 'A027', name: 'Model A027 LED Anti-Fog Bathroom Mirror', desc: 'Material: Paulownia Frame Mirror\nSize: 60×100cm | LED + Anti-Fog + Storage\nWarranty: 2 Years | MOQ: 500pcs', price: '$22.90',
-            img: '' },
-            { id: 'A028', name: 'Model A028 LED Anti-Fog Bathroom Mirror', desc: 'Material: Paulownia Frame Mirror\nSize: 70×120cm | LED + Anti-Fog + Storage\nWarranty: 2 Years | MOQ: 500pcs', price: '$32.90',
-            img: '微信图片_20260707164222_511_35.jpg' },
-            { id: 'A029', name: 'Model A029 LED Anti-Fog Bathroom Mirror', desc: 'Material: Paulownia Frame Mirror\nSize: 80×120cm | LED + Anti-Fog + Storage\nWarranty: 2 Years | MOQ: 500pcs', price: '$42.90',
-            img: '微信图片_20260707164222_511_35.jpg' }
+            { id: 'A001', name: 'Model A001 LED Anti-Fog Bathroom Mirror', desc: 'Material: Paulownia Frame Mirror\nSize: 50×50cm | LED + Anti-Fog + Storage\nWarranty: 2 Years | MOQ: 500pcs', price: '$14.90', img: '微信图片_20260707164222_511_35.jpg' },
+            { id: 'A002', name: 'Model A002 LED Anti-Fog Bathroom Mirror', desc: 'Material: Paulownia Frame Mirror\nSize: 55×55cm | LED + Anti-Fog + Storage\nWarranty: 2 Years | MOQ: 500pcs', price: '$15.90', img: '微信图片_20260707164222_511_35.jpg' },
+            { id: 'A003', name: 'Model A003 LED Anti-Fog Bathroom Mirror', desc: 'Material: Paulownia Frame Mirror\nSize: 60×60cm | LED + Anti-Fog + Storage\nWarranty: 2 Years | MOQ: 500pcs', price: '$16.90', img: '' },
+            { id: 'A004', name: 'Model A004 LED Anti-Fog Bathroom Mirror', desc: 'Material: Paulownia Frame Mirror\nSize: 65×65cm | LED + Anti-Fog + Storage\nWarranty: 2 Years | MOQ: 500pcs', price: '$17.90', img: '微信图片_20260707164222_511_35.jpg' },
+            { id: 'A005', name: 'Model A005 LED Anti-Fog Bathroom Mirror', desc: 'Material: Paulownia Frame Mirror\nSize: 70×70cm | LED + Anti-Fog + Storage\nWarranty: 2 Years | MOQ: 500pcs', price: '$18.90', img: '' },
+            { id: 'A006', name: 'Model A006 LED Anti-Fog Bathroom Mirror', desc: 'Material: Paulownia Frame Mirror\nSize: 75×75cm | LED + Anti-Fog + Storage\nWarranty: 2 Years | MOQ: 500pcs', price: '$19.90', img: '微信图片_20260707164222_511_35.jpg' },
+            { id: 'A007', name: 'Model A007 LED Anti-Fog Bathroom Mirror', desc: 'Material: Paulownia Frame Mirror\nSize: 80×80cm | LED + Anti-Fog + Storage\nWarranty: 2 Years | MOQ: 500pcs', price: '$20.90', img: '' },
+            { id: 'A008', name: 'Model A008 LED Anti-Fog Bathroom Mirror', desc: 'Material: Paulownia Frame Mirror\nSize: 85×85cm | LED + Anti-Fog + Storage\nWarranty: 2 Years | MOQ: 500pcs', price: '$21.90', img: '微信图片_20260707164222_511_35.jpg' },
+            { id: 'A009', name: 'Model A009 LED Anti-Fog Bathroom Mirror', desc: 'Material: Paulownia Frame Mirror\nSize: 90×90cm | LED + Anti-Fog + Storage\nWarranty: 2 Years | MOQ: 500pcs', price: '$22.90', img: '' },
+            { id: 'A010', name: 'Model A010 LED Anti-Fog Bathroom Mirror', desc: 'Material: Paulownia Frame Mirror\nSize: 95×95cm | LED + Anti-Fog + Storage\nWarranty: 2 Years | MOQ: 500pcs', price: '$23.90', img: '' },
+            { id: 'A011', name: 'Model A011 LED Anti-Fog Bathroom Mirror', desc: 'Material: Paulownia Frame Mirror\nSize: 100×100cm | LED + Anti-Fog + Storage\nWarranty: 2 Years | MOQ: 500pcs', price: '$24.90', img: '微信图片_20260707164222_511_35.jpg' },
+            { id: 'A012', name: 'Model A012 LED Anti-Fog Bathroom Mirror', desc: 'Material: Paulownia Frame Mirror\nSize: 105×105cm | LED + Anti-Fog + Storage\nWarranty: 2 Years | MOQ: 500pcs', price: '$26.40', img: '' },
+            { id: 'A013', name: 'Model A013 LED Anti-Fog Bathroom Mirror', desc: 'Material: Paulownia Frame Mirror\nSize: 110×110cm | LED + Anti-Fog + Storage\nWarranty: 2 Years | MOQ: 500pcs', price: '$27.90', img: '' },
+            { id: 'A014', name: 'Model A014 LED Anti-Fog Bathroom Mirror', desc: 'Material: Paulownia Frame Mirror\nSize: 115×115cm | LED + Anti-Fog + Storage\nWarranty: 2 Years | MOQ: 500pcs', price: '$29.40', img: '微信图片_20260707164222_511_35.jpg' },
+            { id: 'A015', name: 'Model A015 LED Anti-Fog Bathroom Mirror', desc: 'Material: Paulownia Frame Mirror\nSize: 120×120cm | LED + Anti-Fog + Storage\nWarranty: 2 Years | MOQ: 500pcs', price: '$30.90', img: '' },
+            { id: 'A016', name: 'Model A016 LED Anti-Fog Bathroom Mirror', desc: 'Material: Paulownia Frame Mirror\nSize: 50×70cm | LED + Anti-Fog + Storage\nWarranty: 2 Years | MOQ: 500pcs', price: '$15.90', img: '' },
+            { id: 'A017', name: 'Model A017 LED Anti-Fog Bathroom Mirror', desc: 'Material: Paulownia Frame Mirror\nSize: 60×80cm | LED + Anti-Fog + Storage\nWarranty: 2 Years | MOQ: 500pcs', price: '$17.90', img: '微信图片_20260707164222_511_35.jpg' },
+            { id: 'A018', name: 'Model A018 LED Anti-Fog Bathroom Mirror', desc: 'Material: Paulownia Frame Mirror\nSize: 70×90cm | LED + Anti-Fog + Storage\nWarranty: 2 Years | MOQ: 500pcs', price: '$19.90', img: '' },
+            { id: 'A019', name: 'Model A019 LED Anti-Fog Bathroom Mirror', desc: 'Material: Paulownia Frame Mirror\nSize: 80×100cm | LED + Anti-Fog + Storage\nWarranty: 2 Years | MOQ: 500pcs', price: '$21.90', img: '' },
+            { id: 'A020', name: 'Model A020 LED Anti-Fog Bathroom Mirror', desc: 'Material: Paulownia Frame Mirror\nSize: 90×110cm | LED + Anti-Fog + Storage\nWarranty: 2 Years | MOQ: 500pcs', price: '$24.90', img: '' },
+            { id: 'A021', name: 'Model A021 LED Anti-Fog Bathroom Mirror', desc: 'Material: Paulownia Frame Mirror\nSize: 100×120cm | LED + Anti-Fog + Storage\nWarranty: 2 Years | MOQ: 500pcs', price: '$27.90', img: '微信图片_20260707164222_511_35.jpg' },
+            { id: 'A022', name: 'Model A022 LED Anti-Fog Bathroom Mirror', desc: 'Material: Paulownia Frame Mirror\nSize: 50×80cm | LED + Anti-Fog + Storage\nWarranty: 2 Years | MOQ: 500pcs', price: '$16.90', img: '' },
+            { id: 'A023', name: 'Model A023 LED Anti-Fog Bathroom Mirror', desc: 'Material: Paulownia Frame Mirror\nSize: 60×90cm | LED + Anti-Fog + Storage\nWarranty: 2 Years | MOQ: 500pcs', price: '$19.40', img: '微信图片_20260707164222_511_35.jpg' },
+            { id: 'A024', name: 'Model A024 LED Anti-Fog Bathroom Mirror', desc: 'Material: Paulownia Frame Mirror\nSize: 70×100cm | LED + Anti-Fog + Storage\nWarranty: 2 Years | MOQ: 500pcs', price: '$21.90', img: '' },
+            { id: 'A025', name: 'Model A025 LED Anti-Fog Bathroom Mirror', desc: 'Material: Paulownia Frame Mirror\nSize: 80×110cm | LED + Anti-Fog + Storage\nWarranty: 2 Years | MOQ: 500pcs', price: '$25.40', img: '' },
+            { id: 'A026', name: 'Model A026 LED Anti-Fog Bathroom Mirror', desc: 'Material: Paulownia Frame Mirror\nSize: 90×120cm | LED + Anti-Fog + Storage\nWarranty: 2 Years | MOQ: 500pcs', price: '$28.90', img: '微信图片_20260707164222_511_35.jpg' },
+            { id: 'A027', name: 'Model A027 LED Anti-Fog Bathroom Mirror', desc: 'Material: Paulownia Frame Mirror\nSize: 60×100cm | LED + Anti-Fog + Storage\nWarranty: 2 Years | MOQ: 500pcs', price: '$22.90', img: '' },
+            { id: 'A028', name: 'Model A028 LED Anti-Fog Bathroom Mirror', desc: 'Material: Paulownia Frame Mirror\nSize: 70×120cm | LED + Anti-Fog + Storage\nWarranty: 2 Years | MOQ: 500pcs', price: '$32.90', img: '微信图片_20260707164222_511_35.jpg' },
+            { id: 'A029', name: 'Model A029 LED Anti-Fog Bathroom Mirror', desc: 'Material: Paulownia Frame Mirror\nSize: 80×120cm | LED + Anti-Fog + Storage\nWarranty: 2 Years | MOQ: 500pcs', price: '$42.90', img: '微信图片_20260707164222_511_35.jpg' }
         ];
-        aData.forEach(p => { PRODUCTS.push({ id: p.id, type: 'A', name: p.name, desc: p.desc, price: p.price, img: p.img ?
-                '/img/' + p.img : '' }); });
+        aData.forEach(p => { PRODUCTS.push({ id: p.id, type: 'A', name: p.name, desc: p.desc, price: p.price, img: p.img ? '/img/' + p.img : '' }); });
 
+        // B系列（29款）
         const bData = [
-            { id: 'B001', name: 'Model B001 Premium Solid Wood Mirror Cabinet', desc: 'Material: Solid Wood + Paulownia Frame\nSize: 70×90cm | Full Storage Cabinet\nWarranty: 2 Years | MOQ: 100pcs',
-            price: '$99.68', img: '微信图片_20260707164044_510_35.jpg' },
-            { id: 'B002', name: 'Model B002 Premium Solid Wood Mirror Cabinet', desc: 'Material: Solid Wood + Paulownia Frame\nSize: 50×60cm | Full Storage Cabinet\nWarranty: 2 Years | MOQ: 100pcs',
-            price: '$88.48', img: '微信图片_20260707164044_510_35.jpg' },
-            { id: 'B003', name: 'Model B003 Premium Solid Wood Mirror Cabinet', desc: 'Material: Solid Wood + Paulownia Frame\nSize: 50×70cm | Full Storage Cabinet\nWarranty: 2 Years | MOQ: 100pcs',
-            price: '$96.32', img: '微信图片_20260707164044_510_35.jpg' },
-            { id: 'B004', name: 'Model B004 Premium Solid Wood Mirror Cabinet', desc: 'Material: Solid Wood + Paulownia Frame\nSize: 55×70cm | Full Storage Cabinet\nWarranty: 2 Years | MOQ: 100pcs',
-            price: '$101.92', img: '微信图片_20260707164044_510_35.jpg' },
-            { id: 'B005', name: 'Model B005 Premium Solid Wood Mirror Cabinet', desc: 'Material: Solid Wood + Paulownia Frame\nSize: 60×70cm | Full Storage Cabinet\nWarranty: 2 Years | MOQ: 100pcs',
-            price: '$107.52', img: '微信图片_20260707164044_510_35.jpg' },
-            { id: 'B006', name: 'Model B006 Premium Solid Wood Mirror Cabinet', desc: 'Material: Solid Wood + Paulownia Frame\nSize: 60×80cm | Full Storage Cabinet\nWarranty: 2 Years | MOQ: 100pcs',
-            price: '$114.24', img: '微信图片_20260707164044_510_35.jpg' },
-            { id: 'B007', name: 'Model B007 Premium Solid Wood Mirror Cabinet', desc: 'Material: Solid Wood + Paulownia Frame\nSize: 65×80cm | Full Storage Cabinet\nWarranty: 2 Years | MOQ: 100pcs',
-            price: '$119.84', img: '微信图片_20260707164044_510_35.jpg' },
-            { id: 'B008', name: 'Model B008 Premium Solid Wood Mirror Cabinet', desc: 'Material: Solid Wood + Paulownia Frame\nSize: 60×90cm | Full Storage Cabinet\nWarranty: 2 Years | MOQ: 100pcs',
-            price: '$123.20', img: '微信图片_20260707164044_510_35.jpg' },
-            { id: 'B009', name: 'Model B009 Premium Solid Wood Mirror Cabinet', desc: 'Material: Solid Wood + Paulownia Frame\nSize: 70×80cm | Full Storage Cabinet\nWarranty: 2 Years | MOQ: 100pcs',
-            price: '$115.36', img: '微信图片_20260707164044_510_35.jpg' },
-            { id: 'B010', name: 'Model B010 Premium Solid Wood Mirror Cabinet', desc: 'Material: Solid Wood + Paulownia Frame\nSize: 75×85cm | Full Storage Cabinet\nWarranty: 2 Years | MOQ: 100pcs',
-            price: '$120.96', img: '' },
-            { id: 'B011', name: 'Model B011 Premium Solid Wood Mirror Cabinet', desc: 'Material: Solid Wood + Paulownia Frame\nSize: 70×100cm | Full Storage Cabinet\nWarranty: 2 Years | MOQ: 100pcs',
-            price: '$132.16', img: '微信图片_20260707164044_510_35.jpg' },
-            { id: 'B012', name: 'Model B012 Premium Solid Wood Mirror Cabinet', desc: 'Material: Solid Wood + Paulownia Frame\nSize: 80×90cm | Full Storage Cabinet\nWarranty: 2 Years | MOQ: 100pcs',
-            price: '$125.44', img: '微信图片_20260707164044_510_35.jpg' },
-            { id: 'B013', name: 'Model B013 Premium Solid Wood Mirror Cabinet', desc: 'Material: Solid Wood + Paulownia Frame\nSize: 75×100cm | Full Storage Cabinet\nWarranty: 2 Years | MOQ: 100pcs',
-            price: '$133.28', img: '微信图片_20260707164044_510_35.jpg' },
-            { id: 'B014', name: 'Model B014 Premium Solid Wood Mirror Cabinet', desc: 'Material: Solid Wood + Paulownia Frame\nSize: 80×100cm | Full Storage Cabinet\nWarranty: 2 Years | MOQ: 100pcs',
-            price: '$140.00', img: '微信图片_20260707164044_510_35.jpg' },
-            { id: 'B015', name: 'Model B015 Premium Solid Wood Mirror Cabinet', desc: 'Material: Solid Wood + Paulownia Frame\nSize: 85×95cm | Full Storage Cabinet\nWarranty: 2 Years | MOQ: 100pcs',
-            price: '$142.24', img: '' },
-            { id: 'B016', name: 'Model B016 Premium Solid Wood Mirror Cabinet', desc: 'Material: Solid Wood + Paulownia Frame\nSize: 90×90cm | Full Storage Cabinet\nWarranty: 2 Years | MOQ: 100pcs',
-            price: '$143.36', img: '' },
-            { id: 'B017', name: 'Model B017 Premium Solid Wood Mirror Cabinet', desc: 'Material: Solid Wood + Paulownia Frame\nSize: 85×105cm | Full Storage Cabinet\nWarranty: 2 Years | MOQ: 100pcs',
-            price: '$151.20', img: '微信图片_20260707164044_510_35.jpg' },
-            { id: 'B018', name: 'Model B018 Premium Solid Wood Mirror Cabinet', desc: 'Material: Solid Wood + Paulownia Frame\nSize: 90×100cm | Full Storage Cabinet\nWarranty: 2 Years | MOQ: 100pcs',
-            price: '$154.56', img: '微信图片_20260707164044_510_35.jpg' },
-            { id: 'B019', name: 'Model B019 Premium Solid Wood Mirror Cabinet', desc: 'Material: Solid Wood + Paulownia Frame\nSize: 95×100cm | Full Storage Cabinet\nWarranty: 2 Years | MOQ: 100pcs',
-            price: '$159.04', img: '微信图片_20260707164044_510_35.jpg' },
-            { id: 'B020', name: 'Model B020 Premium Solid Wood Mirror Cabinet', desc: 'Material: Solid Wood + Paulownia Frame\nSize: 90×110cm | Full Storage Cabinet\nWarranty: 2 Years | MOQ: 100pcs',
-            price: '$165.76', img: '微信图片_20260707164044_510_35.jpg' },
-            { id: 'B021', name: 'Model B021 Premium Solid Wood Mirror Cabinet', desc: 'Material: Solid Wood + Paulownia Frame\nSize: 100×100cm | Full Storage Cabinet\nWarranty: 2 Years | MOQ: 100pcs',
-            price: '$168.00', img: '微信图片_20260707164044_510_35.jpg' },
-            { id: 'B022', name: 'Model B022 Premium Solid Wood Mirror Cabinet', desc: 'Material: Solid Wood + Paulownia Frame\nSize: 95×115cm | Full Storage Cabinet\nWarranty: 2 Years | MOQ: 100pcs',
-            price: '$174.72', img: '微信图片_20260707164044_510_35.jpg' },
-            { id: 'B023', name: 'Model B023 Premium Solid Wood Mirror Cabinet', desc: 'Material: Solid Wood + Paulownia Frame\nSize: 100×110cm | Full Storage Cabinet\nWarranty: 2 Years | MOQ: 100pcs',
-            price: '$178.08', img: '微信图片_20260707164044_510_35.jpg' },
-            { id: 'B024', name: 'Model B024 Premium Solid Wood Mirror Cabinet', desc: 'Material: Solid Wood + Paulownia Frame\nSize: 105×115cm | Full Storage Cabinet\nWarranty: 2 Years | MOQ: 100pcs',
-            price: '$188.16', img: '微信图片_20260707164044_510_35.jpg' },
-            { id: 'B025', name: 'Model B025 Premium Solid Wood Mirror Cabinet', desc: 'Material: Solid Wood + Paulownia Frame\nSize: 110×120cm | Full Storage Cabinet\nWarranty: 2 Years | MOQ: 100pcs',
-            price: '$196.00', img: '微信图片_20260707164044_510_35.jpg' },
-            { id: 'B026', name: 'Model B026 Premium Solid Wood Mirror Cabinet', desc: 'Material: Solid Wood + Paulownia Frame\nSize: 115×125cm | Full Storage Cabinet\nWarranty: 2 Years | MOQ: 100pcs',
-            price: '$203.84', img: '微信图片_20260707164044_510_35.jpg' },
-            { id: 'B027', name: 'Model B027 Premium Solid Wood Mirror Cabinet', desc: 'Material: Solid Wood + Paulownia Frame\nSize: 120×130cm | Full Storage Cabinet\nWarranty: 2 Years | MOQ: 100pcs',
-            price: '$211.68', img: '微信图片_20260707164044_510_35.jpg' },
-            { id: 'B028', name: 'Model B028 Premium Solid Wood Mirror Cabinet', desc: 'Material: Solid Wood + Paulownia Frame\nSize: 100×140cm | Full Storage Cabinet\nWarranty: 2 Years | MOQ: 100pcs',
-            price: '$208.32', img: '微信图片_20260707164044_510_35.jpg' },
-            { id: 'B029', name: 'Model B029 Premium Solid Wood Mirror Cabinet', desc: 'Material: Solid Wood + Paulownia Frame\nSize: 120×150cm | Full Storage Cabinet\nWarranty: 2 Years | MOQ: 100pcs',
-            price: '$211.68', img: '微信图片_20260707164044_510_35.jpg' }
+            { id: 'B001', name: 'Model B001 Premium Solid Wood Mirror Cabinet', desc: 'Material: Solid Wood + Paulownia Frame\nSize: 70×90cm | Full Storage Cabinet\nWarranty: 2 Years | MOQ: 100pcs', price: '$99.68', img: '微信图片_20260707164044_510_35.jpg' },
+            { id: 'B002', name: 'Model B002 Premium Solid Wood Mirror Cabinet', desc: 'Material: Solid Wood + Paulownia Frame\nSize: 50×60cm | Full Storage Cabinet\nWarranty: 2 Years | MOQ: 100pcs', price: '$88.48', img: '微信图片_20260707164044_510_35.jpg' },
+            { id: 'B003', name: 'Model B003 Premium Solid Wood Mirror Cabinet', desc: 'Material: Solid Wood + Paulownia Frame\nSize: 50×70cm | Full Storage Cabinet\nWarranty: 2 Years | MOQ: 100pcs', price: '$96.32', img: '微信图片_20260707164044_510_35.jpg' },
+            { id: 'B004', name: 'Model B004 Premium Solid Wood Mirror Cabinet', desc: 'Material: Solid Wood + Paulownia Frame\nSize: 55×70cm | Full Storage Cabinet\nWarranty: 2 Years | MOQ: 100pcs', price: '$101.92', img: '微信图片_20260707164044_510_35.jpg' },
+            { id: 'B005', name: 'Model B005 Premium Solid Wood Mirror Cabinet', desc: 'Material: Solid Wood + Paulownia Frame\nSize: 60×70cm | Full Storage Cabinet\nWarranty: 2 Years | MOQ: 100pcs', price: '$107.52', img: '微信图片_20260707164044_510_35.jpg' },
+            { id: 'B006', name: 'Model B006 Premium Solid Wood Mirror Cabinet', desc: 'Material: Solid Wood + Paulownia Frame\nSize: 60×80cm | Full Storage Cabinet\nWarranty: 2 Years | MOQ: 100pcs', price: '$114.24', img: '微信图片_20260707164044_510_35.jpg' },
+            { id: 'B007', name: 'Model B007 Premium Solid Wood Mirror Cabinet', desc: 'Material: Solid Wood + Paulownia Frame\nSize: 65×80cm | Full Storage Cabinet\nWarranty: 2 Years | MOQ: 100pcs', price: '$119.84', img: '微信图片_20260707164044_510_35.jpg' },
+            { id: 'B008', name: 'Model B008 Premium Solid Wood Mirror Cabinet', desc: 'Material: Solid Wood + Paulownia Frame\nSize: 60×90cm | Full Storage Cabinet\nWarranty: 2 Years | MOQ: 100pcs', price: '$123.20', img: '微信图片_20260707164044_510_35.jpg' },
+            { id: 'B009', name: 'Model B009 Premium Solid Wood Mirror Cabinet', desc: 'Material: Solid Wood + Paulownia Frame\nSize: 70×80cm | Full Storage Cabinet\nWarranty: 2 Years | MOQ: 100pcs', price: '$115.36', img: '微信图片_20260707164044_510_35.jpg' },
+            { id: 'B010', name: 'Model B010 Premium Solid Wood Mirror Cabinet', desc: 'Material: Solid Wood + Paulownia Frame\nSize: 75×85cm | Full Storage Cabinet\nWarranty: 2 Years | MOQ: 100pcs', price: '$120.96', img: '' },
+            { id: 'B011', name: 'Model B011 Premium Solid Wood Mirror Cabinet', desc: 'Material: Solid Wood + Paulownia Frame\nSize: 70×100cm | Full Storage Cabinet\nWarranty: 2 Years | MOQ: 100pcs', price: '$132.16', img: '微信图片_20260707164044_510_35.jpg' },
+            { id: 'B012', name: 'Model B012 Premium Solid Wood Mirror Cabinet', desc: 'Material: Solid Wood + Paulownia Frame\nSize: 80×90cm | Full Storage Cabinet\nWarranty: 2 Years | MOQ: 100pcs', price: '$125.44', img: '微信图片_20260707164044_510_35.jpg' },
+            { id: 'B013', name: 'Model B013 Premium Solid Wood Mirror Cabinet', desc: 'Material: Solid Wood + Paulownia Frame\nSize: 75×100cm | Full Storage Cabinet\nWarranty: 2 Years | MOQ: 100pcs', price: '$133.28', img: '微信图片_20260707164044_510_35.jpg' },
+            { id: 'B014', name: 'Model B014 Premium Solid Wood Mirror Cabinet', desc: 'Material: Solid Wood + Paulownia Frame\nSize: 80×100cm | Full Storage Cabinet\nWarranty: 2 Years | MOQ: 100pcs', price: '$140.00', img: '微信图片_20260707164044_510_35.jpg' },
+            { id: 'B015', name: 'Model B015 Premium Solid Wood Mirror Cabinet', desc: 'Material: Solid Wood + Paulownia Frame\nSize: 85×95cm | Full Storage Cabinet\nWarranty: 2 Years | MOQ: 100pcs', price: '$142.24', img: '' },
+            { id: 'B016', name: 'Model B016 Premium Solid Wood Mirror Cabinet', desc: 'Material: Solid Wood + Paulownia Frame\nSize: 90×90cm | Full Storage Cabinet\nWarranty: 2 Years | MOQ: 100pcs', price: '$143.36', img: '' },
+            { id: 'B017', name: 'Model B017 Premium Solid Wood Mirror Cabinet', desc: 'Material: Solid Wood + Paulownia Frame\nSize: 85×105cm | Full Storage Cabinet\nWarranty: 2 Years | MOQ: 100pcs', price: '$151.20', img: '微信图片_20260707164044_510_35.jpg' },
+            { id: 'B018', name: 'Model B018 Premium Solid Wood Mirror Cabinet', desc: 'Material: Solid Wood + Paulownia Frame\nSize: 90×100cm | Full Storage Cabinet\nWarranty: 2 Years | MOQ: 100pcs', price: '$154.56', img: '微信图片_20260707164044_510_35.jpg' },
+            { id: 'B019', name: 'Model B019 Premium Solid Wood Mirror Cabinet', desc: 'Material: Solid Wood + Paulownia Frame\nSize: 95×100cm | Full Storage Cabinet\nWarranty: 2 Years | MOQ: 100pcs', price: '$159.04', img: '微信图片_20260707164044_510_35.jpg' },
+            { id: 'B020', name: 'Model B020 Premium Solid Wood Mirror Cabinet', desc: 'Material: Solid Wood + Paulownia Frame\nSize: 90×110cm | Full Storage Cabinet\nWarranty: 2 Years | MOQ: 100pcs', price: '$165.76', img: '微信图片_20260707164044_510_35.jpg' },
+            { id: 'B021', name: 'Model B021 Premium Solid Wood Mirror Cabinet', desc: 'Material: Solid Wood + Paulownia Frame\nSize: 100×100cm | Full Storage Cabinet\nWarranty: 2 Years | MOQ: 100pcs', price: '$168.00', img: '微信图片_20260707164044_510_35.jpg' },
+            { id: 'B022', name: 'Model B022 Premium Solid Wood Mirror Cabinet', desc: 'Material: Solid Wood + Paulownia Frame\nSize: 95×115cm | Full Storage Cabinet\nWarranty: 2 Years | MOQ: 100pcs', price: '$174.72', img: '微信图片_20260707164044_510_35.jpg' },
+            { id: 'B023', name: 'Model B023 Premium Solid Wood Mirror Cabinet', desc: 'Material: Solid Wood + Paulownia Frame\nSize: 100×110cm | Full Storage Cabinet\nWarranty: 2 Years | MOQ: 100pcs', price: '$178.08', img: '微信图片_20260707164044_510_35.jpg' },
+            { id: 'B024', name: 'Model B024 Premium Solid Wood Mirror Cabinet', desc: 'Material: Solid Wood + Paulownia Frame\nSize: 105×115cm | Full Storage Cabinet\nWarranty: 2 Years | MOQ: 100pcs', price: '$188.16', img: '微信图片_20260707164044_510_35.jpg' },
+            { id: 'B025', name: 'Model B025 Premium Solid Wood Mirror Cabinet', desc: 'Material: Solid Wood + Paulownia Frame\nSize: 110×120cm | Full Storage Cabinet\nWarranty: 2 Years | MOQ: 100pcs', price: '$196.00', img: '微信图片_20260707164044_510_35.jpg' },
+            { id: 'B026', name: 'Model B026 Premium Solid Wood Mirror Cabinet', desc: 'Material: Solid Wood + Paulownia Frame\nSize: 115×125cm | Full Storage Cabinet\nWarranty: 2 Years | MOQ: 100pcs', price: '$203.84', img: '微信图片_20260707164044_510_35.jpg' },
+            { id: 'B027', name: 'Model B027 Premium Solid Wood Mirror Cabinet', desc: 'Material: Solid Wood + Paulownia Frame\nSize: 120×130cm | Full Storage Cabinet\nWarranty: 2 Years | MOQ: 100pcs', price: '$211.68', img: '微信图片_20260707164044_510_35.jpg' },
+            { id: 'B028', name: 'Model B028 Premium Solid Wood Mirror Cabinet', desc: 'Material: Solid Wood + Paulownia Frame\nSize: 100×140cm | Full Storage Cabinet\nWarranty: 2 Years | MOQ: 100pcs', price: '$208.32', img: '微信图片_20260707164044_510_35.jpg' },
+            { id: 'B029', name: 'Model B029 Premium Solid Wood Mirror Cabinet', desc: 'Material: Solid Wood + Paulownia Frame\nSize: 120×150cm | Full Storage Cabinet\nWarranty: 2 Years | MOQ: 100pcs', price: '$211.68', img: '微信图片_20260707164044_510_35.jpg' }
         ];
-        bData.forEach(p => { PRODUCTS.push({ id: p.id, type: 'B', name: p.name, desc: p.desc, price: p.price, img: p.img ?
-                '/img/' + p.img : '' }); });
+        bData.forEach(p => { PRODUCTS.push({ id: p.id, type: 'B', name: p.name, desc: p.desc, price: p.price, img: p.img ? '/img/' + p.img : '' }); });
 
+        // C系列（198款）—— 图片路径按用户实际命名规则：C00 + 数字部分 + .jpg
         for (let i = 1; i <= 198; i++) {
             const id = 'C' + String(i).padStart(3, '0');
             let size = '80×50cm';
@@ -1914,74 +1413,44 @@
             else if (i <= 35) size = '120×50cm';
             else if (i <= 38) size = '100×50cm';
             else size = '80×50cm';
+            // 构造图片文件名：C00 + 数字（不加前导零） + .jpg
+            const imgFileName = 'C00' + i + '.jpg';
             PRODUCTS.push({
                 id: id,
                 type: 'C',
                 name: 'Model ' + id + ' PVC Bathroom Cabinet',
                 desc: 'Size: ' + size + '\nMaterial: PVC\nWarranty: 2 Years | MOQ: 50sets',
                 price: '$112.00',
-                img: '/img/C' + String(i).padStart(5, '0') + '.jpg'
+                img: '/img/' + imgFileName
             });
         }
 
         // ============================================================
-        // 语言映射 (EN/FR)
+        // 语言映射 (EN/FR) —— 省略具体内容，保持与之前一致
         // ============================================================
         const LANG = {
             en: {
-                all: 'All Products',
-                led: 'LED Mirror',
-                smart: 'Smart Mirror Cabinet',
-                pvc: 'PVC Bathroom Cabinet',
-                search: 'Search product model / size / material...',
-                viewDetails: 'View Details',
-                inquire: 'Inquire via WhatsApp',
-                copyModel: 'Copy Model',
+                all: 'All Products', led: 'LED Mirror', smart: 'Smart Mirror Cabinet', pvc: 'PVC Bathroom Cabinet',
+                search: 'Search product model / size / material...', viewDetails: 'View Details',
+                inquire: 'Inquire via WhatsApp', copyModel: 'Copy Model',
                 oemTitle: 'OEM & ODM Custom Service',
-                oemSize: 'Custom Size & Shape',
-                oemSizeDesc: 'Round, square, rectangle, irregular shapes available, any size from 30cm to 200cm',
-                oemLogo: 'Custom Logo Printing',
-                oemLogoDesc: 'Silk screen, laser engraving, sticker logo, support your brand design',
-                oemLight: 'Custom Light Options',
-                oemLightDesc: 'Warm white / cool white / dimmable, 3000K-6500K color temperature optional',
-                oemFunc: 'Custom Functions',
-                oemFuncDesc: 'Anti-fog pad, Bluetooth speaker, touch switch, time display, magnifier',
-                oemPack: 'Custom Packaging',
-                oemPackDesc: 'Brown box, color box, gift box, foam protection, export standard carton',
-                oemInfo1: '📏 Minimum Order for Custom: 100pcs',
-                oemInfo2: '⏱️ Sample Lead Time: 7-10 Days',
-                oemInfo3: '🏭 Bulk Production: 25-30 Days',
-                oemInfo4: '🚢 Shipping: By sea / air / express, DDP service available',
-                getQuote: '💬 Get Custom Quote',
-                inquiry: '📩 Online Inquiry',
-                name: 'Full Name *',
-                company: 'Company',
-                email: 'Email *',
-                qty: 'Quantity (pcs)',
-                sizeReq: 'Size / Custom Requirements',
-                message: 'Additional Message',
-                send: '🚀 Send Inquiry via WhatsApp',
-                favorites: '❤️ My Favorites',
-                clearAll: '🗑️ Clear All',
-                close: 'Close',
-                catalog: '📄 Product Catalog',
-                copyAll: '📋 Copy All',
-                noFav: 'No favorites yet.',
-                selected: 'Selected',
-                products: 'products',
-                batchCopy: '📋 Copy Models',
-                batchInquiry: '💬 Batch Inquiry',
-                clear: '✕ Clear',
-                filterPrice: '💰 Price:',
-                filterMoq: '📦 MOQ:',
-                sort: 'Sort:',
-                apply: 'Apply',
-                reset: 'Reset',
-                page: 'Page',
-                of: 'of',
-                noResult: 'No products found. Try a different keyword.',
-                copySuccess: 'Copied successfully!',
-                whatsappMsg: 'Hi, I want to inquire',
+                oemSize: 'Custom Size & Shape', oemSizeDesc: 'Round, square, rectangle, irregular shapes available, any size from 30cm to 200cm',
+                oemLogo: 'Custom Logo Printing', oemLogoDesc: 'Silk screen, laser engraving, sticker logo, support your brand design',
+                oemLight: 'Custom Light Options', oemLightDesc: 'Warm white / cool white / dimmable, 3000K-6500K color temperature optional',
+                oemFunc: 'Custom Functions', oemFuncDesc: 'Anti-fog pad, Bluetooth speaker, touch switch, time display, magnifier',
+                oemPack: 'Custom Packaging', oemPackDesc: 'Brown box, color box, gift box, foam protection, export standard carton',
+                oemInfo1: '📏 Minimum Order for Custom: 100pcs', oemInfo2: '⏱️ Sample Lead Time: 7-10 Days',
+                oemInfo3: '🏭 Bulk Production: 25-30 Days', oemInfo4: '🚢 Shipping: By sea / air / express, DDP service available',
+                getQuote: '💬 Get Custom Quote', inquiry: '📩 Online Inquiry',
+                name: 'Full Name *', company: 'Company', email: 'Email *', qty: 'Quantity (pcs)',
+                sizeReq: 'Size / Custom Requirements', message: 'Additional Message',
+                send: '🚀 Send Inquiry via WhatsApp', favorites: '❤️ My Favorites',
+                clearAll: '🗑️ Clear All', close: 'Close', catalog: '📄 Product Catalog',
+                copyAll: '📋 Copy All', noFav: 'No favorites yet.', selected: 'Selected', products: 'products',
+                batchCopy: '📋 Copy Models', batchInquiry: '💬 Batch Inquiry', clear: '✕ Clear',
+                filterPrice: '💰 Price:', filterMoq: '📦 MOQ:', sort: 'Sort:', apply: 'Apply', reset: 'Reset',
+                page: 'Page', of: 'of', noResult: 'No products found. Try a different keyword.',
+                copySuccess: 'Copied successfully!', whatsappMsg: 'Hi, I want to inquire',
                 whatsappBatch: 'Hi, I am interested in the following products:',
                 catalogTitle: '=== Product Catalog ===\n',
                 faq1q: 'What is the MOQ for standard products?',
@@ -1996,70 +1465,33 @@
                 faq5a: 'All products come with a 2-year warranty against manufacturing defects. We provide after-sales technical support and spare parts.',
                 faq6q: 'Can I get a bulk discount for large projects?',
                 faq6a: 'Yes, for engineering projects and large-volume orders (≥1000pcs), we offer special discounts. Please contact us with your project details.',
-                contact: 'Contact Us',
-                factory: 'Factory Info',
-                productsLabel: 'Our Products',
-                follow: 'Follow Us',
+                contact: 'Contact Us', factory: 'Factory Info', productsLabel: 'Our Products', follow: 'Follow Us',
                 copyright: '© 2026 Yongling LED Sanitary Mirror Factory. All Rights Reserved.',
-                breadAll: 'All Products',
-                breadA: 'LED Mirror',
-                breadB: 'Smart Mirror Cabinet',
-                breadC: 'PVC Bathroom Cabinet',
+                breadAll: 'All Products', breadA: 'LED Mirror', breadB: 'Smart Mirror Cabinet', breadC: 'PVC Bathroom Cabinet'
             },
             fr: {
-                all: 'Tous les produits',
-                led: 'Miroir LED',
-                smart: 'Armoire miroir intelligent',
-                pvc: 'Armoire de salle de bain PVC',
-                search: 'Rechercher modèle / taille / matériau...',
-                viewDetails: 'Voir les détails',
-                inquire: 'Demander via WhatsApp',
-                copyModel: 'Copier le modèle',
+                all: 'Tous les produits', led: 'Miroir LED', smart: 'Armoire miroir intelligent', pvc: 'Armoire de salle de bain PVC',
+                search: 'Rechercher modèle / taille / matériau...', viewDetails: 'Voir les détails',
+                inquire: 'Demander via WhatsApp', copyModel: 'Copier le modèle',
                 oemTitle: 'Service OEM & ODM sur mesure',
-                oemSize: 'Taille et forme personnalisées',
-                oemSizeDesc: 'Formes rondes, carrées, rectangulaires, irrégulières disponibles, toute taille de 30cm à 200cm',
-                oemLogo: 'Impression de logo personnalisé',
-                oemLogoDesc: 'Sérigraphie, gravure laser, autocollant logo, support de votre design de marque',
-                oemLight: 'Options d\'éclairage personnalisées',
-                oemLightDesc: 'Blanc chaud / blanc froid / gradable, température de couleur 3000K-6500K optionnelle',
-                oemFunc: 'Fonctions personnalisées',
-                oemFuncDesc: 'Plaque antibuée, haut-parleur Bluetooth, interrupteur tactile, affichage de l\'heure, miroir grossissant',
-                oemPack: 'Emballage personnalisé',
-                oemPackDesc: 'Carton brun, boîte colorée, boîte cadeau, protection en mousse, carton standard d\'exportation',
-                oemInfo1: '📏 Commande minimum pour personnalisation : 100pcs',
-                oemInfo2: '⏱️ Délai d\'échantillon : 7-10 jours ouvrables',
-                oemInfo3: '🏭 Production en série : 25-30 jours',
-                oemInfo4: '🚢 Expédition : par mer / air / express, service DDP disponible',
-                getQuote: '💬 Obtenir un devis personnalisé',
-                inquiry: '📩 Demande de renseignements en ligne',
-                name: 'Nom complet *',
-                company: 'Société',
-                email: 'Email *',
-                qty: 'Quantité (pcs)',
-                sizeReq: 'Taille / Exigences personnalisées',
-                message: 'Message supplémentaire',
-                send: '🚀 Envoyer la demande via WhatsApp',
-                favorites: '❤️ Mes favoris',
-                clearAll: '🗑️ Tout effacer',
-                close: 'Fermer',
-                catalog: '📄 Catalogue des produits',
-                copyAll: '📋 Tout copier',
-                noFav: 'Aucun favori pour le moment.',
-                selected: 'Sélectionné(s)',
-                products: 'produits',
-                batchCopy: '📋 Copier les modèles',
-                batchInquiry: '💬 Demande groupée',
-                clear: '✕ Effacer',
-                filterPrice: '💰 Prix :',
-                filterMoq: '📦 Quantité minimum :',
-                sort: 'Trier :',
-                apply: 'Appliquer',
-                reset: 'Réinitialiser',
-                page: 'Page',
-                of: 'sur',
-                noResult: 'Aucun produit trouvé. Essayez un autre mot-clé.',
-                copySuccess: 'Copié avec succès !',
-                whatsappMsg: 'Bonjour, je souhaite me renseigner sur',
+                oemSize: 'Taille et forme personnalisées', oemSizeDesc: 'Formes rondes, carrées, rectangulaires, irrégulières disponibles, toute taille de 30cm à 200cm',
+                oemLogo: 'Impression de logo personnalisé', oemLogoDesc: 'Sérigraphie, gravure laser, autocollant logo, support de votre design de marque',
+                oemLight: 'Options d\'éclairage personnalisées', oemLightDesc: 'Blanc chaud / blanc froid / gradable, température de couleur 3000K-6500K optionnelle',
+                oemFunc: 'Fonctions personnalisées', oemFuncDesc: 'Plaque antibuée, haut-parleur Bluetooth, interrupteur tactile, affichage de l\'heure, miroir grossissant',
+                oemPack: 'Emballage personnalisé', oemPackDesc: 'Carton brun, boîte colorée, boîte cadeau, protection en mousse, carton standard d\'exportation',
+                oemInfo1: '📏 Commande minimum pour personnalisation : 100pcs', oemInfo2: '⏱️ Délai d\'échantillon : 7-10 jours ouvrables',
+                oemInfo3: '🏭 Production en série : 25-30 jours', oemInfo4: '🚢 Expédition : par mer / air / express, service DDP disponible',
+                getQuote: '💬 Obtenir un devis personnalisé', inquiry: '📩 Demande de renseignements en ligne',
+                name: 'Nom complet *', company: 'Société', email: 'Email *', qty: 'Quantité (pcs)',
+                sizeReq: 'Taille / Exigences personnalisées', message: 'Message supplémentaire',
+                send: '🚀 Envoyer la demande via WhatsApp', favorites: '❤️ Mes favoris',
+                clearAll: '🗑️ Tout effacer', close: 'Fermer', catalog: '📄 Catalogue des produits',
+                copyAll: '📋 Tout copier', noFav: 'Aucun favori pour le moment.',
+                selected: 'Sélectionné(s)', products: 'produits',
+                batchCopy: '📋 Copier les modèles', batchInquiry: '💬 Demande groupée', clear: '✕ Effacer',
+                filterPrice: '💰 Prix :', filterMoq: '📦 Quantité minimum :', sort: 'Trier :', apply: 'Appliquer', reset: 'Réinitialiser',
+                page: 'Page', of: 'sur', noResult: 'Aucun produit trouvé. Essayez un autre mot-clé.',
+                copySuccess: 'Copié avec succès !', whatsappMsg: 'Bonjour, je souhaite me renseigner sur',
                 whatsappBatch: 'Bonjour, je suis intéressé par les produits suivants :',
                 catalogTitle: '=== Catalogue des produits ===\n',
                 faq1q: 'Quelle est la quantité minimum pour les produits standards ?',
@@ -2074,72 +1506,33 @@
                 faq5a: 'Tous les produits bénéficient d\'une garantie de 2 ans contre les défauts de fabrication. Nous fournissons un support technique après-vente et des pièces de rechange.',
                 faq6q: 'Puis-je obtenir une remise pour les grands projets ?',
                 faq6a: 'Oui, pour les projets d\'ingénierie et les commandes de grand volume (≥1000pcs), nous offrons des remises spéciales. Veuillez nous contacter avec les détails de votre projet.',
-                contact: 'Contactez-nous',
-                factory: 'Informations usine',
-                productsLabel: 'Nos produits',
-                follow: 'Suivez-nous',
+                contact: 'Contactez-nous', factory: 'Informations usine', productsLabel: 'Nos produits', follow: 'Suivez-nous',
                 copyright: '© 2026 Yongling LED Sanitary Mirror Factory. Tous droits réservés.',
-                breadAll: 'Tous les produits',
-                breadA: 'Miroir LED',
-                breadB: 'Armoire miroir intelligent',
-                breadC: 'Armoire PVC',
+                breadAll: 'Tous les produits', breadA: 'Miroir LED', breadB: 'Armoire miroir intelligent', breadC: 'Armoire PVC'
             }
         };
 
         // ============================================================
-        // 工具函数
+        // 工具函数 (debounce, throttle, getSvgPlaceholder, showToast, copyToClipboard, getLangText)
         // ============================================================
-        function debounce(fn, delay) { let t; return function(...a) { clearTimeout(t);
-                t = setTimeout(() => fn.apply(this, a), delay); }; }
-
-        function throttle(fn, limit) { let inThrottle = false; return function(...a) { if (!inThrottle) { fn.apply(this,
-                    a);
-                    inThrottle = true;
-                    setTimeout(() => inThrottle = false, limit); } }; }
-
+        function debounce(fn, delay) { let t; return function(...a) { clearTimeout(t); t = setTimeout(() => fn.apply(this, a), delay); }; }
+        function throttle(fn, limit) { let inThrottle = false; return function(...a) { if (!inThrottle) { fn.apply(this, a); inThrottle = true; setTimeout(() => inThrottle = false, limit); } }; }
         function getSvgPlaceholder() {
             return `<svg width="120" height="120" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8zm1-13h-2v6h2V7zm0 8h-2v2h2v-2z" fill="#c890a0"/></svg>`;
         }
-
-        function showToast(msg) {
-            const t = document.getElementById('copyToast');
-            if (!t) return;
-            t.textContent = msg || 'Copied!';
-            t.classList.add('show');
-            clearTimeout(t._timer);
-            t._timer = setTimeout(() => t.classList.remove('show'), 2000);
-        }
-
+        function showToast(msg) { const t = document.getElementById('copyToast'); if (!t) return; t.textContent = msg || 'Copied!'; t.classList.add('show'); clearTimeout(t._timer); t._timer = setTimeout(() => t.classList.remove('show'), 2000); }
         function copyToClipboard(text, successMsg) {
             if (navigator.clipboard && navigator.clipboard.writeText) {
                 navigator.clipboard.writeText(text).then(() => showToast(successMsg || 'Copied!')).catch(() => {
-                    const ta = document.createElement('textarea');
-                    ta.value = text;
-                    ta.style.position = 'fixed';
-                    ta.style.opacity = '0';
-                    document.body.appendChild(ta);
-                    ta.select();
-                    try { document.execCommand('copy');
-                        showToast(successMsg || 'Copied!'); } catch (e) { showToast('Copy failed'); }
-                    document.body.removeChild(ta);
+                    const ta = document.createElement('textarea'); ta.value = text; ta.style.position = 'fixed'; ta.style.opacity = '0'; document.body.appendChild(ta); ta.select();
+                    try { document.execCommand('copy'); showToast(successMsg || 'Copied!'); } catch (e) { showToast('Copy failed'); } document.body.removeChild(ta);
                 });
             } else {
-                const ta = document.createElement('textarea');
-                ta.value = text;
-                ta.style.position = 'fixed';
-                ta.style.opacity = '0';
-                document.body.appendChild(ta);
-                ta.select();
-                try { document.execCommand('copy');
-                    showToast(successMsg || 'Copied!'); } catch (e) { showToast('Copy failed'); }
-                document.body.removeChild(ta);
+                const ta = document.createElement('textarea'); ta.value = text; ta.style.position = 'fixed'; ta.style.opacity = '0'; document.body.appendChild(ta); ta.select();
+                try { document.execCommand('copy'); showToast(successMsg || 'Copied!'); } catch (e) { showToast('Copy failed'); } document.body.removeChild(ta);
             }
         }
-
-        function getLangText(key) {
-            const lang = currentLang || 'en';
-            return LANG[lang] && LANG[lang][key] ? LANG[lang][key] : LANG['en'][key] || key;
-        }
+        function getLangText(key) { const lang = currentLang || 'en'; return LANG[lang] && LANG[lang][key] ? LANG[lang][key] : LANG['en'][key] || key; }
 
         // ============================================================
         // DOM 引用
@@ -2163,24 +1556,14 @@
         function getFilteredProducts() {
             let list = PRODUCTS;
             if (currentFilter !== 'all') list = list.filter(p => p.type === currentFilter);
-            if (searchKeyword.trim()) {
-                const kw = searchKeyword.trim().toLowerCase();
-                list = list.filter(p => p.id.toLowerCase().includes(kw) || p.name.toLowerCase().includes(kw) || p.desc
-                    .toLowerCase().includes(kw));
-            }
-            const min = parseFloat(priceMin),
-                max = parseFloat(priceMax);
-            if (!isNaN(min) && min >= 0) list = list.filter(p => parseFloat(p.price.replace('$', '')) >= min);
-            if (!isNaN(max) && max >= 0) list = list.filter(p => parseFloat(p.price.replace('$', '')) <= max);
-            if (filterMoq) {
-                const mv = parseInt(filterMoq);
-                list = list.filter(p => { const m = p.desc.match(/MOQ:\s*(\d+)/); return m && parseInt(m[1]) >= mv; });
-            }
-            if (sortBy === 'price-asc') list.sort((a, b) => parseFloat(a.price.replace('$', '')) - parseFloat(b.price
-                .replace('$', '')));
-            else if (sortBy === 'price-desc') list.sort((a, b) => parseFloat(b.price.replace('$', '')) - parseFloat(a.price
-                .replace('$', '')));
-            else if (sortBy === 'model') list.sort((a, b) => a.id.localeCompare(b.id));
+            if (searchKeyword.trim()) { const kw = searchKeyword.trim().toLowerCase(); list = list.filter(p => p.id.toLowerCase().includes(kw) || p.name.toLowerCase().includes(kw) || p.desc.toLowerCase().includes(kw)); }
+            const min = parseFloat(priceMin), max = parseFloat(priceMax);
+            if (!isNaN(min) && min >= 0) list = list.filter(p => parseFloat(p.price.replace('$','')) >= min);
+            if (!isNaN(max) && max >= 0) list = list.filter(p => parseFloat(p.price.replace('$','')) <= max);
+            if (filterMoq) { const mv = parseInt(filterMoq); list = list.filter(p => { const m = p.desc.match(/MOQ:\s*(\d+)/); return m && parseInt(m[1]) >= mv; }); }
+            if (sortBy === 'price-asc') list.sort((a,b) => parseFloat(a.price.replace('$','')) - parseFloat(b.price.replace('$','')));
+            else if (sortBy === 'price-desc') list.sort((a,b) => parseFloat(b.price.replace('$','')) - parseFloat(a.price.replace('$','')));
+            else if (sortBy === 'model') list.sort((a,b) => a.id.localeCompare(b.id));
             return list;
         }
 
@@ -2190,29 +1573,19 @@
             const totalPages = Math.ceil(total / CONFIG.PER_PAGE) || 1;
             if (currentPage > totalPages) currentPage = totalPages;
             if (currentPage < 1) currentPage = 1;
-            const sorted = list.slice().sort((a, b) => { const o = { 'A': 0, 'B': 1, 'C': 2 }; return (o[a.type] || 3) - (o[
-                    b.type] || 3); });
+            const sorted = list.slice().sort((a,b) => { const o = {'A':0,'B':1,'C':2}; return (o[a.type]||3) - (o[b.type]||3); });
             const start = (currentPage - 1) * CONFIG.PER_PAGE;
             const pageItems = sorted.slice(start, start + CONFIG.PER_PAGE);
             container.querySelectorAll('.product-card').forEach(el => el.remove());
             emptyState.classList.remove('show');
-            if (pageItems.length === 0) {
-                emptyState.classList.add('show');
-                resultCount.textContent = '0 ' + getLangText('products');
-                updatePagination(total, totalPages);
-                updateBatchBar();
-                updateBreadcrumb();
-                return;
-            }
+            if (pageItems.length === 0) { emptyState.classList.add('show'); resultCount.textContent = '0 ' + getLangText('products'); updatePagination(total, totalPages); updateBatchBar(); updateBreadcrumb(); return; }
             let html = '';
             pageItems.forEach(item => {
                 const isFav = favorites.includes(item.id);
                 const checked = batchSelected.has(item.id) ? 'checked' : '';
                 const imgSrc = item.img || '';
-                const imgHtml = imgSrc ?
-                    `<img class="product-img" src="${imgSrc}" alt="${item.id} - ${item.name}" loading="lazy" width="320" height="220" onerror="this.style.display='none';this.parentElement.querySelector('.img-placeholder').style.display='flex'" />` :
-                    '';
-                const shortDesc = item.desc.length > 60 ? item.desc.substring(0, 60) + '...' : item.desc;
+                const imgHtml = imgSrc ? `<img class="product-img" src="${imgSrc}" alt="${item.id} - ${item.name}" loading="lazy" width="320" height="220" onerror="this.style.display='none';this.parentElement.querySelector('.img-placeholder').style.display='flex'" />` : '';
+                const shortDesc = item.desc.length > 60 ? item.desc.substring(0,60)+'...' : item.desc;
                 html += `
                     <div class="product-card" data-id="${item.id}">
                         <div class="img-box">
@@ -2247,31 +1620,26 @@
             pageInfo.textContent = getLangText('page') + ' ' + currentPage + ' / ' + totalPages;
             let btnHtml = '';
             const maxShow = 5;
-            let startPage = Math.max(1, currentPage - Math.floor(maxShow / 2));
+            let startPage = Math.max(1, currentPage - Math.floor(maxShow/2));
             let endPage = Math.min(totalPages, startPage + maxShow - 1);
             if (endPage - startPage < maxShow - 1) startPage = Math.max(1, endPage - maxShow + 1);
-            if (startPage > 1) { btnHtml += `<button onclick="goPage(1)">1</button>`;
-                if (startPage > 2) btnHtml += `<span>…</span>`; }
-            for (let i = startPage; i <= endPage; i++) {
-                btnHtml += `<button class="${i===currentPage?'active':''}" onclick="goPage(${i})">${i}</button>`;
-            }
-            if (endPage < totalPages) { if (endPage < totalPages - 1) btnHtml += `<span>…</span>`;
-                btnHtml += `<button onclick="goPage(${totalPages})">${totalPages}</button>`; }
+            if (startPage > 1) { btnHtml += `<button onclick="goPage(1)">1</button>`; if (startPage > 2) btnHtml += `<span>…</span>`; }
+            for (let i = startPage; i <= endPage; i++) { btnHtml += `<button class="${i===currentPage?'active':''}" onclick="goPage(${i})">${i}</button>`; }
+            if (endPage < totalPages) { if (endPage < totalPages - 1) btnHtml += `<span>…</span>`; btnHtml += `<button onclick="goPage(${totalPages})">${totalPages}</button>`; }
             pageNumbers.innerHTML = btnHtml;
         }
 
         function goPage(page) {
             const list = getFilteredProducts();
             const totalPages = Math.ceil(list.length / CONFIG.PER_PAGE) || 1;
-            if (page < 1) page = 1;
-            if (page > totalPages) page = totalPages;
+            if (page < 1) page = 1; if (page > totalPages) page = totalPages;
             currentPage = page;
             renderProducts();
             document.getElementById('productContainer').scrollIntoView({ behavior: 'smooth', block: 'start' });
         }
 
         function updateBreadcrumb() {
-            const map = { 'all': 'breadAll', 'A': 'breadA', 'B': 'breadB', 'C': 'breadC' };
+            const map = { 'all':'breadAll', 'A':'breadA', 'B':'breadB', 'C':'breadC' };
             breadcrumbLabel.textContent = getLangText(map[currentFilter] || 'breadAll');
         }
 
@@ -2279,37 +1647,25 @@
         // 批量选择
         // ============================================================
         function toggleBatch(id) {
-            if (batchSelected.has(id)) batchSelected.delete(id);
-            else batchSelected.add(id);
+            if (batchSelected.has(id)) batchSelected.delete(id); else batchSelected.add(id);
             updateBatchBar();
-            document.querySelectorAll('.product-check').forEach(cb => {
-                const pid = cb.closest('.product-card')?.dataset.id;
-                if (pid) cb.checked = batchSelected.has(pid);
-            });
+            document.querySelectorAll('.product-check').forEach(cb => { const pid = cb.closest('.product-card')?.dataset.id; if (pid) cb.checked = batchSelected.has(pid); });
         }
-
-        function updateBatchBar() {
-            const count = batchSelected.size;
-            batchCount.textContent = count;
-            if (count > 0) batchBar.classList.add('show');
-            else batchBar.classList.remove('show');
-        }
-
+        function updateBatchBar() { const count = batchSelected.size; batchCount.textContent = count; if (count > 0) batchBar.classList.add('show'); else batchBar.classList.remove('show'); }
         function batchCopy() {
             if (batchSelected.size === 0) { showToast('No products selected'); return; }
             const list = PRODUCTS.filter(p => batchSelected.has(p.id));
-            const groups = { A: [], B: [], C: [] };
+            const groups = { A:[], B:[], C:[] };
             list.forEach(p => groups[p.type].push(p.id));
             let text = '【A LED Mirror】\n' + groups.A.join('\n') + '\n\n';
             text += '【B Smart Cabinet】\n' + groups.B.join('\n') + '\n\n';
             text += '【C PVC Cabinet】\n' + groups.C.join('\n');
             copyToClipboard(text, 'Batch models copied!');
         }
-
         function batchWhatsApp() {
             if (batchSelected.size === 0) { showToast('No products selected'); return; }
             const list = PRODUCTS.filter(p => batchSelected.has(p.id));
-            const groups = { A: [], B: [], C: [] };
+            const groups = { A:[], B:[], C:[] };
             list.forEach(p => groups[p.type].push(p.id + ' ' + p.price));
             let msg = getLangText('whatsappBatch') + '\n\n';
             if (groups.A.length) msg += '【A LED Mirror】\n' + groups.A.join('\n') + '\n\n';
@@ -2318,73 +1674,32 @@
             msg += 'Please provide your quantity and destination.';
             window.open('https://wa.me/' + CONFIG.WHATSAPP + '?text=' + encodeURIComponent(msg), '_blank');
         }
-
-        function batchClear() {
-            batchSelected.clear();
-            document.querySelectorAll('.product-check').forEach(cb => cb.checked = false);
-            updateBatchBar();
-        }
+        function batchClear() { batchSelected.clear(); document.querySelectorAll('.product-check').forEach(cb => cb.checked = false); updateBatchBar(); }
 
         // ============================================================
         // 收藏
         // ============================================================
         function toggleFav(id) {
             const idx = favorites.indexOf(id);
-            if (idx > -1) favorites.splice(idx, 1);
-            else favorites.push(id);
+            if (idx > -1) favorites.splice(idx,1); else favorites.push(id);
             localStorage.setItem('favorites', JSON.stringify(favorites));
             document.querySelectorAll('.product-card').forEach(card => {
                 const pid = card.dataset.id;
-                if (pid === id) {
-                    const btn = card.querySelector('.favorite-btn');
-                    if (btn) { const isFav = favorites.includes(id);
-                        btn.classList.toggle('active', isFav);
-                        btn.textContent = isFav ? '♥' : '♡';
-                        btn.title = isFav ? 'Remove from favorites' : 'Add to favorites'; }
-                }
+                if (pid === id) { const btn = card.querySelector('.favorite-btn'); if (btn) { const isFav = favorites.includes(id); btn.classList.toggle('active', isFav); btn.textContent = isFav ? '♥' : '♡'; btn.title = isFav ? 'Remove from favorites' : 'Add to favorites'; } }
             });
             if (document.getElementById('favModal').classList.contains('show')) renderFavModal();
         }
-
         function renderFavModal() {
             const list = document.getElementById('favList');
             if (favorites.length === 0) { list.innerHTML = '<p>' + getLangText('noFav') + '</p>'; return; }
             let html = '';
-            favorites.forEach(id => {
-                const p = PRODUCTS.find(p => p.id === id);
-                if (!p) return;
-                html +=
-                    `<div class="fav-item"><span>${p.id} - ${p.name}</span><button class="fav-remove" onclick="removeFav('${id}')">✕</button></div>`;
-            });
+            favorites.forEach(id => { const p = PRODUCTS.find(p => p.id === id); if (!p) return; html += `<div class="fav-item"><span>${p.id} - ${p.name}</span><button class="fav-remove" onclick="removeFav('${id}')">✕</button></div>`; });
             list.innerHTML = html;
         }
-
-        function removeFav(id) {
-            const idx = favorites.indexOf(id);
-            if (idx > -1) favorites.splice(idx, 1);
-            localStorage.setItem('favorites', JSON.stringify(favorites));
-            renderFavModal();
-            renderProducts();
-        }
-
-        function clearAllFavorites() {
-            if (favorites.length === 0) return;
-            if (confirm('Clear all favorites?')) { favorites = [];
-                localStorage.setItem('favorites', JSON.stringify(favorites));
-                renderFavModal();
-                renderProducts(); }
-        }
-
-        function openFavModal() {
-            document.getElementById('favModal').classList.add('show');
-            document.body.classList.add('no-scroll');
-            renderFavModal();
-        }
-
-        function closeFavModal() {
-            document.getElementById('favModal').classList.remove('show');
-            document.body.classList.remove('no-scroll');
-        }
+        function removeFav(id) { const idx = favorites.indexOf(id); if (idx > -1) favorites.splice(idx,1); localStorage.setItem('favorites', JSON.stringify(favorites)); renderFavModal(); renderProducts(); }
+        function clearAllFavorites() { if (favorites.length === 0) return; if (confirm('Clear all favorites?')) { favorites = []; localStorage.setItem('favorites', JSON.stringify(favorites)); renderFavModal(); renderProducts(); } }
+        function openFavModal() { document.getElementById('favModal').classList.add('show'); document.body.classList.add('no-scroll'); renderFavModal(); }
+        function closeFavModal() { document.getElementById('favModal').classList.remove('show'); document.body.classList.remove('no-scroll'); }
 
         // ============================================================
         // 产品详情
@@ -2394,76 +1709,30 @@
             if (!product) return;
             const modal = document.getElementById('productModal');
             modal.dataset.pid = id;
-            document.getElementById('modalTitle').innerHTML =
-                `${product.id} - ${product.name} <button class="copy-model-btn" onclick="copyModel()">${getLangText('copyModel')}</button>`;
+            document.getElementById('modalTitle').innerHTML = `${product.id} - ${product.name} <button class="copy-model-btn" onclick="copyModel()">${getLangText('copyModel')}</button>`;
             const moqMatch = product.desc.match(/MOQ:\s*(\d+)/);
-            document.getElementById('modalMeta').innerHTML =
-                `<span class="meta-item">💰 ${product.price}</span><span class="meta-item">📦 MOQ: ${moqMatch?moqMatch[1]:'N/A'}</span><span class="meta-item">🔧 ${product.type==='A'?'LED Mirror':product.type==='B'?'Smart Cabinet':'PVC Cabinet'}</span>`;
+            document.getElementById('modalMeta').innerHTML = `<span class="meta-item">💰 ${product.price}</span><span class="meta-item">📦 MOQ: ${moqMatch?moqMatch[1]:'N/A'}</span><span class="meta-item">🔧 ${product.type==='A'?'LED Mirror':product.type==='B'?'Smart Cabinet':'PVC Cabinet'}</span>`;
             document.getElementById('modalContent').textContent = product.desc;
             modal.classList.add('show');
             document.body.classList.add('no-scroll');
         }
-
-        function closeProductModal() {
-            document.getElementById('productModal').classList.remove('show');
-            document.body.classList.remove('no-scroll');
-        }
-
-        function copyModel() {
-            const pid = document.getElementById('productModal').dataset.pid;
-            const product = PRODUCTS.find(p => p.id === pid);
-            if (!product) return;
-            copyToClipboard(product.id + ' ' + product.name + '\nPrice: ' + product.price + '\n' + product.desc, getLangText(
-                'copySuccess'));
-        }
-
-        function contactWhatsApp() {
-            const pid = document.getElementById('productModal').dataset.pid;
-            const product = PRODUCTS.find(p => p.id === pid);
-            if (!product) return;
-            window.open('https://wa.me/' + CONFIG.WHATSAPP + '?text=' + encodeURIComponent(getLangText('whatsappMsg') +
-                ' ' + product.id + ' - ' + product.name + ' (' + product.price + ')'), '_blank');
-        }
-
-        function quickWhatsApp(id) {
-            const product = PRODUCTS.find(p => p.id === id);
-            if (!product) return;
-            window.open('https://wa.me/' + CONFIG.WHATSAPP + '?text=' + encodeURIComponent(getLangText('whatsappMsg') +
-                ' ' + product.id + ' - ' + product.name + ' (' + product.price + ')'), '_blank');
-        }
+        function closeProductModal() { document.getElementById('productModal').classList.remove('show'); document.body.classList.remove('no-scroll'); }
+        function copyModel() { const pid = document.getElementById('productModal').dataset.pid; const product = PRODUCTS.find(p => p.id === pid); if (!product) return; copyToClipboard(product.id + ' ' + product.name + '\nPrice: ' + product.price + '\n' + product.desc, getLangText('copySuccess')); }
+        function contactWhatsApp() { const pid = document.getElementById('productModal').dataset.pid; const product = PRODUCTS.find(p => p.id === pid); if (!product) return; window.open('https://wa.me/' + CONFIG.WHATSAPP + '?text=' + encodeURIComponent(getLangText('whatsappMsg') + ' ' + product.id + ' - ' + product.name + ' (' + product.price + ')'), '_blank'); }
+        function quickWhatsApp(id) { const product = PRODUCTS.find(p => p.id === id); if (!product) return; window.open('https://wa.me/' + CONFIG.WHATSAPP + '?text=' + encodeURIComponent(getLangText('whatsappMsg') + ' ' + product.id + ' - ' + product.name + ' (' + product.price + ')'), '_blank'); }
 
         // ============================================================
         // OEM
         // ============================================================
-        function openOEMModal() {
-            document.getElementById('oemModal').classList.add('show');
-            document.body.classList.add('no-scroll');
-            applyLangToOEM();
-        }
-
-        function closeOEMModal() {
-            document.getElementById('oemModal').classList.remove('show');
-            document.body.classList.remove('no-scroll');
-        }
-
-        function contactWhatsAppOEM() {
-            window.open('https://wa.me/' + CONFIG.WHATSAPP + '?text=' + encodeURIComponent(
-                'Hi, I would like to request an OEM/ODM custom quote.'), '_blank');
-        }
+        function openOEMModal() { document.getElementById('oemModal').classList.add('show'); document.body.classList.add('no-scroll'); applyLangToOEM(); }
+        function closeOEMModal() { document.getElementById('oemModal').classList.remove('show'); document.body.classList.remove('no-scroll'); }
+        function contactWhatsAppOEM() { window.open('https://wa.me/' + CONFIG.WHATSAPP + '?text=' + encodeURIComponent('Hi, I would like to request an OEM/ODM custom quote.'), '_blank'); }
 
         // ============================================================
         // 询价表单
         // ============================================================
-        function openInquiryModal() {
-            document.getElementById('inquiryModal').classList.add('show');
-            document.body.classList.add('no-scroll');
-        }
-
-        function closeInquiryModal() {
-            document.getElementById('inquiryModal').classList.remove('show');
-            document.body.classList.remove('no-scroll');
-        }
-
+        function openInquiryModal() { document.getElementById('inquiryModal').classList.add('show'); document.body.classList.add('no-scroll'); }
+        function closeInquiryModal() { document.getElementById('inquiryModal').classList.remove('show'); document.body.classList.remove('no-scroll'); }
         function submitInquiry(e) {
             e.preventDefault();
             const name = document.getElementById('inqName').value.trim();
@@ -2489,19 +1758,10 @@
         // ============================================================
         // Catalog
         // ============================================================
-        function openCatalogModal() {
-            document.getElementById('catalogModal').classList.add('show');
-            document.body.classList.add('no-scroll');
-            generateCatalog();
-        }
-
-        function closeCatalogModal() {
-            document.getElementById('catalogModal').classList.remove('show');
-            document.body.classList.remove('no-scroll');
-        }
-
+        function openCatalogModal() { document.getElementById('catalogModal').classList.add('show'); document.body.classList.add('no-scroll'); generateCatalog(); }
+        function closeCatalogModal() { document.getElementById('catalogModal').classList.remove('show'); document.body.classList.remove('no-scroll'); }
         function generateCatalog() {
-            const groups = { A: [], B: [], C: [] };
+            const groups = { A:[], B:[], C:[] };
             PRODUCTS.forEach(p => groups[p.type].push(p));
             let text = getLangText('catalogTitle') + '\n';
             text += '=== A LED Mirror ===\n';
@@ -2512,10 +1772,7 @@
             groups.C.forEach(p => text += p.id + ' | ' + p.name + ' | ' + p.price + '\n');
             document.getElementById('catalogContent').textContent = text;
         }
-
-        function copyCatalog() {
-            copyToClipboard(document.getElementById('catalogContent').textContent, 'Catalog copied!');
-        }
+        function copyCatalog() { copyToClipboard(document.getElementById('catalogContent').textContent, 'Catalog copied!'); }
 
         // ============================================================
         // 工厂相册
@@ -2536,9 +1793,7 @@
         function toggleFaq(el) {
             const ans = el.nextElementSibling;
             const arrow = el.querySelector('.arrow');
-            if (ans.classList.contains('open')) { ans.classList.remove('open');
-                arrow.textContent = '▼'; } else { ans.classList.add('open');
-                arrow.textContent = '▲'; }
+            if (ans.classList.contains('open')) { ans.classList.remove('open'); arrow.textContent = '▼'; } else { ans.classList.add('open'); arrow.textContent = '▲'; }
         }
 
         // ============================================================
@@ -2548,63 +1803,50 @@
             document.querySelectorAll('[data-lang-key]').forEach(el => {
                 const key = el.dataset.langKey;
                 if (key) {
-                    if (el.tagName === 'INPUT' || el.tagName === 'TEXTAREA') {
-                        if (el.placeholder) el.placeholder = getLangText(key);
-                    } else {
-                        el.textContent = getLangText(key);
-                    }
+                    if (el.tagName === 'INPUT' || el.tagName === 'TEXTAREA') { if (el.placeholder) el.placeholder = getLangText(key); }
+                    else { el.textContent = getLangText(key); }
                 }
             });
             document.getElementById('searchInput').placeholder = getLangText('search');
-            const map = { 'all': 'all', 'A': 'led', 'B': 'smart', 'C': 'pvc' };
+            const map = { 'all':'all', 'A':'led', 'B':'smart', 'C':'pvc' };
             filterTabs.forEach(tab => { const k = map[tab.dataset.filter]; if (k) tab.textContent = getLangText(k); });
             updateBreadcrumb();
             applyLangToOEM();
             document.querySelectorAll('.faq-item').forEach((item, idx) => {
                 const q = item.querySelector('.faq-q span');
                 const a = item.querySelector('.faq-a');
-                if (q && a) { q.textContent = getLangText('faq' + (idx + 1) + 'q');
-                    a.textContent = getLangText('faq' + (idx + 1) + 'a'); }
+                if (q && a) { q.textContent = getLangText('faq' + (idx+1) + 'q'); a.textContent = getLangText('faq' + (idx+1) + 'a'); }
             });
             renderProducts();
         }
-
         function applyLangToOEM() {
             const modal = document.getElementById('oemModal');
             if (!modal) return;
             const title = modal.querySelector('.modal-title');
             if (title) title.textContent = getLangText('oemTitle');
             const items = modal.querySelectorAll('.oem-item');
-            const keys = ['oemSize', 'oemSizeDesc', 'oemLogo', 'oemLogoDesc', 'oemLight', 'oemLightDesc', 'oemFunc',
-                'oemFuncDesc', 'oemPack', 'oemPackDesc'
-            ];
+            const keys = ['oemSize','oemSizeDesc','oemLogo','oemLogoDesc','oemLight','oemLightDesc','oemFunc','oemFuncDesc','oemPack','oemPackDesc'];
             items.forEach((item, idx) => {
                 const h4 = item.querySelector('h4');
                 const p = item.querySelector('p');
-                if (h4) h4.textContent = getLangText(keys[idx * 2]);
-                if (p) p.textContent = getLangText(keys[idx * 2 + 1]);
+                if (h4) h4.textContent = getLangText(keys[idx*2]);
+                if (p) p.textContent = getLangText(keys[idx*2+1]);
             });
             const info = modal.querySelector('.oem-info');
             if (info) {
                 const ps = info.querySelectorAll('p');
-                if (ps.length >= 4) { ps[0].textContent = getLangText('oemInfo1');
-                    ps[1].textContent = getLangText('oemInfo2');
-                    ps[2].textContent = getLangText('oemInfo3');
-                    ps[3].textContent = getLangText('oemInfo4'); }
+                if (ps.length >= 4) { ps[0].textContent = getLangText('oemInfo1'); ps[1].textContent = getLangText('oemInfo2'); ps[2].textContent = getLangText('oemInfo3'); ps[3].textContent = getLangText('oemInfo4'); }
             }
             const btn = modal.querySelector('.whatsapp-btn');
             if (btn) btn.textContent = getLangText('getQuote');
         }
-
         function switchLang(lang) {
             if (lang === currentLang) return;
             currentLang = lang;
             localStorage.setItem('yl_lang', lang);
-            document.querySelectorAll('.lang-switch button').forEach(b => b.classList.toggle('active', b.dataset.lang ===
-                lang));
+            document.querySelectorAll('.lang-switch button').forEach(b => b.classList.toggle('active', b.dataset.lang === lang));
             applyLangToUI();
         }
-
         function toggleDarkMode() {
             darkMode = !darkMode;
             localStorage.setItem('yl_dark', String(darkMode));
@@ -2623,16 +1865,12 @@
             currentPage = 1;
             renderProducts();
         }
-
         function resetAdvancedFilter() {
             document.getElementById('priceMin').value = '';
             document.getElementById('priceMax').value = '';
             document.getElementById('filterMoq').value = '';
             document.getElementById('sortSelect').value = 'default';
-            priceMin = '';
-            priceMax = '';
-            filterMoq = '';
-            sortBy = 'default';
+            priceMin = ''; priceMax = ''; filterMoq = ''; sortBy = 'default';
             currentPage = 1;
             renderProducts();
         }
@@ -2642,18 +1880,11 @@
         // ============================================================
         const handleScroll = throttle(function() {
             const header = document.getElementById('siteHeader');
-            if (header) { if (window.scrollY > 50) header.classList.add('scrolled');
-                else header.classList.remove('scrolled'); }
+            if (header) { if (window.scrollY > 50) header.classList.add('scrolled'); else header.classList.remove('scrolled'); }
             const bt = document.getElementById('backTop');
-            if (bt) { if (window.scrollY > 300) bt.classList.add('show');
-                else bt.classList.remove('show'); }
+            if (bt) { if (window.scrollY > 300) bt.classList.add('show'); else bt.classList.remove('show'); }
         }, 100);
-
-        const handleSearch = debounce(function() {
-            searchKeyword = this.value;
-            currentPage = 1;
-            renderProducts();
-        }, 300);
+        const handleSearch = debounce(function() { searchKeyword = this.value; currentPage = 1; renderProducts(); }, 300);
 
         // ============================================================
         // ESC & 遮罩关闭
@@ -2666,12 +1897,10 @@
                     else if (modal.id === 'inquiryModal') closeInquiryModal();
                     else if (modal.id === 'favModal') closeFavModal();
                     else if (modal.id === 'catalogModal') closeCatalogModal();
-                    else { modal.classList.remove('show');
-                        document.body.classList.remove('no-scroll'); }
+                    else { modal.classList.remove('show'); document.body.classList.remove('no-scroll'); }
                 });
             }
         });
-
         document.querySelectorAll('.modal-mask').forEach(mask => {
             mask.addEventListener('click', function(e) {
                 if (e.target === this) {
@@ -2681,8 +1910,7 @@
                     else if (id === 'inquiryModal') closeInquiryModal();
                     else if (id === 'favModal') closeFavModal();
                     else if (id === 'catalogModal') closeCatalogModal();
-                    else { this.classList.remove('show');
-                        document.body.classList.remove('no-scroll'); }
+                    else { this.classList.remove('show'); document.body.classList.remove('no-scroll'); }
                 }
             });
         });
@@ -2691,25 +1919,16 @@
         // 复制 & Sitemap
         // ============================================================
         function copyText(text) { copyToClipboard(text, 'Copied: ' + text); }
-
-        function copySitemap() {
-            copyToClipboard(
-                'https://ledmirror-factory-esra.pages.dev/\nhttps://ledmirror-factory-esra.pages.dev/#products\nhttps://ledmirror-factory-esra.pages.dev/#oem\nhttps://ledmirror-factory-esra.pages.dev/#faq\n',
-                'Sitemap copied!');
-        }
-
+        function copySitemap() { copyToClipboard('https://ledmirror-factory-esra.pages.dev/\nhttps://ledmirror-factory-esra.pages.dev/#products\nhttps://ledmirror-factory-esra.pages.dev/#oem\nhttps://ledmirror-factory-esra.pages.dev/#faq\n', 'Sitemap copied!'); }
         function scrollToTop() { window.scrollTo({ top: 0, behavior: 'smooth' }); }
 
         // ============================================================
         // 初始化
         // ============================================================
         document.addEventListener('DOMContentLoaded', function() {
-            if (darkMode) { document.documentElement.setAttribute('data-theme', 'dark');
-                document.querySelector('#themeToggle').textContent = '☀️'; } else { document.querySelector('#themeToggle')
-                    .textContent = '🌓'; }
+            if (darkMode) { document.documentElement.setAttribute('data-theme', 'dark'); document.querySelector('#themeToggle').textContent = '☀️'; } else { document.querySelector('#themeToggle').textContent = '🌓'; }
             const langBtn = document.querySelector('.lang-switch button[data-lang="' + currentLang + '"]');
-            if (langBtn) { document.querySelectorAll('.lang-switch button').forEach(b => b.classList.remove('active'));
-                langBtn.classList.add('active'); }
+            if (langBtn) { document.querySelectorAll('.lang-switch button').forEach(b => b.classList.remove('active')); langBtn.classList.add('active'); }
             applyLangToUI();
             searchInput.addEventListener('input', handleSearch);
             filterTabs.forEach(tab => {
