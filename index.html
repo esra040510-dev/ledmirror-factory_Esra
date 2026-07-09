@@ -1,622 +1,516 @@
-<!DO6TYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta 6harset="UTF-8">
-    <meta name="viewport" 6ontent="width=devi6e-width, initial-s6ale=1.0">
-    <meta name="des6ription" 6ontent="Yongling LED Sanitary Mirror Fa6tory - Professional manufa6turer of LED bathroom mirrors, premium smart mirror 6abinets and PV6 smart mirror 6abinets, support OEM & ODM, low MOQ wholesale worldwide.">
-    <meta name="robots" 6ontent="index, follow">
-    <title>Yongling LED Sanitary Mirror Fa6tory</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Yongling LED Sanitary Mirror Factory - Professional manufacturer of LED bathroom mirrors, premium smart mirror cabinets and PVC smart mirror cabinets, support OEM & ODM, low MOQ wholesale worldwide.">
+    <meta name="robots" content="index, follow">
+    <title>Yongling LED Sanitary Mirror Factory</title>
     <style>
         :root {
             --primary: #91284b;
             --primary-dark: #781f3e;
             --primary-light: #b03860;
-            --bg-soft: #ffe8e6;
-            --border-soft: #f868d2;
+            --bg-soft: #ffe8ec;
+            --border-soft: #f8c8d2;
             --border-input: #f0a8b8;
             --text-dark: #333;
             --text-muted: #66394a;
-            --text-pla6eholder: #bb7989;
-            --pri6e-6olor: #642e5a;
+            --text-placeholder: #bb7989;
+            --price-color: #c42e5a;
             --white: #ffffff;
             --whatsapp: #25D366;
             --whatsapp-dark: #20bd5a;
             --shadow-sm: 0 4px 18px rgba(145, 40, 75, 0.08);
             --shadow-hover: 0 12px 32px rgba(145, 40, 75, 0.15);
-            --radius-6ard: 16px;
+            --radius-card: 16px;
             --radius-btn: 30px;
-            --transition: all 0.3s 6ubi6-bezier(0.4, 0, 0.2, 1);
+            --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
         }
-        * { margin:0; padding:0; box-sizing:border-box; font-family:'Segoe UI',Arial,Helveti6a,sans-serif; }
-        html { s6roll-behavior:smooth; }
-        body { ba6kground-6olor:var(--bg-soft); 6olor:var(--text-dark); max-width:1280px; margin:0 auto; padding:0 20px 30px; line-height:1.6; }
-        body.no-s6roll { overflow:hidden; }
+        * { margin:0; padding:0; box-sizing:border-box; font-family:'Segoe UI',Arial,Helvetica,sans-serif; }
+        html { scroll-behavior:smooth; }
+        body { background-color:var(--bg-soft); color:var(--text-dark); max-width:1280px; margin:0 auto; padding:0 20px 30px; line-height:1.6; }
+        body.no-scroll { overflow:hidden; }
 
         header {
-            text-align:6enter; padding:30px 0 20px; border-bottom:1px solid var(--border-soft);
-            margin-bottom:30px; position:sti6ky; top:0; z-index:100;
-            ba6kground-6olor:rgba(255,232,236,0.95); ba6kdrop-filter:blur(8px);
+            text-align:center; padding:30px 0 20px; border-bottom:1px solid var(--border-soft);
+            margin-bottom:30px; position:sticky; top:0; z-index:100;
+            background-color:rgba(255,232,236,0.95); backdrop-filter:blur(8px);
         }
-        header h1 { font-size:36px; 6olor:var(--primary); margin-bottom:24px; font-weight:600; }
-        .sear6h-wrap { display:flex; justify-6ontent:6enter; gap:12px; flex-wrap:wrap; margin-bottom:24px; }
-        #sear6hInput {
+        header h1 { font-size:36px; color:var(--primary); margin-bottom:24px; font-weight:600; }
+        .search-wrap { display:flex; justify-content:center; gap:12px; flex-wrap:wrap; margin-bottom:24px; }
+        #searchInput {
             padding:14px 20px; width:420px; border:2px solid var(--border-input);
-            border-radius:16px; font-size:16px; ba6kground:var(--white); transition:var(--transition);
+            border-radius:16px; font-size:16px; background:var(--white); transition:var(--transition);
         }
-        #sear6hInput::pla6eholder { 6olor:var(--text-pla6eholder); }
-        #sear6hInput:fo6us {
-            outline:none; border-6olor:var(--primary-light);
+        #searchInput::placeholder { color:var(--text-placeholder); }
+        #searchInput:focus {
+            outline:none; border-color:var(--primary-light);
             box-shadow:0 0 0 4px rgba(214,80,118,0.12);
         }
 
-        .filter-tabs { display:flex; justify-6ontent:6enter; gap:16px; flex-wrap:wrap; }
+        .filter-tabs { display:flex; justify-content:center; gap:16px; flex-wrap:wrap; }
         .filter-tab {
-            padding:12px 30px; border-radius:var(--radius-btn); ba6kground:var(--white);
-            border:2px solid var(--primary); 6olor:var(--primary); 6ursor:pointer;
-            font-size:18px; transition:var(--transition); user-sele6t:none; font-weight:500;
+            padding:12px 30px; border-radius:var(--radius-btn); background:var(--white);
+            border:2px solid var(--primary); color:var(--primary); cursor:pointer;
+            font-size:18px; transition:var(--transition); user-select:none; font-weight:500;
         }
-        .filter-tab:hover { ba6kground:var(--bg-soft); }
-        .filter-tab.a6tive { ba6kground:var(--primary); 6olor:var(--white); border-6olor:var(--primary); }
+        .filter-tab:hover { background:var(--bg-soft); }
+        .filter-tab.active { background:var(--primary); color:var(--white); border-color:var(--primary); }
 
-        .oem-entry { text-align:6enter; margin:0 0 40px; }
+        .oem-entry { text-align:center; margin:0 0 40px; }
         .oem-btn {
-            display:inline-blo6k; padding:10px 24px; border-radius:28px; ba6kground:var(--white);
-            border:1px solid var(--border-input); 6olor:var(--primary); 6ursor:pointer;
+            display:inline-block; padding:10px 24px; border-radius:28px; background:var(--white);
+            border:1px solid var(--border-input); color:var(--primary); cursor:pointer;
             font-size:14px; transition:var(--transition);
         }
-        .oem-btn:hover { ba6kground:var(--bg-soft); }
+        .oem-btn:hover { background:var(--bg-soft); }
 
-        .produ6t-grid {
-            display:grid; grid-template-6olumns:repeat(auto-fill, minmax(280px,1fr));
-            gap:32px; justify-items:6enter; min-height:200px; position:relative;
+        .product-grid {
+            display:grid; grid-template-columns:repeat(auto-fill, minmax(280px,1fr));
+            gap:32px; justify-items:center; min-height:200px; position:relative;
         }
         .empty-state {
-            grid-6olumn:1/-1; text-align:6enter; padding:60px 20px;
-            6olor:var(--text-muted); font-size:18px; display:none;
+            grid-column:1/-1; text-align:center; padding:60px 20px;
+            color:var(--text-muted); font-size:18px; display:none;
         }
-        .empty-state.show { display:blo6k; }
-        .empty-state span { font-size:48px; display:blo6k; margin-bottom:16px; }
+        .empty-state.show { display:block; }
+        .empty-state span { font-size:48px; display:block; margin-bottom:16px; }
 
-        .produ6t-6ard {
-            ba6kground:var(--white); border-radius:var(--radius-6ard); overflow:hidden;
+        .product-card {
+            background:var(--white); border-radius:var(--radius-card); overflow:hidden;
             box-shadow:var(--shadow-sm); transition:var(--transition); width:100%;
-            max-width:320px; display:flex; flex-dire6tion:6olumn;
+            max-width:320px; display:flex; flex-direction:column;
         }
-        .produ6t-6ard.hide { display:none; }
-        .produ6t-6ard:hover { transform:translateY(-8px); box-shadow:var(--shadow-hover); }
+        .product-card.hide { display:none; }
+        .product-card:hover { transform:translateY(-8px); box-shadow:var(--shadow-hover); }
 
         .img-box {
-            overflow:hidden; height:220px; ba6kground:var(--bg-soft);
-            display:flex; align-items:6enter; justify-6ontent:6enter; flex-shrink:0; position:relative;
+            overflow:hidden; height:220px; background:var(--bg-soft);
+            display:flex; align-items:center; justify-content:center; flex-shrink:0; position:relative;
         }
-        .produ6t-img {
-            width:100%; height:100%; obje6t-fit:6over; transition:transform 0.4s ease;
+        .product-img {
+            width:100%; height:100%; object-fit:cover; transition:transform 0.4s ease;
             animation:fadeIn 0.6s ease forwards;
         }
-        .produ6t-6ard:hover .produ6t-img { transform:s6ale(1.06); }
-        @keyframes fadeIn { from { opa6ity:0; } to { opa6ity:1; } }
-        .img-pla6eholder { 6olor:#6890a0; font-size:14px; text-align:6enter; padding:10px; }
+        .product-card:hover .product-img { transform:scale(1.06); }
+        @keyframes fadeIn { from { opacity:0; } to { opacity:1; } }
+        .img-placeholder { color:#c890a0; font-size:14px; text-align:center; padding:10px; }
 
-        .produ6t-info { padding:20px; flex:1; display:flex; flex-dire6tion:6olumn; }
-        .produ6t-name {
+        .product-info { padding:20px; flex:1; display:flex; flex-direction:column; }
+        .product-name {
             font-size:17px; font-weight:600; margin-bottom:10px;
-            6olor:var(--primary-dark); line-height:1.4;
+            color:var(--primary-dark); line-height:1.4;
         }
-        .produ6t-des6 {
-            font-size:13px; 6olor:var(--text-muted); line-height:1.7;
-            margin-bottom:14px; flex:1; white-spa6e:pre-line;
+        .product-desc {
+            font-size:13px; color:var(--text-muted); line-height:1.7;
+            margin-bottom:14px; flex:1; white-space:pre-line;
         }
-        .produ6t-pri6e {
-            font-size:18px; 6olor:var(--pri6e-6olor); font-weight:700; margin-bottom:16px;
+        .product-price {
+            font-size:18px; color:var(--price-color); font-weight:700; margin-bottom:16px;
         }
         .order-btn {
-            width:100%; padding:11px; ba6kground-6olor:var(--primary); 6olor:var(--white);
+            width:100%; padding:11px; background-color:var(--primary); color:var(--white);
             border:none; border-radius:10px; font-size:14px; font-weight:500;
-            6ursor:pointer; transition:var(--transition);
+            cursor:pointer; transition:var(--transition);
         }
-        .order-btn:hover { ba6kground-6olor:var(--primary-light); transform:translateY(-1px); }
+        .order-btn:hover { background-color:var(--primary-light); transform:translateY(-1px); }
 
         .modal-mask {
             display:none; position:fixed; top:0; left:0; width:100%; height:100%;
-            ba6kground:rgba(0,0,0,0.5); z-index:999; align-items:6enter; justify-6ontent:6enter;
-            opa6ity:0; transition:opa6ity 0.3s ease; padding:20px;
+            background:rgba(0,0,0,0.5); z-index:999; align-items:center; justify-content:center;
+            opacity:0; transition:opacity 0.3s ease; padding:20px;
         }
-        .modal-mask.show { display:flex; opa6ity:1; }
+        .modal-mask.show { display:flex; opacity:1; }
         .modal-box {
-            ba6kground:var(--white); width:100%; max-width:440px; border-radius:18px;
+            background:var(--white); width:100%; max-width:440px; border-radius:18px;
             padding:36px 30px; position:relative; transform:translateY(20px);
             transition:transform 0.3s ease; max-height:90vh; overflow-y:auto;
         }
         .modal-mask.show .modal-box { transform:translateY(0); }
-        .6lose-modal {
-            position:absolute; top:16px; right:20px; font-size:26px; 6ursor:pointer;
-            6olor:#999; transition:6olor 0.2s; line-height:1;
+        .close-modal {
+            position:absolute; top:16px; right:20px; font-size:26px; cursor:pointer;
+            color:#999; transition:color 0.2s; line-height:1;
         }
-        .6lose-modal:hover { 6olor:var(--primary-dark); }
+        .close-modal:hover { color:var(--primary-dark); }
         .modal-title {
-            font-size:22px; 6olor:var(--primary-dark); margin-bottom:18px; font-weight:600;
+            font-size:22px; color:var(--primary-dark); margin-bottom:18px; font-weight:600;
         }
         .modal-text {
-            line-height:1.9; font-size:15px; 6olor:#555; margin-bottom:24px; white-spa6e:pre-line;
+            line-height:1.9; font-size:15px; color:#555; margin-bottom:24px; white-space:pre-line;
         }
         .whatsapp-btn {
-            display:blo6k; width:100%; text-align:6enter; padding:14px;
-            ba6kground:var(--whatsapp); 6olor:white; border-radius:10px;
-            text-de6oration:none; font-weight:600; transition:var(--transition);
-            border:none; font-size:15px; 6ursor:pointer;
+            display:block; width:100%; text-align:center; padding:14px;
+            background:var(--whatsapp); color:white; border-radius:10px;
+            text-decoration:none; font-weight:600; transition:var(--transition);
+            border:none; font-size:15px; cursor:pointer;
         }
-        .whatsapp-btn:hover { ba6kground:var(--whatsapp-dark); transform:translateY(-1px); }
+        .whatsapp-btn:hover { background:var(--whatsapp-dark); transform:translateY(-1px); }
 
-        .6opy-toast {
+        .copy-toast {
             position:fixed; left:50%; bottom:140px; transform:translateX(-50%);
-            ba6kground:rgba(0,0,0,0.7); 6olor:#fff; padding:10px 24px;
-            border-radius:8px; font-size:14px; z-index:9999; opa6ity:0;
-            transition:opa6ity 0.3s ease; pointer-events:none;
+            background:rgba(0,0,0,0.7); color:#fff; padding:10px 24px;
+            border-radius:8px; font-size:14px; z-index:9999; opacity:0;
+            transition:opacity 0.3s ease; pointer-events:none;
         }
-        .6opy-toast.show { opa6ity:1; }
+        .copy-toast.show { opacity:1; }
 
-        .ba6k-top {
+        .back-top {
             position:fixed; bottom:30px; right:30px; width:48px; height:48px;
-            border-radius:50%; ba6kground:var(--primary); 6olor:#fff;
-            display:flex; align-items:6enter; justify-6ontent:6enter; 6ursor:pointer;
-            box-shadow:0 4px 12px rgba(145,40,75,0.3); opa6ity:0; visibility:hidden;
+            border-radius:50%; background:var(--primary); color:#fff;
+            display:flex; align-items:center; justify-content:center; cursor:pointer;
+            box-shadow:0 4px 12px rgba(145,40,75,0.3); opacity:0; visibility:hidden;
             transition:var(--transition); z-index:99; font-size:18px; border:none;
         }
-        .ba6k-top.show { opa6ity:1; visibility:visible; }
-        .ba6k-top:hover { ba6kground:var(--primary-light); transform:translateY(-3px); }
+        .back-top.show { opacity:1; visibility:visible; }
+        .back-top:hover { background:var(--primary-light); transform:translateY(-3px); }
 
         .float-whatsapp {
             position:fixed; bottom:90px; right:30px; width:56px; height:56px;
-            border-radius:50%; ba6kground:var(--whatsapp); 6olor:#fff;
-            display:flex; align-items:6enter; justify-6ontent:6enter;
+            border-radius:50%; background:var(--whatsapp); color:#fff;
+            display:flex; align-items:center; justify-content:center;
             box-shadow:0 4px 14px rgba(37,211,102,0.4); z-index:99; font-size:28px;
-            transition:var(--transition); text-de6oration:none;
+            transition:var(--transition); text-decoration:none;
         }
-        .float-whatsapp:hover { transform:s6ale(1.1); box-shadow:0 6px 20px rgba(37,211,102,0.5); }
+        .float-whatsapp:hover { transform:scale(1.1); box-shadow:0 6px 20px rgba(37,211,102,0.5); }
 
         footer {
             margin-top:80px; padding-top:40px; border-top:1px solid var(--border-soft);
-            text-align:6enter; 6olor:#884a60; font-size:14px;
+            text-align:center; color:#884a60; font-size:14px;
         }
-        footer h3 { 6olor:var(--primary-dark); margin-bottom:16px; font-size:18px; }
+        footer h3 { color:var(--primary-dark); margin-bottom:16px; font-size:18px; }
         footer p { margin-bottom:10px; }
-        .6opy-text { 6olor:#d65076; text-de6oration:underline; 6ursor:pointer; margin-left:4px; }
-        .6opy-text:hover { 6olor:#b32e52; }
+        .copy-text { color:#d65076; text-decoration:underline; cursor:pointer; margin-left:4px; }
+        .copy-text:hover { color:#b32e52; }
 
         @media (max-width:600px) {
             body { padding:0 15px 20px; }
             header h1 { font-size:24px; }
-            #sear6hInput { width:100%; font-size:15px; }
+            #searchInput { width:100%; font-size:15px; }
             .filter-tab { padding:10px 20px; font-size:15px; }
-            .produ6t-grid { gap:24px; }
+            .product-grid { gap:24px; }
             .float-whatsapp { right:20px; bottom:80px; width:50px; height:50px; font-size:24px; }
-            .ba6k-top { right:20px; bottom:20px; width:42px; height:42px; }
+            .back-top { right:20px; bottom:20px; width:42px; height:42px; }
             .modal-box { padding:28px 20px; }
         }
     </style>
 </head>
 <body>
 <header>
-    <h1>Yongling LED Sanitary Mirror Fa6tory</h1>
-    <div 6lass="sear6h-wrap"><input type="text" id="sear6hInput" pla6eholder="🔍 Sear6h produ6t model / size / fun6tion..."></div>
-    <div 6lass="filter-tabs">
-        <span 6lass="filter-tab a6tive" data-filter="all">All Produ6ts</span>
-        <span 6lass="filter-tab" data-filter="A">LED Mirror</span>
-        <span 6lass="filter-tab" data-filter="B">Premium Smart Mirror 6abinet</span>
-        <span 6lass="filter-tab" data-filter="6">PV6 Smart Mirror 6abinet</span>
+    <h1>Yongling LED Sanitary Mirror Factory</h1>
+    <div class="search-wrap"><input type="text" id="searchInput" placeholder="🔍 Search product model / size / function..."></div>
+    <div class="filter-tabs">
+        <span class="filter-tab active" data-filter="all">All Products</span>
+        <span class="filter-tab" data-filter="A">LED Mirror</span>
+        <span class="filter-tab" data-filter="B">Premium Smart Mirror Cabinet</span>
+        <span class="filter-tab" data-filter="C">PVC Smart Mirror Cabinet</span>
     </div>
 </header>
-<div 6lass="oem-entry"><span 6lass="oem-btn" on6li6k="openOEMModal()">🎨 OEM & ODM 6ustom Servi6e</span></div>
-<div 6lass="produ6t-grid" id="produ6tGrid"><div 6lass="empty-state" id="emptyState"><span>🔍</span>No produ6ts found. Try a different keyword.</div></div>
-<div 6lass="modal-mask" id="produ6tModal"><div 6lass="modal-box"><span 6lass="6lose-modal" on6li6k="6loseProdu6tModal()">×</span><h2 6lass="modal-title" id="modalTitle">Produ6t Details</h2><div 6lass="modal-text" id="modal6ontent"></div><button 6lass="whatsapp-btn" on6li6k="6onta6tWhatsApp()">💬 6onta6t via WhatsApp</button></div></div>
-<div 6lass="modal-mask" id="oemModal"><div 6lass="modal-box"><span 6lass="6lose-modal" on6li6k="6loseOEMModal()">×</span><h2 6lass="modal-title">OEM & ODM 6ustom Servi6e</h2><div 6lass="modal-text">✅ 6ustom Size & Shape
-✅ 6ustom Logo Printing
-✅ 6ustom Light 6olor (Warm / 6ool / Dimmable)
-✅ 6ustom Fun6tion (Anti-fog, Bluetooth, Speaker, Tou6h Swit6h)
-✅ 6ustom Pa6kaging
+<div class="oem-entry"><span class="oem-btn" onclick="openOEMModal()">🎨 OEM & ODM Custom Service</span></div>
+<div class="product-grid" id="productGrid"><div class="empty-state" id="emptyState"><span>🔍</span>No products found. Try a different keyword.</div></div>
 
-Minimum Order for 6ustom: 100p6s
+<div class="modal-mask" id="productModal">
+    <div class="modal-box">
+        <span class="close-modal" onclick="closeProductModal()">×</span>
+        <h2 class="modal-title" id="modalTitle">Product Details</h2>
+        <div class="modal-text" id="modalContent"></div>
+        <button class="whatsapp-btn" onclick="contactWhatsApp()">💬 Contact via WhatsApp</button>
+    </div>
+</div>
+
+<div class="modal-mask" id="oemModal">
+    <div class="modal-box">
+        <span class="close-modal" onclick="closeOEMModal()">×</span>
+        <h2 class="modal-title">OEM & ODM Custom Service</h2>
+        <div class="modal-text">✅ Custom Size & Shape
+✅ Custom Logo Printing
+✅ Custom Light Color (Warm / Cool / Dimmable)
+✅ Custom Function (Anti-fog, Bluetooth, Speaker, Touch Switch)
+✅ Custom Packaging
+
+Minimum Order for Custom: 100pcs
 Sample Lead Time: 7-10 Days
-Bulk Produ6tion: 25-30 Days</div><button 6lass="whatsapp-btn" on6li6k="6onta6tWhatsApp()">💬 Get 6ustom Quote</button></div></div>
-<a 6lass="float-whatsapp" href="https://wa.me/8617799215074" target="_blank" title="6onta6t WhatsApp">💬</a>
-<button 6lass="ba6k-top" id="ba6kTop" on6li6k="s6rollToTop()">↑</button>
-<footer><h3>6onta6t Information</h3><p>WhatsApp: <span 6lass="6opy-text" on6li6k="6opyText('+86 17799215074')">+86 17799215074</span></p><p>Email: <span 6lass="6opy-text" on6li6k="6opyText('esra040510@gmail.6om')">esra040510@gmail.6om</span></p><p>We6hat ID: <span 6lass="6opy-text" on6li6k="6opyText('zrqy716')">zrqy716</span></p><p>Fa6tory Address: Guali Qianxing Village, Xiaoshan Distri6t, Hangzhou 6ity, Zhejiang Provin6e, 6hina</p><p style="margin-top:20px; 6olor:#a86b7e;">© 2026 Yongling LED Sanitary Mirror Fa6tory. All Rights Reserved.</p></footer>
-<div 6lass="6opy-toast" id="6opyToast">6opied su66essfully!</div>
-<s6ript>
-       6onst PRODU6TS = [
+Bulk Production: 25-30 Days</div>
+        <button class="whatsapp-btn" onclick="contactWhatsApp()">💬 Get Custom Quote</button>
+    </div>
+</div>
+
+<a class="float-whatsapp" href="https://wa.me/8617799215074" target="_blank" title="Contact WhatsApp">💬</a>
+<button class="back-top" id="backTop" onclick="scrollToTop()">↑</button>
+
+<footer>
+    <h3>Contact Information</h3>
+    <p>WhatsApp: <span class="copy-text" onclick="copyText('+86 17799215074')">+86 17799215074</span></p>
+    <p>Email: <span class="copy-text" onclick="copyText('esra040510@gmail.com')">esra040510@gmail.com</span></p>
+    <p>WeChat ID: <span class="copy-text" onclick="copyText('zrqy716')">zrqy716</span></p>
+    <p>Factory Address: Guali Qianxing Village, Xiaoshan District, Hangzhou City, Zhejiang Province, China</p>
+    <p style="margin-top:20px; color:#a86b7e;">© 2026 Yongling LED Sanitary Mirror Factory. All Rights Reserved.</p>
+</footer>
+<div class="copy-toast" id="copyToast">Copied successfully!</div>
+
+<script>
+    const PRODUCTS = [
         // A系列 LED防雾浴室镜 (29款，尺寸为厘米单位)
-        {id:'A001',type:'A',name:'Model A001 LED Anti-Fog Bathroom Mirror',des6:'Material: Paulownia Frame Mirror\nSize: 50×506m | LED + Anti-Fog + Storage\nWarranty: 2 Years | MOQ: 500p6s',pri6e:'$14.90',img:'微信图片_20260707164222_511_35.jpg'},
-        {id:'A002',type:'A',name:'Model A002 LED Anti-Fog Bathroom Mirror',des6:'Material: Paulownia Frame Mirror\nSize: 55×556m | LED + Anti-Fog + Storage\nWarranty: 2 Years | MOQ: 500p6s',pri6e:'$15.90',img:'微信图片_20260707164222_511_35.jpg'},
-        {id:'A003',type:'A',name:'Model A003 LED Anti-Fog Bathroom Mirror',des6:'Material: Paulownia Frame Mirror\nSize: 60×606m | LED + Anti-Fog + Storage\nWarranty: 2 Years | MOQ: 500p6s',pri6e:'$16.90',img:''},
-        {id:'A004',type:'A',name:'Model A004 LED Anti-Fog Bathroom Mirror',des6:'Material: Paulownia Frame Mirror\nSize: 65×656m | LED + Anti-Fog + Storage\nWarranty: 2 Years | MOQ: 500p6s',pri6e:'$17.90',img:'微信图片_20260707164222_511_35.jpg'},
-        {id:'A005',type:'A',name:'Model A005 LED Anti-Fog Bathroom Mirror',des6:'Material: Paulownia Frame Mirror\nSize: 70×706m | LED + Anti-Fog + Storage\nWarranty: 2 Years | MOQ: 500p6s',pri6e:'$18.90',img:''},
-        {id:'A006',type:'A',name:'Model A006 LED Anti-Fog Bathroom Mirror',des6:'Material: Paulownia Frame Mirror\nSize: 75×756m | LED + Anti-Fog + Storage\nWarranty: 2 Years | MOQ: 500p6s',pri6e:'$19.90',img:'微信图片_20260707164222_511_35.jpg'},
-        {id:'A007',type:'A',name:'Model A007 LED Anti-Fog Bathroom Mirror',des6:'Material: Paulownia Frame Mirror\nSize: 80×806m | LED + Anti-Fog + Storage\nWarranty: 2 Years | MOQ: 500p6s',pri6e:'$20.90',img:''},
-        {id:'A008',type:'A',name:'Model A008 LED Anti-Fog Bathroom Mirror',des6:'Material: Paulownia Frame Mirror\nSize: 85×856m | LED + Anti-Fog + Storage\nWarranty: 2 Years | MOQ: 500p6s',pri6e:'$21.90',img:'微信图片_20260707164222_511_35.jpg'},
-        {id:'A009',type:'A',name:'Model A009 LED Anti-Fog Bathroom Mirror',des6:'Material: Paulownia Frame Mirror\nSize: 90×906m | LED + Anti-Fog + Storage\nWarranty: 2 Years | MOQ: 500p6s',pri6e:'$22.90',img:''},
-        {id:'A010',type:'A',name:'Model A010 LED Anti-Fog Bathroom Mirror',des6:'Material: Paulownia Frame Mirror\nSize: 95×956m | LED + Anti-Fog + Storage\nWarranty: 2 Years | MOQ: 500p6s',pri6e:'$23.90',img:''},
-        {id:'A011',type:'A',name:'Model A011 LED Anti-Fog Bathroom Mirror',des6:'Material: Paulownia Frame Mirror\nSize: 100×1006m | LED + Anti-Fog + Storage\nWarranty: 2 Years | MOQ: 500p6s',pri6e:'$24.90',img:'微信图片_20260707164222_511_35.jpg'},
-        {id:'A012',type:'A',name:'Model A012 LED Anti-Fog Bathroom Mirror',des6:'Material: Paulownia Frame Mirror\nSize: 105×1056m | LED + Anti-Fog + Storage\nWarranty: 2 Years | MOQ: 500p6s',pri6e:'$26.40',img:''},
-        {id:'A013',type:'A',name:'Model A013 LED Anti-Fog Bathroom Mirror',des6:'Material: Paulownia Frame Mirror\nSize: 110×1106m | LED + Anti-Fog + Storage\nWarranty: 2 Years | MOQ: 500p6s',pri6e:'$27.90',img:''},
-        {id:'A014',type:'A',name:'Model A014 LED Anti-Fog Bathroom Mirror',des6:'Material: Paulownia Frame Mirror\nSize: 115×1156m | LED + Anti-Fog + Storage\nWarranty: 2 Years | MOQ: 500p6s',pri6e:'$29.40',img:'微信图片_20260707164222_511_35.jpg'},
-        {id:'A015',type:'A',name:'Model A015 LED Anti-Fog Bathroom Mirror',des6:'Material: Paulownia Frame Mirror\nSize: 120×1206m | LED + Anti-Fog + Storage\nWarranty: 2 Years | MOQ: 500p6s',pri6e:'$30.90',img:''},
-        {id:'A016',type:'A',name:'Model A016 LED Anti-Fog Bathroom Mirror',des6:'Material: Paulownia Frame Mirror\nSize: 50×706m | LED + Anti-Fog + Storage\nWarranty: 2 Years | MOQ: 500p6s',pri6e:'$15.90',img:''},
-        {id:'A017',type:'A',name:'Model A017 LED Anti-Fog Bathroom Mirror',des6:'Material: Paulownia Frame Mirror\nSize: 60×806m | LED + Anti-Fog + Storage\nWarranty: 2 Years | MOQ: 500p6s',pri6e:'$17.90',img:'微信图片_20260707164222_511_35.jpg'},
-        {id:'A018',type:'A',name:'Model A018 LED Anti-Fog Bathroom Mirror',des6:'Material: Paulownia Frame Mirror\nSize: 70×906m | LED + Anti-Fog + Storage\nWarranty: 2 Years | MOQ: 500p6s',pri6e:'$19.90',img:''},
-        {id:'A019',type:'A',name:'Model A019 LED Anti-Fog Bathroom Mirror',des6:'Material: Paulownia Frame Mirror\nSize: 80×1006m | LED + Anti-Fog + Storage\nWarranty: 2 Years | MOQ: 500p6s',pri6e:'$21.90',img:''},
-        {id:'A020',type:'A',name:'Model A020 LED Anti-Fog Bathroom Mirror',des6:'Material: Paulownia Frame Mirror\nSize: 90×1106m | LED + Anti-Fog + Storage\nWarranty: 2 Years | MOQ: 500p6s',pri6e:'$24.90',img:''},
-        {id:'A021',type:'A',name:'Model A021 LED Anti-Fog Bathroom Mirror',des6:'Material: Paulownia Frame Mirror\nSize: 100×1206m | LED + Anti-Fog + Storage\nWarranty: 2 Years | MOQ: 500p6s',pri6e:'$27.90',img:'微信图片_20260707164222_511_35.jpg'},
-        {id:'A022',type:'A',name:'Model A022 LED Anti-Fog Bathroom Mirror',des6:'Material: Paulownia Frame Mirror\nSize: 50×806m | LED + Anti-Fog + Storage\nWarranty: 2 Years | MOQ: 500p6s',pri6e:'$16.90',img:''},
-        {id:'A023',type:'A',name:'Model A023 LED Anti-Fog Bathroom Mirror',des6:'Material: Paulownia Frame Mirror\nSize: 60×906m | LED + Anti-Fog + Storage\nWarranty: 2 Years | MOQ: 500p6s',pri6e:'$19.40',img:'微信图片_20260707164222_511_35.jpg'},
-        {id:'A024',type:'A',name:'Model A024 LED Anti-Fog Bathroom Mirror',des6:'Material: Paulownia Frame Mirror\nSize: 70×1006m | LED + Anti-Fog + Storage\nWarranty: 2 Years | MOQ: 500p6s',pri6e:'$21.90',img:''},
-        {id:'A025',type:'A',name:'Model A025 LED Anti-Fog Bathroom Mirror',des6:'Material: Paulownia Frame Mirror\nSize: 80×1106m | LED + Anti-Fog + Storage\nWarranty: 2 Years | MOQ: 500p6s',pri6e:'$25.40',img:''},
-        {id:'A026',type:'A',name:'Model A026 LED Anti-Fog Bathroom Mirror',des6:'Material: Paulownia Frame Mirror\nSize: 90×1206m | LED + Anti-Fog + Storage\nWarranty: 2 Years | MOQ: 500p6s',pri6e:'$28.90',img:'微信图片_20260707164222_511_35.jpg'},
-        {id:'A027',type:'A',name:'Model A027 LED Anti-Fog Bathroom Mirror',des6:'Material: Paulownia Frame Mirror\nSize: 60×1006m | LED + Anti-Fog + Storage\nWarranty: 2 Years | MOQ: 500p6s',pri6e:'$22.90',img:''},
-        {id:'A028',type:'A',name:'Model A028 LED Anti-Fog Bathroom Mirror',des6:'Material: Paulownia Frame Mirror\nSize: 70×1206m | LED + Anti-Fog + Storage\nWarranty: 2 Years | MOQ: 500p6s',pri6e:'$32.90',img:'微信图片_20260707164222_511_35.jpg'},
-        {id:'A029',type:'A',name:'Model A029 LED Anti-Fog Bathroom Mirror',des6:'Material: Paulownia Frame Mirror\nSize: 80×1206m | LED + Anti-Fog + Storage\nWarranty: 2 Years | MOQ: 500p6s',pri6e:'$42.90',img:'微信图片_20260707164222_511_35.jpg'},
+        {id:'A001',type:'A',name:'Model A001 LED Anti-Fog Bathroom Mirror',desc:'Material: Paulownia Frame Mirror\nSize: 50×50cm | LED + Anti-Fog + Storage\nWarranty: 2 Years | MOQ: 500pcs',price:'$14.90',img:'微信图片_20260707164222_511_35.jpg'},
+        {id:'A002',type:'A',name:'Model A002 LED Anti-Fog Bathroom Mirror',desc:'Material: Paulownia Frame Mirror\nSize: 55×55cm | LED + Anti-Fog + Storage\nWarranty: 2 Years | MOQ: 500pcs',price:'$15.90',img:'微信图片_20260707164222_511_35.jpg'},
+        {id:'A003',type:'A',name:'Model A003 LED Anti-Fog Bathroom Mirror',desc:'Material: Paulownia Frame Mirror\nSize: 60×60cm | LED + Anti-Fog + Storage\nWarranty: 2 Years | MOQ: 500pcs',price:'$16.90',img:''},
+        {id:'A004',type:'A',name:'Model A004 LED Anti-Fog Bathroom Mirror',desc:'Material: Paulownia Frame Mirror\nSize: 65×65cm | LED + Anti-Fog + Storage\nWarranty: 2 Years | MOQ: 500pcs',price:'$17.90',img:'微信图片_20260707164222_511_35.jpg'},
+        {id:'A005',type:'A',name:'Model A005 LED Anti-Fog Bathroom Mirror',desc:'Material: Paulownia Frame Mirror\nSize: 70×70cm | LED + Anti-Fog + Storage\nWarranty: 2 Years | MOQ: 500pcs',price:'$18.90',img:''},
+        {id:'A006',type:'A',name:'Model A006 LED Anti-Fog Bathroom Mirror',desc:'Material: Paulownia Frame Mirror\nSize: 75×75cm | LED + Anti-Fog + Storage\nWarranty: 2 Years | MOQ: 500pcs',price:'$19.90',img:'微信图片_20260707164222_511_35.jpg'},
+        {id:'A007',type:'A',name:'Model A007 LED Anti-Fog Bathroom Mirror',desc:'Material: Paulownia Frame Mirror\nSize: 80×80cm | LED + Anti-Fog + Storage\nWarranty: 2 Years | MOQ: 500pcs',price:'$20.90',img:''},
+        {id:'A008',type:'A',name:'Model A008 LED Anti-Fog Bathroom Mirror',desc:'Material: Paulownia Frame Mirror\nSize: 85×85cm | LED + Anti-Fog + Storage\nWarranty: 2 Years | MOQ: 500pcs',price:'$21.90',img:'微信图片_20260707164222_511_35.jpg'},
+        {id:'A009',type:'A',name:'Model A009 LED Anti-Fog Bathroom Mirror',desc:'Material: Paulownia Frame Mirror\nSize: 90×90cm | LED + Anti-Fog + Storage\nWarranty: 2 Years | MOQ: 500pcs',price:'$22.90',img:''},
+        {id:'A010',type:'A',name:'Model A010 LED Anti-Fog Bathroom Mirror',desc:'Material: Paulownia Frame Mirror\nSize: 95×95cm | LED + Anti-Fog + Storage\nWarranty: 2 Years | MOQ: 500pcs',price:'$23.90',img:''},
+        {id:'A011',type:'A',name:'Model A011 LED Anti-Fog Bathroom Mirror',desc:'Material: Paulownia Frame Mirror\nSize: 100×100cm | LED + Anti-Fog + Storage\nWarranty: 2 Years | MOQ: 500pcs',price:'$24.90',img:'微信图片_20260707164222_511_35.jpg'},
+        {id:'A012',type:'A',name:'Model A012 LED Anti-Fog Bathroom Mirror',desc:'Material: Paulownia Frame Mirror\nSize: 105×105cm | LED + Anti-Fog + Storage\nWarranty: 2 Years | MOQ: 500pcs',price:'$26.40',img:''},
+        {id:'A013',type:'A',name:'Model A013 LED Anti-Fog Bathroom Mirror',desc:'Material: Paulownia Frame Mirror\nSize: 110×110cm | LED + Anti-Fog + Storage\nWarranty: 2 Years | MOQ: 500pcs',price:'$27.90',img:''},
+        {id:'A014',type:'A',name:'Model A014 LED Anti-Fog Bathroom Mirror',desc:'Material: Paulownia Frame Mirror\nSize: 115×115cm | LED + Anti-Fog + Storage\nWarranty: 2 Years | MOQ: 500pcs',price:'$29.40',img:'微信图片_20260707164222_511_35.jpg'},
+        {id:'A015',type:'A',name:'Model A015 LED Anti-Fog Bathroom Mirror',desc:'Material: Paulownia Frame Mirror\nSize: 120×120cm | LED + Anti-Fog + Storage\nWarranty: 2 Years | MOQ: 500pcs',price:'$30.90',img:''},
+        {id:'A016',type:'A',name:'Model A016 LED Anti-Fog Bathroom Mirror',desc:'Material: Paulownia Frame Mirror\nSize: 50×70cm | LED + Anti-Fog + Storage\nWarranty: 2 Years | MOQ: 500pcs',price:'$15.90',img:''},
+        {id:'A017',type:'A',name:'Model A017 LED Anti-Fog Bathroom Mirror',desc:'Material: Paulownia Frame Mirror\nSize: 60×80cm | LED + Anti-Fog + Storage\nWarranty: 2 Years | MOQ: 500pcs',price:'$17.90',img:'微信图片_20260707164222_511_35.jpg'},
+        {id:'A018',type:'A',name:'Model A018 LED Anti-Fog Bathroom Mirror',desc:'Material: Paulownia Frame Mirror\nSize: 70×90cm | LED + Anti-Fog + Storage\nWarranty: 2 Years | MOQ: 500pcs',price:'$19.90',img:''},
+        {id:'A019',type:'A',name:'Model A019 LED Anti-Fog Bathroom Mirror',desc:'Material: Paulownia Frame Mirror\nSize: 80×100cm | LED + Anti-Fog + Storage\nWarranty: 2 Years | MOQ: 500pcs',price:'$21.90',img:''},
+        {id:'A020',type:'A',name:'Model A020 LED Anti-Fog Bathroom Mirror',desc:'Material: Paulownia Frame Mirror\nSize: 90×110cm | LED + Anti-Fog + Storage\nWarranty: 2 Years | MOQ: 500pcs',price:'$24.90',img:''},
+        {id:'A021',type:'A',name:'Model A021 LED Anti-Fog Bathroom Mirror',desc:'Material: Paulownia Frame Mirror\nSize: 100×120cm | LED + Anti-Fog + Storage\nWarranty: 2 Years | MOQ: 500pcs',price:'$27.90',img:'微信图片_20260707164222_511_35.jpg'},
+        {id:'A022',type:'A',name:'Model A022 LED Anti-Fog Bathroom Mirror',desc:'Material: Paulownia Frame Mirror\nSize: 50×80cm | LED + Anti-Fog + Storage\nWarranty: 2 Years | MOQ: 500pcs',price:'$16.90',img:''},
+        {id:'A023',type:'A',name:'Model A023 LED Anti-Fog Bathroom Mirror',desc:'Material: Paulownia Frame Mirror\nSize: 60×90cm | LED + Anti-Fog + Storage\nWarranty: 2 Years | MOQ: 500pcs',price:'$19.40',img:'微信图片_20260707164222_511_35.jpg'},
+        {id:'A024',type:'A',name:'Model A024 LED Anti-Fog Bathroom Mirror',desc:'Material: Paulownia Frame Mirror\nSize: 70×100cm | LED + Anti-Fog + Storage\nWarranty: 2 Years | MOQ: 500pcs',price:'$21.90',img:''},
+        {id:'A025',type:'A',name:'Model A025 LED Anti-Fog Bathroom Mirror',desc:'Material: Paulownia Frame Mirror\nSize: 80×110cm | LED + Anti-Fog + Storage\nWarranty: 2 Years | MOQ: 500pcs',price:'$25.40',img:''},
+        {id:'A026',type:'A',name:'Model A026 LED Anti-Fog Bathroom Mirror',desc:'Material: Paulownia Frame Mirror\nSize: 90×120cm | LED + Anti-Fog + Storage\nWarranty: 2 Years | MOQ: 500pcs',price:'$28.90',img:'微信图片_20260707164222_511_35.jpg'},
+        {id:'A027',type:'A',name:'Model A027 LED Anti-Fog Bathroom Mirror',desc:'Material: Paulownia Frame Mirror\nSize: 60×100cm | LED + Anti-Fog + Storage\nWarranty: 2 Years | MOQ: 500pcs',price:'$22.90',img:''},
+        {id:'A028',type:'A',name:'Model A028 LED Anti-Fog Bathroom Mirror',desc:'Material: Paulownia Frame Mirror\nSize: 70×120cm | LED + Anti-Fog + Storage\nWarranty: 2 Years | MOQ: 500pcs',price:'$32.90',img:'微信图片_20260707164222_511_35.jpg'},
+        {id:'A029',type:'A',name:'Model A029 LED Anti-Fog Bathroom Mirror',desc:'Material: Paulownia Frame Mirror\nSize: 80×120cm | LED + Anti-Fog + Storage\nWarranty: 2 Years | MOQ: 500pcs',price:'$42.90',img:'微信图片_20260707164222_511_35.jpg'},
 
         // B系列 高级实木智能镜柜 (29款，尺寸为厘米单位)
-        {id:'B001',type:'B',name:'Model B001 Premium Solid Wood Mirror 6abinet',des6:'Material: Solid Wood + Paulownia Frame\nSize: 70×906m | Full Storage 6abinet\nWarranty: 2 Years | MOQ: 100p6s',pri6e:'$99.68',img:'微信图片_20260707164044_510_35.jpg'},
-        {id:'B002',type:'B',name:'Model B002 Premium Solid Wood Mirror 6abinet',des6:'Material: Solid Wood + Paulownia Frame\nSize: 50×606m | Full Storage 6abinet\nWarranty: 2 Years | MOQ: 100p6s',pri6e:'$88.48',img:'微信图片_20260707164044_510_35.jpg'},
-        {id:'B003',type:'B',name:'Model B003 Premium Solid Wood Mirror 6abinet',des6:'Material: Solid Wood + Paulownia Frame\nSize: 50×706m | Full Storage 6abinet\nWarranty: 2 Years | MOQ: 100p6s',pri6e:'$96.32',img:'微信图片_20260707164044_510_35.jpg'},
-        {id:'B004',type:'B',name:'Model B004 Premium Solid Wood Mirror 6abinet',des6:'Material: Solid Wood + Paulownia Frame\nSize: 55×706m | Full Storage 6abinet\nWarranty: 2 Years | MOQ: 100p6s',pri6e:'$101.92',img:'微信图片_20260707164044_510_35.jpg'},
-        {id:'B005',type:'B',name:'Model B005 Premium Solid Wood Mirror 6abinet',des6:'Material: Solid Wood + Paulownia Frame\nSize: 60×706m | Full Storage 6abinet\nWarranty: 2 Years | MOQ: 100p6s',pri6e:'$107.52',img:'微信图片_20260707164044_510_35.jpg'},
-        {id:'B006',type:'B',name:'Model B006 Premium Solid Wood Mirror 6abinet',des6:'Material: Solid Wood + Paulownia Frame\nSize: 60×806m | Full Storage 6abinet\nWarranty: 2 Years | MOQ: 100p6s',pri6e:'$114.24',img:'微信图片_20260707164044_510_35.jpg'},
-        {id:'B007',type:'B',name:'Model B007 Premium Solid Wood Mirror 6abinet',des6:'Material: Solid Wood + Paulownia Frame\nSize: 65×806m | Full Storage 6abinet\nWarranty: 2 Years | MOQ: 100p6s',pri6e:'$119.84',img:'微信图片_20260707164044_510_35.jpg'},
-        {id:'B008',type:'B',name:'Model B008 Premium Solid Wood Mirror 6abinet',des6:'Material: Solid Wood + Paulownia Frame\nSize: 60×906m | Full Storage 6abinet\nWarranty: 2 Years | MOQ: 100p6s',pri6e:'$123.20',img:'微信图片_20260707164044_510_35.jpg'},
-        {id:'B009',type:'B',name:'Model B009 Premium Solid Wood Mirror 6abinet',des6:'Material: Solid Wood + Paulownia Frame\nSize: 70×806m | Full Storage 6abinet\nWarranty: 2 Years | MOQ: 100p6s',pri6e:'$115.36',img:'微信图片_20260707164044_510_35.jpg'},
-        {id:'B010',type:'B',name:'Model B010 Premium Solid Wood Mirror 6abinet',des6:'Material: Solid Wood + Paulownia Frame\nSize: 75×856m | Full Storage 6abinet\nWarranty: 2 Years | MOQ: 100p6s',pri6e:'$120.96',img:''},
-        {id:'B011',type:'B',name:'Model B011 Premium Solid Wood Mirror 6abinet',des6:'Material: Solid Wood + Paulownia Frame\nSize: 70×1006m | Full Storage 6abinet\nWarranty: 2 Years | MOQ: 100p6s',pri6e:'$132.16',img:'微信图片_20260707164044_510_35.jpg'},
-        {id:'B012',type:'B',name:'Model B012 Premium Solid Wood Mirror 6abinet',des6:'Material: Solid Wood + Paulownia Frame\nSize: 80×906m | Full Storage 6abinet\nWarranty: 2 Years | MOQ: 100p6s',pri6e:'$125.44',img:'微信图片_20260707164044_510_35.jpg'},
-        {id:'B013',type:'B',name:'Model B013 Premium Solid Wood Mirror 6abinet',des6:'Material: Solid Wood + Paulownia Frame\nSize: 75×1006m | Full Storage 6abinet\nWarranty: 2 Years | MOQ: 100p6s',pri6e:'$133.28',img:'微信图片_20260707164044_510_35.jpg'},
-        {id:'B014',type:'B',name:'Model B014 Premium Solid Wood Mirror 6abinet',des6:'Material: Solid Wood + Paulownia Frame\nSize: 80×1006m | Full Storage 6abinet\nWarranty: 2 Years | MOQ: 100p6s',pri6e:'$140.00',img:'微信图片_20260707164044_510_35.jpg'},
-        {id:'B015',type:'B',name:'Model B015 Premium Solid Wood Mirror 6abinet',des6:'Material: Solid Wood + Paulownia Frame\nSize: 85×956m | Full Storage 6abinet\nWarranty: 2 Years | MOQ: 100p6s',pri6e:'$142.24',img:''},
-        {id:'B016',type:'B',name:'Model B016 Premium Solid Wood Mirror 6abinet',des6:'Material: Solid Wood + Paulownia Frame\nSize: 90×906m | Full Storage 6abinet\nWarranty: 2 Years | MOQ: 100p6s',pri6e:'$143.36',img:''},
-        {id:'B017',type:'B',name:'Model B017 Premium Solid Wood Mirror 6abinet',des6:'Material: Solid Wood + Paulownia Frame\nSize: 85×1056m | Full Storage 6abinet\nWarranty: 2 Years | MOQ: 100p6s',pri6e:'$151.20',img:'微信图片_20260707164044_510_35.jpg'},
-        {id:'B018',type:'B',name:'Model B018 Premium Solid Wood Mirror 6abinet',des6:'Material: Solid Wood + Paulownia Frame\nSize: 90×1006m | Full Storage 6abinet\nWarranty: 2 Years | MOQ: 100p6s',pri6e:'$154.56',img:'微信图片_20260707164044_510_35.jpg'},
-        {id:'B019',type:'B',name:'Model B019 Premium Solid Wood Mirror 6abinet',des6:'Material: Solid Wood + Paulownia Frame\nSize: 95×1006m | Full Storage 6abinet\nWarranty: 2 Years | MOQ: 100p6s',pri6e:'$159.04',img:'微信图片_20260707164044_510_35.jpg'},
-        {id:'B020',type:'B',name:'Model B020 Premium Solid Wood Mirror 6abinet',des6:'Material: Solid Wood + Paulownia Frame\nSize: 90×1106m | Full Storage 6abinet\nWarranty: 2 Years | MOQ: 100p6s',pri6e:'$165.76',img:'微信图片_20260707164044_510_35.jpg'},
-        {id:'B021',type:'B',name:'Model B021 Premium Solid Wood Mirror 6abinet',des6:'Material: Solid Wood + Paulownia Frame\nSize: 100×1006m | Full Storage 6abinet\nWarranty: 2 Years | MOQ: 100p6s',pri6e:'$168.00',img:'微信图片_20260707164044_510_35.jpg'},
-        {id:'B022',type:'B',name:'Model B022 Premium Solid Wood Mirror 6abinet',des6:'Material: Solid Wood + Paulownia Frame\nSize: 95×1156m | Full Storage 6abinet\nWarranty: 2 Years | MOQ: 100p6s',pri6e:'$174.72',img:'微信图片_20260707164044_510_35.jpg'},
-        {id:'B023',type:'B',name:'Model B023 Premium Solid Wood Mirror 6abinet',des6:'Material: Solid Wood + Paulownia Frame\nSize: 100×1106m | Full Storage 6abinet\nWarranty: 2 Years | MOQ: 100p6s',pri6e:'$178.08',img:'微信图片_20260707164044_510_35.jpg'},
-        {id:'B024',type:'B',name:'Model B024 Premium Solid Wood Mirror 6abinet',des6:'Material: Solid Wood + Paulownia Frame\nSize: 105×1156m | Full Storage 6abinet\nWarranty: 2 Years | MOQ: 100p6s',pri6e:'$188.16',img:'微信图片_20260707164044_510_35.jpg'},
-        {id:'B025',type:'B',name:'Model B025 Premium Solid Wood Mirror 6abinet',des6:'Material: Solid Wood + Paulownia Frame\nSize: 110×1206m | Full Storage 6abinet\nWarranty: 2 Years | MOQ: 100p6s',pri6e:'$196.00',img:'微信图片_20260707164044_510_35.jpg'},
-        {id:'B026',type:'B',name:'Model B026 Premium Solid Wood Mirror 6abinet',des6:'Material: Solid Wood + Paulownia Frame\nSize: 115×1256m | Full Storage 6abinet\nWarranty: 2 Years | MOQ: 100p6s',pri6e:'$203.84',img:'微信图片_20260707164044_510_35.jpg'},
-        {id:'B027',type:'B',name:'Model B027 Premium Solid Wood Mirror 6abinet',des6:'Material: Solid Wood + Paulownia Frame\nSize: 120×1306m | Full Storage 6abinet\nWarranty: 2 Years | MOQ: 100p6s',pri6e:'$211.68',img:'微信图片_20260707164044_510_35.jpg'},
-        {id:'B028',type:'B',name:'Model B028 Premium Solid Wood Mirror 6abinet',des6:'Material: Solid Wood + Paulownia Frame\nSize: 100×1406m | Full Storage 6abinet\nWarranty: 2 Years | MOQ: 100p6s',pri6e:'$208.32',img:'微信图片_20260707164044_510_35.jpg'},
-        {id:'B029',type:'B',name:'Model B029 Premium Solid Wood Mirror 6abinet',des6:'Material: Solid Wood + Paulownia Frame\nSize: 120×1506m | Full Storage 6abinet\nWarranty: 2 Years | MOQ: 100p6s',pri6e:'$211.68',img:'微信图片_20260707164044_510_35.jpg'},
+        {id:'B001',type:'B',name:'Model B001 Premium Solid Wood Mirror Cabinet',desc:'Material: Solid Wood + Paulownia Frame\nSize: 70×90cm | Full Storage Cabinet\nWarranty: 2 Years | MOQ: 100pcs',price:'$99.68',img:'微信图片_20260707164044_510_35.jpg'},
+        {id:'B002',type:'B',name:'Model B002 Premium Solid Wood Mirror Cabinet',desc:'Material: Solid Wood + Paulownia Frame\nSize: 50×60cm | Full Storage Cabinet\nWarranty: 2 Years | MOQ: 100pcs',price:'$88.48',img:'微信图片_20260707164044_510_35.jpg'},
+        {id:'B003',type:'B',name:'Model B003 Premium Solid Wood Mirror Cabinet',desc:'Material: Solid Wood + Paulownia Frame\nSize: 50×70cm | Full Storage Cabinet\nWarranty: 2 Years | MOQ: 100pcs',price:'$96.32',img:'微信图片_20260707164044_510_35.jpg'},
+        {id:'B004',type:'B',name:'Model B004 Premium Solid Wood Mirror Cabinet',desc:'Material: Solid Wood + Paulownia Frame\nSize: 55×70cm | Full Storage Cabinet\nWarranty: 2 Years | MOQ: 100pcs',price:'$101.92',img:'微信图片_20260707164044_510_35.jpg'},
+        {id:'B005',type:'B',name:'Model B005 Premium Solid Wood Mirror Cabinet',desc:'Material: Solid Wood + Paulownia Frame\nSize: 60×70cm | Full Storage Cabinet\nWarranty: 2 Years | MOQ: 100pcs',price:'$107.52',img:'微信图片_20260707164044_510_35.jpg'},
+        {id:'B006',type:'B',name:'Model B006 Premium Solid Wood Mirror Cabinet',desc:'Material: Solid Wood + Paulownia Frame\nSize: 60×80cm | Full Storage Cabinet\nWarranty: 2 Years | MOQ: 100pcs',price:'$114.24',img:'微信图片_20260707164044_510_35.jpg'},
+        {id:'B007',type:'B',name:'Model B007 Premium Solid Wood Mirror Cabinet',desc:'Material: Solid Wood + Paulownia Frame\nSize: 65×80cm | Full Storage Cabinet\nWarranty: 2 Years | MOQ: 100pcs',price:'$119.84',img:'微信图片_20260707164044_510_35.jpg'},
+        {id:'B008',type:'B',name:'Model B008 Premium Solid Wood Mirror Cabinet',desc:'Material: Solid Wood + Paulownia Frame\nSize: 60×90cm | Full Storage Cabinet\nWarranty: 2 Years | MOQ: 100pcs',price:'$123.20',img:'微信图片_20260707164044_510_35.jpg'},
+        {id:'B009',type:'B',name:'Model B009 Premium Solid Wood Mirror Cabinet',desc:'Material: Solid Wood + Paulownia Frame\nSize: 70×80cm | Full Storage Cabinet\nWarranty: 2 Years | MOQ: 100pcs',price:'$115.36',img:'微信图片_20260707164044_510_35.jpg'},
+        {id:'B010',type:'B',name:'Model B010 Premium Solid Wood Mirror Cabinet',desc:'Material: Solid Wood + Paulownia Frame\nSize: 75×85cm | Full Storage Cabinet\nWarranty: 2 Years | MOQ: 100pcs',price:'$120.96',img:''},
+        {id:'B011',type:'B',name:'Model B011 Premium Solid Wood Mirror Cabinet',desc:'Material: Solid Wood + Paulownia Frame\nSize: 70×100cm | Full Storage Cabinet\nWarranty: 2 Years | MOQ: 100pcs',price:'$132.16',img:'微信图片_20260707164044_510_35.jpg'},
+        {id:'B012',type:'B',name:'Model B012 Premium Solid Wood Mirror Cabinet',desc:'Material: Solid Wood + Paulownia Frame\nSize: 80×90cm | Full Storage Cabinet\nWarranty: 2 Years | MOQ: 100pcs',price:'$125.44',img:'微信图片_20260707164044_510_35.jpg'},
+        {id:'B013',type:'B',name:'Model B013 Premium Solid Wood Mirror Cabinet',desc:'Material: Solid Wood + Paulownia Frame\nSize: 75×100cm | Full Storage Cabinet\nWarranty: 2 Years | MOQ: 100pcs',price:'$133.28',img:'微信图片_20260707164044_510_35.jpg'},
+        {id:'B014',type:'B',name:'Model B014 Premium Solid Wood Mirror Cabinet',desc:'Material: Solid Wood + Paulownia Frame\nSize: 80×100cm | Full Storage Cabinet\nWarranty: 2 Years | MOQ: 100pcs',price:'$140.00',img:'微信图片_20260707164044_510_35.jpg'},
+        {id:'B015',type:'B',name:'Model B015 Premium Solid Wood Mirror Cabinet',desc:'Material: Solid Wood + Paulownia Frame\nSize: 85×95cm | Full Storage Cabinet\nWarranty: 2 Years | MOQ: 100pcs',price:'$142.24',img:''},
+        {id:'B016',type:'B',name:'Model B016 Premium Solid Wood Mirror Cabinet',desc:'Material: Solid Wood + Paulownia Frame\nSize: 90×90cm | Full Storage Cabinet\nWarranty: 2 Years | MOQ: 100pcs',price:'$143.36',img:''},
+        {id:'B017',type:'B',name:'Model B017 Premium Solid Wood Mirror Cabinet',desc:'Material: Solid Wood + Paulownia Frame\nSize: 85×105cm | Full Storage Cabinet\nWarranty: 2 Years | MOQ: 100pcs',price:'$151.20',img:'微信图片_20260707164044_510_35.jpg'},
+        {id:'B018',type:'B',name:'Model B018 Premium Solid Wood Mirror Cabinet',desc:'Material: Solid Wood + Paulownia Frame\nSize: 90×100cm | Full Storage Cabinet\nWarranty: 2 Years | MOQ: 100pcs',price:'$154.56',img:'微信图片_20260707164044_510_35.jpg'},
+        {id:'B019',type:'B',name:'Model B019 Premium Solid Wood Mirror Cabinet',desc:'Material: Solid Wood + Paulownia Frame\nSize: 95×100cm | Full Storage Cabinet\nWarranty: 2 Years | MOQ: 100pcs',price:'$159.04',img:'微信图片_20260707164044_510_35.jpg'},
+        {id:'B020',type:'B',name:'Model B020 Premium Solid Wood Mirror Cabinet',desc:'Material: Solid Wood + Paulownia Frame\nSize: 90×110cm | Full Storage Cabinet\nWarranty: 2 Years | MOQ: 100pcs',price:'$165.76',img:'微信图片_20260707164044_510_35.jpg'},
+        {id:'B021',type:'B',name:'Model B021 Premium Solid Wood Mirror Cabinet',desc:'Material: Solid Wood + Paulownia Frame\nSize: 100×100cm | Full Storage Cabinet\nWarranty: 2 Years | MOQ: 100pcs',price:'$168.00',img:'微信图片_20260707164044_510_35.jpg'},
+        {id:'B022',type:'B',name:'Model B022 Premium Solid Wood Mirror Cabinet',desc:'Material: Solid Wood + Paulownia Frame\nSize: 95×115cm | Full Storage Cabinet\nWarranty: 2 Years | MOQ: 100pcs',price:'$174.72',img:'微信图片_20260707164044_510_35.jpg'},
+        {id:'B023',type:'B',name:'Model B023 Premium Solid Wood Mirror Cabinet',desc:'Material: Solid Wood + Paulownia Frame\nSize: 100×110cm | Full Storage Cabinet\nWarranty: 2 Years | MOQ: 100pcs',price:'$178.08',img:'微信图片_20260707164044_510_35.jpg'},
+        {id:'B024',type:'B',name:'Model B024 Premium Solid Wood Mirror Cabinet',desc:'Material: Solid Wood + Paulownia Frame\nSize: 105×115cm | Full Storage Cabinet\nWarranty: 2 Years | MOQ: 100pcs',price:'$188.16',img:'微信图片_20260707164044_510_35.jpg'},
+        {id:'B025',type:'B',name:'Model B025 Premium Solid Wood Mirror Cabinet',desc:'Material: Solid Wood + Paulownia Frame\nSize: 110×120cm | Full Storage Cabinet\nWarranty: 2 Years | MOQ: 100pcs',price:'$196.00',img:'微信图片_20260707164044_510_35.jpg'},
+        {id:'B026',type:'B',name:'Model B026 Premium Solid Wood Mirror Cabinet',desc:'Material: Solid Wood + Paulownia Frame\nSize: 115×125cm | Full Storage Cabinet\nWarranty: 2 Years | MOQ: 100pcs',price:'$203.84',img:'微信图片_20260707164044_510_35.jpg'},
+        {id:'B027',type:'B',name:'Model B027 Premium Solid Wood Mirror Cabinet',desc:'Material: Solid Wood + Paulownia Frame\nSize: 120×130cm | Full Storage Cabinet\nWarranty: 2 Years | MOQ: 100pcs',price:'$211.68',img:'微信图片_20260707164044_510_35.jpg'},
+        {id:'B028',type:'B',name:'Model B028 Premium Solid Wood Mirror Cabinet',desc:'Material: Solid Wood + Paulownia Frame\nSize: 100×140cm | Full Storage Cabinet\nWarranty: 2 Years | MOQ: 100pcs',price:'$208.32',img:'微信图片_20260707164044_510_35.jpg'},
+        {id:'B029',type:'B',name:'Model B029 Premium Solid Wood Mirror Cabinet',desc:'Material: Solid Wood + Paulownia Frame\nSize: 120×150cm | Full Storage Cabinet\nWarranty: 2 Years | MOQ: 100pcs',price:'$211.68',img:'微信图片_20260707164044_510_35.jpg'},
 
-        // 6系列 PV6浴室柜 (对应PDF型号6001-6099，共99款，尺寸全部转换为厘米)
-        {id:'6001',type:'6',name:'Model 6001 PV6 Bathroom 6abinet',des6:'Size: 100/80×506m\nMaterial: PV6\nWarranty: 2 Years | MOQ: 50sets',pri6e:'$112.00',img:'6001.jpg'},
-        {id:'6002',type:'6',name:'Model 6002 PV6 Bathroom 6abinet',des6:'Size: 100/80×506m\nMaterial: PV6\nWarranty: 2 Years | MOQ: 50sets',pri6e:'$112.00',img:'6002.jpg'},
-        {id:'6003',type:'6',name:'Model 6003 PV6 Bathroom 6abinet',des6:'Size: 100/80×506m\nMaterial: PV6\nWarranty: 2 Years | MOQ: 50sets',pri6e:'$112.00',img:'6003.jpg'},
-        {id:'6004',type:'6',name:'Model 6004 PV6 Bathroom 6abinet',des6:'Size: 100/80×506m\nMaterial: PV6\nWarranty: 2 Years | MOQ: 50sets',pri6e:'$112.00',img:'6004.jpg'},
-        {id:'6005',type:'6',name:'Model 6005 PV6 Bathroom 6abinet',des6:'Size: 100/80×506m\nMaterial: PV6\nWarranty: 2 Years | MOQ: 50sets',pri6e:'$112.00',img:'6005.jpg'},
-        {id:'6006',type:'6',name:'Model 6006 PV6 Bathroom 6abinet',des6:'Size: 100/80×506m\nMaterial: PV6\nWarranty: 2 Years | MOQ: 50sets',pri6e:'$112.00',img:'6006.jpg'},
-        {id:'6007',type:'6',name:'Model 6007 PV6 Bathroom 6abinet',des6:'Size: 100/80×506m\nMaterial: PV6\nWarranty: 2 Years | MOQ: 50sets',pri6e:'$112.00',img:'6007.jpg'},
-        {id:'6008',type:'6',name:'Model 6008 PV6 Bathroom 6abinet',des6:'Size: 100/80×506m\nMaterial: PV6\nWarranty: 2 Years | MOQ: 50sets',pri6e:'$112.00',img:'6008.jpg'},
-        {id:'6009',type:'6',name:'Model 6009 PV6 Bathroom 6abinet',des6:'Size: 100/80×506m\nMaterial: PV6\nWarranty: 2 Years | MOQ: 50sets',pri6e:'$112.00',img:'6009.jpg'},
-        {id:'6010',type:'6',name:'Model 6010 PV6 Bathroom 6abinet',des6:'Size: 100/80×506m\nMaterial: PV6\nWarranty: 2 Years | MOQ: 50sets',pri6e:'$112.00',img:'6010.jpg'},
-        {id:'6011',type:'6',name:'Model 6011 PV6 Bathroom 6abinet',des6:'Size: 100/80×506m\nMaterial: PV6\nWarranty: 2 Years | MOQ: 50sets',pri6e:'$112.00',img:'6011.jpg'},
-        {id:'6012',type:'6',name:'Model 6012 PV6 Bathroom 6abinet',des6:'Size: 100/80×506m\nMaterial: PV6\nWarranty: 2 Years | MOQ: 50sets',pri6e:'$112.00',img:'6012.jpg'},
-        {id:'6013',type:'6',name:'Model 6013 PV6 Bathroom 6abinet',des6:'Size: 100/80×506m\nMaterial: PV6\nWarranty: 2 Years | MOQ: 50sets',pri6e:'$112.00',img:'6013.jpg'},
-        {id:'6014',type:'6',name:'Model 6014 PV6 Bathroom 6abinet',des6:'Size: 100/80×506m\nMaterial: PV6\nWarranty: 2 Years | MOQ: 50sets',pri6e:'$112.00',img:'6014.jpg'},
-        {id:'6015',type:'6',name:'Model 6015 PV6 Bathroom 6abinet',des6:'Size: 100/80×506m\nMaterial: PV6\nWarranty: 2 Years | MOQ: 50sets',pri6e:'$112.00',img:'6015.jpg'},
-        {id:'6016',type:'6',name:'Model 6016 PV6 Bathroom 6abinet',des6:'Size: 100/80×506m\nMaterial: PV6\nWarranty: 2 Years | MOQ: 50sets',pri6e:'$112.00',img:'6016.jpg'},
-        {id:'6017',type:'6',name:'Model 6017 PV6 Bathroom 6abinet',des6:'Size: 100/80×506m\nMaterial: PV6\nWarranty: 2 Years | MOQ: 50sets',pri6e:'$112.00',img:'6017.jpg'},
-        {id:'6018',type:'6',name:'Model 6018 PV6 Bathroom 6abinet',des6:'Size: 100/80×506m\nMaterial: PV6\nWarranty: 2 Years | MOQ: 50sets',pri6e:'$112.00',img:'6018.jpg'},
-        {id:'6019',type:'6',name:'Model 6019 PV6 Bathroom 6abinet',des6:'Size: 80×506m\nMaterial: PV6\nWarranty: 2 Years | MOQ: 50sets',pri6e:'$112.00',img:'6019.jpg'},
-        {id:'6020',type:'6',name:'Model 6020 PV6 Bathroom 6abinet',des6:'Size: 80×506m\nMaterial: PV6\nWarranty: 2 Years | MOQ: 50sets',pri6e:'$112.00',img:'6020.jpg'},
-        {id:'6021',type:'6',name:'Model 6021 PV6 Bathroom 6abinet',des6:'Size: 80×506m\nMaterial: PV6\nWarranty: 2 Years | MOQ: 50sets',pri6e:'$112.00',img:'6021.jpg'},
-        {id:'6022',type:'6',name:'Model 6022 PV6 Bathroom 6abinet',des6:'Size: 80×506m\nMaterial: PV6\nWarranty: 2 Years | MOQ: 50sets',pri6e:'$112.00',img:'6022.jpg'},
-        {id:'6023',type:'6',name:'Model 6023 PV6 Bathroom 6abinet',des6:'Size: 80×506m\nMaterial: PV6\nWarranty: 2 Years | MOQ: 50sets',pri6e:'$112.00',img:'6023.jpg'},
-        {id:'6024',type:'6',name:'Model 6024 PV6 Bathroom 6abinet',des6:'Size: 80×506m\nMaterial: PV6\nWarranty: 2 Years | MOQ: 50sets',pri6e:'$112.00',img:'6024.jpg'},
-        {id:'6025',type:'6',name:'Model 6025 PV6 Bathroom 6abinet',des6:'Size: 80×506m\nMaterial: PV6\nWarranty: 2 Years | MOQ: 50sets',pri6e:'$112.00',img:'6025.jpg'},
-        {id:'6026',type:'6',name:'Model 6026 PV6 Bathroom 6abinet',des6:'Size: 80×506m\nMaterial: PV6\nWarranty: 2 Years | MOQ: 50sets',pri6e:'$112.00',img:'6026.jpg'},
-        {id:'6027',type:'6',name:'Model 6027 PV6 Bathroom 6abinet',des6:'Size: 80×506m\nMaterial: PV6\nWarranty: 2 Years | MOQ: 50sets',pri6e:'$112.00',img:'6027.jpg'},
-        {id:'6028',type:'6',name:'Model 6028 PV6 Bathroom 6abinet',des6:'Size: 80×506m\nMaterial: PV6\nWarranty: 2 Years | MOQ: 50sets',pri6e:'$112.00',img:'6028.jpg'},
-        {id:'6029',type:'6',name:'Model 6029 PV6 Bathroom 6abinet',des6:'Size: 80×506m\nMaterial: PV6\nWarranty: 2 Years | MOQ: 50sets',pri6e:'$112.00',img:'6029.jpg'},
-        {id:'6030',type:'6',name:'Model 6030 PV6 Bathroom 6abinet',des6:'Size: 80×506m\nMaterial: PV6\nWarranty: 2 Years | MOQ: 50sets',pri6e:'$112.00',img:'6030.jpg'},
-        {id:'6031',type:'6',name:'Model 6031 PV6 Bathroom 6abinet',des6:'Size: 80×506m\nMaterial: PV6\nWarranty: 2 Years | MOQ: 50sets',pri6e:'$112.00',img:'6031.jpg'},
-        {id:'6032',type:'6',name:'Model 6032 PV6 Bathroom 6abinet',des6:'Size: 80×506m\nMaterial: PV6\nWarranty: 2 Years | MOQ: 50sets',pri6e:'$112.00',img:'6032.jpg'},
-        {id:'6033',type:'6',name:'Model 6033 PV6 Bathroom 6abinet',des6:'Size: 120×506m\nMaterial: PV6\nWarranty: 2 Years | MOQ: 50sets',pri6e:'$112.00',img:'6033.jpg'},
-        {id:'6034',type:'6',name:'Model 6034 PV6 Bathroom 6abinet',des6:'Size: 120×506m\nMaterial: PV6\nWarranty: 2 Years | MOQ: 50sets',pri6e:'$112.00',img:'6034.jpg'},
-        {id:'6035',type:'6',name:'Model 6035 PV6 Bathroom 6abinet',des6:'Size: 120×506m\nMaterial: PV6\nWarranty: 2 Years | MOQ: 50sets',pri6e:'$112.00',img:'6035.jpg'},
-        {id:'6036',type:'6',name:'Model 6036 PV6 Bathroom 6abinet',des6:'Size: 100×506m\nMaterial: PV6\nWarranty: 2 Years | MOQ: 50sets',pri6e:'$112.00',img:'6036.jpg'},
-        {id:'6037',type:'6',name:'Model 6037 PV6 Bathroom 6abinet',des6:'Size: 100×506m\nMaterial: PV6\nWarranty: 2 Years | MOQ: 50sets',pri6e:'$112.00',img:'6037.jpg'},
-        {id:'6038',type:'6',name:'Model 6038 PV6 Bathroom 6abinet',des6:'Size: 100×506m\nMaterial: PV6\nWarranty: 2 Years | MOQ: 50sets',pri6e:'$112.00',img:'6038.jpg'},
-        {id:'6039',type:'6',name:'Model 6039 PV6 Bathroom 6abinet',des6:'Size: 80×506m\nMaterial: PV6\nWarranty: 2 Years | MOQ: 50sets',pri6e:'$112.00',img:'6039.jpg'},
-        {id:'6040',type:'6',name:'Model 6040 PV6 Bathroom 6abinet',des6:'Size: 80×506m\nMaterial: PV6\nWarranty: 2 Years | MOQ: 50sets',pri6e:'$112.00',img:'6040.jpg'},
-        {id:'6041',type:'6',name:'Model 6041 PV6 Bathroom 6abinet',des6:'Size: 80×506m\nMaterial: PV6\nWarranty: 2 Years | MOQ: 50sets',pri6e:'$112.00',img:'6041.jpg'},
-        {id:'6042',type:'6',name:'Model 6042 PV6 Bathroom 6abinet',des6:'Size: 80×506m\nMaterial: PV6\nWarranty: 2 Years | MOQ: 50sets',pri6e:'$112.00',img:'6042.jpg'},
-        {id:'6043',type:'6',name:'Model 6043 PV6 Bathroom 6abinet',des6:'Size: 80×506m\nMaterial: PV6\nWarranty: 2 Years | MOQ: 50sets',pri6e:'$112.00',img:'6043.jpg'},
-        {id:'6044',type:'6',name:'Model 6044 PV6 Bathroom 6abinet',des6:'Size: 80×506m\nMaterial: PV6\nWarranty: 2 Years | MOQ: 50sets',pri6e:'$112.00',img:'6044.jpg'},
-        {id:'6045',type:'6',name:'Model 6045 PV6 Bathroom 6abinet',des6:'Size: 80×506m\nMaterial: PV6\nWarranty: 2 Years | MOQ: 50sets',pri6e:'$112.00',img:'6045.jpg'},
-        {id:'6046',type:'6',name:'Model 6046 PV6 Bathroom 6abinet',des6:'Size: 80×506m\nMaterial: PV6\nWarranty: 2 Years | MOQ: 50sets',pri6e:'$112.00',img:'6046.jpg'},
-        {id:'6047',type:'6',name:'Model 6047 PV6 Bathroom 6abinet',des6:'Size: 80×506m\nMaterial: PV6\nWarranty: 2 Years | MOQ: 50sets',pri6e:'$112.00',img:'6047.jpg'},
-        {id:'6048',type:'6',name:'Model 6048 PV6 Bathroom 6abinet',des6:'Size: 80×506m\nMaterial: PV6\nWarranty: 2 Years | MOQ: 50sets',pri6e:'$112.00',img:'6048.jpg'},
-        {id:'6049',type:'6',name:'Model 6049 PV6 Bathroom 6abinet',des6:'Size: 80×506m\nMaterial: PV6\nWarranty: 2 Years | MOQ: 50sets',pri6e:'$112.00',img:'6049.jpg'},
-        {id:'6050',type:'6',name:'Model 6050 PV6 Bathroom 6abinet',des6:'Size: 80×506m\nMaterial: PV6\nWarranty: 2 Years | MOQ: 50sets',pri6e:'$112.00',img:'6050.jpg'},
-        {id:'6051',type:'6',name:'Model 6051 PV6 Bathroom 6abinet',des6:'Size: 80×506m\nMaterial: PV6\nWarranty: 2 Years | MOQ: 50sets',pri6e:'$112.00',img:'6051.jpg'},
-        {id:'6052',type:'6',name:'Model 6052 PV6 Bathroom 6abinet',des6:'Size: 80×506m\nMaterial: PV6\nWarranty: 2 Years | MOQ: 50sets',pri6e:'$112.00',img:'6052.jpg'},
-        {id:'6053',type:'6',name:'Model 6053 PV6 Bathroom 6abinet',des6:'Size: 80×506m\nMaterial: PV6\nWarranty: 2 Years | MOQ: 50sets',pri6e:'$112.00',img:'6053.jpg'},
-        {id:'6054',type:'6',name:'Model 6054 PV6 Bathroom 6abinet',des6:'Size: 80×506m\nMaterial: PV6\nWarranty: 2 Years | MOQ: 50sets',pri6e:'$112.00',img:'6054.jpg'},
-        {id:'6055',type:'6',name:'Model 6055 PV6 Bathroom 6abinet',des6:'Size: 80×506m\nMaterial: PV6\nWarranty: 2 Years | MOQ: 50sets',pri6e:'$112.00',img:'6055.jpg'},
-        {id:'6056',type:'6',name:'Model 6056 PV6 Bathroom 6abinet',des6:'Size: 80×506m\nMaterial: PV6\nWarranty: 2 Years | MOQ: 50sets',pri6e:'$112.00',img:'6056.jpg'},
-        {id:'6057',type:'6',name:'Model 6057 PV6 Bathroom 6abinet',des6:'Size: 80×506m\nMaterial: PV6\nWarranty: 2 Years | MOQ: 50sets',pri6e:'$112.00',img:'6057.jpg'},
-        {id:'6058',type:'6',name:'Model 6058 PV6 Bathroom 6abinet',des6:'Size: 80×506m\nMaterial: PV6\nWarranty: 2 Years | MOQ: 50sets',pri6e:'$112.00',img:'6058.jpg'},
-        {id:'6059',type:'6',name:'Model 6059 PV6 Bathroom 6abinet',des6:'Size: 80×506m\nMaterial: PV6\nWarranty: 2 Years | MOQ: 50sets',pri6e:'$112.00',img:'6059.jpg'},
-        {id:'6060',type:'6',name:'Model 6060 PV6 Bathroom 6abinet',des6:'Size: 80×506m\nMaterial: PV6\nWarranty: 2 Years | MOQ: 50sets',pri6e:'$112.00',img:'6060.jpg'},
-        {id:'6061',type:'6',name:'Model 6061 PV6 Bathroom 6abinet',des6:'Size: 80×506m\nMaterial: PV6\nWarranty: 2 Years | MOQ: 50sets',pri6e:'$112.00',img:'6061.jpg'},
-        {id:'6062',type:'6',name:'Model 6062 PV6 Bathroom 6abinet',des6:'Size: 80×506m\nMaterial: PV6\nWarranty: 2 Years | MOQ: 50sets',pri6e:'$112.00',img:'6062.jpg'},
-        {id:'6063',type:'6',name:'Model 6063 PV6 Bathroom 6abinet',des6:'Size: 80×506m\nMaterial: PV6\nWarranty: 2 Years | MOQ: 50sets',pri6e:'$112.00',img:'6063.jpg'},
-        {id:'6064',type:'6',name:'Model 6064 PV6 Bathroom 6abinet',des6:'Size: 80×506m\nMaterial: PV6\nWarranty: 2 Years | MOQ: 50sets',pri6e:'$112.00',img:'6064.jpg'},
-        {id:'6065',type:'6',name:'Model 6065 PV6 Bathroom 6abinet',des6:'Size: 80×506m\nMaterial: PV6\nWarranty: 2 Years | MOQ: 50sets',pri6e:'$112.00',img:'6065.jpg'},
-        {id:'6066',type:'6',name:'Model 6066 PV6 Bathroom 6abinet',des6:'Size: 80×506m\nMaterial: PV6\nWarranty: 2 Years | MOQ: 50sets',pri6e:'$112.00',img:'6066.jpg'},
-        {id:'6067',type:'6',name:'Model 6067 PV6 Bathroom 6abinet',des6:'Size: 80×506m\nMaterial: PV6\nWarranty: 2 Years | MOQ: 50sets',pri6e:'$112.00',img:'6067.jpg'},
-        {id:'6068',type:'6',name:'Model 6068 PV6 Bathroom 6abinet',des6:'Size: 80×506m\nMaterial: PV6\nWarranty: 2 Years | MOQ: 50sets',pri6e:'$112.00',img:'6068.jpg'},
-        {id:'6069',type:'6',name:'Model 6069 PV6 Bathroom 6abinet',des6:'Size: 80×506m\nMaterial: PV6\nWarranty: 2 Years | MOQ: 50sets',pri6e:'$112.00',img:'6069.jpg'},
-        {id:'6070',type:'6',name:'Model 6070 PV6 Bathroom 6abinet',des6:'Size: 80×506m\nMaterial: PV6\nWarranty: 2 Years | MOQ: 50sets',pri6e:'$112.00',img:'6070.jpg'},
-        {id:'6071',type:'6',name:'Model 6071 PV6 Bathroom 6abinet',des6:'Size: 80×506m\nMaterial: PV6\nWarranty: 2 Years | MOQ: 50sets',pri6e:'$112.00',img:'6071.jpg'},
-        {id:'6072',type:'6',name:'Model 6072 PV6 Bathroom 6abinet',des6:'Size: 80×506m\nMaterial: PV6\nWarranty: 2 Years | MOQ: 50sets',pri6e:'$112.00',img:'6072.jpg'},
-        {id:'6073',type:'6',name:'Model 6073 PV6 Bathroom 6abinet',des6:'Size: 80×506m\nMaterial: PV6\nWarranty: 2 Years | MOQ: 50sets',pri6e:'$112.00',img:'6073.jpg'},
-        {id:'6074',type:'6',name:'Model 6074 PV6 Bathroom 6abinet',des6:'Size: 80×506m\nMaterial: PV6\nWarranty: 2 Years | MOQ: 50sets',pri6e:'$112.00',img:'6074.jpg'},
-        {id:'6075',type:'6',name:'Model 6075 PV6 Bathroom 6abinet',des6:'Size: 80×506m\nMaterial: PV6\nWarranty: 2 Years | MOQ: 50sets',pri6e:'$112.00',img:'6075.jpg'},
-        {id:'6076',type:'6',name:'Model 6076 PV6 Bathroom 6abinet',des6:'Size: 80×506m\nMaterial: PV6\nWarranty: 2 Years | MOQ: 50sets',pri6e:'$112.00',img:'6076.jpg'},
-        {id:'6077',type:'6',name:'Model 6077 PV6 Bathroom 6abinet',des6:'Size: 80×506m\nMaterial: PV6\nWarranty: 2 Years | MOQ: 50sets',pri6e:'$112.00',img:'6077.jpg'},
-        {id:'6078',type:'6',name:'Model 6078 PV6 Bathroom 6abinet',des6:'Size: 80×506m\nMaterial: PV6\nWarranty: 2 Years | MOQ: 50sets',pri6e:'$112.00',img:'6078.jpg'},
-        {id:'6079',type:'6',name:'Model 6079 PV6 Bathroom 6abinet',des6:'Size: 80×506m\nMaterial: PV6\nWarranty: 2 Years | MOQ: 50sets',pri6e:'$112.00',img:'6079.jpg'},
-        {id:'6080',type:'6',name:'Model 6080 PV6 Bathroom 6abinet',des6:'Size: 80×506m\nMaterial: PV6\nWarranty: 2 Years | MOQ: 50sets',pri6e:'$112.00',img:'6080.jpg'},
-        {id:'6081',type:'6',name:'Model 6081 PV6 Bathroom 6abinet',des6:'Size: 80×506m\nMaterial: PV6\nWarranty: 2 Years | MOQ: 50sets',pri6e:'$112.00',img:'6081.jpg'},
-        {id:'6082',type:'6',name:'Model 6082 PV6 Bathroom 6abinet',des6:'Size: 80×506m\nMaterial: PV6\nWarranty: 2 Years | MOQ: 50sets',pri6e:'$112.00',img:'6082.jpg'},
-        {id:'6083',type:'6',name:'Model 6083 PV6 Bathroom 6abinet',des6:'Size: 80×506m\nMaterial: PV6\nWarranty: 2 Years | MOQ: 50sets',pri6e:'$112.00',img:'6083.jpg'},
-        {id:'6084',type:'6',name:'Model 6084 PV6 Bathroom 6abinet',des6:'Size: 80×506m\nMaterial: PV6\nWarranty: 2 Years | MOQ: 50sets',pri6e:'$112.00',img:'6084.jpg'},
-        {id:'6085',type:'6',name:'Model 6085 PV6 Bathroom 6abinet',des6:'Size: 80×506m\nMaterial: PV6\nWarranty: 2 Years | MOQ: 50sets',pri6e:'$112.00',img:'6085.jpg'},
-        {id:'6086',type:'6',name:'Model 6086 PV6 Bathroom 6abinet',des6:'Size: 80×506m\nMaterial: PV6\nWarranty: 2 Years | MOQ: 50sets',pri6e:'$112.00',img:'6086.jpg'},
-        {id:'6087',type:'6',name:'Model 6087 PV6 Bathroom 6abinet',des6:'Size: 80×506m\nMaterial: PV6\nWarranty: 2 Years | MOQ: 50sets',pri6e:'$112.00',img:'6087.jpg'},
-        {id:'6088',type:'6',name:'Model 6088 PV6 Bathroom 6abinet',des6:'Size: 80×506m\nMaterial: PV6\nWarranty: 2 Years | MOQ: 50sets',pri6e:'$112.00',img:'6088.jpg'},
-        {id:'6089',type:'6',name:'Model 6089 PV6 Bathroom 6abinet',des6:'Size: 80×506m\nMaterial: PV6\nWarranty: 2 Years | MOQ: 50sets',pri6e:'$112.00',img:'6089.jpg'},
-        {id:'6090',type:'6',name:'Model 6090 PV6 Bathroom 6abinet',des6:'Size: 80×506m\nMaterial: PV6\nWarranty: 2 Years | MOQ: 50sets',pri6e:'$112.00',img:'6090.jpg'},
-        {id:'6091',type:'6',name:'Model 6091 PV6 Bathroom 6abinet',des6:'Size: 80×506m\nMaterial: PV6\nWarranty: 2 Years | MOQ: 50sets',pri6e:'$112.00',img:'6091.jpg'},
-        {id:'6092',type:'6',name:'Model 6092 PV6 Bathroom 6abinet',des6:'Size: 80×506m\nMaterial: PV6\nWarranty: 2 Years | MOQ: 50sets',pri6e:'$112.00',img:'6092.jpg'},
-        {id:'6093',type:'6',name:'Model 6093 PV6 Bathroom 6abinet',des6:'Size: 80×506m\nMaterial: PV6\nWarranty: 2 Years | MOQ: 50sets',pri6e:'$112.00',img:'6093.jpg'},
-        {id:'6094',type:'6',name:'Model 6094 PV6 Bathroom 6abinet',des6:'Size: 80×506m\nMaterial: PV6\nWarranty: 2 Years | MOQ: 50sets',pri6e:'$112.00',img:'6094.jpg'},
-        {id:'6095',type:'6',name:'Model 6095 PV6 Bathroom 6abinet',des6:'Size: 80×506m\nMaterial: PV6\nWarranty: 2 Years | MOQ: 50sets',pri6e:'$112.00',img:'6095.jpg'},
-        {id:'6096',type:'6',name:'Model 6096 PV6 Bathroom 6abinet',des6:'Size: 80×506m\nMaterial: PV6\nWarranty: 2 Years | MOQ: 50sets',pri6e:'$112.00',img:'6096.jpg'},
-        {id:'6097',type:'6',name:'Model 6097 PV6 Bathroom 6abinet',des6:'Size: 80×506m\nMaterial: PV6\nWarranty: 2 Years | MOQ: 50sets',pri6e:'$112.00',img:'6097.jpg'},
-        {id:'6098',type:'6',name:'Model 6098 PV6 Bathroom 6abinet',des6:'Size: 80×506m\nMaterial: PV6\nWarranty: 2 Years | MOQ: 50sets',pri6e:'$112.00',img:'6098.jpg'},
-        {id:'6099',type:'6',name:'Model 6099 PV6 Bathroom 6abinet',des6:'Size: 80×506m\nMaterial: PV6\nWarranty: 2 Years | MOQ: 50sets',pri6e:'$112.00',img:'6099.jpg'},
-            {id:'6100',type:'6',name:'Model 6100 PV6 Bathroom 6abinet',des6:'Size: 80×506m\nMaterial: PV6\nWarranty: 2 Years | MOQ: 50sets',pri6e:'$112.00',img:'6100.jpg'},
-        {id:'6101',type:'6',name:'Model 6101 PV6 Bathroom 6abinet',des6:'Size: 80×506m\nMaterial: PV6\nWarranty: 2 Years | MOQ: 50sets',pri6e:'$112.00',img:'6101.jpg'},
-        {id:'6102',type:'6',name:'Model 6102 PV6 Bathroom 6abinet',des6:'Size: 80×506m\nMaterial: PV6\nWarranty: 2 Years | MOQ: 50sets',pri6e:'$112.00',img:'6102.jpg'},
-        {id:'6103',type:'6',name:'Model 6103 PV6 Bathroom 6abinet',des6:'Size: 80×506m\nMaterial: PV6\nWarranty: 2 Years | MOQ: 50sets',pri6e:'$112.00',img:'6103.jpg'},
-        {id:'6104',type:'6',name:'Model 6104 PV6 Bathroom 6abinet',des6:'Size: 80×506m\nMaterial: PV6\nWarranty: 2 Years | MOQ: 50sets',pri6e:'$112.00',img:'6104.jpg'},
-        {id:'6105',type:'6',name:'Model 6105 PV6 Bathroom 6abinet',des6:'Size: 80×506m\nMaterial: PV6\nWarranty: 2 Years | MOQ: 50sets',pri6e:'$112.00',img:'6105.jpg'},
-        {id:'6106',type:'6',name:'Model 6106 PV6 Bathroom 6abinet',des6:'Size: 80×506m\nMaterial: PV6\nWarranty: 2 Years | MOQ: 50sets',pri6e:'$112.00',img:'6106.jpg'},
-        {id:'6107',type:'6',name:'Model 6107 PV6 Bathroom 6abinet',des6:'Size: 80×506m\nMaterial: PV6\nWarranty: 2 Years | MOQ: 50sets',pri6e:'$112.00',img:'6107.jpg'},
-        {id:'6108',type:'6',name:'Model 6108 PV6 Bathroom 6abinet',des6:'Size: 80×506m\nMaterial: PV6\nWarranty: 2 Years | MOQ: 50sets',pri6e:'$112.00',img:'6108.jpg'},
-        {id:'6109',type:'6',name:'Model 6109 PV6 Bathroom 6abinet',des6:'Size: 80×506m\nMaterial: PV6\nWarranty: 2 Years | MOQ: 50sets',pri6e:'$112.00',img:'6109.jpg'},
-        {id:'6110',type:'6',name:'Model 6110 PV6 Bathroom 6abinet',des6:'Size: 80×506m\nMaterial: PV6\nWarranty: 2 Years | MOQ: 50sets',pri6e:'$112.00',img:'6110.jpg'},
-        {id:'6111',type:'6',name:'Model 6111 PV6 Bathroom 6abinet',des6:'Size: 80×506m\nMaterial: PV6\nWarranty: 2 Years | MOQ: 50sets',pri6e:'$112.00',img:'6111.jpg'},
-        {id:'6112',type:'6',name:'Model 6112 PV6 Bathroom 6abinet',des6:'Size: 80×506m\nMaterial: PV6\nWarranty: 2 Years | MOQ: 50sets',pri6e:'$112.00',img:'6112.jpg'},
-        {id:'6113',type:'6',name:'Model 6113 PV6 Bathroom 6abinet',des6:'Size: 80×506m\nMaterial: PV6\nWarranty: 2 Years | MOQ: 50sets',pri6e:'$112.00',img:'6113.jpg'},
-        {id:'6114',type:'6',name:'Model 6114 PV6 Bathroom 6abinet',des6:'Size: 80×506m\nMaterial: PV6\nWarranty: 2 Years | MOQ: 50sets',pri6e:'$112.00',img:'6114.jpg'},
-        {id:'6115',type:'6',name:'Model 6115 PV6 Bathroom 6abinet',des6:'Size: 80×506m\nMaterial: PV6\nWarranty: 2 Years | MOQ: 50sets',pri6e:'$112.00',img:'6115.jpg'},
-        {id:'6116',type:'6',name:'Model 6116 PV6 Bathroom 6abinet',des6:'Size: 80×506m\nMaterial: PV6\nWarranty: 2 Years | MOQ: 50sets',pri6e:'$112.00',img:'6116.jpg'},
-        {id:'6117',type:'6',name:'Model 6117 PV6 Bathroom 6abinet',des6:'Size: 80×506m\nMaterial: PV6\nWarranty: 2 Years | MOQ: 50sets',pri6e:'$112.00',img:'6117.jpg'},
-        {id:'6118',type:'6',name:'Model 6118 PV6 Bathroom 6abinet',des6:'Size: 80×506m\nMaterial: PV6\nWarranty: 2 Years | MOQ: 50sets',pri6e:'$112.00',img:'6118.jpg'},
-        {id:'6119',type:'6',name:'Model 6119 PV6 Bathroom 6abinet',des6:'Size: 80×506m\nMaterial: PV6\nWarranty: 2 Years | MOQ: 50sets',pri6e:'$112.00',img:'6119.jpg'},
-        {id:'6120',type:'6',name:'Model 6120 PV6 Bathroom 6abinet',des6:'Size: 46×266m\nMaterial: PV6\nWarranty: 2 Years | MOQ: 50sets',pri6e:'$112.00',img:'6120.jpg'},
-        {id:'6121',type:'6',name:'Model 6121 PV6 Bathroom 6abinet',des6:'Size: 80×506m\nMaterial: PV6\nWarranty: 2 Years | MOQ: 50sets',pri6e:'$112.00',img:'6121.jpg'},
-        {id:'6122',type:'6',name:'Model 6122 PV6 Bathroom 6abinet',des6:'Size: 80×506m\nMaterial: PV6\nWarranty: 2 Years | MOQ: 50sets',pri6e:'$112.00',img:'6122.jpg'},
-        {id:'6123',type:'6',name:'Model 6123 PV6 Bathroom 6abinet',des6:'Size: 80×506m\nMaterial: PV6\nWarranty: 2 Years | MOQ: 50sets',pri6e:'$112.00',img:'6123.jpg'},
-        {id:'6124',type:'6',name:'Model 6124 PV6 Bathroom 6abinet',des6:'Size: 80×506m\nMaterial: PV6\nWarranty: 2 Years | MOQ: 50sets',pri6e:'$112.00',img:'6124.jpg'},
-        {id:'6125',type:'6',name:'Model 6125 PV6 Bathroom 6abinet',des6:'Size: 80×506m\nMaterial: PV6\nWarranty: 2 Years | MOQ: 50sets',pri6e:'$112.00',img:'6125.jpg'},
-        {id:'6126',type:'6',name:'Model 6126 PV6 Bathroom 6abinet',des6:'Size: 80×506m\nMaterial: PV6\nWarranty: 2 Years | MOQ: 50sets',pri6e:'$112.00',img:'6126.jpg'},
-        {id:'6127',type:'6',name:'Model 6127 PV6 Bathroom 6abinet',des6:'Size: 80×506m\nMaterial: PV6\nWarranty: 2 Years | MOQ: 50sets',pri6e:'$112.00',img:'6127.jpg'},
-        {id:'6128',type:'6',name:'Model 6128 PV6 Bathroom 6abinet',des6:'Size: 80×506m\nMaterial: PV6\nWarranty: 2 Years | MOQ: 50sets',pri6e:'$112.00',img:'6128.jpg'},
-        {id:'6129',type:'6',name:'Model 6129 PV6 Bathroom 6abinet',des6:'Size: 80×506m\nMaterial: PV6\nWarranty: 2 Years | MOQ: 50sets',pri6e:'$112.00',img:'6129.jpg'},
-        {id:'6130',type:'6',name:'Model 6130 PV6 Bathroom 6abinet',des6:'Size: 80×506m\nMaterial: PV6\nWarranty: 2 Years | MOQ: 50sets',pri6e:'$112.00',img:'6130.jpg'},
-        {id:'6131',type:'6',name:'Model 6131 PV6 Bathroom 6abinet',des6:'Size: 80×506m\nMaterial: PV6\nWarranty: 2 Years | MOQ: 50sets',pri6e:'$112.00',img:'6131.jpg'},
-        {id:'6132',type:'6',name:'Model 6132 PV6 Bathroom 6abinet',des6:'Size: 80×506m\nMaterial: PV6\nWarranty: 2 Years | MOQ: 50sets',pri6e:'$112.00',img:'6132.jpg'},
-        {id:'6133',type:'6',name:'Model 6133 PV6 Bathroom 6abinet',des6:'Size: 80×506m\nMaterial: PV6\nWarranty: 2 Years | MOQ: 50sets',pri6e:'$112.00',img:'6133.jpg'},
-        {id:'6134',type:'6',name:'Model 6134 PV6 Bathroom 6abinet',des6:'Size: 80×506m\nMaterial: PV6\nWarranty: 2 Years | MOQ: 50sets',pri6e:'$112.00',img:'6134.jpg'},
-        {id:'6135',type:'6',name:'Model 6135 PV6 Bathroom 6abinet',des6:'Size: 80×506m\nMaterial: PV6\nWarranty: 2 Years | MOQ: 50sets',pri6e:'$112.00',img:'6135.jpg'},
-        {id:'6136',type:'6',name:'Model 6136 PV6 Bathroom 6abinet',des6:'Size: 80×506m\nMaterial: PV6\nWarranty: 2 Years | MOQ: 50sets',pri6e:'$112.00',img:'6136.jpg'},
-        {id:'6137',type:'6',name:'Model 6137 PV6 Bathroom 6abinet',des6:'Size: 80×506m\nMaterial: PV6\nWarranty: 2 Years | MOQ: 50sets',pri6e:'$112.00',img:'6137.jpg'},
-        {id:'6138',type:'6',name:'Model 6138 PV6 Bathroom 6abinet',des6:'Size: 80×506m\nMaterial: PV6\nWarranty: 2 Years | MOQ: 50sets',pri6e:'$112.00',img:'6138.jpg'},
-        {id:'6139',type:'6',name:'Model 6139 PV6 Bathroom 6abinet',des6:'Size: 80×506m\nMaterial: PV6\nWarranty: 2 Years | MOQ: 50sets',pri6e:'$112.00',img:'6139.jpg'},
-        {id:'6140',type:'6',name:'Model 6140 PV6 Bathroom 6abinet',des6:'Size: 80×506m\nMaterial: PV6\nWarranty: 2 Years | MOQ: 50sets',pri6e:'$112.00',img:'6140.jpg'},
-        {id:'6141',type:'6',name:'Model 6141 PV6 Bathroom 6abinet',des6:'Size: 80×506m\nMaterial: PV6\nWarranty: 2 Years | MOQ: 50sets',pri6e:'$112.00',img:'6141.jpg'},
-        {id:'6142',type:'6',name:'Model 6142 PV6 Bathroom 6abinet',des6:'Size: 80×506m\nMaterial: PV6\nWarranty: 2 Years | MOQ: 50sets',pri6e:'$112.00',img:'6142.jpg'},
-        {id:'6143',type:'6',name:'Model 6143 PV6 Bathroom 6abinet',des6:'Size: 80×506m\nMaterial: PV6\nWarranty: 2 Years | MOQ: 50sets',pri6e:'$112.00',img:'6143.jpg'},
-        {id:'6144',type:'6',name:'Model 6144 PV6 Bathroom 6abinet',des6:'Size: 80×506m\nMaterial: PV6\nWarranty: 2 Years | MOQ: 50sets',pri6e:'$112.00',img:'6144.jpg'},
-        {id:'6145',type:'6',name:'Model 6145 PV6 Bathroom 6abinet',des6:'Size: 80×506m\nMaterial: PV6\nWarranty: 2 Years | MOQ: 50sets',pri6e:'$112.00',img:'6145.jpg'},
-        {id:'6146',type:'6',name:'Model 6146 PV6 Bathroom 6abinet',des6:'Size: 80×506m\nMaterial: PV6\nWarranty: 2 Years | MOQ: 50sets',pri6e:'$112.00',img:'6146.jpg'},
-        {id:'6147',type:'6',name:'Model 6147 PV6 Bathroom 6abinet',des6:'Size: 80×506m\nMaterial: PV6\nWarranty: 2 Years | MOQ: 50sets',pri6e:'$112.00',img:'6147.jpg'},
-        {id:'6148',type:'6',name:'Model 6148 PV6 Bathroom 6abinet',des6:'Size: 60×476m\nMaterial: PV6\nWarranty: 2 Years | MOQ: 50sets',pri6e:'$112.00',img:'6148.jpg'},
-        {id:'6149',type:'6',name:'Model 6149 PV6 Bathroom 6abinet',des6:'Size: 60×476m\nMaterial: PV6\nWarranty: 2 Years | MOQ: 50sets',pri6e:'$112.00',img:'6149.jpg'},
-        {id:'6150',type:'6',name:'Model 6150 PV6 Bathroom 6abinet',des6:'Size: 80/100/120×506m\nMaterial: PV6\nWarranty: 2 Years | MOQ: 50sets',pri6e:'$112.00',img:'6150.jpg'},
-        {id:'6151',type:'6',name:'Model 6151 PV6 Bathroom 6abinet',des6:'Size: 60×506m\nMaterial: PV6\nWarranty: 2 Years | MOQ: 50sets',pri6e:'$112.00',img:'6151.jpg'},
-        {id:'6152',type:'6',name:'Model 6152 PV6 Bathroom 6abinet',des6:'Size: 60×476m\nMaterial: PV6\nWarranty: 2 Years | MOQ: 50sets',pri6e:'$112.00',img:'6152.jpg'},
-        {id:'6153',type:'6',name:'Model 6153 PV6 Bathroom 6abinet',des6:'Size: 60×476m\nMaterial: PV6\nWarranty: 2 Years | MOQ: 50sets',pri6e:'$112.00',img:'6153.jpg'},
-        {id:'6154',type:'6',name:'Model 6154 PV6 Bathroom 6abinet',des6:'Size: 60×476m\nMaterial: PV6\nWarranty: 2 Years | MOQ: 50sets',pri6e:'$112.00',img:'6154.jpg'},
-        {id:'6155',type:'6',name:'Model 6155 PV6 Bathroom 6abinet',des6:'Size: 60×506m\nMaterial: PV6\nWarranty: 2 Years | MOQ: 50sets',pri6e:'$112.00',img:'6155.jpg'},
-        {id:'6156',type:'6',name:'Model 6156 PV6 Bathroom 6abinet',des6:'Size: 80×506m\nMaterial: PV6\nWarranty: 2 Years | MOQ: 50sets',pri6e:'$112.00',img:'6156.jpg'},
-        {id:'6157',type:'6',name:'Model 6157 PV6 Bathroom 6abinet',des6:'Size: 60×506m\nMaterial: PV6\nWarranty: 2 Years | MOQ: 50sets',pri6e:'$112.00',img:'6157.jpg'},
-        {id:'6158',type:'6',name:'Model 6158 PV6 Bathroom 6abinet',des6:'Size: 60×506m\nMaterial: PV6\nWarranty: 2 Years | MOQ: 50sets',pri6e:'$112.00',img:'6158.jpg'},
-        {id:'6159',type:'6',name:'Model 6159 PV6 Bathroom 6abinet',des6:'Size: 60×476m\nMaterial: PV6\nWarranty: 2 Years | MOQ: 50sets',pri6e:'$112.00',img:'6159.jpg'},
-        {id:'6160',type:'6',name:'Model 6160 PV6 Bathroom 6abinet',des6:'Size: 100×506m\nMaterial: PV6\nWarranty: 2 Years | MOQ: 50sets',pri6e:'$112.00',img:'6160.jpg'},
-        {id:'6161',type:'6',name:'Model 6161 PV6 Bathroom 6abinet',des6:'Size: 60×506m\nMaterial: PV6\nWarranty: 2 Years | MOQ: 50sets',pri6e:'$112.00',img:'6161.jpg'},
-        {id:'6162',type:'6',name:'Model 6162 PV6 Bathroom 6abinet',des6:'Size: 80×476m\nMaterial: PV6\nWarranty: 2 Years | MOQ: 50sets',pri6e:'$112.00',img:'6162.jpg'},
-        {id:'6163',type:'6',name:'Model 6163 PV6 Bathroom 6abinet',des6:'Size: 60×506m\nMaterial: PV6\nWarranty: 2 Years | MOQ: 50sets',pri6e:'$112.00',img:'6163.jpg'},
-        {id:'6164',type:'6',name:'Model 6164 PV6 Bathroom 6abinet',des6:'Size: 80×506m\nMaterial: PV6\nWarranty: 2 Years | MOQ: 50sets',pri6e:'$112.00',img:'6164.jpg'},
-        {id:'6165',type:'6',name:'Model 6165 PV6 Bathroom 6abinet',des6:'Size: 80×506m\nMaterial: PV6\nWarranty: 2 Years | MOQ: 50sets',pri6e:'$112.00',img:'6165.jpg'},
-        {id:'6166',type:'6',name:'Model 6166 PV6 Bathroom 6abinet',des6:'Size: 80/90×476m\nMaterial: PV6\nWarranty: 2 Years | MOQ: 50sets',pri6e:'$112.00',img:'6166.jpg'},
-        {id:'6167',type:'6',name:'Model 6167 PV6 Bathroom 6abinet',des6:'Size: 80×476m\nMaterial: PV6\nWarranty: 2 Years | MOQ: 50sets',pri6e:'$112.00',img:'6167.jpg'},
-        {id:'6168',type:'6',name:'Model 6168 PV6 Bathroom 6abinet',des6:'Size: 80×506m\nMaterial: PV6\nWarranty: 2 Years | MOQ: 50sets',pri6e:'$112.00',img:'6168.jpg'},
-        {id:'6169',type:'6',name:'Model 6169 PV6 Bathroom 6abinet',des6:'Size: 80×506m\nMaterial: PV6\nWarranty: 2 Years | MOQ: 50sets',pri6e:'$112.00',img:'6169.jpg'},
-        {id:'6170',type:'6',name:'Model 6170 PV6 Bathroom 6abinet',des6:'Size: 80×506m\nMaterial: PV6\nWarranty: 2 Years | MOQ: 50sets',pri6e:'$112.00',img:'6170.jpg'},
-        {id:'6171',type:'6',name:'Model 6171 PV6 Bathroom 6abinet',des6:'Size: 80×506m\nMaterial: PV6\nWarranty: 2 Years | MOQ: 50sets',pri6e:'$112.00',img:'6171.jpg'},
-        {id:'6172',type:'6',name:'Model 6172 PV6 Bathroom 6abinet',des6:'Size: 100×506m\nMaterial: PV6\nWarranty: 2 Years | MOQ: 50sets',pri6e:'$112.00',img:'6172.jpg'},
-        {id:'6173',type:'6',name:'Model 6173 PV6 Bathroom 6abinet',des6:'Size: 100×506m\nMaterial: PV6\nWarranty: 2 Years | MOQ: 50sets',pri6e:'$112.00',img:'6173.jpg'},
-        {id:'6174',type:'6',name:'Model 6174 PV6 Bathroom 6abinet',des6:'Size: 100×506m\nMaterial: PV6\nWarranty: 2 Years | MOQ: 50sets',pri6e:'$112.00',img:'6174.jpg'},
-        {id:'6175',type:'6',name:'Model 6175 PV6 Bathroom 6abinet',des6:'Size: 100×476m\nMaterial: PV6\nWarranty: 2 Years | MOQ: 50sets',pri6e:'$112.00',img:'6175.jpg'},
-        {id:'6176',type:'6',name:'Model 6176 PV6 Bathroom 6abinet',des6:'Size: 80×476m\nMaterial: PV6\nWarranty: 2 Years | MOQ: 50sets',pri6e:'$112.00',img:'6176.jpg'},
-        {id:'6177',type:'6',name:'Model 6177 PV6 Bathroom 6abinet',des6:'Size: 80×506m\nMaterial: PV6\nWarranty: 2 Years | MOQ: 50sets',pri6e:'$112.00',img:'6177.jpg'},
-        {id:'6178',type:'6',name:'Model 6178 PV6 Bathroom 6abinet',des6:'Size: 120×506m\nMaterial: PV6\nWarranty: 2 Years | MOQ: 50sets',pri6e:'$112.00',img:'6178.jpg'},
-        {id:'6179',type:'6',name:'Model 6179 PV6 Bathroom 6abinet',des6:'Size: 120×506m\nMaterial: PV6\nWarranty: 2 Years | MOQ: 50sets',pri6e:'$112.00',img:'6179.jpg'},
-        {id:'6180',type:'6',name:'Model 6180 PV6 Bathroom 6abinet',des6:'Size: 80×476m\nMaterial: PV6\nWarranty: 2 Years | MOQ: 50sets',pri6e:'$112.00',img:'6180.jpg'},
-        {id:'6181',type:'6',name:'Model 6181 PV6 Bathroom 6abinet',des6:'Size: 120×476m\nMaterial: PV6\nWarranty: 2 Years | MOQ: 50sets',pri6e:'$112.00',img:'6181.jpg'},
-        {id:'6182',type:'6',name:'Model 6182 PV6 Bathroom 6abinet',des6:'Size: 80×506m\nMaterial: PV6\nWarranty: 2 Years | MOQ: 50sets',pri6e:'$112.00',img:'6182.jpg'},
-        {id:'6183',type:'6',name:'Model 6183 PV6 Bathroom 6abinet',des6:'Size: 80×506m\nMaterial: PV6\nWarranty: 2 Years | MOQ: 50sets',pri6e:'$112.00',img:'6183.jpg'},
-        {id:'6184',type:'6',name:'Model 6184 PV6 Bathroom 6abinet',des6:'Size: 100×476m\nMaterial: PV6\nWarranty: 2 Years | MOQ: 50sets',pri6e:'$112.00',img:'6184.jpg'},
-        {id:'6185',type:'6',name:'Model 6185 PV6 Bathroom 6abinet',des6:'Size: 150×476m\nMaterial: PV6\nWarranty: 2 Years | MOQ: 50sets',pri6e:'$112.00',img:'6185.jpg'},
-        {id:'6186',type:'6',name:'Model 6186 PV6 Bathroom 6abinet',des6:'Size: 120×506m\nMaterial: PV6\nWarranty: 2 Years | MOQ: 50sets',pri6e:'$112.00',img:'6186.jpg'},
-        {id:'6187',type:'6',name:'Model 6187 PV6 Bathroom 6abinet',des6:'Size: 120×506m\nMaterial: PV6\nWarranty: 2 Years | MOQ: 50sets',pri6e:'$112.00',img:'6187.jpg'},
-        {id:'6188',type:'6',name:'Model 6188 PV6 Bathroom 6abinet',des6:'Size: 80×476m\nMaterial: PV6\nWarranty: 2 Years | MOQ: 50sets',pri6e:'$112.00',img:'6188.jpg'},
-        {id:'6189',type:'6',name:'Model 6189 PV6 Bathroom 6abinet',des6:'Size: 120×476m\nMaterial: PV6\nWarranty: 2 Years | MOQ: 50sets',pri6e:'$112.00',img:'6189.jpg'},
-        {id:'6190',type:'6',name:'Model 6190 PV6 Bathroom 6abinet',des6:'Size: 80×476m\nMaterial: PV6\nWarranty: 2 Years | MOQ: 50sets',pri6e:'$112.00',img:'6190.jpg'},
-        {id:'6191',type:'6',name:'Model 6191 PV6 Bathroom 6abinet',des6:'Size: 80×506m\nMaterial: PV6\nWarranty: 2 Years | MOQ: 50sets',pri6e:'$112.00',img:'6191.jpg'},
-        {id:'6192',type:'6',name:'Model 6192 PV6 Bathroom 6abinet',des6:'Size: 120×506m\nMaterial: PV6\nWarranty: 2 Years | MOQ: 50sets',pri6e:'$112.00',img:'6192.jpg'},
-        {id:'6193',type:'6',name:'Model 6193 PV6 Bathroom 6abinet',des6:'Size: 150×476m\nMaterial: PV6\nWarranty: 2 Years | MOQ: 50sets',pri6e:'$112.00',img:'6193.jpg'},
-        {id:'6194',type:'6',name:'Model 6194 PV6 Bathroom 6abinet',des6:'Size: 150×506m\nMaterial: PV6\nWarranty: 2 Years | MOQ: 50sets',pri6e:'$112.00',img:'6194.jpg'},
-        {id:'6195',type:'6',name:'Model 6195 PV6 Bathroom 6abinet',des6:'Size: 80×506m\nMaterial: PV6\nWarranty: 2 Years | MOQ: 50sets',pri6e:'$112.00',img:'6195.jpg'},
-        {id:'6196',type:'6',name:'Model 6196 PV6 Bathroom 6abinet',des6:'Size: 80×506m\nMaterial: PV6\nWarranty: 2 Years | MOQ: 50sets',pri6e:'$112.00',img:'6196.jpg'},
-        {id:'6197',type:'6',name:'Model 6197 PV6 Bathroom 6abinet',des6:'Size: 80×506m\nMaterial: PV6\nWarranty: 2 Years | MOQ: 50sets',pri6e:'$112.00',img:'6197.jpg'},
-        {id:'6198',type:'6',name:'Model 6198 PV6 Bathroom 6abinet',des6:'Size: 80×506m\nMaterial: PV6\nWarranty: 2 Years | MOQ: 50sets',pri6e:'$112.00',img:'6198.jpg'}
+        // C系列 PVC浴室柜 (共198款，尺寸全部转换为厘米)
+        {id:'C001',type:'C',name:'Model C001 PVC Bathroom Cabinet',desc:'Size: 100/80×50cm\nMaterial: PVC\nWarranty: 2 Years | MOQ: 50sets',price:'$112.00',img:'C001.jpg'},
+        {id:'C002',type:'C',name:'Model C002 PVC Bathroom Cabinet',desc:'Size: 100/80×50cm\nMaterial: PVC\nWarranty: 2 Years | MOQ: 50sets',price:'$112.00',img:'C002.jpg'},
+        {id:'C003',type:'C',name:'Model C003 PVC Bathroom Cabinet',desc:'Size: 100/80×50cm\nMaterial: PVC\nWarranty: 2 Years | MOQ: 50sets',price:'$112.00',img:'C003.jpg'},
+        {id:'C004',type:'C',name:'Model C004 PVC Bathroom Cabinet',desc:'Size: 100/80×50cm\nMaterial: PVC\nWarranty: 2 Years | MOQ: 50sets',price:'$112.00',img:'C004.jpg'},
+        {id:'C005',type:'C',name:'Model C005 PVC Bathroom Cabinet',desc:'Size: 100/80×50cm\nMaterial: PVC\nWarranty: 2 Years | MOQ: 50sets',price:'$112.00',img:'C005.jpg'},
+        {id:'C006',type:'C',name:'Model C006 PVC Bathroom Cabinet',desc:'Size: 100/80×50cm\nMaterial: PVC\nWarranty: 2 Years | MOQ: 50sets',price:'$112.00',img:'C006.jpg'},
+        {id:'C007',type:'C',name:'Model C007 PVC Bathroom Cabinet',desc:'Size: 100/80×50cm\nMaterial: PVC\nWarranty: 2 Years | MOQ: 50sets',price:'$112.00',img:'C007.jpg'},
+        {id:'C008',type:'C',name:'Model C008 PVC Bathroom Cabinet',desc:'Size: 100/80×50cm\nMaterial: PVC\nWarranty: 2 Years | MOQ: 50sets',price:'$112.00',img:'C008.jpg'},
+        {id:'C009',type:'C',name:'Model C009 PVC Bathroom Cabinet',desc:'Size: 100/80×50cm\nMaterial: PVC\nWarranty: 2 Years | MOQ: 50sets',price:'$112.00',img:'C009.jpg'},
+        {id:'C010',type:'C',name:'Model C010 PVC Bathroom Cabinet',desc:'Size: 100/80×50cm\nMaterial: PVC\nWarranty: 2 Years | MOQ: 50sets',price:'$112.00',img:'C010.jpg'},
+        {id:'C011',type:'C',name:'Model C011 PVC Bathroom Cabinet',desc:'Size: 100/80×50cm\nMaterial: PVC\nWarranty: 2 Years | MOQ: 50sets',price:'$112.00',img:'C011.jpg'},
+        {id:'C012',type:'C',name:'Model C012 PVC Bathroom Cabinet',desc:'Size: 100/80×50cm\nMaterial: PVC\nWarranty: 2 Years | MOQ: 50sets',price:'$112.00',img:'C012.jpg'},
+        {id:'C013',type:'C',name:'Model C013 PVC Bathroom Cabinet',desc:'Size: 100/80×50cm\nMaterial: PVC\nWarranty: 2 Years | MOQ: 50sets',price:'$112.00',img:'C013.jpg'},
+        {id:'C014',type:'C',name:'Model C014 PVC Bathroom Cabinet',desc:'Size: 100/80×50cm\nMaterial: PVC\nWarranty: 2 Years | MOQ: 50sets',price:'$112.00',img:'C014.jpg'},
+        {id:'C015',type:'C',name:'Model C015 PVC Bathroom Cabinet',desc:'Size: 100/80×50cm\nMaterial: PVC\nWarranty: 2 Years | MOQ: 50sets',price:'$112.00',img:'C015.jpg'},
+        {id:'C016',type:'C',name:'Model C016 PVC Bathroom Cabinet',desc:'Size: 100/80×50cm\nMaterial: PVC\nWarranty: 2 Years | MOQ: 50sets',price:'$112.00',img:'C016.jpg'},
+        {id:'C017',type:'C',name:'Model C017 PVC Bathroom Cabinet',desc:'Size: 100/80×50cm\nMaterial: PVC\nWarranty: 2 Years | MOQ: 50sets',price:'$112.00',img:'C017.jpg'},
+        {id:'C018',type:'C',name:'Model C018 PVC Bathroom Cabinet',desc:'Size: 100/80×50cm\nMaterial: PVC\nWarranty: 2 Years | MOQ: 50sets',price:'$112.00',img:'C018.jpg'},
+        {id:'C019',type:'C',name:'Model C019 PVC Bathroom Cabinet',desc:'Size: 80×50cm\nMaterial: PVC\nWarranty: 2 Years | MOQ: 50sets',price:'$112.00',img:'C019.jpg'},
+        {id:'C020',type:'C',name:'Model C020 PVC Bathroom Cabinet',desc:'Size: 80×50cm\nMaterial: PVC\nWarranty: 2 Years | MOQ: 50sets',price:'$112.00',img:'C020.jpg'},
+        {id:'C021',type:'C',name:'Model C021 PVC Bathroom Cabinet',desc:'Size: 80×50cm\nMaterial: PVC\nWarranty: 2 Years | MOQ: 50sets',price:'$112.00',img:'C021.jpg'},
+        {id:'C022',type:'C',name:'Model C022 PVC Bathroom Cabinet',desc:'Size: 80×50cm\nMaterial: PVC\nWarranty: 2 Years | MOQ: 50sets',price:'$112.00',img:'C022.jpg'},
+        {id:'C023',type:'C',name:'Model C023 PVC Bathroom Cabinet',desc:'Size: 80×50cm\nMaterial: PVC\nWarranty: 2 Years | MOQ: 50sets',price:'$112.00',img:'C023.jpg'},
+        {id:'C024',type:'C',name:'Model C024 PVC Bathroom Cabinet',desc:'Size: 80×50cm\nMaterial: PVC\nWarranty: 2 Years | MOQ: 50sets',price:'$112.00',img:'C024.jpg'},
+        {id:'C025',type:'C',name:'Model C025 PVC Bathroom Cabinet',desc:'Size: 80×50cm\nMaterial: PVC\nWarranty: 2 Years | MOQ: 50sets',price:'$112.00',img:'C025.jpg'},
+        {id:'C026',type:'C',name:'Model C026 PVC Bathroom Cabinet',desc:'Size: 80×50cm\nMaterial: PVC\nWarranty: 2 Years | MOQ: 50sets',price:'$112.00',img:'C026.jpg'},
+        {id:'C027',type:'C',name:'Model C027 PVC Bathroom Cabinet',desc:'Size: 80×50cm\nMaterial: PVC\nWarranty: 2 Years | MOQ: 50sets',price:'$112.00',img:'C027.jpg'},
+        {id:'C028',type:'C',name:'Model C028 PVC Bathroom Cabinet',desc:'Size: 80×50cm\nMaterial: PVC\nWarranty: 2 Years | MOQ: 50sets',price:'$112.00',img:'C028.jpg'},
+        {id:'C029',type:'C',name:'Model C029 PVC Bathroom Cabinet',desc:'Size: 80×50cm\nMaterial: PVC\nWarranty: 2 Years | MOQ: 50sets',price:'$112.00',img:'C029.jpg'},
+        {id:'C030',type:'C',name:'Model C030 PVC Bathroom Cabinet',desc:'Size: 80×50cm\nMaterial: PVC\nWarranty: 2 Years | MOQ: 50sets',price:'$112.00',img:'C030.jpg'},
+        {id:'C031',type:'C',name:'Model C031 PVC Bathroom Cabinet',desc:'Size: 80×50cm\nMaterial: PVC\nWarranty: 2 Years | MOQ: 50sets',price:'$112.00',img:'C031.jpg'},
+        {id:'C032',type:'C',name:'Model C032 PVC Bathroom Cabinet',desc:'Size: 80×50cm\nMaterial: PVC\nWarranty: 2 Years | MOQ: 50sets',price:'$112.00',img:'C032.jpg'},
+        {id:'C033',type:'C',name:'Model C033 PVC Bathroom Cabinet',desc:'Size: 120×50cm\nMaterial: PVC\nWarranty: 2 Years | MOQ: 50sets',price:'$112.00',img:'C033.jpg'},
+        {id:'C034',type:'C',name:'Model C034 PVC Bathroom Cabinet',desc:'Size: 120×50cm\nMaterial: PVC\nWarranty: 2 Years | MOQ: 50sets',price:'$112.00',img:'C034.jpg'},
+        {id:'C035',type:'C',name:'Model C035 PVC Bathroom Cabinet',desc:'Size: 120×50cm\nMaterial: PVC\nWarranty: 2 Years | MOQ: 50sets',price:'$112.00',img:'C035.jpg'},
+        {id:'C036',type:'C',name:'Model C036 PVC Bathroom Cabinet',desc:'Size: 100×50cm\nMaterial: PVC\nWarranty: 2 Years | MOQ: 50sets',price:'$112.00',img:'C036.jpg'},
+        {id:'C037',type:'C',name:'Model C037 PVC Bathroom Cabinet',desc:'Size: 100×50cm\nMaterial: PVC\nWarranty: 2 Years | MOQ: 50sets',price:'$112.00',img:'C037.jpg'},
+        {id:'C038',type:'C',name:'Model C038 PVC Bathroom Cabinet',desc:'Size: 100×50cm\nMaterial: PVC\nWarranty: 2 Years | MOQ: 50sets',price:'$112.00',img:'C038.jpg'},
+        {id:'C039',type:'C',name:'Model C039 PVC Bathroom Cabinet',desc:'Size: 80×50cm\nMaterial: PVC\nWarranty: 2 Years | MOQ: 50sets',price:'$112.00',img:'C039.jpg'},
+        {id:'C040',type:'C',name:'Model C040 PVC Bathroom Cabinet',desc:'Size: 80×50cm\nMaterial: PVC\nWarranty: 2 Years | MOQ: 50sets',price:'$112.00',img:'C040.jpg'},
+        {id:'C041',type:'C',name:'Model C041 PVC Bathroom Cabinet',desc:'Size: 80×50cm\nMaterial: PVC\nWarranty: 2 Years | MOQ: 50sets',price:'$112.00',img:'C041.jpg'},
+        {id:'C042',type:'C',name:'Model C042 PVC Bathroom Cabinet',desc:'Size: 80×50cm\nMaterial: PVC\nWarranty: 2 Years | MOQ: 50sets',price:'$112.00',img:'C042.jpg'},
+        {id:'C043',type:'C',name:'Model C043 PVC Bathroom Cabinet',desc:'Size: 80×50cm\nMaterial: PVC\nWarranty: 2 Years | MOQ: 50sets',price:'$112.00',img:'C043.jpg'},
+        {id:'C044',type:'C',name:'Model C044 PVC Bathroom Cabinet',desc:'Size: 80×50cm\nMaterial: PVC\nWarranty: 2 Years | MOQ: 50sets',price:'$112.00',img:'C044.jpg'},
+        {id:'C045',type:'C',name:'Model C045 PVC Bathroom Cabinet',desc:'Size: 80×50cm\nMaterial: PVC\nWarranty: 2 Years | MOQ: 50sets',price:'$112.00',img:'C045.jpg'},
+        {id:'C046',type:'C',name:'Model C046 PVC Bathroom Cabinet',desc:'Size: 80×50cm\nMaterial: PVC\nWarranty: 2 Years | MOQ: 50sets',price:'$112.00',img:'C046.jpg'},
+        {id:'C047',type:'C',name:'Model C047 PVC Bathroom Cabinet',desc:'Size: 80×50cm\nMaterial: PVC\nWarranty: 2 Years | MOQ: 50sets',price:'$112.00',img:'C047.jpg'},
+        {id:'C048',type:'C',name:'Model C048 PVC Bathroom Cabinet',desc:'Size: 80×50cm\nMaterial: PVC\nWarranty: 2 Years | MOQ: 50sets',price:'$112.00',img:'C048.jpg'},
+        {id:'C049',type:'C',name:'Model C049 PVC Bathroom Cabinet',desc:'Size: 80×50cm\nMaterial: PVC\nWarranty: 2 Years | MOQ: 50sets',price:'$112.00',img:'C049.jpg'},
+        {id:'C050',type:'C',name:'Model C050 PVC Bathroom Cabinet',desc:'Size: 80×50cm\nMaterial: PVC\nWarranty: 2 Years | MOQ: 50sets',price:'$112.00',img:'C050.jpg'},
+        {id:'C051',type:'C',name:'Model C051 PVC Bathroom Cabinet',desc:'Size: 80×50cm\nMaterial: PVC\nWarranty: 2 Years | MOQ: 50sets',price:'$112.00',img:'C051.jpg'},
+        {id:'C052',type:'C',name:'Model C052 PVC Bathroom Cabinet',desc:'Size: 80×50cm\nMaterial: PVC\nWarranty: 2 Years | MOQ: 50sets',price:'$112.00',img:'C052.jpg'},
+        {id:'C053',type:'C',name:'Model C053 PVC Bathroom Cabinet',desc:'Size: 80×50cm\nMaterial: PVC\nWarranty: 2 Years | MOQ: 50sets',price:'$112.00',img:'C053.jpg'},
+        {id:'C054',type:'C',name:'Model C054 PVC Bathroom Cabinet',desc:'Size: 80×50cm\nMaterial: PVC\nWarranty: 2 Years | MOQ: 50sets',price:'$112.00',img:'C054.jpg'},
+        {id:'C055',type:'C',name:'Model C055 PVC Bathroom Cabinet',desc:'Size: 80×50cm\nMaterial: PVC\nWarranty: 2 Years | MOQ: 50sets',price:'$112.00',img:'C055.jpg'},
+        {id:'C056',type:'C',name:'Model C056 PVC Bathroom Cabinet',desc:'Size: 80×50cm\nMaterial: PVC\nWarranty: 2 Years | MOQ: 50sets',price:'$112.00',img:'C056.jpg'},
+        {id:'C057',type:'C',name:'Model C057 PVC Bathroom Cabinet',desc:'Size: 80×50cm\nMaterial: PVC\nWarranty: 2 Years | MOQ: 50sets',price:'$112.00',img:'C057.jpg'},
+        {id:'C058',type:'C',name:'Model C058 PVC Bathroom Cabinet',desc:'Size: 80×50cm\nMaterial: PVC\nWarranty: 2 Years | MOQ: 50sets',price:'$112.00',img:'C058.jpg'},
+        {id:'C059',type:'C',name:'Model C059 PVC Bathroom Cabinet',desc:'Size: 80×50cm\nMaterial: PVC\nWarranty: 2 Years | MOQ: 50sets',price:'$112.00',img:'C059.jpg'},
+        {id:'C060',type:'C',name:'Model C060 PVC Bathroom Cabinet',desc:'Size: 80×50cm\nMaterial: PVC\nWarranty: 2 Years | MOQ: 50sets',price:'$112.00',img:'C060.jpg'},
+        {id:'C061',type:'C',name:'Model C061 PVC Bathroom Cabinet',desc:'Size: 80×50cm\nMaterial: PVC\nWarranty: 2 Years | MOQ: 50sets',price:'$112.00',img:'C061.jpg'},
+        {id:'C062',type:'C',name:'Model C062 PVC Bathroom Cabinet',desc:'Size: 80×50cm\nMaterial: PVC\nWarranty: 2 Years | MOQ: 50sets',price:'$112.00',img:'C062.jpg'},
+        {id:'C063',type:'C',name:'Model C063 PVC Bathroom Cabinet',desc:'Size: 80×50cm\nMaterial: PVC\nWarranty: 2 Years | MOQ: 50sets',price:'$112.00',img:'C063.jpg'},
+        {id:'C064',type:'C',name:'Model C064 PVC Bathroom Cabinet',desc:'Size: 80×50cm\nMaterial: PVC\nWarranty: 2 Years | MOQ: 50sets',price:'$112.00',img:'C064.jpg'},
+        {id:'C065',type:'C',name:'Model C065 PVC Bathroom Cabinet',desc:'Size: 80×50cm\nMaterial: PVC\nWarranty: 2 Years | MOQ: 50sets',price:'$112.00',img:'C065.jpg'},
+        {id:'C066',type:'C',name:'Model C066 PVC Bathroom Cabinet',desc:'Size: 80×50cm\nMaterial: PVC\nWarranty: 2 Years | MOQ: 50sets',price:'$112.00',img:'C066.jpg'},
+        {id:'C067',type:'C',name:'Model C067 PVC Bathroom Cabinet',desc:'Size: 80×50cm\nMaterial: PVC\nWarranty: 2 Years | MOQ: 50sets',price:'$112.00',img:'C067.jpg'},
+        {id:'C068',type:'C',name:'Model C068 PVC Bathroom Cabinet',desc:'Size: 80×50cm\nMaterial: PVC\nWarranty: 2 Years | MOQ: 50sets',price:'$112.00',img:'C068.jpg'},
+        {id:'C069',type:'C',name:'Model C069 PVC Bathroom Cabinet',desc:'Size: 80×50cm\nMaterial: PVC\nWarranty: 2 Years | MOQ: 50sets',price:'$112.00',img:'C069.jpg'},
+        {id:'C070',type:'C',name:'Model C070 PVC Bathroom Cabinet',desc:'Size: 80×50cm\nMaterial: PVC\nWarranty: 2 Years | MOQ: 50sets',price:'$112.00',img:'C070.jpg'},
+        {id:'C071',type:'C',name:'Model C071 PVC Bathroom Cabinet',desc:'Size: 80×50cm\nMaterial: PVC\nWarranty: 2 Years | MOQ: 50sets',price:'$112.00',img:'C071.jpg'},
+        {id:'C072',type:'C',name:'Model C072 PVC Bathroom Cabinet',desc:'Size: 80×50cm\nMaterial: PVC\nWarranty: 2 Years | MOQ: 50sets',price:'$112.00',img:'C072.jpg'},
+        {id:'C073',type:'C',name:'Model C073 PVC Bathroom Cabinet',desc:'Size: 80×50cm\nMaterial: PVC\nWarranty: 2 Years | MOQ: 50sets',price:'$112.00',img:'C073.jpg'},
+        {id:'C074',type:'C',name:'Model C074 PVC Bathroom Cabinet',desc:'Size: 80×50cm\nMaterial: PVC\nWarranty: 2 Years | MOQ: 50sets',price:'$112.00',img:'C074.jpg'},
+        {id:'C075',type:'C',name:'Model C075 PVC Bathroom Cabinet',desc:'Size: 80×50cm\nMaterial: PVC\nWarranty: 2 Years | MOQ: 50sets',price:'$112.00',img:'C075.jpg'},
+        {id:'C076',type:'C',name:'Model C076 PVC Bathroom Cabinet',desc:'Size: 80×50cm\nMaterial: PVC\nWarranty: 2 Years | MOQ: 50sets',price:'$112.00',img:'C076.jpg'},
+        {id:'C077',type:'C',name:'Model C077 PVC Bathroom Cabinet',desc:'Size: 80×50cm\nMaterial: PVC\nWarranty: 2 Years | MOQ: 50sets',price:'$112.00',img:'C077.jpg'},
+        {id:'C078',type:'C',name:'Model C078 PVC Bathroom Cabinet',desc:'Size: 80×50cm\nMaterial: PVC\nWarranty: 2 Years | MOQ: 50sets',price:'$112.00',img:'C078.jpg'},
+        {id:'C079',type:'C',name:'Model C079 PVC Bathroom Cabinet',desc:'Size: 80×50cm\nMaterial: PVC\nWarranty: 2 Years | MOQ: 50sets',price:'$112.00',img:'C079.jpg'},
+        {id:'C080',type:'C',name:'Model C080 PVC Bathroom Cabinet',desc:'Size: 80×50cm\nMaterial: PVC\nWarranty: 2 Years | MOQ: 50sets',price:'$112.00',img:'C080.jpg'},
+        {id:'C081',type:'C',name:'Model C081 PVC Bathroom Cabinet',desc:'Size: 80×50cm\nMaterial: PVC\nWarranty: 2 Years | MOQ: 50sets',price:'$112.00',img:'C081.jpg'},
+        {id:'C082',type:'C',name:'Model C082 PVC Bathroom Cabinet',desc:'Size: 80×50cm\nMaterial: PVC\nWarranty: 2 Years | MOQ: 50sets',price:'$112.00',img:'C082.jpg'},
+        {id:'C083',type:'C',name:'Model C083 PVC Bathroom Cabinet',desc:'Size: 80×50cm\nMaterial: PVC\nWarranty: 2 Years | MOQ: 50sets',price:'$112.00',img:'C083.jpg'},
+        {id:'C084',type:'C',name:'Model C084 PVC Bathroom Cabinet',desc:'Size: 80×50cm\nMaterial: PVC\nWarranty: 2 Years | MOQ: 50sets',price:'$112.00',img:'C084.jpg'},
+        {id:'C085',type:'C',name:'Model C085 PVC Bathroom Cabinet',desc:'Size: 80×50cm\nMaterial: PVC\nWarranty: 2 Years | MOQ: 50sets',price:'$112.00',img:'C085.jpg'},
+        {id:'C086',type:'C',name:'Model C086 PVC Bathroom Cabinet',desc:'Size: 80×50cm\nMaterial: PVC\nWarranty: 2 Years | MOQ: 50sets',price:'$112.00',img:'C086.jpg'},
+        {id:'C087',type:'C',name:'Model C087 PVC Bathroom Cabinet',desc:'Size: 80×50cm\nMaterial: PVC\nWarranty: 2 Years | MOQ: 50sets',price:'$112.00',img:'C087.jpg'},
+        {id:'C088',type:'C',name:'Model C088 PVC Bathroom Cabinet',desc:'Size: 80×50cm\nMaterial: PVC\nWarranty: 2 Years | MOQ: 50sets',price:'$112.00',img:'C088.jpg'},
+        {id:'C089',type:'C',name:'Model C089 PVC Bathroom Cabinet',desc:'Size: 80×50cm\nMaterial: PVC\nWarranty: 2 Years | MOQ: 50sets',price:'$112.00',img:'C089.jpg'},
+        {id:'C090',type:'C',name:'Model C090 PVC Bathroom Cabinet',desc:'Size: 80×50cm\nMaterial: PVC\nWarranty: 2 Years | MOQ: 50sets',price:'$112.00',img:'C090.jpg'},
+        {id:'C091',type:'C',name:'Model C091 PVC Bathroom Cabinet',desc:'Size: 80×50cm\nMaterial: PVC\nWarranty: 2 Years | MOQ: 50sets',price:'$112.00',img:'C091.jpg'},
+        {id:'C092',type:'C',name:'Model C092 PVC Bathroom Cabinet',desc:'Size: 80×50cm\nMaterial: PVC\nWarranty: 2 Years | MOQ: 50sets',price:'$112.00',img:'C092.jpg'},
+        {id:'C093',type:'C',name:'Model C093 PVC Bathroom Cabinet',desc:'Size: 80×50cm\nMaterial: PVC\nWarranty: 2 Years | MOQ: 50sets',price:'$112.00',img:'C093.jpg'},
+        {id:'C094',type:'C',name:'Model C094 PVC Bathroom Cabinet',desc:'Size: 80×50cm\nMaterial: PVC\nWarranty: 2 Years | MOQ: 50sets',price:'$112.00',img:'C094.jpg'},
+        {id:'C095',type:'C',name:'Model C095 PVC Bathroom Cabinet',desc:'Size: 80×50cm\nMaterial: PVC\nWarranty: 2 Years | MOQ: 50sets',price:'$112.00',img:'C095.jpg'},
+        {id:'C096',type:'C',name:'Model C096 PVC Bathroom Cabinet',desc:'Size: 80×50cm\nMaterial: PVC\nWarranty: 2 Years | MOQ: 50sets',price:'$112.00',img:'C096.jpg'},
+        {id:'C097',type:'C',name:'Model C097 PVC Bathroom Cabinet',desc:'Size: 80×50cm\nMaterial: PVC\nWarranty: 2 Years | MOQ: 50sets',price:'$112.00',img:'C097.jpg'},
+        {id:'C098',type:'C',name:'Model C098 PVC Bathroom Cabinet',desc:'Size: 80×50cm\nMaterial: PVC\nWarranty: 2 Years | MOQ: 50sets',price:'$112.00',img:'C098.jpg'},
+        {id:'C099',type:'C',name:'Model C099 PVC Bathroom Cabinet',desc:'Size: 80×50cm\nMaterial: PVC\nWarranty: 2 Years | MOQ: 50sets',price:'$112.00',img:'C099.jpg'},
+        {id:'C100',type:'C',name:'Model C100 PVC Bathroom Cabinet',desc:'Size: 80×50cm\nMaterial: PVC\nWarranty: 2 Years | MOQ: 50sets',price:'$112.00',img:'C100.jpg'},
+        {id:'C101',type:'C',name:'Model C101 PVC Bathroom Cabinet',desc:'Size: 80×50cm\nMaterial: PVC\nWarranty: 2 Years | MOQ: 50sets',price:'$112.00',img:'C101.jpg'},
+        {id:'C102',type:'C',name:'Model C102 PVC Bathroom Cabinet',desc:'Size: 80×50cm\nMaterial: PVC\nWarranty: 2 Years | MOQ: 50sets',price:'$112.00',img:'C102.jpg'},
+        {id:'C103',type:'C',name:'Model C103 PVC Bathroom Cabinet',desc:'Size: 80×50cm\nMaterial: PVC\nWarranty: 2 Years | MOQ: 50sets',price:'$112.00',img:'C103.jpg'},
+        {id:'C104',type:'C',name:'Model C104 PVC Bathroom Cabinet',desc:'Size: 80×50cm\nMaterial: PVC\nWarranty: 2 Years | MOQ: 50sets',price:'$112.00',img:'C104.jpg'},
+        {id:'C105',type:'C',name:'Model C105 PVC Bathroom Cabinet',desc:'Size: 80×50cm\nMaterial: PVC\nWarranty: 2 Years | MOQ: 50sets',price:'$112.00',img:'C105.jpg'},
+        {id:'C106',type:'C',name:'Model C106 PVC Bathroom Cabinet',desc:'Size: 80×50cm\nMaterial: PVC\nWarranty: 2 Years | MOQ: 50sets',price:'$112.00',img:'C106.jpg'},
+        {id:'C107',type:'C',name:'Model C107 PVC Bathroom Cabinet',desc:'Size: 80×50cm\nMaterial: PVC\nWarranty: 2 Years | MOQ: 50sets',price:'$112.00',img:'C107.jpg'},
+        {id:'C108',type:'C',name:'Model C108 PVC Bathroom Cabinet',desc:'Size: 80×50cm\nMaterial: PVC\nWarranty: 2 Years | MOQ: 50sets',price:'$112.00',img:'C108.jpg'},
+        {id:'C109',type:'C',name:'Model C109 PVC Bathroom Cabinet',desc:'Size: 80×50cm\nMaterial: PVC\nWarranty: 2 Years | MOQ: 50sets',price:'$112.00',img:'C109.jpg'},
+        {id:'C110',type:'C',name:'Model C110 PVC Bathroom Cabinet',desc:'Size: 80×50cm\nMaterial: PVC\nWarranty: 2 Years | MOQ: 50sets',price:'$112.00',img:'C110.jpg'},
+        {id:'C111',type:'C',name:'Model C111 PVC Bathroom Cabinet',desc:'Size: 80×50cm\nMaterial: PVC\nWarranty: 2 Years | MOQ: 50sets',price:'$112.00',img:'C111.jpg'},
+        {id:'C112',type:'C',name:'Model C112 PVC Bathroom Cabinet',desc:'Size: 80×50cm\nMaterial: PVC\nWarranty: 2 Years | MOQ: 50sets',price:'$112.00',img:'C112.jpg'},
+        {id:'C113',type:'C',name:'Model C113 PVC Bathroom Cabinet',desc:'Size: 80×50cm\nMaterial: PVC\nWarranty: 2 Years | MOQ: 50sets',price:'$112.00',img:'C113.jpg'},
+        {id:'C114',type:'C',name:'Model C114 PVC Bathroom Cabinet',desc:'Size: 80×50cm\nMaterial: PVC\nWarranty: 2 Years | MOQ: 50sets',price:'$112.00',img:'C114.jpg'},
+        {id:'C115',type:'C',name:'Model C115 PVC Bathroom Cabinet',desc:'Size: 80×50cm\nMaterial: PVC\nWarranty: 2 Years | MOQ: 50sets',price:'$112.00',img:'C115.jpg'},
+        {id:'C116',type:'C',name:'Model C116 PVC Bathroom Cabinet',desc:'Size: 80×50cm\nMaterial: PVC\nWarranty: 2 Years | MOQ: 50sets',price:'$112.00',img:'C116.jpg'},
+        {id:'C117',type:'C',name:'Model C117 PVC Bathroom Cabinet',desc:'Size: 80×50cm\nMaterial: PVC\nWarranty: 2 Years | MOQ: 50sets',price:'$112.00',img:'C117.jpg'},
+        {id:'C118',type:'C',name:'Model C118 PVC Bathroom Cabinet',desc:'Size: 80×50cm\nMaterial: PVC\nWarranty: 2 Years | MOQ: 50sets',price:'$112.00',img:'C118.jpg'},
+        {id:'C119',type:'C',name:'Model C119 PVC Bathroom Cabinet',desc:'Size: 80×50cm\nMaterial: PVC\nWarranty: 2 Years | MOQ: 50sets',price:'$112.00',img:'C119.jpg'},
+        {id:'C120',type:'C',name:'Model C120 PVC Bathroom Cabinet',desc:'Size: 46×26cm\nMaterial: PVC\nWarranty: 2 Years | MOQ: 50sets',price:'$112.00',img:'C120.jpg'},
+        {id:'C121',type:'C',name:'Model C121 PVC Bathroom Cabinet',desc:'Size: 80×50cm\nMaterial: PVC\nWarranty: 2 Years | MOQ: 50sets',price:'$112.00',img:'C121.jpg'},
+        {id:'C122',type:'C',name:'Model C122 PVC Bathroom Cabinet',desc:'Size: 80×50cm\nMaterial: PVC\nWarranty: 2 Years | MOQ: 50sets',price:'$112.00',img:'C122.jpg'},
+        {id:'C123',type:'C',name:'Model C123 PVC Bathroom Cabinet',desc:'Size: 80×50cm\nMaterial: PVC\nWarranty: 2 Years | MOQ: 50sets',price:'$112.00',img:'C123.jpg'},
+        {id:'C124',type:'C',name:'Model C124 PVC Bathroom Cabinet',desc:'Size: 80×50cm\nMaterial: PVC\nWarranty: 2 Years | MOQ: 50sets',price:'$112.00',img:'C124.jpg'},
+        {id:'C125',type:'C',name:'Model C125 PVC Bathroom Cabinet',desc:'Size: 80×50cm\nMaterial: PVC\nWarranty: 2 Years | MOQ: 50sets',price:'$112.00',img:'C125.jpg'},
+        {id:'C126',type:'C',name:'Model C126 PVC Bathroom Cabinet',desc:'Size: 80×50cm\nMaterial: PVC\nWarranty: 2 Years | MOQ: 50sets',price:'$112.00',img:'C126.jpg'},
+        {id:'C127',type:'C',name:'Model C127 PVC Bathroom Cabinet',desc:'Size: 80×50cm\nMaterial: PVC\nWarranty: 2 Years | MOQ: 50sets',price:'$112.00',img:'C127.jpg'},
+        {id:'C128',type:'C',name:'Model C128 PVC Bathroom Cabinet',desc:'Size: 80×50cm\nMaterial: PVC\nWarranty: 2 Years | MOQ: 50sets',price:'$112.00',img:'C128.jpg'},
+        {id:'C129',type:'C',name:'Model C129 PVC Bathroom Cabinet',desc:'Size: 80×50cm\nMaterial: PVC\nWarranty: 2 Years | MOQ: 50sets',price:'$112.00',img:'C129.jpg'},
+        {id:'C130',type:'C',name:'Model C130 PVC Bathroom Cabinet',desc:'Size: 80×50cm\nMaterial: PVC\nWarranty: 2 Years | MOQ: 50sets',price:'$112.00',img:'C130.jpg'},
+        {id:'C131',type:'C',name:'Model C131 PVC Bathroom Cabinet',desc:'Size: 80×50cm\nMaterial: PVC\nWarranty: 2 Years | MOQ: 50sets',price:'$112.00',img:'C131.jpg'},
+        {id:'C132',type:'C',name:'Model C132 PVC Bathroom Cabinet',desc:'Size: 80×50cm\nMaterial: PVC\nWarranty: 2 Years | MOQ: 50sets',price:'$112.00',img:'C132.jpg'},
+        {id:'C133',type:'C',name:'Model C133 PVC Bathroom Cabinet',desc:'Size: 80×50cm\nMaterial: PVC\nWarranty: 2 Years | MOQ: 50sets',price:'$112.00',img:'C133.jpg'},
+        {id:'C134',type:'C',name:'Model C134 PVC Bathroom Cabinet',desc:'Size: 80×50cm\nMaterial: PVC\nWarranty: 2 Years | MOQ: 50sets',price:'$112.00',img:'C134.jpg'},
+        {id:'C135',type:'C',name:'Model C135 PVC Bathroom Cabinet',desc:'Size: 80×50cm\nMaterial: PVC\nWarranty: 2 Years | MOQ: 50sets',price:'$112.00',img:'C135.jpg'},
+        {id:'C136',type:'C',name:'Model C136 PVC Bathroom Cabinet',desc:'Size: 80×50cm\nMaterial: PVC\nWarranty: 2 Years | MOQ: 50sets',price:'$112.00',img:'C136.jpg'},
+        {id:'C137',type:'C',name:'Model C137 PVC Bathroom Cabinet',desc:'Size: 80×50cm\nMaterial: PVC\nWarranty: 2 Years | MOQ: 50sets',price:'$112.00',img:'C137.jpg'},
+        {id:'C138',type:'C',name:'Model C138 PVC Bathroom Cabinet',desc:'Size: 80×50cm\nMaterial: PVC\nWarranty: 2 Years | MOQ: 50sets',price:'$112.00',img:'C138.jpg'},
+        {id:'C139',type:'C',name:'Model C139 PVC Bathroom Cabinet',desc:'Size: 80×50cm\nMaterial: PVC\nWarranty: 2 Years | MOQ: 50sets',price:'$112.00',img:'C139.jpg'},
+        {id:'C140',type:'C',name:'Model C140 PVC Bathroom Cabinet',desc:'Size: 80×50cm\nMaterial: PVC\nWarranty: 2 Years | MOQ: 50sets',price:'$112.00',img:'C140.jpg'},
+        {id:'C141',type:'C',name:'Model C141 PVC Bathroom Cabinet',desc:'Size: 80×50cm\nMaterial: PVC\nWarranty: 2 Years | MOQ: 50sets',price:'$112.00',img:'C141.jpg'},
+        {id:'C142',type:'C',name:'Model C142 PVC Bathroom Cabinet',desc:'Size: 80×50cm\nMaterial: PVC\nWarranty: 2 Years | MOQ: 50sets',price:'$112.00',img:'C142.jpg'},
+        {id:'C143',type:'C',name:'Model C143 PVC Bathroom Cabinet',desc:'Size: 80×50cm\nMaterial: PVC\nWarranty: 2 Years | MOQ: 50sets',price:'$112.00',img:'C143.jpg'},
+        {id:'C144',type:'C',name:'Model C144 PVC Bathroom Cabinet',desc:'Size: 80×50cm\nMaterial: PVC\nWarranty: 2 Years | MOQ: 50sets',price:'$112.00',img:'C144.jpg'},
+        {id:'C145',type:'C',name:'Model C145 PVC Bathroom Cabinet',desc:'Size: 80×50cm\nMaterial: PVC\nWarranty: 2 Years | MOQ: 50sets',price:'$112.00',img:'C145.jpg'},
+        {id:'C146',type:'C',name:'Model C146 PVC Bathroom Cabinet',desc:'Size: 80×50cm\nMaterial: PVC\nWarranty: 2 Years | MOQ: 50sets',price:'$112.00',img:'C146.jpg'},
+        {id:'C147',type:'C',name:'Model C147 PVC Bathroom Cabinet',desc:'Size: 80×50cm\nMaterial: PVC\nWarranty: 2 Years | MOQ: 50sets',price:'$112.00',img:'C147.jpg'},
+        {id:'C148',type:'C',name:'Model C148 PVC Bathroom Cabinet',desc:'Size: 60×47cm\nMaterial: PVC\nWarranty: 2 Years | MOQ: 50sets',price:'$112.00',img:'C148.jpg'},
+        {id:'C149',type:'C',name:'Model C149 PVC Bathroom Cabinet',desc:'Size: 60×47cm\nMaterial: PVC\nWarranty: 2 Years | MOQ: 50sets',price:'$112.00',img:'C149.jpg'},
+        {id:'C150',type:'C',name:'Model C150 PVC Bathroom Cabinet',desc:'Size: 80/100/120×50cm\nMaterial: PVC\nWarranty: 2 Years | MOQ: 50sets',price:'$112.00',img:'C150.jpg'},
+        {id:'C151',type:'C',name:'Model C151 PVC Bathroom Cabinet',desc:'Size: 60×50cm\nMaterial: PVC\nWarranty: 2 Years | MOQ: 50sets',price:'$112.00',img:'C151.jpg'},
+        {id:'C152',type:'C',name:'Model C152 PVC Bathroom Cabinet',desc:'Size: 60×47cm\nMaterial: PVC\nWarranty: 2 Years | MOQ: 50sets',price:'$112.00',img:'C152.jpg'},
+        {id:'C153',type:'C',name:'Model C153 PVC Bathroom Cabinet',desc:'Size: 60×47cm\nMaterial: PVC\nWarranty: 2 Years | MOQ: 50sets',price:'$112.00',img:'C153.jpg'},
+        {id:'C154',type:'C',name:'Model C154 PVC Bathroom Cabinet',desc:'Size: 60×47cm\nMaterial: PVC\nWarranty: 2 Years | MOQ: 50sets',price:'$112.00',img:'C154.jpg'},
+        {id:'C155',type:'C',name:'Model C155 PVC Bathroom Cabinet',desc:'Size: 60×50cm\nMaterial: PVC\nWarranty: 2 Years | MOQ: 50sets',price:'$112.00',img:'C155.jpg'},
+        {id:'C156',type:'C',name:'Model C156 PVC Bathroom Cabinet',desc:'Size: 80×50cm\nMaterial: PVC\nWarranty: 2 Years | MOQ: 50sets',price:'$112.00',img:'C156.jpg'},
+        {id:'C157',type:'C',name:'Model C157 PVC Bathroom Cabinet',desc:'Size: 60×50cm\nMaterial: PVC\nWarranty: 2 Years | MOQ: 50sets',price:'$112.00',img:'C157.jpg'},
+        {id:'C158',type:'C',name:'Model C158 PVC Bathroom Cabinet',desc:'Size: 60×50cm\nMaterial: PVC\nWarranty: 2 Years | MOQ: 50sets',price:'$112.00',img:'C158.jpg'},
+        {id:'C159',type:'C',name:'Model C159 PVC Bathroom Cabinet',desc:'Size: 60×47cm\nMaterial: PVC\nWarranty: 2 Years | MOQ: 50sets',price:'$112.00',img:'C159.jpg'},
+        {id:'C160',type:'C',name:'Model C160 PVC Bathroom Cabinet',desc:'Size: 100×50cm\nMaterial: PVC\nWarranty: 2 Years | MOQ: 50sets',price:'$112.00',img:'C160.jpg'},
+        {id:'C161',type:'C',name:'Model C161 PVC Bathroom Cabinet',desc:'Size: 60×50cm\nMaterial: PVC\nWarranty: 2 Years | MOQ: 50sets',price:'$112.00',img:'C161.jpg'},
+        {id:'C162',type:'C',name:'Model C162 PVC Bathroom Cabinet',desc:'Size: 80×47cm\nMaterial: PVC\nWarranty: 2 Years | MOQ: 50sets',price:'$112.00',img:'C162.jpg'},
+        {id:'C163',type:'C',name:'Model C163 PVC Bathroom Cabinet',desc:'Size: 60×50cm\nMaterial: PVC\nWarranty: 2 Years | MOQ: 50sets',price:'$112.00',img:'C163.jpg'},
+        {id:'C164',type:'C',name:'Model C164 PVC Bathroom Cabinet',desc:'Size: 80×50cm\nMaterial: PVC\nWarranty: 2 Years | MOQ: 50sets',price:'$112.00',img:'C164.jpg'},
+        {id:'C165',type:'C',name:'Model C165 PVC Bathroom Cabinet',desc:'Size: 80×50cm\nMaterial: PVC\nWarranty: 2 Years | MOQ: 50sets',price:'$112.00',img:'C165.jpg'},
+        {id:'C166',type:'C',name:'Model C166 PVC Bathroom Cabinet',desc:'Size: 80/90×47cm\nMaterial: PVC\nWarranty: 2 Years | MOQ: 50sets',price:'$112.00',img:'C166.jpg'},
+        {id:'C167',type:'C',name:'Model C167 PVC Bathroom Cabinet',desc:'Size: 80×47cm\nMaterial: PVC\nWarranty: 2 Years | MOQ: 50sets',price:'$112.00',img:'C167.jpg'},
+        {id:'C168',type:'C',name:'Model C168 PVC Bathroom Cabinet',desc:'Size: 80×50cm\nMaterial: PVC\nWarranty: 2 Years | MOQ: 50sets',price:'$112.00',img:'C168.jpg'},
+        {id:'C169',type:'C',name:'Model C169 PVC Bathroom Cabinet',desc:'Size: 80×50cm\nMaterial: PVC\nWarranty: 2 Years | MOQ: 50sets',price:'$112.00',img:'C169.jpg'},
+        {id:'C170',type:'C',name:'Model C170 PVC Bathroom Cabinet',desc:'Size: 80×50cm\nMaterial: PVC\nWarranty: 2 Years | MOQ: 50sets',price:'$112.00',img:'C170.jpg'},
+        {id:'C171',type:'C',name:'Model C171 PVC Bathroom Cabinet',desc:'Size: 80×50cm\nMaterial: PVC\nWarranty: 2 Years | MOQ: 50sets',price:'$112.00',img:'C171.jpg'},
+        {id:'C172',type:'C',name:'Model C172 PVC Bathroom Cabinet',desc:'Size: 100×50cm\nMaterial: PVC\nWarranty: 2 Years | MOQ: 50sets',price:'$112.00',img:'C172.jpg'},
+        {id:'C173',type:'C',name:'Model C173 PVC Bathroom Cabinet',desc:'Size: 100×50cm\nMaterial: PVC\nWarranty: 2 Years | MOQ: 50sets',price:'$112.00',img:'C173.jpg'},
+        {id:'C174',type:'C',name:'Model C174 PVC Bathroom Cabinet',desc:'Size: 100×50cm\nMaterial: PVC\nWarranty: 2 Years | MOQ: 50sets',price:'$112.00',img:'C174.jpg'},
+        {id:'C175',type:'C',name:'Model C175 PVC Bathroom Cabinet',desc:'Size: 100×47cm\nMaterial: PVC\nWarranty: 2 Years | MOQ: 50sets',price:'$112.00',img:'C175.jpg'},
+        {id:'C176',type:'C',name:'Model C176 PVC Bathroom Cabinet',desc:'Size: 80×47cm\nMaterial: PVC\nWarranty: 2 Years | MOQ: 50sets',price:'$112.00',img:'C176.jpg'},
+        {id:'C177',type:'C',name:'Model C177 PVC Bathroom Cabinet',desc:'Size: 80×50cm\nMaterial: PVC\nWarranty: 2 Years | MOQ: 50sets',price:'$112.00',img:'C177.jpg'},
+        {id:'C178',type:'C',name:'Model C178 PVC Bathroom Cabinet',desc:'Size: 120×50cm\nMaterial: PVC\nWarranty: 2 Years | MOQ: 50sets',price:'$112.00',img:'C178.jpg'},
+        {id:'C179',type:'C',name:'Model C179 PVC Bathroom Cabinet',desc:'Size: 120×50cm\nMaterial: PVC\nWarranty: 2 Years | MOQ: 50sets',price:'$112.00',img:'C179.jpg'},
+        {id:'C180',type:'C',name:'Model C180 PVC Bathroom Cabinet',desc:'Size: 80×47cm\nMaterial: PVC\nWarranty: 2 Years | MOQ: 50sets',price:'$112.00',img:'C180.jpg'},
+        {id:'C181',type:'C',name:'Model C181 PVC Bathroom Cabinet',desc:'Size: 120×47cm\nMaterial: PVC\nWarranty: 2 Years | MOQ: 50sets',price:'$112.00',img:'C181.jpg'},
+        {id:'C182',type:'C',name:'Model C182 PVC Bathroom Cabinet',desc:'Size: 80×50cm\nMaterial: PVC\nWarranty: 2 Years | MOQ: 50sets',price:'$112.00',img:'C182.jpg'},
+        {id:'C183',type:'C',name:'Model C183 PVC Bathroom Cabinet',desc:'Size: 80×50cm\nMaterial: PVC\nWarranty: 2 Years | MOQ: 50sets',price:'$112.00',img:'C183.jpg'},
+        {id:'C184',type:'C',name:'Model C184 PVC Bathroom Cabinet',desc:'Size: 100×47cm\nMaterial: PVC\nWarranty: 2 Years | MOQ: 50sets',price:'$112.00',img:'C184.jpg'},
+        {id:'C185',type:'C',name:'Model C185 PVC Bathroom Cabinet',desc:'Size: 150×47cm\nMaterial: PVC\nWarranty: 2 Years | MOQ: 50sets',price:'$112.00',img:'C185.jpg'},
+        {id:'C186',type:'C',name:'Model C186 PVC Bathroom Cabinet',desc:'Size: 120×50cm\nMaterial: PVC\nWarranty: 2 Years | MOQ: 50sets',price:'$112.00',img:'C186.jpg'},
+        {id:'C187',type:'C',name:'Model C187 PVC Bathroom Cabinet',desc:'Size: 120×50cm\nMaterial: PVC\nWarranty: 2 Years | MOQ: 50sets',price:'$112.00',img:'C187.jpg'},
+        {id:'C188',type:'C',name:'Model C188 PVC Bathroom Cabinet',desc:'Size: 80×47cm\nMaterial: PVC\nWarranty: 2 Years | MOQ: 50sets',price:'$112.00',img:'C188.jpg'},
+        {id:'C189',type:'C',name:'Model C189 PVC Bathroom Cabinet',desc:'Size: 120×47cm\nMaterial: PVC\nWarranty: 2 Years | MOQ: 50sets',price:'$112.00',img:'C189.jpg'},
+        {id:'C190',type:'C',name:'Model C190 PVC Bathroom Cabinet',desc:'Size: 80×47cm\nMaterial: PVC\nWarranty: 2 Years | MOQ: 50sets',price:'$112.00',img:'C190.jpg'},
+        {id:'C191',type:'C',name:'Model C191 PVC Bathroom Cabinet',desc:'Size: 80×50cm\nMaterial: PVC\nWarranty: 2 Years | MOQ: 50sets',price:'$112.00',img:'C191.jpg'},
+        {id:'C192',type:'C',name:'Model C192 PVC Bathroom Cabinet',desc:'Size: 120×50cm\nMaterial: PVC\nWarranty: 2 Years | MOQ: 50sets',price:'$112.00',img:'C192.jpg'},
+        {id:'C193',type:'C',name:'Model C193 PVC Bathroom Cabinet',desc:'Size: 150×47cm\nMaterial: PVC\nWarranty: 2 Years | MOQ: 50sets',price:'$112.00',img:'C193.jpg'},
+        {id:'C194',type:'C',name:'Model C194 PVC Bathroom Cabinet',desc:'Size: 150×50cm\nMaterial: PVC\nWarranty: 2 Years | MOQ: 50sets',price:'$112.00',img:'C194.jpg'},
+        {id:'C195',type:'C',name:'Model C195 PVC Bathroom Cabinet',desc:'Size: 80×50cm\nMaterial: PVC\nWarranty: 2 Years | MOQ: 50sets',price:'$112.00',img:'C195.jpg'},
+        {id:'C196',type:'C',name:'Model C196 PVC Bathroom Cabinet',desc:'Size: 80×50cm\nMaterial: PVC\nWarranty: 2 Years | MOQ: 50sets',price:'$112.00',img:'C196.jpg'},
+        {id:'C197',type:'C',name:'Model C197 PVC Bathroom Cabinet',desc:'Size: 80×50cm\nMaterial: PVC\nWarranty: 2 Years | MOQ: 50sets',price:'$112.00',img:'C197.jpg'},
+        {id:'C198',type:'C',name:'Model C198 PVC Bathroom Cabinet',desc:'Size: 80×50cm\nMaterial: PVC\nWarranty: 2 Years | MOQ: 50sets',price:'$112.00',img:'C198.jpg'}
     ];
 
-    6onst WHATSAPP='8617799215074';
-    let 6urrentFilter='all';
-
-    do6ument.addEventListener('DOM6ontentLoaded',fun6tion(){
-        renderProdu6ts();
-        initFilterTabs();
-        initSear6h();
-        initBa6kTop();
-        initModal6lose();
-    });
-
-    fun6tion renderProdu6ts(){
-        6onst grid=do6ument.getElementById('produ6tGrid');
-        6onst emptyState=do6ument.getElementById('emptyState');
-        grid.innerHTML='';
-        grid.append6hild(emptyState);
-        PRODU6TS.forEa6h(p=>{
-            6onst 6ard=do6ument.6reateElement('div');
-            6ard.6lassName='produ6t-6ard';
-            6ard.dataset.type=p.type;
-            6ard.dataset.id=p.id;
-            6onst imgBox=do6ument.6reateElement('div');
-            imgBox.6lassName='img-box';
-            if(p.img){
-                imgBox.innerHTML=`<img 6lass="produ6t-img" sr6="${p.img}" alt="${p.name}" loading="lazy">`;
-            }else{
-                imgBox.innerHTML='<div 6lass="img-pla6eholder">Produ6t Image<br>(6oming Soon)</div>';
-            }
-            6onst info=do6ument.6reateElement('div');
-            info.6lassName='produ6t-info';
-            info.innerHTML=`<h3 6lass="produ6t-name">${p.name}</h3><p 6lass="produ6t-des6">${p.des6}</p><div 6lass="produ6t-pri6e">Unit Pri6e: ${p.pri6e}</div><button 6lass="order-btn" on6li6k="openProdu6tModal('${p.id}')">View Details & Inquiry</button>`;
-            6ard.append6hild(imgBox);
-            6ard.append6hild(info);
-            grid.append6hild(6ard);
-        });
-        filterProdu6ts();
-    }
-
-    fun6tion initFilterTabs(){
-        do6ument.querySele6torAll('.filter-tab').forEa6h(tab=>{
-            tab.addEventListener('6li6k',fun6tion(){
-                do6ument.querySele6torAll('.filter-tab').forEa6h(t=>t.6lassList.remove('a6tive'));
-                this.6lassList.add('a6tive');
-                6urrentFilter=this.dataset.filter;
-                filterProdu6ts();
-            });
-        });
-    }
-
-    fun6tion initSear6h(){
-        do6ument.getElementById('sear6hInput').addEventListener('input',filterProdu6ts);
-    }
-
-    fun6tion filterProdu6ts(){
-        6onst keyword=do6ument.getElementById('sear6hInput').value.trim().toLower6ase();
-        6onst 6ards=do6ument.querySele6torAll('.produ6t-6ard');
-        6onst empty=do6ument.getElementById('emptyState');
-        let visible=0;
-        6ards.forEa6h(6=>{
-            6onst type=6.dataset.type;
-            6onst text=6.innerText.toLower6ase();
-            6onst mat6hType=6urrentFilter==='all'||type===6urrentFilter;
-            6onst mat6hKeyword=keyword===''||text.in6ludes(keyword);
-            if(mat6hType&&mat6hKeyword){
-                6.6lassList.remove('hide');
-                visible++;
-            }else{
-                6.6lassList.add('hide');
-            }
-        });
-        empty.6lassList.toggle('show',visible===0);
-    }
-
-    fun6tion openProdu6tModal(id){
-        6onst p=PRODU6TS.find(x=>x.id===id);
-        if(!p)return;
-        do6ument.getElementById('modalTitle').innerText=p.name;
-        do6ument.getElementById('modal6ontent').innerText=p.des6+'\n\nUnit Pri6e: '+p.pri6e;
-        do6ument.getElementById('produ6tModal').6lassList.add('show');
-        do6ument.body.6lassList.add('no-s6roll');
-    }
-
-    fun6tion 6loseProdu6tModal(){
-        do6ument.getElementById('produ6tModal').6lassList.remove('show');
-        do6ument.body.6lassList.remove('no-s6roll');
-    }
-
-    fun6tion openOEMModal(){
-        do6ument.getElementById('oemModal').6lassList.add('show');
-        do6ument.body.6lassList.add('no-s6roll');
-    }
-
-    fun6tion 6loseOEMModal(){
-        do6ument.getElementById('oemModal').6lassList.remove('show');
-        do6ument.body.6lassList.remove('no-s6roll');
-    }
-
-    fun6tion initModal6lose(){
-        do6ument.querySele6torAll('.modal-mask').forEa6h(m=>{
-            m.addEventListener('6li6k',fun6tion(e){
-                if(e.target===this){
-                    this.6lassList.remove('show');
-                    do6ument.body.6lassList.remove('no-s6roll');
-                }
-            });
-        });
-    }
-
-    fun6tion 6onta6tWhatsApp(){
-        window.open('https://wa.me/'+WHATSAPP,'_blank');
-    }
-
-    fun6tion 6opyText(t){
-        navigator.6lipboard.writeText(t).then(()=>{
-            6onst toast=do6ument.getElementById('6opyToast');
-            toast.6lassList.add('show');
-            setTimeout(()=>toast.6lassList.remove('show'),1500);
-        });
-    }
-
-    fun6tion initBa6kTop(){
-        6onst btn=do6ument.getElementById('ba6kTop');
-        window.addEventListener('s6roll',()=>{
-            btn.6lassList.toggle('show',window.s6rollY>300);
-        });
-    }
-
-    fun6tion s6rollToTop(){
-        window.s6rollTo({top:0,behavior:'smooth'});
-    }
-</s6ript>
-</body>
-</html>
+    const
