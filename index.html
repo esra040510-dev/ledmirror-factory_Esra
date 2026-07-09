@@ -4,13 +4,16 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Yongling LED Sanitary Mirror Factory - Professional manufacturer of LED bathroom mirrors, premium smart mirror cabinets and PVC smart mirror cabinets, support OEM & ODM, low MOQ wholesale worldwide.">
+    <meta name="keywords" content="LED bathroom mirror, smart mirror cabinet, PVC bathroom cabinet, anti-fog mirror, OEM mirror factory">
     <meta name="robots" content="index, follow">
-    <title>Yongling LED Sanitary Mirror Factory</title>
+    <title>Yongling LED Sanitary Mirror Factory | LED Mirror & Bathroom Cabinet Supplier</title>
     <style>
+        /* 全局变量与重置 */
         :root {
             --primary: #91284b;
             --primary-dark: #781f3e;
             --primary-light: #b03860;
+            --primary-rgba: rgba(145, 40, 75, 0.08);
             --bg-soft: #ffe8ec;
             --border-soft: #f8c8d2;
             --border-input: #f0a8b8;
@@ -22,235 +25,1031 @@
             --whatsapp: #25D366;
             --whatsapp-dark: #20bd5a;
             --shadow-sm: 0 4px 18px rgba(145, 40, 75, 0.08);
+            --shadow-md: 0 8px 24px rgba(145, 40, 75, 0.12);
             --shadow-hover: 0 12px 32px rgba(145, 40, 75, 0.15);
             --radius-card: 16px;
             --radius-btn: 30px;
             --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
         }
-        * { margin:0; padding:0; box-sizing:border-box; font-family:'Segoe UI',Arial,Helvetica,sans-serif; }
-        html { scroll-behavior:smooth; }
-        body { background-color:var(--bg-soft); color:var(--text-dark); max-width:1280px; margin:0 auto; padding:0 20px 30px; line-height:1.6; }
-        body.no-scroll { overflow:hidden; }
 
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Arial, Helvetica, sans-serif;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background-color: var(--bg-soft);
+            color: var(--text-dark);
+            max-width: 1280px;
+            margin: 0 auto;
+            padding: 0 20px 30px;
+            line-height: 1.6;
+            position: relative;
+        }
+
+        body.no-scroll {
+            overflow: hidden;
+        }
+
+        /* 顶部导航栏 */
         header {
-            text-align:center; padding:30px 0 20px; border-bottom:1px solid var(--border-soft);
-            margin-bottom:30px; position:sticky; top:0; z-index:100;
-            background-color:rgba(255,232,236,0.95); backdrop-filter:blur(8px);
+            text-align: center;
+            padding: 30px 0 20px;
+            border-bottom: 1px solid var(--border-soft);
+            margin-bottom: 30px;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            background-color: rgba(255, 232, 236, 0.95);
+            backdrop-filter: blur(8px);
+            transition: var(--transition);
         }
-        header h1 { font-size:36px; color:var(--primary); margin-bottom:24px; font-weight:600; }
-        .search-wrap { display:flex; justify-content:center; gap:12px; flex-wrap:wrap; margin-bottom:24px; }
+
+        header.scrolled {
+            padding: 20px 0 15px;
+            box-shadow: var(--shadow-sm);
+        }
+
+        header h1 {
+            font-size: 36px;
+            color: var(--primary);
+            margin-bottom: 24px;
+            font-weight: 600;
+            letter-spacing: 0.5px;
+        }
+
+        /* 搜索区域 */
+        .search-wrap {
+            display: flex;
+            justify-content: center;
+            gap: 12px;
+            flex-wrap: wrap;
+            margin-bottom: 24px;
+            align-items: center;
+        }
+
         #searchInput {
-            padding:14px 20px; width:420px; border:2px solid var(--border-input);
-            border-radius:16px; font-size:16px; background:var(--white); transition:var(--transition);
+            padding: 14px 20px;
+            width: 420px;
+            border: 2px solid var(--border-input);
+            border-radius: 16px;
+            font-size: 16px;
+            background: var(--white);
+            transition: var(--transition);
+            color: var(--text-dark);
         }
-        #searchInput::placeholder { color:var(--text-placeholder); }
+
+        #searchInput::placeholder {
+            color: var(--text-placeholder);
+        }
+
         #searchInput:focus {
-            outline:none; border-color:var(--primary-light);
-            box-shadow:0 0 0 4px rgba(214,80,118,0.12);
+            outline: none;
+            border-color: var(--primary-light);
+            box-shadow: 0 0 0 4px rgba(214, 80, 118, 0.12);
         }
 
-        .filter-tabs { display:flex; justify-content:center; gap:16px; flex-wrap:wrap; }
+        .result-count {
+            font-size: 14px;
+            color: var(--text-muted);
+            margin-left: 8px;
+        }
+
+        /* 分类筛选标签 */
+        .filter-tabs {
+            display: flex;
+            justify-content: center;
+            gap: 16px;
+            flex-wrap: wrap;
+        }
+
         .filter-tab {
-            padding:12px 30px; border-radius:var(--radius-btn); background:var(--white);
-            border:2px solid var(--primary); color:var(--primary); cursor:pointer;
-            font-size:18px; transition:var(--transition); user-select:none; font-weight:500;
+            padding: 12px 30px;
+            border-radius: var(--radius-btn);
+            background: var(--white);
+            border: 2px solid var(--primary);
+            color: var(--primary);
+            cursor: pointer;
+            font-size: 18px;
+            transition: var(--transition);
+            user-select: none;
+            font-weight: 500;
+            position: relative;
+            overflow: hidden;
         }
-        .filter-tab:hover { background:var(--bg-soft); }
-        .filter-tab.active { background:var(--primary); color:var(--white); border-color:var(--primary); }
 
-        .oem-entry { text-align:center; margin:0 0 40px; }
+        .filter-tab::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
+            transition: left 0.5s ease;
+        }
+
+        .filter-tab:hover::after {
+            left: 100%;
+        }
+
+        .filter-tab:hover {
+            background: var(--bg-soft);
+            transform: translateY(-2px);
+        }
+
+        .filter-tab.active {
+            background: var(--primary);
+            color: var(--white);
+            border-color: var(--primary);
+            box-shadow: var(--shadow-sm);
+        }
+
+        /* OEM定制入口 */
+        .oem-entry {
+            text-align: center;
+            margin: 0 0 30px;
+        }
+
         .oem-btn {
-            display:inline-block; padding:10px 24px; border-radius:28px; background:var(--white);
-            border:1px solid var(--border-input); color:var(--primary); cursor:pointer;
-            font-size:14px; transition:var(--transition);
+            display: inline-block;
+            padding: 10px 24px;
+            border-radius: 28px;
+            background: var(--white);
+            border: 1px solid var(--border-input);
+            color: var(--primary);
+            cursor: pointer;
+            font-size: 14px;
+            transition: var(--transition);
         }
-        .oem-btn:hover { background:var(--bg-soft); }
 
+        .oem-btn:hover {
+            background: var(--bg-soft);
+            transform: translateY(-1px);
+            box-shadow: var(--shadow-sm);
+        }
+
+        /* 产品网格区域 */
         .product-grid {
-            display:grid; grid-template-columns:repeat(auto-fill, minmax(280px,1fr));
-            gap:32px; justify-items:center; min-height:200px; position:relative;
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 32px;
+            justify-items: center;
+            min-height: 400px;
+            position: relative;
         }
+
+        /* 骨架屏加载效果 */
+        .skeleton-card {
+            background: var(--white);
+            border-radius: var(--radius-card);
+            overflow: hidden;
+            width: 100%;
+            max-width: 320px;
+            animation: skeleton-loading 1.5s infinite ease-in-out;
+        }
+
+        .skeleton-img {
+            height: 220px;
+            background: linear-gradient(90deg, var(--bg-soft) 25%, #f8d8de 50%, var(--bg-soft) 75%);
+            background-size: 200% 100%;
+            animation: skeleton-shimmer 1.5s infinite;
+        }
+
+        .skeleton-content {
+            padding: 20px;
+        }
+
+        .skeleton-line {
+            height: 16px;
+            border-radius: 8px;
+            background: linear-gradient(90deg, var(--bg-soft) 25%, #f8d8de 50%, var(--bg-soft) 75%);
+            background-size: 200% 100%;
+            animation: skeleton-shimmer 1.5s infinite;
+            margin-bottom: 12px;
+        }
+
+        .skeleton-line.short {
+            width: 60%;
+        }
+
+        .skeleton-line.price {
+            width: 40%;
+            height: 20px;
+        }
+
+        .skeleton-line.btn {
+            width: 100%;
+            height: 40px;
+            border-radius: 10px;
+            margin-top: 16px;
+        }
+
+        @keyframes skeleton-shimmer {
+            0% { background-position: 200% 0; }
+            100% { background-position: -200% 0; }
+        }
+
+        /* 空状态 */
         .empty-state {
-            grid-column:1/-1; text-align:center; padding:60px 20px;
-            color:var(--text-muted); font-size:18px; display:none;
+            grid-column: 1 / -1;
+            text-align: center;
+            padding: 80px 20px;
+            color: var(--text-muted);
+            font-size: 18px;
+            display: none;
         }
-        .empty-state.show { display:block; }
-        .empty-state span { font-size:48px; display:block; margin-bottom:16px; }
 
+        .empty-state.show {
+            display: block;
+        }
+
+        .empty-state span {
+            font-size: 64px;
+            display: block;
+            margin-bottom: 16px;
+        }
+
+        /* 产品卡片 */
         .product-card {
-            background:var(--white); border-radius:var(--radius-card); overflow:hidden;
-            box-shadow:var(--shadow-sm); transition:var(--transition); width:100%;
-            max-width:320px; display:flex; flex-direction:column;
+            background: var(--white);
+            border-radius: var(--radius-card);
+            overflow: hidden;
+            box-shadow: var(--shadow-sm);
+            transition: var(--transition);
+            width: 100%;
+            max-width: 320px;
+            display: flex;
+            flex-direction: column;
+            opacity: 0;
+            transform: translateY(20px);
+            animation: fadeInUp 0.5s ease forwards;
+            position: relative;
         }
-        .product-card.hide { display:none; }
-        .product-card:hover { transform:translateY(-8px); box-shadow:var(--shadow-hover); }
 
+        .product-card.hide {
+            display: none;
+        }
+
+        .product-card:hover {
+            transform: translateY(-8px);
+            box-shadow: var(--shadow-hover);
+        }
+
+        @keyframes fadeInUp {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* 产品图片区域 */
         .img-box {
-            overflow:hidden; height:220px; background:var(--bg-soft);
-            display:flex; align-items:center; justify-content:center; flex-shrink:0; position:relative;
+            overflow: hidden;
+            height: 220px;
+            background: var(--bg-soft);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+            position: relative;
         }
+
         .product-img {
-            width:100%; height:100%; object-fit:cover; transition:transform 0.4s ease;
-            animation:fadeIn 0.6s ease forwards;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.4s ease;
         }
-        .product-card:hover .product-img { transform:scale(1.06); }
-        @keyframes fadeIn { from { opacity:0; } to { opacity:1; } }
-        .img-placeholder { color:#c890a0; font-size:14px; text-align:center; padding:10px; }
 
-        .product-info { padding:20px; flex:1; display:flex; flex-direction:column; }
+        .product-card:hover .product-img {
+            transform: scale(1.06);
+        }
+
+        .img-placeholder {
+            color: #c890a0;
+            font-size: 14px;
+            text-align: center;
+            padding: 10px;
+        }
+
+        .model-tag {
+            position: absolute;
+            top: 12px;
+            left: 12px;
+            background: var(--primary);
+            color: var(--white);
+            padding: 4px 10px;
+            border-radius: 12px;
+            font-size: 12px;
+            font-weight: 500;
+            z-index: 2;
+        }
+
+        .favorite-btn {
+            position: absolute;
+            top: 12px;
+            right: 12px;
+            width: 32px;
+            height: 32px;
+            border-radius: 50%;
+            background: rgba(255,255,255,0.9);
+            border: none;
+            color: var(--primary);
+            cursor: pointer;
+            font-size: 16px;
+            z-index: 2;
+            transition: var(--transition);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .favorite-btn:hover {
+            background: var(--white);
+            transform: scale(1.1);
+        }
+
+        .favorite-btn.active {
+            color: #e63946;
+        }
+
+        /* 产品信息区域 */
+        .product-info {
+            padding: 20px;
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+        }
+
         .product-name {
-            font-size:17px; font-weight:600; margin-bottom:10px;
-            color:var(--primary-dark); line-height:1.4;
+            font-size: 17px;
+            font-weight: 600;
+            margin-bottom: 10px;
+            color: var(--primary-dark);
+            line-height: 1.4;
         }
+
         .product-desc {
-            font-size:13px; color:var(--text-muted); line-height:1.7;
-            margin-bottom:14px; flex:1; white-space:pre-line;
+            font-size: 13px;
+            color: var(--text-muted);
+            line-height: 1.7;
+            margin-bottom: 14px;
+            flex: 1;
+            white-space: pre-line;
         }
+
         .product-price {
-            font-size:18px; color:var(--price-color); font-weight:700; margin-bottom:16px;
+            font-size: 20px;
+            color: var(--price-color);
+            font-weight: 700;
+            margin-bottom: 16px;
         }
+
+        .product-price small {
+            font-size: 12px;
+            font-weight: 400;
+            color: var(--text-muted);
+            margin-left: 4px;
+        }
+
+        .card-actions {
+            display: flex;
+            gap: 8px;
+        }
+
         .order-btn {
-            width:100%; padding:11px; background-color:var(--primary); color:var(--white);
-            border:none; border-radius:10px; font-size:14px; font-weight:500;
-            cursor:pointer; transition:var(--transition);
+            flex: 1;
+            padding: 11px;
+            background-color: var(--primary);
+            color: var(--white);
+            border: none;
+            border-radius: 10px;
+            font-size: 14px;
+            font-weight: 500;
+            cursor: pointer;
+            transition: var(--transition);
         }
-        .order-btn:hover { background-color:var(--primary-light); transform:translateY(-1px); }
 
+        .order-btn:hover {
+            background-color: var(--primary-light);
+            transform: translateY(-1px);
+        }
+
+        .quick-whatsapp {
+            width: 40px;
+            padding: 11px 0;
+            background: var(--whatsapp);
+            color: white;
+            border: none;
+            border-radius: 10px;
+            cursor: pointer;
+            transition: var(--transition);
+            font-size: 16px;
+        }
+
+        .quick-whatsapp:hover {
+            background: var(--whatsapp-dark);
+            transform: translateY(-1px);
+        }
+
+        /* 弹窗通用样式 */
         .modal-mask {
-            display:none; position:fixed; top:0; left:0; width:100%; height:100%;
-            background:rgba(0,0,0,0.5); z-index:999; align-items:center; justify-content:center;
-            opacity:0; transition:opacity 0.3s ease; padding:20px;
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.5);
+            z-index: 999;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+            padding: 20px;
         }
-        .modal-mask.show { display:flex; opacity:1; }
+
+        .modal-mask.show {
+            display: flex;
+            opacity: 1;
+        }
+
         .modal-box {
-            background:var(--white); width:100%; max-width:440px; border-radius:18px;
-            padding:36px 30px; position:relative; transform:translateY(20px);
-            transition:transform 0.3s ease; max-height:90vh; overflow-y:auto;
+            background: var(--white);
+            width: 100%;
+            max-width: 500px;
+            border-radius: 18px;
+            padding: 36px 30px;
+            position: relative;
+            transform: translateY(20px);
+            transition: transform 0.3s ease;
+            max-height: 90vh;
+            overflow-y: auto;
         }
-        .modal-mask.show .modal-box { transform:translateY(0); }
+
+        .modal-mask.show .modal-box {
+            transform: translateY(0);
+        }
+
         .close-modal {
-            position:absolute; top:16px; right:20px; font-size:26px; cursor:pointer;
-            color:#999; transition:color 0.2s; line-height:1;
+            position: absolute;
+            top: 16px;
+            right: 20px;
+            font-size: 26px;
+            cursor: pointer;
+            color: #999;
+            transition: color 0.2s;
+            line-height: 1;
+            width: 32px;
+            height: 32px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
         }
-        .close-modal:hover { color:var(--primary-dark); }
+
+        .close-modal:hover {
+            color: var(--primary-dark);
+            background: var(--bg-soft);
+        }
+
         .modal-title {
-            font-size:22px; color:var(--primary-dark); margin-bottom:18px; font-weight:600;
+            font-size: 22px;
+            color: var(--primary-dark);
+            margin-bottom: 18px;
+            font-weight: 600;
         }
+
         .modal-text {
-            line-height:1.9; font-size:15px; color:#555; margin-bottom:24px; white-space:pre-line;
+            line-height: 1.9;
+            font-size: 15px;
+            color: #555;
+            margin-bottom: 24px;
+            white-space: pre-line;
         }
+
+        .modal-meta {
+            display: flex;
+            gap: 16px;
+            margin-bottom: 20px;
+            flex-wrap: wrap;
+        }
+
+        .meta-item {
+            background: var(--bg-soft);
+            padding: 8px 14px;
+            border-radius: 8px;
+            font-size: 13px;
+            color: var(--primary-dark);
+        }
+
         .whatsapp-btn {
-            display:block; width:100%; text-align:center; padding:14px;
-            background:var(--whatsapp); color:white; border-radius:10px;
-            text-decoration:none; font-weight:600; transition:var(--transition);
-            border:none; font-size:15px; cursor:pointer;
+            display: block;
+            width: 100%;
+            text-align: center;
+            padding: 14px;
+            background: var(--whatsapp);
+            color: white;
+            border-radius: 10px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: var(--transition);
+            border: none;
+            font-size: 15px;
+            cursor: pointer;
         }
-        .whatsapp-btn:hover { background:var(--whatsapp-dark); transform:translateY(-1px); }
 
+        .whatsapp-btn:hover {
+            background: var(--whatsapp-dark);
+            transform: translateY(-1px);
+            box-shadow: 0 4px 12px rgba(37, 211, 102, 0.3);
+        }
+
+        .copy-model-btn {
+            display: inline-block;
+            margin-left: 8px;
+            padding: 4px 10px;
+            font-size: 12px;
+            background: var(--bg-soft);
+            color: var(--primary);
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            transition: var(--transition);
+        }
+
+        .copy-model-btn:hover {
+            background: var(--border-soft);
+        }
+
+        /* OEM弹窗定制列表 */
+        .oem-list {
+            margin-bottom: 24px;
+        }
+
+        .oem-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 12px;
+            padding: 10px 0;
+            border-bottom: 1px dashed var(--border-soft);
+        }
+
+        .oem-item:last-child {
+            border-bottom: none;
+        }
+
+        .oem-icon {
+            color: var(--primary);
+            font-size: 18px;
+            flex-shrink: 0;
+            margin-top: 2px;
+        }
+
+        .oem-content h4 {
+            font-size: 15px;
+            color: var(--primary-dark);
+            margin-bottom: 4px;
+        }
+
+        .oem-content p {
+            font-size: 13px;
+            color: var(--text-muted);
+            line-height: 1.5;
+        }
+
+        .oem-info {
+            background: var(--bg-soft);
+            padding: 16px;
+            border-radius: 10px;
+            margin-bottom: 20px;
+        }
+
+        .oem-info p {
+            font-size: 14px;
+            color: var(--primary-dark);
+            margin-bottom: 6px;
+        }
+
+        /* 复制提示 */
         .copy-toast {
-            position:fixed; left:50%; bottom:140px; transform:translateX(-50%);
-            background:rgba(0,0,0,0.7); color:#fff; padding:10px 24px;
-            border-radius:8px; font-size:14px; z-index:9999; opacity:0;
-            transition:opacity 0.3s ease; pointer-events:none;
+            position: fixed;
+            left: 50%;
+            bottom: 140px;
+            transform: translateX(-50%);
+            background: rgba(0, 0, 0, 0.7);
+            color: #fff;
+            padding: 10px 24px;
+            border-radius: 8px;
+            font-size: 14px;
+            z-index: 9999;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+            pointer-events: none;
         }
-        .copy-toast.show { opacity:1; }
 
+        .copy-toast.show {
+            opacity: 1;
+        }
+
+        /* 回到顶部按钮 */
         .back-top {
-            position:fixed; bottom:30px; right:30px; width:48px; height:48px;
-            border-radius:50%; background:var(--primary); color:#fff;
-            display:flex; align-items:center; justify-content:center; cursor:pointer;
-            box-shadow:0 4px 12px rgba(145,40,75,0.3); opacity:0; visibility:hidden;
-            transition:var(--transition); z-index:99; font-size:18px; border:none;
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            width: 48px;
+            height: 48px;
+            border-radius: 50%;
+            background: var(--primary);
+            color: #fff;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            box-shadow: 0 4px 12px rgba(145, 40, 75, 0.3);
+            opacity: 0;
+            visibility: hidden;
+            transition: var(--transition);
+            z-index: 99;
+            font-size: 18px;
+            border: none;
+            overflow: hidden;
         }
-        .back-top.show { opacity:1; visibility:visible; }
-        .back-top:hover { background:var(--primary-light); transform:translateY(-3px); }
 
+        .back-top::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: conic-gradient(var(--primary-light) var(--progress, 0%), transparent 0);
+            z-index: -1;
+        }
+
+        .back-top.show {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .back-top:hover {
+            background: var(--primary-light);
+            transform: translateY(-3px);
+        }
+
+        /* 悬浮WhatsApp按钮 */
         .float-whatsapp {
-            position:fixed; bottom:90px; right:30px; width:56px; height:56px;
-            border-radius:50%; background:var(--whatsapp); color:#fff;
-            display:flex; align-items:center; justify-content:center;
-            box-shadow:0 4px 14px rgba(37,211,102,0.4); z-index:99; font-size:28px;
-            transition:var(--transition); text-decoration:none;
+            position: fixed;
+            bottom: 90px;
+            right: 30px;
+            width: 56px;
+            height: 56px;
+            border-radius: 50%;
+            background: var(--whatsapp);
+            color: #fff;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 4px 14px rgba(37, 211, 102, 0.4);
+            z-index: 99;
+            font-size: 28px;
+            transition: var(--transition);
+            text-decoration: none;
+            animation: pulse 2s infinite;
         }
-        .float-whatsapp:hover { transform:scale(1.1); box-shadow:0 6px 20px rgba(37,211,102,0.5); }
 
+        @keyframes pulse {
+            0% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.4); }
+            70% { box-shadow: 0 0 0 15px rgba(37, 211, 102, 0); }
+            100% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0); }
+        }
+
+        .float-whatsapp:hover {
+            transform: scale(1.1);
+            box-shadow: 0 6px 20px rgba(37, 211, 102, 0.5);
+            animation: none;
+        }
+
+        /* 页脚 */
         footer {
-            margin-top:80px; padding-top:40px; border-top:1px solid var(--border-soft);
-            text-align:center; color:#884a60; font-size:14px;
+            margin-top: 80px;
+            padding-top: 40px;
+            border-top: 1px solid var(--border-soft);
+            text-align: center;
+            color: #884a60;
+            font-size: 14px;
         }
-        footer h3 { color:var(--primary-dark); margin-bottom:16px; font-size:18px; }
-        footer p { margin-bottom:10px; }
-        .copy-text { color:#d65076; text-decoration:underline; cursor:pointer; margin-left:4px; }
-        .copy-text:hover { color:#b32e52; }
 
-        @media (max-width:600px) {
-            body { padding:0 15px 20px; }
-            header h1 { font-size:24px; }
-            #searchInput { width:100%; font-size:15px; }
-            .filter-tab { padding:10px 20px; font-size:15px; }
-            .product-grid { gap:24px; }
-            .float-whatsapp { right:20px; bottom:80px; width:50px; height:50px; font-size:24px; }
-            .back-top { right:20px; bottom:20px; width:42px; height:42px; }
-            .modal-box { padding:28px 20px; }
+        footer h3 {
+            color: var(--primary-dark);
+            margin-bottom: 16px;
+            font-size: 18px;
+        }
+
+        footer p {
+            margin-bottom: 10px;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 30px;
+            text-align: left;
+            margin-bottom: 30px;
+        }
+
+        .footer-col h4 {
+            color: var(--primary-dark);
+            margin-bottom: 14px;
+            font-size: 16px;
+        }
+
+        .footer-col ul {
+            list-style: none;
+        }
+
+        .footer-col li {
+            margin-bottom: 8px;
+            color: var(--text-muted);
+            font-size: 13px;
+        }
+
+        .copy-text {
+            color: #d65076;
+            text-decoration: underline;
+            cursor: pointer;
+            margin-left: 4px;
+            transition: color 0.2s;
+        }
+
+        .copy-text:hover {
+            color: #b32e52;
+        }
+
+        .copyright {
+            margin-top: 20px;
+            padding-top: 20px;
+            border-top: 1px solid var(--border-soft);
+            color: #a86b7e;
+            font-size: 13px;
+            text-align: center;
+        }
+
+        /* 响应式适配 */
+        @media (max-width: 768px) {
+            body {
+                padding: 0 15px 20px;
+            }
+
+            header h1 {
+                font-size: 24px;
+            }
+
+            #searchInput {
+                width: 100%;
+                font-size: 15px;
+            }
+
+            .filter-tab {
+                padding: 10px 20px;
+                font-size: 15px;
+            }
+
+            .product-grid {
+                gap: 24px;
+                grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+            }
+
+            .float-whatsapp {
+                right: 20px;
+                bottom: 80px;
+                width: 50px;
+                height: 50px;
+                font-size: 24px;
+            }
+
+            .back-top {
+                right: 20px;
+                bottom: 20px;
+                width: 42px;
+                height: 42px;
+            }
+
+            .modal-box {
+                padding: 28px 20px;
+            }
+
+            .footer-grid {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .filter-tabs {
+                gap: 8px;
+            }
+
+            .filter-tab {
+                padding: 8px 16px;
+                font-size: 14px;
+            }
+
+            .product-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .img-box {
+                height: 200px;
+            }
         }
     </style>
 </head>
 <body>
-<header>
-    <h1>Yongling LED Sanitary Mirror Factory</h1>
-    <div class="search-wrap"><input type="text" id="searchInput" placeholder="🔍 Search product model / size / function..."></div>
-    <div class="filter-tabs">
-        <span class="filter-tab active" data-filter="all">All Products</span>
-        <span class="filter-tab" data-filter="A">LED Mirror</span>
-        <span class="filter-tab" data-filter="B">Premium Smart Mirror Cabinet</span>
-        <span class="filter-tab" data-filter="C">PVC Smart Mirror Cabinet</span>
+    <header id="siteHeader">
+        <h1>Yongling LED Sanitary Mirror Factory</h1>
+        <div class="search-wrap">
+            <input type="text" id="searchInput" placeholder="🔍 Search product model / size / material...">
+            <span class="result-count" id="resultCount">0 products</span>
+        </div>
+        <div class="filter-tabs">
+            <span class="filter-tab active" data-filter="all">All Products</span>
+            <span class="filter-tab" data-filter="A">LED Mirror</span>
+            <span class="filter-tab" data-filter="B">Smart Mirror Cabinet</span>
+            <span class="filter-tab" data-filter="C">PVC Bathroom Cabinet</span>
+        </div>
+    </header>
+
+    <div class="oem-entry">
+        <span class="oem-btn" onclick="openOEMModal()">🎨 OEM & ODM Custom Service</span>
     </div>
-</header>
-<div class="oem-entry"><span class="oem-btn" onclick="openOEMModal()">🎨 OEM & ODM Custom Service</span></div>
-<div class="product-grid" id="productGrid"><div class="empty-state" id="emptyState"><span>🔍</span>No products found. Try a different keyword.</div></div>
 
-<div class="modal-mask" id="productModal">
-    <div class="modal-box">
-        <span class="close-modal" onclick="closeProductModal()">×</span>
-        <h2 class="modal-title" id="modalTitle">Product Details</h2>
-        <div class="modal-text" id="modalContent"></div>
-        <button class="whatsapp-btn" onclick="contactWhatsApp()">💬 Contact via WhatsApp</button>
+    <div class="product-grid" id="productGrid">
+        <!-- 骨架屏加载 -->
+        <div class="skeleton-card">
+            <div class="skeleton-img"></div>
+            <div class="skeleton-content">
+                <div class="skeleton-line"></div>
+                <div class="skeleton-line short"></div>
+                <div class="skeleton-line price"></div>
+                <div class="skeleton-line btn"></div>
+            </div>
+        </div>
+        <div class="skeleton-card">
+            <div class="skeleton-img"></div>
+            <div class="skeleton-content">
+                <div class="skeleton-line"></div>
+                <div class="skeleton-line short"></div>
+                <div class="skeleton-line price"></div>
+                <div class="skeleton-line btn"></div>
+            </div>
+        </div>
+        <div class="skeleton-card">
+            <div class="skeleton-img"></div>
+            <div class="skeleton-content">
+                <div class="skeleton-line"></div>
+                <div class="skeleton-line short"></div>
+                <div class="skeleton-line price"></div>
+                <div class="skeleton-line btn"></div>
+            </div>
+        </div>
+        <div class="skeleton-card">
+            <div class="skeleton-img"></div>
+            <div class="skeleton-content">
+                <div class="skeleton-line"></div>
+                <div class="skeleton-line short"></div>
+                <div class="skeleton-line price"></div>
+                <div class="skeleton-line btn"></div>
+            </div>
+        </div>
+
+        <div class="empty-state" id="emptyState">
+            <span>🔍</span>
+            No products found. Try a different keyword.
+        </div>
     </div>
-</div>
 
-<div class="modal-mask" id="oemModal">
-    <div class="modal-box">
-        <span class="close-modal" onclick="closeOEMModal()">×</span>
-        <h2 class="modal-title">OEM & ODM Custom Service</h2>
-        <div class="modal-text">✅ Custom Size & Shape
-✅ Custom Logo Printing
-✅ Custom Light Color (Warm / Cool / Dimmable)
-✅ Custom Function (Anti-fog, Bluetooth, Speaker, Touch Switch)
-✅ Custom Packaging
-
-Minimum Order for Custom: 100pcs
-Sample Lead Time: 7-10 Days
-Bulk Production: 25-30 Days</div>
-        <button class="whatsapp-btn" onclick="contactWhatsApp()">💬 Get Custom Quote</button>
+    <!-- 产品详情弹窗 -->
+    <div class="modal-mask" id="productModal">
+        <div class="modal-box">
+            <span class="close-modal" onclick="closeProductModal()">×</span>
+            <h2 class="modal-title" id="modalTitle">
+                Product Details
+                <button class="copy-model-btn" onclick="copyModel()" id="copyModelBtn">Copy Model</button>
+            </h2>
+            <div class="modal-meta" id="modalMeta"></div>
+            <div class="modal-text" id="modalContent"></div>
+            <button class="whatsapp-btn" onclick="contactWhatsApp()">💬 Inquire via WhatsApp</button>
+        </div>
     </div>
-</div>
 
-<a class="float-whatsapp" href="https://wa.me/8617799215074" target="_blank" title="Contact WhatsApp">💬</a>
-<button class="back-top" id="backTop" onclick="scrollToTop()">↑</button>
+    <!-- OEM定制弹窗 -->
+    <div class="modal-mask" id="oemModal">
+        <div class="modal-box">
+            <span class="close-modal" onclick="closeOEMModal()">×</span>
+            <h2 class="modal-title">OEM & ODM Custom Service</h2>
+            <div class="oem-list">
+                <div class="oem-item">
+                    <div class="oem-icon">📐</div>
+                    <div class="oem-content">
+                        <h4>Custom Size & Shape</h4>
+                        <p>Round, square, rectangle, irregular shapes available, any size from 30cm to 200cm</p>
+                    </div>
+                </div>
+                <div class="oem-item">
+                    <div class="oem-icon">🏷️</div>
+                    <div class="oem-content">
+                        <h4>Custom Logo Printing</h4>
+                        <p>Silk screen, laser engraving, sticker logo, support your brand design</p>
+                    </div>
+                </div>
+                <div class="oem-item">
+                    <div class="oem-icon">💡</div>
+                    <div class="oem-content">
+                        <h4>Custom Light Options</h4>
+                        <p>Warm white / cool white / dimmable, 3000K-6500K color temperature optional</p>
+                    </div>
+                </div>
+                <div class="oem-item">
+                    <div class="oem-icon">⚙️</div>
+                    <div class="oem-content">
+                        <h4>Custom Functions</h4>
+                        <p>Anti-fog pad, Bluetooth speaker, touch switch, time display, magnifier</p>
+                    </div>
+                </div>
+                <div class="oem-item">
+                    <div class="oem-icon">📦</div>
+                    <div class="oem-content">
+                        <h4>Custom Packaging</h4>
+                        <p>Brown box, color box, gift box, foam protection, export standard carton</p>
+                    </div>
+                </div>
+            </div>
+            <div class="oem-info">
+                <p>📏 Minimum Order for Custom: 100pcs</p>
+                <p>⏱️ Sample Lead Time: 7-10 Days</p>
+                <p>🏭 Bulk Production: 25-30 Days</p>
+                <p>🚢 Shipping: By sea / air / express, DDP service available</p>
+            </div>
+            <button class="whatsapp-btn" onclick="contactWhatsApp()">💬 Get Custom Quote</button>
+        </div>
+    </div>
 
-<footer>
-    <h3>Contact Information</h3>
-    <p>WhatsApp: <span class="copy-text" onclick="copyText('+86 17799215074')">+86 17799215074</span></p>
-    <p>Email: <span class="copy-text" onclick="copyText('esra040510@gmail.com')">esra040510@gmail.com</span></p>
-    <p>WeChat ID: <span class="copy-text" onclick="copyText('zrqy716')">zrqy716</span></p>
-    <p>Factory Address: Guali Qianxing Village, Xiaoshan District, Hangzhou City, Zhejiang Province, China</p>
-    <p style="margin-top:20px; color:#a86b7e;">© 2026 Yongling LED Sanitary Mirror Factory. All Rights Reserved.</p>
-</footer>
-<div class="copy-toast" id="copyToast">Copied successfully!</div>
+    <!-- 悬浮按钮 -->
+    <a class="float-whatsapp" href="https://wa.me/8617799215074" target="_blank" title="Contact WhatsApp">💬</a>
+    <button class="back-top" id="backTop" onclick="scrollToTop()">↑</button>
 
-<script>
+    <!-- 页脚 -->
+    <footer>
+        <div class="footer-grid">
+            <div class="footer-col">
+                <h4>Contact Us</h4>
+                <ul>
+                    <li>WhatsApp: <span class="copy-text" onclick="copyText('+86 17799215074')">+86 17799215074</span></li>
+                    <li>Email: <span class="copy-text" onclick="copyText('esra040510@gmail.com')">esra040510@gmail.com</span></li>
+                    <li>WeChat: <span class="copy-text" onclick="copyText('zrqy716')">zrqy716</span></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>Factory Info</h4>
+                <ul>
+                    <li>📍 Guali Qianxing Village, Xiaoshan District, Hangzhou, Zhejiang, China</li>
+                    <li>⏰ Working Hours: Mon-Sat 8:30 - 18:00</li>
+                    <li>🏭 10+ Years Manufacturing Experience</li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>Our Products</h4>
+                <ul>
+                    <li>LED Anti-Fog Bathroom Mirrors</li>
+                    <li>Solid Wood Smart Mirror Cabinets</li>
+                    <li>PVC Bathroom Cabinets</li>
+                </ul>
+            </div>
+        </div>
+        <div class="copyright">
+            © 2026 Yongling LED Sanitary Mirror Factory. All Rights Reserved.
+        </div>
+    </footer>
+
+    <div class="copy-toast" id="copyToast">Copied successfully!</div>
+    <script>
+    // ========== 全局配置 ==========
+    const WHATSAPP_NUMBER = '8617799215074';
+    let currentFilter = 'all';
+    let currentProduct = null;
+    let favorites = JSON.parse(localStorage.getItem('favorites') || '[]');
+
+    // ========== 完整产品数据 ==========
     const PRODUCTS = [
-        // A系列 LED防雾浴室镜 (29款，尺寸为厘米单位)
+        // A系列 LED防雾浴室镜 29款
         {id:'A001',type:'A',name:'Model A001 LED Anti-Fog Bathroom Mirror',desc:'Material: Paulownia Frame Mirror\nSize: 50×50cm | LED + Anti-Fog + Storage\nWarranty: 2 Years | MOQ: 500pcs',price:'$14.90',img:'微信图片_20260707164222_511_35.jpg'},
         {id:'A002',type:'A',name:'Model A002 LED Anti-Fog Bathroom Mirror',desc:'Material: Paulownia Frame Mirror\nSize: 55×55cm | LED + Anti-Fog + Storage\nWarranty: 2 Years | MOQ: 500pcs',price:'$15.90',img:'微信图片_20260707164222_511_35.jpg'},
         {id:'A003',type:'A',name:'Model A003 LED Anti-Fog Bathroom Mirror',desc:'Material: Paulownia Frame Mirror\nSize: 60×60cm | LED + Anti-Fog + Storage\nWarranty: 2 Years | MOQ: 500pcs',price:'$16.90',img:''},
@@ -281,7 +1080,7 @@ Bulk Production: 25-30 Days</div>
         {id:'A028',type:'A',name:'Model A028 LED Anti-Fog Bathroom Mirror',desc:'Material: Paulownia Frame Mirror\nSize: 70×120cm | LED + Anti-Fog + Storage\nWarranty: 2 Years | MOQ: 500pcs',price:'$32.90',img:'微信图片_20260707164222_511_35.jpg'},
         {id:'A029',type:'A',name:'Model A029 LED Anti-Fog Bathroom Mirror',desc:'Material: Paulownia Frame Mirror\nSize: 80×120cm | LED + Anti-Fog + Storage\nWarranty: 2 Years | MOQ: 500pcs',price:'$42.90',img:'微信图片_20260707164222_511_35.jpg'},
 
-        // B系列 高级实木智能镜柜 (29款，尺寸为厘米单位)
+        // B系列 高级实木智能镜柜 29款
         {id:'B001',type:'B',name:'Model B001 Premium Solid Wood Mirror Cabinet',desc:'Material: Solid Wood + Paulownia Frame\nSize: 70×90cm | Full Storage Cabinet\nWarranty: 2 Years | MOQ: 100pcs',price:'$99.68',img:'微信图片_20260707164044_510_35.jpg'},
         {id:'B002',type:'B',name:'Model B002 Premium Solid Wood Mirror Cabinet',desc:'Material: Solid Wood + Paulownia Frame\nSize: 50×60cm | Full Storage Cabinet\nWarranty: 2 Years | MOQ: 100pcs',price:'$88.48',img:'微信图片_20260707164044_510_35.jpg'},
         {id:'B003',type:'B',name:'Model B003 Premium Solid Wood Mirror Cabinet',desc:'Material: Solid Wood + Paulownia Frame\nSize: 50×70cm | Full Storage Cabinet\nWarranty: 2 Years | MOQ: 100pcs',price:'$96.32',img:'微信图片_20260707164044_510_35.jpg'},
@@ -311,206 +1110,306 @@ Bulk Production: 25-30 Days</div>
         {id:'B027',type:'B',name:'Model B027 Premium Solid Wood Mirror Cabinet',desc:'Material: Solid Wood + Paulownia Frame\nSize: 120×130cm | Full Storage Cabinet\nWarranty: 2 Years | MOQ: 100pcs',price:'$211.68',img:'微信图片_20260707164044_510_35.jpg'},
         {id:'B028',type:'B',name:'Model B028 Premium Solid Wood Mirror Cabinet',desc:'Material: Solid Wood + Paulownia Frame\nSize: 100×140cm | Full Storage Cabinet\nWarranty: 2 Years | MOQ: 100pcs',price:'$208.32',img:'微信图片_20260707164044_510_35.jpg'},
         {id:'B029',type:'B',name:'Model B029 Premium Solid Wood Mirror Cabinet',desc:'Material: Solid Wood + Paulownia Frame\nSize: 120×150cm | Full Storage Cabinet\nWarranty: 2 Years | MOQ: 100pcs',price:'$211.68',img:'微信图片_20260707164044_510_35.jpg'},
+        // C系列 PVC浴室柜 前99款 (C001-C099) 统一图片规则：C + 00 + ID数字部分 .jpg
+        {id:'C001',type:'C',name:'Model C001 PVC Bathroom Cabinet',desc:'Size: 100/80×50cm\nMaterial: PVC\nWarranty: 2 Years | MOQ: 50sets',price:'$112.00',img:'C00001.jpg'},
+        {id:'C002',type:'C',name:'Model C002 PVC Bathroom Cabinet',desc:'Size: 100/80×50cm\nMaterial: PVC\nWarranty: 2 Years | MOQ: 50sets',price:'$112.00',img:'C00002.jpg'},
+        {id:'C003',type:'C',name:'Model C003 PVC Bathroom Cabinet',desc:'Size: 100/80×50cm\nMaterial: PVC\nWarranty: 2 Years | MOQ: 50sets',price:'$112.00',img:'C00003.jpg'},
+        {id:'C004',type:'C',name:'Model C004 PVC Bathroom Cabinet',desc:'Size: 100/80×50cm\nMaterial: PVC\nWarranty: 2 Years | MOQ: 50sets',price:'$112.00',img:'C00004.jpg'},
+        {id:'C005',type:'C',name:'Model C005 PVC Bathroom Cabinet',desc:'Size: 100/80×50cm\nMaterial: PVC\nWarranty: 2 Years | MOQ: 50sets',price:'$112.00',img:'C00005.jpg'},
+        {id:'C006',type:'C',name:'Model C006 PVC Bathroom Cabinet',desc:'Size: 100/80×50cm\nMaterial: PVC\nWarranty: 2 Years | MOQ: 50sets',price:'$112.00',img:'C00006.jpg'},
+        {id:'C007',type:'C',name:'Model C007 PVC Bathroom Cabinet',desc:'Size: 100/80×50cm\nMaterial: PVC\nWarranty: 2 Years | MOQ: 50sets',price:'$112.00',img:'C00007.jpg'},
+        {id:'C008',type:'C',name:'Model C008 PVC Bathroom Cabinet',desc:'Size: 100/80×50cm\nMaterial: PVC\nWarranty: 2 Years | MOQ: 50sets',price:'$112.00',img:'C00008.jpg'},
+        {id:'C009',type:'C',name:'Model C009 PVC Bathroom Cabinet',desc:'Size: 100/80×50cm\nMaterial: PVC\nWarranty: 2 Years | MOQ: 50sets',price:'$112.00',img:'C00009.jpg'},
+        {id:'C010',type:'C',name:'Model C010 PVC Bathroom Cabinet',desc:'Size: 100/80×50cm\nMaterial: PVC\nWarranty: 2 Years | MOQ: 50sets',price:'$112.00',img:'C00010.jpg'},
+        {id:'C011',type:'C',name:'Model C011 PVC Bathroom Cabinet',desc:'Size: 100/80×50cm\nMaterial: PVC\nWarranty: 2 Years | MOQ: 50sets',price:'$112.00',img:'C00011.jpg'},
+        {id:'C012',type:'C',name:'Model C012 PVC Bathroom Cabinet',desc:'Size: 100/80×50cm\nMaterial: PVC\nWarranty: 2 Years | MOQ: 50sets',price:'$112.00',img:'C00012.jpg'},
+        {id:'C013',type:'C',name:'Model C013 PVC Bathroom Cabinet',desc:'Size: 100/80×50cm\nMaterial: PVC\nWarranty: 2 Years | MOQ: 50sets',price:'$112.00',img:'C00013.jpg'},
+        {id:'C014',type:'C',name:'Model C014 PVC Bathroom Cabinet',desc:'Size: 100/80×50cm\nMaterial: PVC\nWarranty: 2 Years | MOQ: 50sets',price:'$112.00',img:'C00014.jpg'},
+        {id:'C015',type:'C',name:'Model C015 PVC Bathroom Cabinet',desc:'Size: 100/80×50cm\nMaterial: PVC\nWarranty: 2 Years | MOQ: 50sets',price:'$112.00',img:'C00015.jpg'},
+        {id:'C016',type:'C',name:'Model C016 PVC Bathroom Cabinet',desc:'Size: 100/80×50cm\nMaterial: PVC\nWarranty: 2 Years | MOQ: 50sets',price:'$112.00',img:'C00016.jpg'},
+        {id:'C017',type:'C',name:'Model C017 PVC Bathroom Cabinet',desc:'Size: 100/80×50cm\nMaterial: PVC\nWarranty: 2 Years | MOQ: 50sets',price:'$112.00',img:'C00017.jpg'},
+        {id:'C018',type:'C',name:'Model C018 PVC Bathroom Cabinet',desc:'Size: 100/80×50cm\nMaterial: PVC\nWarranty: 2 Years | MOQ: 50sets',price:'$112.00',img:'C00018.jpg'},
+        {id:'C019',type:'C',name:'Model C019 PVC Bathroom Cabinet',desc:'Size: 80×50cm\nMaterial: PVC\nWarranty: 2 Years | MOQ: 50sets',price:'$112.00',img:'C00019.jpg'},
+        {id:'C020',type:'C',name:'Model C020 PVC Bathroom Cabinet',desc:'Size: 80×50cm\nMaterial: PVC\nWarranty: 2 Years | MOQ: 50sets',price:'$112.00',img:'C00020.jpg'},
+        {id:'C021',type:'C',name:'Model C021 PVC Bathroom Cabinet',desc:'Size: 80×50cm\nMaterial: PVC\nWarranty: 2 Years | MOQ: 50sets',price:'$112.00',img:'C00021.jpg'},
+        {id:'C022',type:'C',name:'Model C022 PVC Bathroom Cabinet',desc:'Size: 80×50cm\nMaterial: PVC\nWarranty: 2 Years | MOQ: 50sets',price:'$112.00',img:'C00022.jpg'},
+        {id:'C023',type:'C',name:'Model C023 PVC Bathroom Cabinet',desc:'Size: 80×50cm\nMaterial: PVC\nWarranty: 2 Years | MOQ: 50sets',price:'$112.00',img:'C00023.jpg'},
+        {id:'C024',type:'C',name:'Model C024 PVC Bathroom Cabinet',desc:'Size: 80×50cm\nMaterial: PVC\nWarranty: 2 Years | MOQ: 50sets',price:'$112.00',img:'C00024.jpg'},
+        {id:'C025',type:'C',name:'Model C025 PVC Bathroom Cabinet',desc:'Size: 80×50cm\nMaterial: PVC\nWarranty: 2 Years | MOQ: 50sets',price:'$112.00',img:'C00025.jpg'},
+        {id:'C026',type:'C',name:'Model C026 PVC Bathroom Cabinet',desc:'Size: 80×50cm\nMaterial: PVC\nWarranty: 2 Years | MOQ: 50sets',price:'$112.00',img:'C00026.jpg'},
+        {id:'C027',type:'C',name:'Model C027 PVC Bathroom Cabinet',desc:'Size: 80×50cm\nMaterial: PVC\nWarranty: 2 Years | MOQ: 50sets',price:'$112.00',img:'C00027.jpg'},
+        {id:'C028',type:'C',name:'Model C028 PVC Bathroom Cabinet',desc:'Size: 80×50cm\nMaterial: PVC\nWarranty: 2 Years | MOQ: 50sets',price:'$112.00',img:'C00028.jpg'},
+        {id:'C029',type:'C',name:'Model C029 PVC Bathroom Cabinet',desc:'Size: 80×50cm\nMaterial: PVC\nWarranty: 2 Years | MOQ: 50sets',price:'$112.00',img:'C00029.jpg'},
+        {id:'C030',type:'C',name:'Model C030 PVC Bathroom Cabinet',desc:'Size: 80×50cm\nMaterial: PVC\nWarranty: 2 Years | MOQ: 50sets',price:'$112.00',img:'C00030.jpg'},
+        {id:'C031',type:'C',name:'Model C031 PVC Bathroom Cabinet',desc:'Size: 80×50cm\nMaterial: PVC\nWarranty: 2 Years | MOQ: 50sets',price:'$112.00',img:'C00031.jpg'},
+        {id:'C032',type:'C',name:'Model C032 PVC Bathroom Cabinet',desc:'Size: 80×50cm\nMaterial: PVC\nWarranty: 2 Years | MOQ: 50sets',price:'$112.00',img:'C00032.jpg'},
+        {id:'C033',type:'C',name:'Model C033 PVC Bathroom Cabinet',desc:'Size: 120×50cm\nMaterial: PVC\nWarranty: 2 Years | MOQ: 50sets',price:'$112.00',img:'C00033.jpg'},
+        {id:'C034',type:'C',name:'Model C034 PVC Bathroom Cabinet',desc:'Size: 120×50cm\nMaterial: PVC\nWarranty: 2 Years | MOQ: 50sets',price:'$112.00',img:'C00034.jpg'},
+        {id:'C035',type:'C',name:'Model C035 PVC Bathroom Cabinet',desc:'Size: 120×50cm\nMaterial: PVC\nWarranty: 2 Years | MOQ: 50sets',price:'$112.00',img:'C00035.jpg'},
+        {id:'C036',type:'C',name:'Model C036 PVC Bathroom Cabinet',desc:'Size: 100×50cm\nMaterial: PVC\nWarranty: 2 Years | MOQ: 50sets',price:'$112.00',img:'C00036.jpg'},
+        {id:'C037',type:'C',name:'Model C037 PVC Bathroom Cabinet',desc:'Size: 100×50cm\nMaterial: PVC\nWarranty: 2 Years | MOQ: 50sets',price:'$112.00',img:'C00037.jpg'},
+        {id:'C038',type:'C',name:'Model C038 PVC Bathroom Cabinet',desc:'Size: 100×50cm\nMaterial: PVC\nWarranty: 2 Years | MOQ: 50sets',price:'$112.00',img:'C00038.jpg'},
+        {id:'C039',type:'C',name:'Model C039 PVC Bathroom Cabinet',desc:'Size: 80×50cm\nMaterial: PVC\nWarranty: 2 Years | MOQ: 50sets',price:'$112.00',img:'C00039.jpg'},
+        {id:'C040',type:'C',name:'Model C040 PVC Bathroom Cabinet',desc:'Size: 80×50cm\nMaterial: PVC\nWarranty: 2 Years | MOQ: 50sets',price:'$112.00',img:'C00040.jpg'},
+        {id:'C041',type:'C',name:'Model C041 PVC Bathroom Cabinet',desc:'Size: 80×50cm\nMaterial: PVC\nWarranty: 2 Years | MOQ: 50sets',price:'$112.00',img:'C00041.jpg'},
+        {id:'C042',type:'C',name:'Model C042 PVC Bathroom Cabinet',desc:'Size: 80×50cm\nMaterial: PVC\nWarranty: 2 Years | MOQ: 50sets',price:'$112.00',img:'C00042.jpg'},
+        {id:'C043',type:'C',name:'Model C043 PVC Bathroom Cabinet',desc:'Size: 80×50cm\nMaterial: PVC\nWarranty: 2 Years | MOQ: 50sets',price:'$112.00',img:'C00043.jpg'},
+        {id:'C044',type:'C',name:'Model C044 PVC Bathroom Cabinet',desc:'Size: 80×50cm\nMaterial: PVC\nWarranty: 2 Years | MOQ: 50sets',price:'$112.00',img:'C00044.jpg'},
+        {id:'C045',type:'C',name:'Model C045 PVC Bathroom Cabinet',desc:'Size: 80×50cm\nMaterial: PVC\nWarranty: 2 Years | MOQ: 50sets',price:'$112.00',img:'C00045.jpg'},
+        {id:'C046',type:'C',name:'Model C046 PVC Bathroom Cabinet',desc:'Size: 80×50cm\nMaterial: PVC\nWarranty: 2 Years | MOQ: 50sets',price:'$112.00',img:'C00046.jpg'},
+        {id:'C047',type:'C',name:'Model C047 PVC Bathroom Cabinet',desc:'Size: 80×50cm\nMaterial: PVC\nWarranty: 2 Years | MOQ: 50sets',price:'$112.00',img:'C00047.jpg'},
+        {id:'C048',type:'C',name:'Model C048 PVC Bathroom Cabinet',desc:'Size: 80×50cm\nMaterial: PVC\nWarranty: 2 Years | MOQ: 50sets',price:'$112.00',img:'C00048.jpg'},
+        {id:'C049',type:'C',name:'Model C049 PVC Bathroom Cabinet',desc:'Size: 80×50cm\nMaterial: PVC\nWarranty: 2 Years | MOQ: 50sets',price:'$112.00',img:'C00049.jpg'},
+        {id:'C050',type:'C',name:'Model C050 PVC Bathroom Cabinet',desc:'Size: 80×50cm\nMaterial: PVC\nWarranty: 2 Years | MOQ: 50sets',price:'$112.00',img:'C00050.jpg'},
+        {id:'C051',type:'C',name:'Model C051 PVC Bathroom Cabinet',desc:'Size: 80×50cm\nMaterial: PVC\nWarranty: 2 Years | MOQ: 50sets',price:'$112.00',img:'C00051.jpg'},
+        {id:'C052',type:'C',name:'Model C052 PVC Bathroom Cabinet',desc:'Size: 80×50cm\nMaterial: PVC\nWarranty: 2 Years | MOQ: 50sets',price:'$112.00',img:'C00052.jpg'},
+        {id:'C053',type:'C',name:'Model C053 PVC Bathroom Cabinet',desc:'Size: 80×50cm\nMaterial: PVC\nWarranty: 2 Years | MOQ: 50sets',price:'$112.00',img:'C00053.jpg'},
+        {id:'C054',type:'C',name:'Model C054 PVC Bathroom Cabinet',desc:'Size: 80×50cm\nMaterial: PVC\nWarranty: 2 Years | MOQ: 50sets',price:'$112.00',img:'C00054.jpg'},
+        {id:'C055',type:'C',name:'Model C055 PVC Bathroom Cabinet',desc:'Size: 80×50cm\nMaterial: PVC\nWarranty: 2 Years | MOQ: 50sets',price:'$112.00',img:'C00055.jpg'},
+        {id:'C056',type:'C',name:'Model C056 PVC Bathroom Cabinet',desc:'Size: 80×50cm\nMaterial: PVC\nWarranty: 2 Years | MOQ: 50sets',price:'$112.00',img:'C00056.jpg'},
+        {id:'C057',type:'C',name:'Model C057 PVC Bathroom Cabinet',desc:'Size: 80×50cm\nMaterial: PVC\nWarranty: 2 Years | MOQ: 50sets',price:'$112.00',img:'C00057.jpg'},
+        {id:'C058',type:'C',name:'Model C058 PVC Bathroom Cabinet',desc:'Size: 80×50cm\nMaterial: PVC\nWarranty: 2 Years | MOQ: 50sets',price:'$112.00',img:'C00058.jpg'},
+        {id:'C059',type:'C',name:'Model C059 PVC Bathroom Cabinet',desc:'Size: 80×50cm\nMaterial: PVC\nWarranty: 2 Years | MOQ: 50sets',price:'$112.00',img:'C00059.jpg'},
+        {id:'C060',type:'C',name:'Model C060 PVC Bathroom Cabinet',desc:'Size: 80×50cm\nMaterial: PVC\nWarranty: 2 Years | MOQ: 50sets',price:'$112.00',img:'C00060.jpg'},
+        {id:'C061',type:'C',name:'Model C061 PVC Bathroom Cabinet',desc:'Size: 80×50cm\nMaterial: PVC\nWarranty: 2 Years | MOQ: 50sets',price:'$112.00',img:'C00061.jpg'},
+        {id:'C062',type:'C',name:'Model C062 PVC Bathroom Cabinet',desc:'Size: 80×50cm\nMaterial: PVC\nWarranty: 2 Years | MOQ: 50sets',price:'$112.00',img:'C00062.jpg'},
+        {id:'C063',type:'C',name:'Model C063 PVC Bathroom Cabinet',desc:'Size: 80×50cm\nMaterial: PVC\nWarranty: 2 Years | MOQ: 50sets',price:'$112.00',img:'C00063.jpg'},
+        {id:'C064',type:'C',name:'Model C064 PVC Bathroom Cabinet',desc:'Size: 80×50cm\nMaterial: PVC\nWarranty: 2 Years | MOQ: 50sets',price:'$112.00',img:'C00064.jpg'},
+        {id:'C065',type:'C',name:'Model C065 PVC Bathroom Cabinet',desc:'Size: 80×50cm\nMaterial: PVC\nWarranty: 2 Years | MOQ: 50sets',price:'$112.00',img:'C00065.jpg'},
+        {id:'C066',type:'C',name:'Model C066 PVC Bathroom Cabinet',desc:'Size: 80×50cm\nMaterial: PVC\nWarranty: 2 Years | MOQ: 50sets',price:'$112.00',img:'C00066.jpg'},
+        {id:'C067',type:'C',name:'Model C067 PVC Bathroom Cabinet',desc:'Size: 80×50cm\nMaterial: PVC\nWarranty: 2 Years | MOQ: 50sets',price:'$112.00',img:'C00067.jpg'},
+        {id:'C068',type:'C',name:'Model C068 PVC Bathroom Cabinet',desc:'Size: 80×50cm\nMaterial: PVC\nWarranty: 2 Years | MOQ: 50sets',price:'$112.00',img:'C00068.jpg'},
+        {id:'C069',type:'C',name:'Model C069 PVC Bathroom Cabinet',desc:'Size: 80×50cm\nMaterial: PVC\nWarranty: 2 Years | MOQ: 50sets',price:'$112.00',img:'C00069.jpg'},
+        {id:'C070',type:'C',name:'Model C070 PVC Bathroom Cabinet',desc:'Size: 80×50cm\nMaterial: PVC\nWarranty: 2 Years | MOQ: 50sets',price:'$112.00',img:'C00070.jpg'},
+        {id:'C071',type:'C',name:'Model C071 PVC Bathroom Cabinet',desc:'Size: 80×50cm\nMaterial: PVC\nWarranty: 2 Years | MOQ: 50sets',price:'$112.00',img:'C00071.jpg'},
+        {id:'C072',type:'C',name:'Model C072 PVC Bathroom Cabinet',desc:'Size: 80×50cm\nMaterial: PVC\nWarranty: 2 Years | MOQ: 50sets',price:'$112.00',img:'C00072.jpg'},
+        {id:'C073',type:'C',name:'Model C073 PVC Bathroom Cabinet',desc:'Size: 80×50cm\nMaterial: PVC\nWarranty: 2 Years | MOQ: 50sets',price:'$112.00',img:'C00073.jpg'},
+        {id:'C074',type:'C',name:'Model C074 PVC Bathroom Cabinet',desc:'Size: 80×50cm\nMaterial: PVC\nWarranty: 2 Years | MOQ: 50sets',price:'$112.00',img:'C00074.jpg'},
+        {id:'C075',type:'C',name:'Model C075 PVC Bathroom Cabinet',desc:'Size: 80×50cm\nMaterial: PVC\nWarranty: 2 Years | MOQ: 50sets',price:'$112.00',img:'C00075.jpg'},
+        {id:'C076',type:'C',name:'Model C076 PVC Bathroom Cabinet',desc:'Size: 80×50cm\nMaterial: PVC\nWarranty: 2 Years | MOQ: 50sets',price:'$112.00',img:'C00076.jpg'},
+        {id:'C077',type:'C',name:'Model C077 PVC Bathroom Cabinet',desc:'Size: 80×50cm\nMaterial: PVC\nWarranty: 2 Years | MOQ: 50sets',price:'$112.00',img:'C00077.jpg'},
+        {id:'C078',type:'C',name:'Model C078 PVC Bathroom Cabinet',desc:'Size: 80×50cm\nMaterial: PVC\nWarranty: 2 Years | MOQ: 50sets',price:'$112.00',img:'C00078.jpg'},
+        {id:'C079',type:'C',name:'Model C079 PVC Bathroom Cabinet',desc:'Size: 80×50cm\nMaterial: PVC\nWarranty: 2 Years | MOQ: 50sets',price:'$112.00',img:'C00079.jpg'},
+        {id:'C080',type:'C',name:'Model C080 PVC Bathroom Cabinet',desc:'Size: 80×50cm\nMaterial: PVC\nWarranty: 2 Years | MOQ: 50sets',price:'$112.00',img:'C00080.jpg'},
+        {id:'C081',type:'C',name:'Model C081 PVC Bathroom Cabinet',desc:'Size: 80×50cm\nMaterial: PVC\nWarranty: 2 Years | MOQ: 50sets',price:'$112.00',img:'C00081.jpg'},
+        {id:'C082',type:'C',name:'Model C082 PVC Bathroom Cabinet',desc:'Size: 80×50cm\nMaterial: PVC\nWarranty: 2 Years | MOQ: 50sets',price:'$112.00',img:'C00082.jpg'},
+        {id:'C083',type:'C',name:'Model C083 PVC Bathroom Cabinet',desc:'Size: 80×50cm\nMaterial: PVC\nWarranty: 2 Years | MOQ: 50sets',price:'$112.00',img:'C00083.jpg'},
+        {id:'C084',type:'C',name:'Model C084 PVC Bathroom Cabinet',desc:'Size: 80×50cm\nMaterial: PVC\nWarranty: 2 Years | MOQ: 50sets',price:'$112.00',img:'C00084.jpg'},
+        {id:'C085',type:'C',name:'Model C085 PVC Bathroom Cabinet',desc:'Size: 80×50cm\nMaterial: PVC\nWarranty: 2 Years | MOQ: 50sets',price:'$112.00',img:'C00085.jpg'},
+        {id:'C086',type:'C',name:'Model C086 PVC Bathroom Cabinet',desc:'Size: 80×50cm\nMaterial: PVC\nWarranty: 2 Years | MOQ: 50sets',price:'$112.00',img:'C00086.jpg'},
+        {id:'C087',type:'C',name:'Model C087 PVC Bathroom Cabinet',desc:'Size: 80×50cm\nMaterial: PVC\nWarranty: 2 Years | MOQ: 50sets',price:'$112.00',img:'C00087.jpg'},
+        {id:'C088',type:'C',name:'Model C088 PVC Bathroom Cabinet',desc:'Size: 80×50cm\nMaterial: PVC\nWarranty: 2 Years | MOQ: 50sets',price:'$112.00',img:'C00088.jpg'},
+        {id:'C089',type:'C',name:'Model C089 PVC Bathroom Cabinet',desc:'Size: 80×50cm\nMaterial: PVC\nWarranty: 2 Years | MOQ: 50sets',price:'$112.00',img:'C00089.jpg'},
+        {id:'C090',type:'C',name:'Model C090 PVC Bathroom Cabinet',desc:'Size: 80×50cm\nMaterial: PVC\nWarranty: 2 Years | MOQ: 50sets',price:'$112.00',img:'C00090.jpg'},
+        {id:'C091',type:'C',name:'Model C091 PVC Bathroom Cabinet',desc:'Size: 80×50cm\nMaterial: PVC\nWarranty: 2 Years | MOQ: 50sets',price:'$112.00',img:'C00091.jpg'},
+        {id:'C092',type:'C',name:'Model C092 PVC Bathroom Cabinet',desc:'Size: 80×50cm\nMaterial: PVC\nWarranty: 2 Years | MOQ: 50sets',price:'$112.00',img:'C00092.jpg'},
+        {id:'C093',type:'C',name:'Model C093 PVC Bathroom Cabinet',desc:'Size: 80×50cm\nMaterial: PVC\nWarranty: 2 Years | MOQ: 50sets',price:'$112.00',img:'C00093.jpg'},
+        {id:'C094',type:'C',name:'Model C094 PVC Bathroom Cabinet',desc:'Size: 80×50cm\nMaterial: PVC\nWarranty: 2 Years | MOQ: 50sets',price:'$112.00',img:'C00094.jpg'},
+        {id:'C095',type:'C',name:'Model C095 PVC Bathroom Cabinet',desc:'Size: 80×50cm\nMaterial: PVC\nWarranty: 2 Years | MOQ: 50sets',price:'$112.00',img:'C00095.jpg'},
+        {id:'C096',type:'C',name:'Model C096 PVC Bathroom Cabinet',desc:'Size: 80×50cm\nMaterial: PVC\nWarranty: 2 Years | MOQ: 50sets',price:'$112.00',img:'C00096.jpg'},
+        {id:'C097',type:'C',name:'Model C097 PVC Bathroom Cabinet',desc:'Size: 80×50cm\nMaterial: PVC\nWarranty: 2 Years | MOQ: 50sets',price:'$112.00',img:'C00097.jpg'},
+        {id:'C098',type:'C',name:'Model C098 PVC Bathroom Cabinet',desc:'Size: 80×50cm\nMaterial: PVC\nWarranty: 2 Years | MOQ: 50sets',price:'$112.00',img:'C00098.jpg'},
+        {id:'C099',type:'C',name:'Model C099 PVC Bathroom Cabinet',desc:'Size: 80×50cm\nMaterial: PVC\nWarranty: 2 Years | MOQ: 50sets',price:'$112.00',img:'C00099.jpg'},
+                {id:'C100',type:'C',name:'Model C100 PVC Bathroom Cabinet',desc:'Size: 100×50cm\nMaterial: PVC\nWarranty: 2 Years | MOQ: 50sets',price:'$112.00',img:'C00100.jpg'},
+        {id:'C101',type:'C',name:'Model C101 PVC Bathroom Cabinet',desc:'Size: 100×50cm\nMaterial: PVC\nWarranty: 2 Years | MOQ: 50sets',price:'$112.00',img:'C00101.jpg'},
+        {id:'C102',type:'C',name:'Model C102 PVC Bathroom Cabinet',desc:'Size: 100×50cm\nMaterial: PVC\nWarranty: 2 Years | MOQ: 50sets',price:'$112.00',img:'C00102.jpg'},
+        {id:'C103',type:'C',name:'Model C103 PVC Bathroom Cabinet',desc:'Size: 100×50cm\nMaterial: PVC\nWarranty: 2 Years | MOQ: 50sets',price:'$112.00',img:'C00103.jpg'},
+        {id:'C104',type:'C',name:'Model C104 PVC Bathroom Cabinet',desc:'Size: 100×50cm\nMaterial: PVC\nWarranty: 2 Years | MOQ: 50sets',price:'$112.00',img:'C00104.jpg'},
+        {id:'C105',type:'C',name:'Model C105 PVC Bathroom Cabinet',desc:'Size: 100×50cm\nMaterial: PVC\nWarranty: 2 Years | MOQ: 50sets',price:'$112.00',img:'C00105.jpg'},
+        {id:'C106',type:'C',name:'Model C106 PVC Bathroom Cabinet',desc:'Size: 100×50cm\nMaterial: PVC\nWarranty: 2 Years | MOQ: 50sets',price:'$112.00',img:'C00106.jpg'},
+        {id:'C107',type:'C',name:'Model C107 PVC Bathroom Cabinet',desc:'Size: 100×50cm\nMaterial: PVC\nWarranty: 2 Years | MOQ: 50sets',price:'$112.00',img:'C00107.jpg'},
+        {id:'C108',type:'C',name:'Model C108 PVC Bathroom Cabinet',desc:'Size: 100×50cm\nMaterial: PVC\nWarranty: 2 Years | MOQ: 50sets',price:'$112.00',img:'C00108.jpg'},
+        {id:'C109',type:'C',name:'Model C109 PVC Bathroom Cabinet',desc:'Size: 100×50cm\nMaterial: PVC\nWarranty: 2 Years | MOQ: 50sets',price:'$112.00',img:'C00109.jpg'},
+        {id:'C110',type:'C',name:'Model C110 PVC Bathroom Cabinet',desc:'Size: 100×50cm\nMaterial: PVC\nWarranty: 2 Years | MOQ: 50sets',price:'$112.00',img:'C00110.jpg'},
+        {id:'C111',type:'C',name:'Model C111 PVC Bathroom Cabinet',desc:'Size: 100×50cm\nMaterial: PVC\nWarranty: 2 Years | MOQ: 50sets',price:'$112.00',img:'C00111.jpg'},
+        {id:'C112',type:'C',name:'Model C112 PVC Bathroom Cabinet',desc:'Size: 100×50cm\nMaterial: PVC\nWarranty: 2 Years | MOQ: 50sets',price:'$112.00',img:'C00112.jpg'},
+        {id:'C113',type:'C',name:'Model C113 PVC Bathroom Cabinet',desc:'Size: 100×50cm\nMaterial: PVC\nWarranty: 2 Years | MOQ: 50sets',price:'$112.00',img:'C00113.jpg'},
+        {id:'C114',type:'C',name:'Model C114 PVC Bathroom Cabinet',desc:'Size: 100×50cm\nMaterial: PVC\nWarranty: 2 Years | MOQ: 50sets',price:'$112.00',img:'C00114.jpg'},
+        {id:'C115',type:'C',name:'Model C115 PVC Bathroom Cabinet',desc:'Size: 100×50cm\nMaterial: PVC\nWarranty: 2 Years | MOQ: 50sets',price:'$112.00',img:'C00115.jpg'},
+        {id:'C116',type:'C',name:'Model C116 PVC Bathroom Cabinet',desc:'Size: 100×50cm\nMaterial: PVC\nWarranty: 2 Years | MOQ: 50sets',price:'$112.00',img:'C00116.jpg'},
+        {id:'C117',type:'C',name:'Model C117 PVC Bathroom Cabinet',desc:'Size: 100×50cm\nMaterial: PVC\nWarranty: 2 Years | MOQ: 50sets',price:'$112.00',img:'C00117.jpg'},
+        {id:'C118',type:'C',name:'Model C118 PVC Bathroom Cabinet',desc:'Size: 100×50cm\nMaterial: PVC\nWarranty: 2 Years | MOQ: 50sets',price:'$112.00',img:'C00118.jpg'},
+        {id:'C119',type:'C',name:'Model C119 PVC Bathroom Cabinet',desc:'Size: 100×50cm\nMaterial: PVC\nWarranty: 2 Years | MOQ: 50sets',price:'$112.00',img:'C00119.jpg'},
+        {id:'C120',type:'C',name:'Model C120 PVC Bathroom Cabinet',desc:'Size: 100×50cm\nMaterial: PVC\nWarranty: 2 Years | MOQ: 50sets',price:'$112.00',img:'C00120.jpg'},
+        {id:'C121',type:'C',name:'Model C121 PVC Bathroom Cabinet',desc:'Size: 100×50cm\nMaterial: PVC\nWarranty: 2 Years | MOQ: 50sets',price:'$112.00',img:'C00121.jpg'},
+        {id:'C122',type:'C',name:'Model C122 PVC Bathroom Cabinet',desc:'Size: 100×50cm\nMaterial: PVC\nWarranty: 2 Years | MOQ: 50sets',price:'$112.00',img:'C00122.jpg'},
+        {id:'C123',type:'C',name:'Model C123 PVC Bathroom Cabinet',desc:'Size: 100×50cm\nMaterial: PVC\nWarranty: 2 Years | MOQ: 50sets',price:'$112.00',img:'C00123.jpg'},
+        {id:'C124',type:'C',name:'Model C124 PVC Bathroom Cabinet',desc:'Size: 100×50cm\nMaterial: PVC\nWarranty: 2 Years | MOQ: 50sets',price:'$112.00',img:'C00124.jpg'},
+        {id:'C125',type:'C',name:'Model C125 PVC Bathroom Cabinet',desc:'Size: 100×50cm\nMaterial: PVC\nWarranty: 2 Years | MOQ: 50sets',price:'$112.00',img:'C00125.jpg'},
+        {id:'C126',type:'C',name:'Model C126 PVC Bathroom Cabinet',desc:'Size: 100×50cm\nMaterial: PVC\nWarranty: 2 Years | MOQ: 50sets',price:'$112.00',img:'C00126.jpg'},
+        {id:'C127',type:'C',name:'Model C127 PVC Bathroom Cabinet',desc:'Size: 100×50cm\nMaterial: PVC\nWarranty: 2 Years | MOQ: 50sets',price:'$112.00',img:'C00127.jpg'},
+        {id:'C128',type:'C',name:'Model C128 PVC Bathroom Cabinet',desc:'Size: 100×50cm\nMaterial: PVC\nWarranty: 2 Years | MOQ: 50sets',price:'$112.00',img:'C00128.jpg'},
+        {id:'C129',type:'C',name:'Model C129 PVC Bathroom Cabinet',desc:'Size: 100×50cm\nMaterial: PVC\nWarranty: 2 Years | MOQ: 50sets',price:'$112.00',img:'C00129.jpg'},
+        {id:'C130',type:'C',name:'Model C130 PVC Bathroom Cabinet',desc:'Size: 100×50cm\nMaterial: PVC\nWarranty: 2 Years | MOQ: 50sets',price:'$112.00',img:'C00130.jpg'},
+        {id:'C131',type:'C',name:'Model C131 PVC Bathroom Cabinet',desc:'Size: 100×50cm\nMaterial: PVC\nWarranty: 2 Years | MOQ: 50sets',price:'$112.00',img:'C00131.jpg'},
+        {id:'C132',type:'C',name:'Model C132 PVC Bathroom Cabinet',desc:'Size: 100×50cm\nMaterial: PVC\nWarranty: 2 Years | MOQ: 50sets',price:'$112.00',img:'C00132.jpg'},
+        {id:'C133',type:'C',name:'Model C133 PVC Bathroom Cabinet',desc:'Size: 100×50cm\nMaterial: PVC\nWarranty: 2 Years | MOQ: 50sets',price:'$112.00',img:'C00133.jpg'},
+        {id:'C134',type:'C',name:'Model C134 PVC Bathroom Cabinet',desc:'Size: 100×50cm\nMaterial: PVC\nWarranty: 2 Years | MOQ: 50sets',price:'$112.00',img:'C00134.jpg'},
+        {id:'C135',type:'C',name:'Model C135 PVC Bathroom Cabinet',desc:'Size: 100×50cm\nMaterial: PVC\nWarranty: 2 Years | MOQ: 50sets',price:'$112.00',img:'C00135.jpg'},
+        {id:'C136',type:'C',name:'Model C136 PVC Bathroom Cabinet',desc:'Size: 100×50cm\nMaterial: PVC\nWarranty: 2 Years | MOQ: 50sets',price:'$112.00',img:'C00136.jpg'},
+        {id:'C137',type:'C',name:'Model C137 PVC Bathroom Cabinet',desc:'Size: 100×50cm\nMaterial: PVC\nWarranty: 2 Years | MOQ: 50sets',price:'$112.00',img:'C00137.jpg'},
+        {id:'C138',type:'C',name:'Model C138 PVC Bathroom Cabinet',desc:'Size: 100×50cm\nMaterial: PVC\nWarranty: 2 Years | MOQ: 50sets',price:'$112.00',img:'C00138.jpg'},
+        {id:'C139',type:'C',name:'Model C139 PVC Bathroom Cabinet',desc:'Size: 100×50cm\nMaterial: PVC\nWarranty: 2 Years | MOQ: 50sets',price:'$112.00',img:'C00139.jpg'},
+        {id:'C140',type:'C',name:'Model C140 PVC Bathroom Cabinet',desc:'Size: 100×50cm\nMaterial: PVC\nWarranty: 2 Years | MOQ: 50sets',price:'$112.00',img:'C00140.jpg'},
+        {id:'C141',type:'C',name:'Model C141 PVC Bathroom Cabinet',desc:'Size: 100×50cm\nMaterial: PVC\nWarranty: 2 Years | MOQ: 50sets',price:'$112.00',img:'C00141.jpg'},
+        {id:'C142',type:'C',name:'Model C142 PVC Bathroom Cabinet',desc:'Size: 100×50cm\nMaterial: PVC\nWarranty: 2 Years | MOQ: 50sets',price:'$112.00',img:'C00142.jpg'},
+        {id:'C143',type:'C',name:'Model C143 PVC Bathroom Cabinet',desc:'Size: 100×50cm\nMaterial: PVC\nWarranty: 2 Years | MOQ: 50sets',price:'$112.00',img:'C00143.jpg'},
+        {id:'C144',type:'C',name:'Model C144 PVC Bathroom Cabinet',desc:'Size: 100×50cm\nMaterial: PVC\nWarranty: 2 Years | MOQ: 50sets',price:'$112.00',img:'C00144.jpg'},
+        {id:'C145',type:'C',name:'Model C145 PVC Bathroom Cabinet',desc:'Size: 100×50cm\nMaterial: PVC\nWarranty: 2 Years | MOQ: 50sets',price:'$112.00',img:'C00145.jpg'},
+        {id:'C146',type:'C',name:'Model C146 PVC Bathroom Cabinet',desc:'Size: 100×50cm\nMaterial: PVC\nWarranty: 2 Years | MOQ: 50sets',price:'$112.00',img:'C00146.jpg'},
+        {id:'C147',type:'C',name:'Model C147 PVC Bathroom Cabinet',desc:'Size: 100×50cm\nMaterial: PVC\nWarranty: 2 Years | MOQ: 50sets',price:'$112.00',img:'C00147.jpg'},
+        {id:'C148',type:'C',name:'Model C148 PVC Bathroom Cabinet',desc:'Size: 100×50cm\nMaterial: PVC\nWarranty: 2 Years | MOQ: 50sets',price:'$112.00',img:'C00148.jpg'},
+        {id:'C149',type:'C',name:'Model C149 PVC Bathroom Cabinet',desc:'Size: 100×50cm\nMaterial: PVC\nWarranty: 2 Years | MOQ: 50sets',price:'$112.00',img:'C00149.jpg'},
+        {id:'C150',type:'C',name:'Model C150 PVC Bathroom Cabinet',desc:'Size: 100×50cm\nMaterial: PVC\nWarranty: 2 Years | MOQ: 50sets',price:'$112.00',img:'C00150.jpg'},
+        {id:'C151',type:'C',name:'Model C151 PVC Bathroom Cabinet',desc:'Size: 100×50cm\nMaterial: PVC\nWarranty: 2 Years | MOQ: 50sets',price:'$112.00',img:'C00151.jpg'},
+        {id:'C152',type:'C',name:'Model C152 PVC Bathroom Cabinet',desc:'Size: 100×50cm\nMaterial: PVC\nWarranty: 2 Years | MOQ: 50sets',price:'$112.00',img:'C00152.jpg'},
+        {id:'C153',type:'C',name:'Model C153 PVC Bathroom Cabinet',desc:'Size: 100×50cm\nMaterial: PVC\nWarranty: 2 Years | MOQ: 50sets',price:'$112.00',img:'C00153.jpg'},
+        {id:'C154',type:'C',name:'Model C154 PVC Bathroom Cabinet',desc:'Size: 100×50cm\nMaterial: PVC\nWarranty: 2 Years | MOQ: 50sets',price:'$112.00',img:'C00154.jpg'},
+        {id:'C155',type:'C',name:'Model C155 PVC Bathroom Cabinet',desc:'Size: 100×50cm\nMaterial: PVC\nWarranty: 2 Years | MOQ: 50sets',price:'$112.00',img:'C00155.jpg'},
+        {id:'C156',type:'C',name:'Model C156 PVC Bathroom Cabinet',desc:'Size: 100×50cm\nMaterial: PVC\nWarranty: 2 Years | MOQ: 50sets',price:'$112.00',img:'C00156.jpg'},
+        {id:'C157',type:'C',name:'Model C157 PVC Bathroom Cabinet',desc:'Size: 100×50cm\nMaterial: PVC\nWarranty: 2 Years | MOQ: 50sets',price:'$112.00',img:'C00157.jpg'},
+        {id:'C158',type:'C',name:'Model C158 PVC Bathroom Cabinet',desc:'Size: 100×50cm\nMaterial: PVC\nWarranty: 2 Years | MOQ: 50sets',price:'$112.00',img:'C00158.jpg'},
+        {id:'C159',type:'C',name:'Model C159 PVC Bathroom Cabinet',desc:'Size: 100×50cm\nMaterial: PVC\nWarranty: 2 Years | MOQ: 50sets',price:'$112.00',img:'C00159.jpg'},
+        {id:'C160',type:'C',name:'Model C160 PVC Bathroom Cabinet',desc:'Size: 100×50cm\nMaterial: PVC\nWarranty: 2 Years | MOQ: 50sets',price:'$112.00',img:'C00160.jpg'},
+        {id:'C161',type:'C',name:'Model C161 PVC Bathroom Cabinet',desc:'Size: 100×50cm\nMaterial: PVC\nWarranty: 2 Years | MOQ: 50sets',price:'$112.00',img:'C00161.jpg'},
+        {id:'C162',type:'C',name:'Model C162 PVC Bathroom Cabinet',desc:'Size: 100×50cm\nMaterial: PVC\nWarranty: 2 Years | MOQ: 50sets',price:'$112.00',img:'C00162.jpg'},
+        {id:'C163',type:'C',name:'Model C163 PVC Bathroom Cabinet',desc:'Size: 100×50cm\nMaterial: PVC\nWarranty: 2 Years | MOQ: 50sets',price:'$112.00',img:'C00163.jpg'},
+        {id:'C164',type:'C',name:'Model C164 PVC Bathroom Cabinet',desc:'Size: 100×50cm\nMaterial: PVC\nWarranty: 2 Years | MOQ: 50sets',price:'$112.00',img:'C00164.jpg'},
+        {id:'C165',type:'C',name:'Model C165 PVC Bathroom Cabinet',desc:'Size: 100×50cm\nMaterial: PVC\nWarranty: 2 Years | MOQ: 50sets',price:'$112.00',img:'C00165.jpg'},
+        {id:'C166',type:'C',name:'Model C166 PVC Bathroom Cabinet',desc:'Size: 100×50cm\nMaterial: PVC\nWarranty: 2 Years | MOQ: 50sets',price:'$112.00',img:'C00166.jpg'},
+        {id:'C167',type:'C',name:'Model C167 PVC Bathroom Cabinet',desc:'Size: 100×50cm\nMaterial: PVC\nWarranty: 2 Years | MOQ: 50sets',price:'$112.00',img:'C00167.jpg'},
+        {id:'C168',type:'C',name:'Model C168 PVC Bathroom Cabinet',desc:'Size: 100×50cm\nMaterial: PVC\nWarranty: 2 Years | MOQ: 50sets',price:'$112.00',img:'C00168.jpg'},
+        {id:'C169',type:'C',name:'Model C169 PVC Bathroom Cabinet',desc:'Size: 100×50cm\nMaterial: PVC\nWarranty: 2 Years | MOQ: 50sets',price:'$112.00',img:'C00169.jpg'},
+        {id:'C170',type:'C',name:'Model C170 PVC Bathroom Cabinet',desc:'Size: 100×50cm\nMaterial: PVC\nWarranty: 2 Years | MOQ: 50sets',price:'$112.00',img:'C00170.jpg'},
+        {id:'C171',type:'C',name:'Model C171 PVC Bathroom Cabinet',desc:'Size: 100×50cm\nMaterial: PVC\nWarranty: 2 Years | MOQ: 50sets',price:'$112.00',img:'C00171.jpg'},
+        {id:'C172',type:'C',name:'Model C172 PVC Bathroom Cabinet',desc:'Size: 100×50cm\nMaterial: PVC\nWarranty: 2 Years | MOQ: 50sets',price:'$112.00',img:'C00172.jpg'},
+        {id:'C173',type:'C',name:'Model C173 PVC Bathroom Cabinet',desc:'Size: 100×50cm\nMaterial: PVC\nWarranty: 2 Years | MOQ: 50sets',price:'$112.00',img:'C00173.jpg'},
+        {id:'C174',type:'C',name:'Model C174 PVC Bathroom Cabinet',desc:'Size: 100×50cm\nMaterial: PVC\nWarranty: 2 Years | MOQ: 50sets',price:'$112.00',img:'C00174.jpg'},
+        {id:'C175',type:'C',name:'Model C175 PVC Bathroom Cabinet',desc:'Size: 100×50cm\nMaterial: PVC\nWarranty: 2 Years | MOQ: 50sets',price:'$112.00',img:'C00175.jpg'},
+        {id:'C176',type:'C',name:'Model C176 PVC Bathroom Cabinet',desc:'Size: 100×50cm\nMaterial: PVC\nWarranty: 2 Years | MOQ: 50sets',price:'$112.00',img:'C00176.jpg'},
+        {id:'C177',type:'C',name:'Model C177 PVC Bathroom Cabinet',desc:'Size: 100×50cm\nMaterial: PVC\nWarranty: 2 Years | MOQ: 50sets',price:'$112.00',img:'C00177.jpg'},
+        {id:'C178',type:'C',name:'Model C178 PVC Bathroom Cabinet',desc:'Size: 100×50cm\nMaterial: PVC\nWarranty: 2 Years | MOQ: 50sets',price:'$112.00',img:'C00178.jpg'},
+        {id:'C179',type:'C',name:'Model C179 PVC Bathroom Cabinet',desc:'Size: 100×50cm\nMaterial: PVC\nWarranty: 2 Years | MOQ: 50sets',price:'$112.00',img:'C00179.jpg'},
+        {id:'C180',type:'C',name:'Model C180 PVC Bathroom Cabinet',desc:'Size: 100×50cm\nMaterial: PVC\nWarranty: 2 Years | MOQ: 50sets',price:'$112.00',img:'C00180.jpg'},
+        {id:'C181',type:'C',name:'Model C181 PVC Bathroom Cabinet',desc:'Size: 100×50cm\nMaterial: PVC\nWarranty: 2 Years | MOQ: 50sets',price:'$112.00',img:'C00181.jpg'},
+        {id:'C182',type:'C',name:'Model C182 PVC Bathroom Cabinet',desc:'Size: 100×50cm\nMaterial: PVC\nWarranty: 2 Years | MOQ: 50sets',price:'$112.00',img:'C00182.jpg'},
+        {id:'C183',type:'C',name:'Model C183 PVC Bathroom Cabinet',desc:'Size: 100×50cm\nMaterial: PVC\nWarranty: 2 Years | MOQ: 50sets',price:'$112.00',img:'C00183.jpg'},
+        {id:'C184',type:'C',name:'Model C184 PVC Bathroom Cabinet',desc:'Size: 100×50cm\nMaterial: PVC\nWarranty: 2 Years | MOQ: 50sets',price:'$112.00',img:'C00184.jpg'},
+        {id:'C185',type:'C',name:'Model C185 PVC Bathroom Cabinet',desc:'Size: 100×50cm\nMaterial: PVC\nWarranty: 2 Years | MOQ: 50sets',price:'$112.00',img:'C00185.jpg'},
+        {id:'C186',type:'C',name:'Model C186 PVC Bathroom Cabinet',desc:'Size: 100×50cm\nMaterial: PVC\nWarranty: 2 Years | MOQ: 50sets',price:'$112.00',img:'C00186.jpg'},
+        {id:'C187',type:'C',name:'Model C187 PVC Bathroom Cabinet',desc:'Size: 100×50cm\nMaterial: PVC\nWarranty: 2 Years | MOQ: 50sets',price:'$112.00',img:'C00187.jpg'},
+        {id:'C188',type:'C',name:'Model C188 PVC Bathroom Cabinet',desc:'Size: 100×50cm\nMaterial: PVC\nWarranty: 2 Years | MOQ: 50sets',price:'$112.00',img:'C00188.jpg'},
+        {id:'C189',type:'C',name:'Model C189 PVC Bathroom Cabinet',desc:'Size: 100×50cm\nMaterial: PVC\nWarranty: 2 Years | MOQ: 50sets',price:'$112.00',img:'C00189.jpg'},
+        {id:'C190',type:'C',name:'Model C190 PVC Bathroom Cabinet',desc:'Size: 100×50cm\nMaterial: PVC\nWarranty: 2 Years | MOQ: 50sets',price:'$112.00',img:'C00190.jpg'},
+        {id:'C191',type:'C',name:'Model C191 PVC Bathroom Cabinet',desc:'Size: 100×50cm\nMaterial: PVC\nWarranty: 2 Years | MOQ: 50sets',price:'$112.00',img:'C00191.jpg'},
+        {id:'C192',type:'C',name:'Model C192 PVC Bathroom Cabinet',desc:'Size: 100×50cm\nMaterial: PVC\nWarranty: 2 Years | MOQ: 50sets',price:'$112.00',img:'C00192.jpg'},
+        {id:'C193',type:'C',name:'Model C193 PVC Bathroom Cabinet',desc:'Size: 100×50cm\nMaterial: PVC\nWarranty: 2 Years | MOQ: 50sets',price:'$112.00',img:'C00193.jpg'},
+        {id:'C194',type:'C',name:'Model C194 PVC Bathroom Cabinet',desc:'Size: 100×50cm\nMaterial: PVC\nWarranty: 2 Years | MOQ: 50sets',price:'$112.00',img:'C00194.jpg'},
+        {id:'C195',type:'C',name:'Model C195 PVC Bathroom Cabinet',desc:'Size: 100×50cm\nMaterial: PVC\nWarranty: 2 Years | MOQ: 50sets',price:'$112.00',img:'C00195.jpg'},
+        {id:'C196',type:'C',name:'Model C196 PVC Bathroom Cabinet',desc:'Size: 100×50cm\nMaterial: PVC\nWarranty: 2 Years | MOQ: 50sets',price:'$112.00',img:'C00196.jpg'},
+        {id:'C197',type:'C',name:'Model C197 PVC Bathroom Cabinet',desc:'Size: 100×50cm\nMaterial: PVC\nWarranty: 2 Years | MOQ: 50sets',price:'$112.00',img:'C00197.jpg'},
+        {id:'C198',type:'C',name:'Model C198 PVC Bathroom Cabinet',desc:'Size: 100×50cm\nMaterial: PVC\nWarranty: 2 Years | MOQ: 50sets',price:'$112.00',img:'C00198.jpg'},
+    ]; // 这行必须保留，产品数组结束
 
-        // C系列 PVC浴室柜 (共198款，尺寸全部转换为厘米)
-        {id:'C001',type:'C',name:'Model C001 PVC Bathroom Cabinet',desc:'Size: 100/80×50cm\nMaterial: PVC\nWarranty: 2 Years | MOQ: 50sets',price:'$112.00',img:'C001.jpg'},
-        {id:'C002',type:'C',name:'Model C002 PVC Bathroom Cabinet',desc:'Size: 100/80×50cm\nMaterial: PVC\nWarranty: 2 Years | MOQ: 50sets',price:'$112.00',img:'C002.jpg'},
-        {id:'C003',type:'C',name:'Model C003 PVC Bathroom Cabinet',desc:'Size: 100/80×50cm\nMaterial: PVC\nWarranty: 2 Years | MOQ: 50sets',price:'$112.00',img:'C003.jpg'},
-        {id:'C004',type:'C',name:'Model C004 PVC Bathroom Cabinet',desc:'Size: 100/80×50cm\nMaterial: PVC\nWarranty: 2 Years | MOQ: 50sets',price:'$112.00',img:'C004.jpg'},
-        {id:'C005',type:'C',name:'Model C005 PVC Bathroom Cabinet',desc:'Size: 100/80×50cm\nMaterial: PVC\nWarranty: 2 Years | MOQ: 50sets',price:'$112.00',img:'C005.jpg'},
-        {id:'C006',type:'C',name:'Model C006 PVC Bathroom Cabinet',desc:'Size: 100/80×50cm\nMaterial: PVC\nWarranty: 2 Years | MOQ: 50sets',price:'$112.00',img:'C006.jpg'},
-        {id:'C007',type:'C',name:'Model C007 PVC Bathroom Cabinet',desc:'Size: 100/80×50cm\nMaterial: PVC\nWarranty: 2 Years | MOQ: 50sets',price:'$112.00',img:'C007.jpg'},
-        {id:'C008',type:'C',name:'Model C008 PVC Bathroom Cabinet',desc:'Size: 100/80×50cm\nMaterial: PVC\nWarranty: 2 Years | MOQ: 50sets',price:'$112.00',img:'C008.jpg'},
-        {id:'C009',type:'C',name:'Model C009 PVC Bathroom Cabinet',desc:'Size: 100/80×50cm\nMaterial: PVC\nWarranty: 2 Years | MOQ: 50sets',price:'$112.00',img:'C009.jpg'},
-        {id:'C010',type:'C',name:'Model C010 PVC Bathroom Cabinet',desc:'Size: 100/80×50cm\nMaterial: PVC\nWarranty: 2 Years | MOQ: 50sets',price:'$112.00',img:'C010.jpg'},
-        {id:'C011',type:'C',name:'Model C011 PVC Bathroom Cabinet',desc:'Size: 100/80×50cm\nMaterial: PVC\nWarranty: 2 Years | MOQ: 50sets',price:'$112.00',img:'C011.jpg'},
-        {id:'C012',type:'C',name:'Model C012 PVC Bathroom Cabinet',desc:'Size: 100/80×50cm\nMaterial: PVC\nWarranty: 2 Years | MOQ: 50sets',price:'$112.00',img:'C012.jpg'},
-        {id:'C013',type:'C',name:'Model C013 PVC Bathroom Cabinet',desc:'Size: 100/80×50cm\nMaterial: PVC\nWarranty: 2 Years | MOQ: 50sets',price:'$112.00',img:'C013.jpg'},
-        {id:'C014',type:'C',name:'Model C014 PVC Bathroom Cabinet',desc:'Size: 100/80×50cm\nMaterial: PVC\nWarranty: 2 Years | MOQ: 50sets',price:'$112.00',img:'C014.jpg'},
-        {id:'C015',type:'C',name:'Model C015 PVC Bathroom Cabinet',desc:'Size: 100/80×50cm\nMaterial: PVC\nWarranty: 2 Years | MOQ: 50sets',price:'$112.00',img:'C015.jpg'},
-        {id:'C016',type:'C',name:'Model C016 PVC Bathroom Cabinet',desc:'Size: 100/80×50cm\nMaterial: PVC\nWarranty: 2 Years | MOQ: 50sets',price:'$112.00',img:'C016.jpg'},
-        {id:'C017',type:'C',name:'Model C017 PVC Bathroom Cabinet',desc:'Size: 100/80×50cm\nMaterial: PVC\nWarranty: 2 Years | MOQ: 50sets',price:'$112.00',img:'C017.jpg'},
-        {id:'C018',type:'C',name:'Model C018 PVC Bathroom Cabinet',desc:'Size: 100/80×50cm\nMaterial: PVC\nWarranty: 2 Years | MOQ: 50sets',price:'$112.00',img:'C018.jpg'},
-        {id:'C019',type:'C',name:'Model C019 PVC Bathroom Cabinet',desc:'Size: 80×50cm\nMaterial: PVC\nWarranty: 2 Years | MOQ: 50sets',price:'$112.00',img:'C019.jpg'},
-        {id:'C020',type:'C',name:'Model C020 PVC Bathroom Cabinet',desc:'Size: 80×50cm\nMaterial: PVC\nWarranty: 2 Years | MOQ: 50sets',price:'$112.00',img:'C020.jpg'},
-        {id:'C021',type:'C',name:'Model C021 PVC Bathroom Cabinet',desc:'Size: 80×50cm\nMaterial: PVC\nWarranty: 2 Years | MOQ: 50sets',price:'$112.00',img:'C021.jpg'},
-        {id:'C022',type:'C',name:'Model C022 PVC Bathroom Cabinet',desc:'Size: 80×50cm\nMaterial: PVC\nWarranty: 2 Years | MOQ: 50sets',price:'$112.00',img:'C022.jpg'},
-        {id:'C023',type:'C',name:'Model C023 PVC Bathroom Cabinet',desc:'Size: 80×50cm\nMaterial: PVC\nWarranty: 2 Years | MOQ: 50sets',price:'$112.00',img:'C023.jpg'},
-        {id:'C024',type:'C',name:'Model C024 PVC Bathroom Cabinet',desc:'Size: 80×50cm\nMaterial: PVC\nWarranty: 2 Years | MOQ: 50sets',price:'$112.00',img:'C024.jpg'},
-        {id:'C025',type:'C',name:'Model C025 PVC Bathroom Cabinet',desc:'Size: 80×50cm\nMaterial: PVC\nWarranty: 2 Years | MOQ: 50sets',price:'$112.00',img:'C025.jpg'},
-        {id:'C026',type:'C',name:'Model C026 PVC Bathroom Cabinet',desc:'Size: 80×50cm\nMaterial: PVC\nWarranty: 2 Years | MOQ: 50sets',price:'$112.00',img:'C026.jpg'},
-        {id:'C027',type:'C',name:'Model C027 PVC Bathroom Cabinet',desc:'Size: 80×50cm\nMaterial: PVC\nWarranty: 2 Years | MOQ: 50sets',price:'$112.00',img:'C027.jpg'},
-        {id:'C028',type:'C',name:'Model C028 PVC Bathroom Cabinet',desc:'Size: 80×50cm\nMaterial: PVC\nWarranty: 2 Years | MOQ: 50sets',price:'$112.00',img:'C028.jpg'},
-        {id:'C029',type:'C',name:'Model C029 PVC Bathroom Cabinet',desc:'Size: 80×50cm\nMaterial: PVC\nWarranty: 2 Years | MOQ: 50sets',price:'$112.00',img:'C029.jpg'},
-        {id:'C030',type:'C',name:'Model C030 PVC Bathroom Cabinet',desc:'Size: 80×50cm\nMaterial: PVC\nWarranty: 2 Years | MOQ: 50sets',price:'$112.00',img:'C030.jpg'},
-        {id:'C031',type:'C',name:'Model C031 PVC Bathroom Cabinet',desc:'Size: 80×50cm\nMaterial: PVC\nWarranty: 2 Years | MOQ: 50sets',price:'$112.00',img:'C031.jpg'},
-        {id:'C032',type:'C',name:'Model C032 PVC Bathroom Cabinet',desc:'Size: 80×50cm\nMaterial: PVC\nWarranty: 2 Years | MOQ: 50sets',price:'$112.00',img:'C032.jpg'},
-        {id:'C033',type:'C',name:'Model C033 PVC Bathroom Cabinet',desc:'Size: 120×50cm\nMaterial: PVC\nWarranty: 2 Years | MOQ: 50sets',price:'$112.00',img:'C033.jpg'},
-        {id:'C034',type:'C',name:'Model C034 PVC Bathroom Cabinet',desc:'Size: 120×50cm\nMaterial: PVC\nWarranty: 2 Years | MOQ: 50sets',price:'$112.00',img:'C034.jpg'},
-        {id:'C035',type:'C',name:'Model C035 PVC Bathroom Cabinet',desc:'Size: 120×50cm\nMaterial: PVC\nWarranty: 2 Years | MOQ: 50sets',price:'$112.00',img:'C035.jpg'},
-        {id:'C036',type:'C',name:'Model C036 PVC Bathroom Cabinet',desc:'Size: 100×50cm\nMaterial: PVC\nWarranty: 2 Years | MOQ: 50sets',price:'$112.00',img:'C036.jpg'},
-        {id:'C037',type:'C',name:'Model C037 PVC Bathroom Cabinet',desc:'Size: 100×50cm\nMaterial: PVC\nWarranty: 2 Years | MOQ: 50sets',price:'$112.00',img:'C037.jpg'},
-        {id:'C038',type:'C',name:'Model C038 PVC Bathroom Cabinet',desc:'Size: 100×50cm\nMaterial: PVC\nWarranty: 2 Years | MOQ: 50sets',price:'$112.00',img:'C038.jpg'},
-        {id:'C039',type:'C',name:'Model C039 PVC Bathroom Cabinet',desc:'Size: 80×50cm\nMaterial: PVC\nWarranty: 2 Years | MOQ: 50sets',price:'$112.00',img:'C039.jpg'},
-        {id:'C040',type:'C',name:'Model C040 PVC Bathroom Cabinet',desc:'Size: 80×50cm\nMaterial: PVC\nWarranty: 2 Years | MOQ: 50sets',price:'$112.00',img:'C040.jpg'},
-        {id:'C041',type:'C',name:'Model C041 PVC Bathroom Cabinet',desc:'Size: 80×50cm\nMaterial: PVC\nWarranty: 2 Years | MOQ: 50sets',price:'$112.00',img:'C041.jpg'},
-        {id:'C042',type:'C',name:'Model C042 PVC Bathroom Cabinet',desc:'Size: 80×50cm\nMaterial: PVC\nWarranty: 2 Years | MOQ: 50sets',price:'$112.00',img:'C042.jpg'},
-        {id:'C043',type:'C',name:'Model C043 PVC Bathroom Cabinet',desc:'Size: 80×50cm\nMaterial: PVC\nWarranty: 2 Years | MOQ: 50sets',price:'$112.00',img:'C043.jpg'},
-        {id:'C044',type:'C',name:'Model C044 PVC Bathroom Cabinet',desc:'Size: 80×50cm\nMaterial: PVC\nWarranty: 2 Years | MOQ: 50sets',price:'$112.00',img:'C044.jpg'},
-        {id:'C045',type:'C',name:'Model C045 PVC Bathroom Cabinet',desc:'Size: 80×50cm\nMaterial: PVC\nWarranty: 2 Years | MOQ: 50sets',price:'$112.00',img:'C045.jpg'},
-        {id:'C046',type:'C',name:'Model C046 PVC Bathroom Cabinet',desc:'Size: 80×50cm\nMaterial: PVC\nWarranty: 2 Years | MOQ: 50sets',price:'$112.00',img:'C046.jpg'},
-        {id:'C047',type:'C',name:'Model C047 PVC Bathroom Cabinet',desc:'Size: 80×50cm\nMaterial: PVC\nWarranty: 2 Years | MOQ: 50sets',price:'$112.00',img:'C047.jpg'},
-        {id:'C048',type:'C',name:'Model C048 PVC Bathroom Cabinet',desc:'Size: 80×50cm\nMaterial: PVC\nWarranty: 2 Years | MOQ: 50sets',price:'$112.00',img:'C048.jpg'},
-        {id:'C049',type:'C',name:'Model C049 PVC Bathroom Cabinet',desc:'Size: 80×50cm\nMaterial: PVC\nWarranty: 2 Years | MOQ: 50sets',price:'$112.00',img:'C049.jpg'},
-        {id:'C050',type:'C',name:'Model C050 PVC Bathroom Cabinet',desc:'Size: 80×50cm\nMaterial: PVC\nWarranty: 2 Years | MOQ: 50sets',price:'$112.00',img:'C050.jpg'},
-        {id:'C051',type:'C',name:'Model C051 PVC Bathroom Cabinet',desc:'Size: 80×50cm\nMaterial: PVC\nWarranty: 2 Years | MOQ: 50sets',price:'$112.00',img:'C051.jpg'},
-        {id:'C052',type:'C',name:'Model C052 PVC Bathroom Cabinet',desc:'Size: 80×50cm\nMaterial: PVC\nWarranty: 2 Years | MOQ: 50sets',price:'$112.00',img:'C052.jpg'},
-        {id:'C053',type:'C',name:'Model C053 PVC Bathroom Cabinet',desc:'Size: 80×50cm\nMaterial: PVC\nWarranty: 2 Years | MOQ: 50sets',price:'$112.00',img:'C053.jpg'},
-        {id:'C054',type:'C',name:'Model C054 PVC Bathroom Cabinet',desc:'Size: 80×50cm\nMaterial: PVC\nWarranty: 2 Years | MOQ: 50sets',price:'$112.00',img:'C054.jpg'},
-        {id:'C055',type:'C',name:'Model C055 PVC Bathroom Cabinet',desc:'Size: 80×50cm\nMaterial: PVC\nWarranty: 2 Years | MOQ: 50sets',price:'$112.00',img:'C055.jpg'},
-        {id:'C056',type:'C',name:'Model C056 PVC Bathroom Cabinet',desc:'Size: 80×50cm\nMaterial: PVC\nWarranty: 2 Years | MOQ: 50sets',price:'$112.00',img:'C056.jpg'},
-        {id:'C057',type:'C',name:'Model C057 PVC Bathroom Cabinet',desc:'Size: 80×50cm\nMaterial: PVC\nWarranty: 2 Years | MOQ: 50sets',price:'$112.00',img:'C057.jpg'},
-        {id:'C058',type:'C',name:'Model C058 PVC Bathroom Cabinet',desc:'Size: 80×50cm\nMaterial: PVC\nWarranty: 2 Years | MOQ: 50sets',price:'$112.00',img:'C058.jpg'},
-        {id:'C059',type:'C',name:'Model C059 PVC Bathroom Cabinet',desc:'Size: 80×50cm\nMaterial: PVC\nWarranty: 2 Years | MOQ: 50sets',price:'$112.00',img:'C059.jpg'},
-        {id:'C060',type:'C',name:'Model C060 PVC Bathroom Cabinet',desc:'Size: 80×50cm\nMaterial: PVC\nWarranty: 2 Years | MOQ: 50sets',price:'$112.00',img:'C060.jpg'},
-        {id:'C061',type:'C',name:'Model C061 PVC Bathroom Cabinet',desc:'Size: 80×50cm\nMaterial: PVC\nWarranty: 2 Years | MOQ: 50sets',price:'$112.00',img:'C061.jpg'},
-        {id:'C062',type:'C',name:'Model C062 PVC Bathroom Cabinet',desc:'Size: 80×50cm\nMaterial: PVC\nWarranty: 2 Years | MOQ: 50sets',price:'$112.00',img:'C062.jpg'},
-        {id:'C063',type:'C',name:'Model C063 PVC Bathroom Cabinet',desc:'Size: 80×50cm\nMaterial: PVC\nWarranty: 2 Years | MOQ: 50sets',price:'$112.00',img:'C063.jpg'},
-        {id:'C064',type:'C',name:'Model C064 PVC Bathroom Cabinet',desc:'Size: 80×50cm\nMaterial: PVC\nWarranty: 2 Years | MOQ: 50sets',price:'$112.00',img:'C064.jpg'},
-        {id:'C065',type:'C',name:'Model C065 PVC Bathroom Cabinet',desc:'Size: 80×50cm\nMaterial: PVC\nWarranty: 2 Years | MOQ: 50sets',price:'$112.00',img:'C065.jpg'},
-        {id:'C066',type:'C',name:'Model C066 PVC Bathroom Cabinet',desc:'Size: 80×50cm\nMaterial: PVC\nWarranty: 2 Years | MOQ: 50sets',price:'$112.00',img:'C066.jpg'},
-        {id:'C067',type:'C',name:'Model C067 PVC Bathroom Cabinet',desc:'Size: 80×50cm\nMaterial: PVC\nWarranty: 2 Years | MOQ: 50sets',price:'$112.00',img:'C067.jpg'},
-        {id:'C068',type:'C',name:'Model C068 PVC Bathroom Cabinet',desc:'Size: 80×50cm\nMaterial: PVC\nWarranty: 2 Years | MOQ: 50sets',price:'$112.00',img:'C068.jpg'},
-        {id:'C069',type:'C',name:'Model C069 PVC Bathroom Cabinet',desc:'Size: 80×50cm\nMaterial: PVC\nWarranty: 2 Years | MOQ: 50sets',price:'$112.00',img:'C069.jpg'},
-        {id:'C070',type:'C',name:'Model C070 PVC Bathroom Cabinet',desc:'Size: 80×50cm\nMaterial: PVC\nWarranty: 2 Years | MOQ: 50sets',price:'$112.00',img:'C070.jpg'},
-        {id:'C071',type:'C',name:'Model C071 PVC Bathroom Cabinet',desc:'Size: 80×50cm\nMaterial: PVC\nWarranty: 2 Years | MOQ: 50sets',price:'$112.00',img:'C071.jpg'},
-        {id:'C072',type:'C',name:'Model C072 PVC Bathroom Cabinet',desc:'Size: 80×50cm\nMaterial: PVC\nWarranty: 2 Years | MOQ: 50sets',price:'$112.00',img:'C072.jpg'},
-        {id:'C073',type:'C',name:'Model C073 PVC Bathroom Cabinet',desc:'Size: 80×50cm\nMaterial: PVC\nWarranty: 2 Years | MOQ: 50sets',price:'$112.00',img:'C073.jpg'},
-        {id:'C074',type:'C',name:'Model C074 PVC Bathroom Cabinet',desc:'Size: 80×50cm\nMaterial: PVC\nWarranty: 2 Years | MOQ: 50sets',price:'$112.00',img:'C074.jpg'},
-        {id:'C075',type:'C',name:'Model C075 PVC Bathroom Cabinet',desc:'Size: 80×50cm\nMaterial: PVC\nWarranty: 2 Years | MOQ: 50sets',price:'$112.00',img:'C075.jpg'},
-        {id:'C076',type:'C',name:'Model C076 PVC Bathroom Cabinet',desc:'Size: 80×50cm\nMaterial: PVC\nWarranty: 2 Years | MOQ: 50sets',price:'$112.00',img:'C076.jpg'},
-        {id:'C077',type:'C',name:'Model C077 PVC Bathroom Cabinet',desc:'Size: 80×50cm\nMaterial: PVC\nWarranty: 2 Years | MOQ: 50sets',price:'$112.00',img:'C077.jpg'},
-        {id:'C078',type:'C',name:'Model C078 PVC Bathroom Cabinet',desc:'Size: 80×50cm\nMaterial: PVC\nWarranty: 2 Years | MOQ: 50sets',price:'$112.00',img:'C078.jpg'},
-        {id:'C079',type:'C',name:'Model C079 PVC Bathroom Cabinet',desc:'Size: 80×50cm\nMaterial: PVC\nWarranty: 2 Years | MOQ: 50sets',price:'$112.00',img:'C079.jpg'},
-        {id:'C080',type:'C',name:'Model C080 PVC Bathroom Cabinet',desc:'Size: 80×50cm\nMaterial: PVC\nWarranty: 2 Years | MOQ: 50sets',price:'$112.00',img:'C080.jpg'},
-        {id:'C081',type:'C',name:'Model C081 PVC Bathroom Cabinet',desc:'Size: 80×50cm\nMaterial: PVC\nWarranty: 2 Years | MOQ: 50sets',price:'$112.00',img:'C081.jpg'},
-        {id:'C082',type:'C',name:'Model C082 PVC Bathroom Cabinet',desc:'Size: 80×50cm\nMaterial: PVC\nWarranty: 2 Years | MOQ: 50sets',price:'$112.00',img:'C082.jpg'},
-        {id:'C083',type:'C',name:'Model C083 PVC Bathroom Cabinet',desc:'Size: 80×50cm\nMaterial: PVC\nWarranty: 2 Years | MOQ: 50sets',price:'$112.00',img:'C083.jpg'},
-        {id:'C084',type:'C',name:'Model C084 PVC Bathroom Cabinet',desc:'Size: 80×50cm\nMaterial: PVC\nWarranty: 2 Years | MOQ: 50sets',price:'$112.00',img:'C084.jpg'},
-        {id:'C085',type:'C',name:'Model C085 PVC Bathroom Cabinet',desc:'Size: 80×50cm\nMaterial: PVC\nWarranty: 2 Years | MOQ: 50sets',price:'$112.00',img:'C085.jpg'},
-        {id:'C086',type:'C',name:'Model C086 PVC Bathroom Cabinet',desc:'Size: 80×50cm\nMaterial: PVC\nWarranty: 2 Years | MOQ: 50sets',price:'$112.00',img:'C086.jpg'},
-        {id:'C087',type:'C',name:'Model C087 PVC Bathroom Cabinet',desc:'Size: 80×50cm\nMaterial: PVC\nWarranty: 2 Years | MOQ: 50sets',price:'$112.00',img:'C087.jpg'},
-        {id:'C088',type:'C',name:'Model C088 PVC Bathroom Cabinet',desc:'Size: 80×50cm\nMaterial: PVC\nWarranty: 2 Years | MOQ: 50sets',price:'$112.00',img:'C088.jpg'},
-        {id:'C089',type:'C',name:'Model C089 PVC Bathroom Cabinet',desc:'Size: 80×50cm\nMaterial: PVC\nWarranty: 2 Years | MOQ: 50sets',price:'$112.00',img:'C089.jpg'},
-        {id:'C090',type:'C',name:'Model C090 PVC Bathroom Cabinet',desc:'Size: 80×50cm\nMaterial: PVC\nWarranty: 2 Years | MOQ: 50sets',price:'$112.00',img:'C090.jpg'},
-        {id:'C091',type:'C',name:'Model C091 PVC Bathroom Cabinet',desc:'Size: 80×50cm\nMaterial: PVC\nWarranty: 2 Years | MOQ: 50sets',price:'$112.00',img:'C091.jpg'},
-        {id:'C092',type:'C',name:'Model C092 PVC Bathroom Cabinet',desc:'Size: 80×50cm\nMaterial: PVC\nWarranty: 2 Years | MOQ: 50sets',price:'$112.00',img:'C092.jpg'},
-        {id:'C093',type:'C',name:'Model C093 PVC Bathroom Cabinet',desc:'Size: 80×50cm\nMaterial: PVC\nWarranty: 2 Years | MOQ: 50sets',price:'$112.00',img:'C093.jpg'},
-        {id:'C094',type:'C',name:'Model C094 PVC Bathroom Cabinet',desc:'Size: 80×50cm\nMaterial: PVC\nWarranty: 2 Years | MOQ: 50sets',price:'$112.00',img:'C094.jpg'},
-        {id:'C095',type:'C',name:'Model C095 PVC Bathroom Cabinet',desc:'Size: 80×50cm\nMaterial: PVC\nWarranty: 2 Years | MOQ: 50sets',price:'$112.00',img:'C095.jpg'},
-        {id:'C096',type:'C',name:'Model C096 PVC Bathroom Cabinet',desc:'Size: 80×50cm\nMaterial: PVC\nWarranty: 2 Years | MOQ: 50sets',price:'$112.00',img:'C096.jpg'},
-        {id:'C097',type:'C',name:'Model C097 PVC Bathroom Cabinet',desc:'Size: 80×50cm\nMaterial: PVC\nWarranty: 2 Years | MOQ: 50sets',price:'$112.00',img:'C097.jpg'},
-        {id:'C098',type:'C',name:'Model C098 PVC Bathroom Cabinet',desc:'Size: 80×50cm\nMaterial: PVC\nWarranty: 2 Years | MOQ: 50sets',price:'$112.00',img:'C098.jpg'},
-        {id:'C099',type:'C',name:'Model C099 PVC Bathroom Cabinet',desc:'Size: 80×50cm\nMaterial: PVC\nWarranty: 2 Years | MOQ: 50sets',price:'$112.00',img:'C099.jpg'},
-        {id:'C100',type:'C',name:'Model C100 PVC Bathroom Cabinet',desc:'Size: 80×50cm\nMaterial: PVC\nWarranty: 2 Years | MOQ: 50sets',price:'$112.00',img:'C100.jpg'},
-        {id:'C101',type:'C',name:'Model C101 PVC Bathroom Cabinet',desc:'Size: 80×50cm\nMaterial: PVC\nWarranty: 2 Years | MOQ: 50sets',price:'$112.00',img:'C101.jpg'},
-        {id:'C102',type:'C',name:'Model C102 PVC Bathroom Cabinet',desc:'Size: 80×50cm\nMaterial: PVC\nWarranty: 2 Years | MOQ: 50sets',price:'$112.00',img:'C102.jpg'},
-        {id:'C103',type:'C',name:'Model C103 PVC Bathroom Cabinet',desc:'Size: 80×50cm\nMaterial: PVC\nWarranty: 2 Years | MOQ: 50sets',price:'$112.00',img:'C103.jpg'},
-        {id:'C104',type:'C',name:'Model C104 PVC Bathroom Cabinet',desc:'Size: 80×50cm\nMaterial: PVC\nWarranty: 2 Years | MOQ: 50sets',price:'$112.00',img:'C104.jpg'},
-        {id:'C105',type:'C',name:'Model C105 PVC Bathroom Cabinet',desc:'Size: 80×50cm\nMaterial: PVC\nWarranty: 2 Years | MOQ: 50sets',price:'$112.00',img:'C105.jpg'},
-        {id:'C106',type:'C',name:'Model C106 PVC Bathroom Cabinet',desc:'Size: 80×50cm\nMaterial: PVC\nWarranty: 2 Years | MOQ: 50sets',price:'$112.00',img:'C106.jpg'},
-        {id:'C107',type:'C',name:'Model C107 PVC Bathroom Cabinet',desc:'Size: 80×50cm\nMaterial: PVC\nWarranty: 2 Years | MOQ: 50sets',price:'$112.00',img:'C107.jpg'},
-        {id:'C108',type:'C',name:'Model C108 PVC Bathroom Cabinet',desc:'Size: 80×50cm\nMaterial: PVC\nWarranty: 2 Years | MOQ: 50sets',price:'$112.00',img:'C108.jpg'},
-        {id:'C109',type:'C',name:'Model C109 PVC Bathroom Cabinet',desc:'Size: 80×50cm\nMaterial: PVC\nWarranty: 2 Years | MOQ: 50sets',price:'$112.00',img:'C109.jpg'},
-        {id:'C110',type:'C',name:'Model C110 PVC Bathroom Cabinet',desc:'Size: 80×50cm\nMaterial: PVC\nWarranty: 2 Years | MOQ: 50sets',price:'$112.00',img:'C110.jpg'},
-        {id:'C111',type:'C',name:'Model C111 PVC Bathroom Cabinet',desc:'Size: 80×50cm\nMaterial: PVC\nWarranty: 2 Years | MOQ: 50sets',price:'$112.00',img:'C111.jpg'},
-        {id:'C112',type:'C',name:'Model C112 PVC Bathroom Cabinet',desc:'Size: 80×50cm\nMaterial: PVC\nWarranty: 2 Years | MOQ: 50sets',price:'$112.00',img:'C112.jpg'},
-        {id:'C113',type:'C',name:'Model C113 PVC Bathroom Cabinet',desc:'Size: 80×50cm\nMaterial: PVC\nWarranty: 2 Years | MOQ: 50sets',price:'$112.00',img:'C113.jpg'},
-        {id:'C114',type:'C',name:'Model C114 PVC Bathroom Cabinet',desc:'Size: 80×50cm\nMaterial: PVC\nWarranty: 2 Years | MOQ: 50sets',price:'$112.00',img:'C114.jpg'},
-        {id:'C115',type:'C',name:'Model C115 PVC Bathroom Cabinet',desc:'Size: 80×50cm\nMaterial: PVC\nWarranty: 2 Years | MOQ: 50sets',price:'$112.00',img:'C115.jpg'},
-        {id:'C116',type:'C',name:'Model C116 PVC Bathroom Cabinet',desc:'Size: 80×50cm\nMaterial: PVC\nWarranty: 2 Years | MOQ: 50sets',price:'$112.00',img:'C116.jpg'},
-        {id:'C117',type:'C',name:'Model C117 PVC Bathroom Cabinet',desc:'Size: 80×50cm\nMaterial: PVC\nWarranty: 2 Years | MOQ: 50sets',price:'$112.00',img:'C117.jpg'},
-        {id:'C118',type:'C',name:'Model C118 PVC Bathroom Cabinet',desc:'Size: 80×50cm\nMaterial: PVC\nWarranty: 2 Years | MOQ: 50sets',price:'$112.00',img:'C118.jpg'},
-        {id:'C119',type:'C',name:'Model C119 PVC Bathroom Cabinet',desc:'Size: 80×50cm\nMaterial: PVC\nWarranty: 2 Years | MOQ: 50sets',price:'$112.00',img:'C119.jpg'},
-        {id:'C120',type:'C',name:'Model C120 PVC Bathroom Cabinet',desc:'Size: 46×26cm\nMaterial: PVC\nWarranty: 2 Years | MOQ: 50sets',price:'$112.00',img:'C120.jpg'},
-        {id:'C121',type:'C',name:'Model C121 PVC Bathroom Cabinet',desc:'Size: 80×50cm\nMaterial: PVC\nWarranty: 2 Years | MOQ: 50sets',price:'$112.00',img:'C121.jpg'},
-        {id:'C122',type:'C',name:'Model C122 PVC Bathroom Cabinet',desc:'Size: 80×50cm\nMaterial: PVC\nWarranty: 2 Years | MOQ: 50sets',price:'$112.00',img:'C122.jpg'},
-        {id:'C123',type:'C',name:'Model C123 PVC Bathroom Cabinet',desc:'Size: 80×50cm\nMaterial: PVC\nWarranty: 2 Years | MOQ: 50sets',price:'$112.00',img:'C123.jpg'},
-        {id:'C124',type:'C',name:'Model C124 PVC Bathroom Cabinet',desc:'Size: 80×50cm\nMaterial: PVC\nWarranty: 2 Years | MOQ: 50sets',price:'$112.00',img:'C124.jpg'},
-        {id:'C125',type:'C',name:'Model C125 PVC Bathroom Cabinet',desc:'Size: 80×50cm\nMaterial: PVC\nWarranty: 2 Years | MOQ: 50sets',price:'$112.00',img:'C125.jpg'},
-        {id:'C126',type:'C',name:'Model C126 PVC Bathroom Cabinet',desc:'Size: 80×50cm\nMaterial: PVC\nWarranty: 2 Years | MOQ: 50sets',price:'$112.00',img:'C126.jpg'},
-        {id:'C127',type:'C',name:'Model C127 PVC Bathroom Cabinet',desc:'Size: 80×50cm\nMaterial: PVC\nWarranty: 2 Years | MOQ: 50sets',price:'$112.00',img:'C127.jpg'},
-        {id:'C128',type:'C',name:'Model C128 PVC Bathroom Cabinet',desc:'Size: 80×50cm\nMaterial: PVC\nWarranty: 2 Years | MOQ: 50sets',price:'$112.00',img:'C128.jpg'},
-        {id:'C129',type:'C',name:'Model C129 PVC Bathroom Cabinet',desc:'Size: 80×50cm\nMaterial: PVC\nWarranty: 2 Years | MOQ: 50sets',price:'$112.00',img:'C129.jpg'},
-        {id:'C130',type:'C',name:'Model C130 PVC Bathroom Cabinet',desc:'Size: 80×50cm\nMaterial: PVC\nWarranty: 2 Years | MOQ: 50sets',price:'$112.00',img:'C130.jpg'},
-        {id:'C131',type:'C',name:'Model C131 PVC Bathroom Cabinet',desc:'Size: 80×50cm\nMaterial: PVC\nWarranty: 2 Years | MOQ: 50sets',price:'$112.00',img:'C131.jpg'},
-        {id:'C132',type:'C',name:'Model C132 PVC Bathroom Cabinet',desc:'Size: 80×50cm\nMaterial: PVC\nWarranty: 2 Years | MOQ: 50sets',price:'$112.00',img:'C132.jpg'},
-        {id:'C133',type:'C',name:'Model C133 PVC Bathroom Cabinet',desc:'Size: 80×50cm\nMaterial: PVC\nWarranty: 2 Years | MOQ: 50sets',price:'$112.00',img:'C133.jpg'},
-        {id:'C134',type:'C',name:'Model C134 PVC Bathroom Cabinet',desc:'Size: 80×50cm\nMaterial: PVC\nWarranty: 2 Years | MOQ: 50sets',price:'$112.00',img:'C134.jpg'},
-        {id:'C135',type:'C',name:'Model C135 PVC Bathroom Cabinet',desc:'Size: 80×50cm\nMaterial: PVC\nWarranty: 2 Years | MOQ: 50sets',price:'$112.00',img:'C135.jpg'},
-        {id:'C136',type:'C',name:'Model C136 PVC Bathroom Cabinet',desc:'Size: 80×50cm\nMaterial: PVC\nWarranty: 2 Years | MOQ: 50sets',price:'$112.00',img:'C136.jpg'},
-        {id:'C137',type:'C',name:'Model C137 PVC Bathroom Cabinet',desc:'Size: 80×50cm\nMaterial: PVC\nWarranty: 2 Years | MOQ: 50sets',price:'$112.00',img:'C137.jpg'},
-        {id:'C138',type:'C',name:'Model C138 PVC Bathroom Cabinet',desc:'Size: 80×50cm\nMaterial: PVC\nWarranty: 2 Years | MOQ: 50sets',price:'$112.00',img:'C138.jpg'},
-        {id:'C139',type:'C',name:'Model C139 PVC Bathroom Cabinet',desc:'Size: 80×50cm\nMaterial: PVC\nWarranty: 2 Years | MOQ: 50sets',price:'$112.00',img:'C139.jpg'},
-        {id:'C140',type:'C',name:'Model C140 PVC Bathroom Cabinet',desc:'Size: 80×50cm\nMaterial: PVC\nWarranty: 2 Years | MOQ: 50sets',price:'$112.00',img:'C140.jpg'},
-        {id:'C141',type:'C',name:'Model C141 PVC Bathroom Cabinet',desc:'Size: 80×50cm\nMaterial: PVC\nWarranty: 2 Years | MOQ: 50sets',price:'$112.00',img:'C141.jpg'},
-        {id:'C142',type:'C',name:'Model C142 PVC Bathroom Cabinet',desc:'Size: 80×50cm\nMaterial: PVC\nWarranty: 2 Years | MOQ: 50sets',price:'$112.00',img:'C142.jpg'},
-        {id:'C143',type:'C',name:'Model C143 PVC Bathroom Cabinet',desc:'Size: 80×50cm\nMaterial: PVC\nWarranty: 2 Years | MOQ: 50sets',price:'$112.00',img:'C143.jpg'},
-        {id:'C144',type:'C',name:'Model C144 PVC Bathroom Cabinet',desc:'Size: 80×50cm\nMaterial: PVC\nWarranty: 2 Years | MOQ: 50sets',price:'$112.00',img:'C144.jpg'},
-        {id:'C145',type:'C',name:'Model C145 PVC Bathroom Cabinet',desc:'Size: 80×50cm\nMaterial: PVC\nWarranty: 2 Years | MOQ: 50sets',price:'$112.00',img:'C145.jpg'},
-        {id:'C146',type:'C',name:'Model C146 PVC Bathroom Cabinet',desc:'Size: 80×50cm\nMaterial: PVC\nWarranty: 2 Years | MOQ: 50sets',price:'$112.00',img:'C146.jpg'},
-        {id:'C147',type:'C',name:'Model C147 PVC Bathroom Cabinet',desc:'Size: 80×50cm\nMaterial: PVC\nWarranty: 2 Years | MOQ: 50sets',price:'$112.00',img:'C147.jpg'},
-        {id:'C148',type:'C',name:'Model C148 PVC Bathroom Cabinet',desc:'Size: 60×47cm\nMaterial: PVC\nWarranty: 2 Years | MOQ: 50sets',price:'$112.00',img:'C148.jpg'},
-        {id:'C149',type:'C',name:'Model C149 PVC Bathroom Cabinet',desc:'Size: 60×47cm\nMaterial: PVC\nWarranty: 2 Years | MOQ: 50sets',price:'$112.00',img:'C149.jpg'},
-        {id:'C150',type:'C',name:'Model C150 PVC Bathroom Cabinet',desc:'Size: 80/100/120×50cm\nMaterial: PVC\nWarranty: 2 Years | MOQ: 50sets',price:'$112.00',img:'C150.jpg'},
-        {id:'C151',type:'C',name:'Model C151 PVC Bathroom Cabinet',desc:'Size: 60×50cm\nMaterial: PVC\nWarranty: 2 Years | MOQ: 50sets',price:'$112.00',img:'C151.jpg'},
-        {id:'C152',type:'C',name:'Model C152 PVC Bathroom Cabinet',desc:'Size: 60×47cm\nMaterial: PVC\nWarranty: 2 Years | MOQ: 50sets',price:'$112.00',img:'C152.jpg'},
-        {id:'C153',type:'C',name:'Model C153 PVC Bathroom Cabinet',desc:'Size: 60×47cm\nMaterial: PVC\nWarranty: 2 Years | MOQ: 50sets',price:'$112.00',img:'C153.jpg'},
-        {id:'C154',type:'C',name:'Model C154 PVC Bathroom Cabinet',desc:'Size: 60×47cm\nMaterial: PVC\nWarranty: 2 Years | MOQ: 50sets',price:'$112.00',img:'C154.jpg'},
-        {id:'C155',type:'C',name:'Model C155 PVC Bathroom Cabinet',desc:'Size: 60×50cm\nMaterial: PVC\nWarranty: 2 Years | MOQ: 50sets',price:'$112.00',img:'C155.jpg'},
-        {id:'C156',type:'C',name:'Model C156 PVC Bathroom Cabinet',desc:'Size: 80×50cm\nMaterial: PVC\nWarranty: 2 Years | MOQ: 50sets',price:'$112.00',img:'C156.jpg'},
-        {id:'C157',type:'C',name:'Model C157 PVC Bathroom Cabinet',desc:'Size: 60×50cm\nMaterial: PVC\nWarranty: 2 Years | MOQ: 50sets',price:'$112.00',img:'C157.jpg'},
-        {id:'C158',type:'C',name:'Model C158 PVC Bathroom Cabinet',desc:'Size: 60×50cm\nMaterial: PVC\nWarranty: 2 Years | MOQ: 50sets',price:'$112.00',img:'C158.jpg'},
-        {id:'C159',type:'C',name:'Model C159 PVC Bathroom Cabinet',desc:'Size: 60×47cm\nMaterial: PVC\nWarranty: 2 Years | MOQ: 50sets',price:'$112.00',img:'C159.jpg'},
-        {id:'C160',type:'C',name:'Model C160 PVC Bathroom Cabinet',desc:'Size: 100×50cm\nMaterial: PVC\nWarranty: 2 Years | MOQ: 50sets',price:'$112.00',img:'C160.jpg'},
-        {id:'C161',type:'C',name:'Model C161 PVC Bathroom Cabinet',desc:'Size: 60×50cm\nMaterial: PVC\nWarranty: 2 Years | MOQ: 50sets',price:'$112.00',img:'C161.jpg'},
-        {id:'C162',type:'C',name:'Model C162 PVC Bathroom Cabinet',desc:'Size: 80×47cm\nMaterial: PVC\nWarranty: 2 Years | MOQ: 50sets',price:'$112.00',img:'C162.jpg'},
-        {id:'C163',type:'C',name:'Model C163 PVC Bathroom Cabinet',desc:'Size: 60×50cm\nMaterial: PVC\nWarranty: 2 Years | MOQ: 50sets',price:'$112.00',img:'C163.jpg'},
-        {id:'C164',type:'C',name:'Model C164 PVC Bathroom Cabinet',desc:'Size: 80×50cm\nMaterial: PVC\nWarranty: 2 Years | MOQ: 50sets',price:'$112.00',img:'C164.jpg'},
-        {id:'C165',type:'C',name:'Model C165 PVC Bathroom Cabinet',desc:'Size: 80×50cm\nMaterial: PVC\nWarranty: 2 Years | MOQ: 50sets',price:'$112.00',img:'C165.jpg'},
-        {id:'C166',type:'C',name:'Model C166 PVC Bathroom Cabinet',desc:'Size: 80/90×47cm\nMaterial: PVC\nWarranty: 2 Years | MOQ: 50sets',price:'$112.00',img:'C166.jpg'},
-        {id:'C167',type:'C',name:'Model C167 PVC Bathroom Cabinet',desc:'Size: 80×47cm\nMaterial: PVC\nWarranty: 2 Years | MOQ: 50sets',price:'$112.00',img:'C167.jpg'},
-        {id:'C168',type:'C',name:'Model C168 PVC Bathroom Cabinet',desc:'Size: 80×50cm\nMaterial: PVC\nWarranty: 2 Years | MOQ: 50sets',price:'$112.00',img:'C168.jpg'},
-        {id:'C169',type:'C',name:'Model C169 PVC Bathroom Cabinet',desc:'Size: 80×50cm\nMaterial: PVC\nWarranty: 2 Years | MOQ: 50sets',price:'$112.00',img:'C169.jpg'},
-        {id:'C170',type:'C',name:'Model C170 PVC Bathroom Cabinet',desc:'Size: 80×50cm\nMaterial: PVC\nWarranty: 2 Years | MOQ: 50sets',price:'$112.00',img:'C170.jpg'},
-        {id:'C171',type:'C',name:'Model C171 PVC Bathroom Cabinet',desc:'Size: 80×50cm\nMaterial: PVC\nWarranty: 2 Years | MOQ: 50sets',price:'$112.00',img:'C171.jpg'},
-        {id:'C172',type:'C',name:'Model C172 PVC Bathroom Cabinet',desc:'Size: 100×50cm\nMaterial: PVC\nWarranty: 2 Years | MOQ: 50sets',price:'$112.00',img:'C172.jpg'},
-        {id:'C173',type:'C',name:'Model C173 PVC Bathroom Cabinet',desc:'Size: 100×50cm\nMaterial: PVC\nWarranty: 2 Years | MOQ: 50sets',price:'$112.00',img:'C173.jpg'},
-        {id:'C174',type:'C',name:'Model C174 PVC Bathroom Cabinet',desc:'Size: 100×50cm\nMaterial: PVC\nWarranty: 2 Years | MOQ: 50sets',price:'$112.00',img:'C174.jpg'},
-        {id:'C175',type:'C',name:'Model C175 PVC Bathroom Cabinet',desc:'Size: 100×47cm\nMaterial: PVC\nWarranty: 2 Years | MOQ: 50sets',price:'$112.00',img:'C175.jpg'},
-        {id:'C176',type:'C',name:'Model C176 PVC Bathroom Cabinet',desc:'Size: 80×47cm\nMaterial: PVC\nWarranty: 2 Years | MOQ: 50sets',price:'$112.00',img:'C176.jpg'},
-        {id:'C177',type:'C',name:'Model C177 PVC Bathroom Cabinet',desc:'Size: 80×50cm\nMaterial: PVC\nWarranty: 2 Years | MOQ: 50sets',price:'$112.00',img:'C177.jpg'},
-        {id:'C178',type:'C',name:'Model C178 PVC Bathroom Cabinet',desc:'Size: 120×50cm\nMaterial: PVC\nWarranty: 2 Years | MOQ: 50sets',price:'$112.00',img:'C178.jpg'},
-        {id:'C179',type:'C',name:'Model C179 PVC Bathroom Cabinet',desc:'Size: 120×50cm\nMaterial: PVC\nWarranty: 2 Years | MOQ: 50sets',price:'$112.00',img:'C179.jpg'},
-        {id:'C180',type:'C',name:'Model C180 PVC Bathroom Cabinet',desc:'Size: 80×47cm\nMaterial: PVC\nWarranty: 2 Years | MOQ: 50sets',price:'$112.00',img:'C180.jpg'},
-        {id:'C181',type:'C',name:'Model C181 PVC Bathroom Cabinet',desc:'Size: 120×47cm\nMaterial: PVC\nWarranty: 2 Years | MOQ: 50sets',price:'$112.00',img:'C181.jpg'},
-        {id:'C182',type:'C',name:'Model C182 PVC Bathroom Cabinet',desc:'Size: 80×50cm\nMaterial: PVC\nWarranty: 2 Years | MOQ: 50sets',price:'$112.00',img:'C182.jpg'},
-        {id:'C183',type:'C',name:'Model C183 PVC Bathroom Cabinet',desc:'Size: 80×50cm\nMaterial: PVC\nWarranty: 2 Years | MOQ: 50sets',price:'$112.00',img:'C183.jpg'},
-        {id:'C184',type:'C',name:'Model C184 PVC Bathroom Cabinet',desc:'Size: 100×47cm\nMaterial: PVC\nWarranty: 2 Years | MOQ: 50sets',price:'$112.00',img:'C184.jpg'},
-        {id:'C185',type:'C',name:'Model C185 PVC Bathroom Cabinet',desc:'Size: 150×47cm\nMaterial: PVC\nWarranty: 2 Years | MOQ: 50sets',price:'$112.00',img:'C185.jpg'},
-        {id:'C186',type:'C',name:'Model C186 PVC Bathroom Cabinet',desc:'Size: 120×50cm\nMaterial: PVC\nWarranty: 2 Years | MOQ: 50sets',price:'$112.00',img:'C186.jpg'},
-        {id:'C187',type:'C',name:'Model C187 PVC Bathroom Cabinet',desc:'Size: 120×50cm\nMaterial: PVC\nWarranty: 2 Years | MOQ: 50sets',price:'$112.00',img:'C187.jpg'},
-        {id:'C188',type:'C',name:'Model C188 PVC Bathroom Cabinet',desc:'Size: 80×47cm\nMaterial: PVC\nWarranty: 2 Years | MOQ: 50sets',price:'$112.00',img:'C188.jpg'},
-        {id:'C189',type:'C',name:'Model C189 PVC Bathroom Cabinet',desc:'Size: 120×47cm\nMaterial: PVC\nWarranty: 2 Years | MOQ: 50sets',price:'$112.00',img:'C189.jpg'},
-        {id:'C190',type:'C',name:'Model C190 PVC Bathroom Cabinet',desc:'Size: 80×47cm\nMaterial: PVC\nWarranty: 2 Years | MOQ: 50sets',price:'$112.00',img:'C190.jpg'},
-        {id:'C191',type:'C',name:'Model C191 PVC Bathroom Cabinet',desc:'Size: 80×50cm\nMaterial: PVC\nWarranty: 2 Years | MOQ: 50sets',price:'$112.00',img:'C191.jpg'},
-        {id:'C192',type:'C',name:'Model C192 PVC Bathroom Cabinet',desc:'Size: 120×50cm\nMaterial: PVC\nWarranty: 2 Years | MOQ: 50sets',price:'$112.00',img:'C192.jpg'},
-        {id:'C193',type:'C',name:'Model C193 PVC Bathroom Cabinet',desc:'Size: 150×47cm\nMaterial: PVC\nWarranty: 2 Years | MOQ: 50sets',price:'$112.00',img:'C193.jpg'},
-        {id:'C194',type:'C',name:'Model C194 PVC Bathroom Cabinet',desc:'Size: 150×50cm\nMaterial: PVC\nWarranty: 2 Years | MOQ: 50sets',price:'$112.00',img:'C194.jpg'},
-        {id:'C195',type:'C',name:'Model C195 PVC Bathroom Cabinet',desc:'Size: 80×50cm\nMaterial: PVC\nWarranty: 2 Years | MOQ: 50sets',price:'$112.00',img:'C195.jpg'},
-        {id:'C196',type:'C',name:'Model C196 PVC Bathroom Cabinet',desc:'Size: 80×50cm\nMaterial: PVC\nWarranty: 2 Years | MOQ: 50sets',price:'$112.00',img:'C196.jpg'},
-        {id:'C197',type:'C',name:'Model C197 PVC Bathroom Cabinet',desc:'Size: 80×50cm\nMaterial: PVC\nWarranty: 2 Years | MOQ: 50sets',price:'$112.00',img:'C197.jpg'},
-        {id:'C198',type:'C',name:'Model C198 PVC Bathroom Cabinet',desc:'Size: 80×50cm\nMaterial: PVC\nWarranty: 2 Years | MOQ: 50sets',price:'$112.00',img:'C198.jpg'}
-    ];
+    // ========== 页面渲染函数 ==========
+    function renderProducts() {
+        const container = document.getElementById('productContainer');
+        let filterList = PRODUCTS;
+        if(currentFilter !== 'all'){
+            filterList = PRODUCTS.filter(p => p.type === currentFilter);
+        }
+        container.innerHTML = filterList.map(item => {
+            const isFav = favorites.includes(item.id);
+            return `
+                <div class="product-card" data-id="${item.id}">
+                    <div class="product-img">
+                        ${item.img ? `<img src="${item.img}" alt="${item.name}" loading="lazy">` : '<div class="noimg">No Image</div>'}
+                    </div>
+                    <div class="product-info">
+                        <h3>${item.name}</h3>
+                        <p class="price">${item.price}</p>
+                        <div class="btns">
+                            <button class="detail-btn" onclick="openDetail('${item.id}')">Detail</button>
+                            <button class="fav-btn ${isFav?'active':''}" onclick="toggleFav('${item.id}')">${isFav?'♥ Fav':'♡ Save'}</button>
+                        </div>
+                    </div>
+                </div>
+            `;
+        }).join('');
+    }
 
-    const
+    // 切换分类筛选
+    function setFilter(type){
+        currentFilter = type;
+        renderProducts();
+    }
+
+    // 收藏切换
+    function toggleFav(pid){
+        const idx = favorites.indexOf(pid);
+        if(idx > -1){
+            favorites.splice(idx,1);
+        }else{
+            favorites.push(pid);
+        }
+        localStorage.setItem('favorites', JSON.stringify(favorites));
+        renderProducts();
+    }
+
+    // 打开产品弹窗
+    function openDetail(pid){
+        currentProduct = PRODUCTS.find(p => p.id === pid);
+        if(!currentProduct) return;
+        const modal = document.getElementById('detailModal');
+        const content = document.getElementById('modalContent');
+        content.innerHTML = `
+            <div class="modal-img">
+                ${currentProduct.img ? `<img src="${currentProduct.img}" alt="${currentProduct.name}">` : '<div class="noimg">No Image</div>'}
+            </div>
+            <h2>${currentProduct.name}</h2>
+            <p class="price">${currentProduct.price}</p>
+            <pre>${currentProduct.desc}</pre>
+            <div class="modal-btns">
+                <button onclick="copyInfo()">Copy Info</button>
+                <a href="https://wa.me/${WHATSAPP_NUMBER}?text=Hi, I want to inquire ${currentProduct.name} (${currentProduct.id})" target="_blank">WhatsApp Inquiry</a>
+                <button onclick="closeModal()">Close</button>
+            </div>
+            <div id="copyToast" class="toast">Copied Successfully!</div>
+        `;
+        modal.style.display = 'flex';
+    }
+
+    // 复制产品信息
+    function copyInfo(){
+        const text = `${currentProduct.id} ${currentProduct.name}\nPrice: ${currentProduct.price}\n${currentProduct.desc}`;
+        navigator.clipboard.writeText(text).then(()=>{
+            const toast = document.getElementById('copyToast');
+            toast.classList.add('show');
+            setTimeout(()=>toast.classList.remove('show'),2000);
+        })
+    }
+
+    // 关闭弹窗
+    function closeModal(){
+        document.getElementById('detailModal').style.display = 'none';
+        currentProduct = null;
+    }
+
+    // 页面初始化
+    window.onload = function(){
+        renderProducts();
+        // 筛选按钮绑定
+        document.querySelectorAll('.filter-btn').forEach(btn=>{
+            btn.addEventListener('click', ()=>setFilter(btn.dataset.type));
+        })
+        // 点击弹窗外部关闭
+        window.addEventListener('click', e=>{
+            const modal = document.getElementById('detailModal');
+            if(e.target === modal) closeModal();
+        })
+    }
+</script>
+<div id="detailModal" class="modal"></div>
+<div id="copyToast" class="toast"></div>
+</body>
+</html>
