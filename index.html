@@ -1462,7 +1462,8 @@
     ];
     bData.forEach(p => { PRODUCTS.push({ id: p.id, type: 'B', name: p.name, desc: p.desc, price: p.price, img: p.img }); });
 
-    // C系列（198款）
+    // ========== C系列（198款）修改点 ==========
+    // 名称改为数字（1 ~ 198），图片路径修复为三位数字 C001.jpg ~ C198.jpg
     for (let i = 1; i <= 198; i++) {
         const id = 'C' + String(i).padStart(3, '0');
         let size = '80×50cm';
@@ -1471,11 +1472,12 @@
         else if (i <= 35) size = '120×50cm';
         else if (i <= 38) size = '100×50cm';
         else size = '80×50cm';
-        const imgFileName = 'C00' + i + '.jpg';
+        // 图片文件名改为三位数字：C001.jpg, C002.jpg ...
+        const imgFileName = 'C' + String(i).padStart(3, '0') + '.jpg';
         PRODUCTS.push({
             id: id,
             type: 'C',
-            name: 'Model ' + id + ' PVC Bathroom Cabinet',
+            name: i + ' PVC Bathroom Cabinet',   // 改为数字 + 空格 + PVC Bathroom Cabinet
             desc: 'Size: ' + size + '\nMaterial: PVC\nWarranty: 2 Years | MOQ: 50sets',
             price: '$112.00',
             img: '/img/' + imgFileName
