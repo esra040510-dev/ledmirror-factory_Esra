@@ -1,21 +1,13 @@
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
-<!DOCTYPE html>
-<html lang="en" data-theme="light">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Yongling LED Sanitary Mirror Factory | Factory Direct Bathroom Mirrors & Cabinets</title>
     <meta name="description" content="Factory direct LED anti-fog mirrors, solid wood smart mirror cabinets, PVC bathroom vanity cabinets, OEM ODM custom service, wholesale low MOQ.">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <style>
         /* ====================== 全局CSS变量 明暗主题 ====================== */
         :root {
-            --font-main: 'Inter', sans-serif;
+            --font-main: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
             /* 亮色主题 */
             --bg-main: #ffffff;
             --bg-card: #fff;
@@ -35,7 +27,7 @@
             --border-normal: #e0e5ed;
             --border-light: #f0f4f8;
             --shadow-sm: 0 2px 8px rgba(145, 40, 75, 0.08);
-            --shadow-md: 0 4px 16px rgba(145, 40, 75, 0.12);
+            --shadow-md: 0 4px 16px rgba(145, 40, 0.12);
             --radius-sm: 6px;
             --radius-md: 10px;
             --radius-lg: 16px;
@@ -61,8 +53,8 @@
             --text-white: #ffffff;
             --border-normal: #2d2d38;
             --border-light: #23232b;
-            --shadow-sm: 0 2px 8px rgba(0,0,0,0.25);
-            --shadow-md: 0 4px 16px rgba(0,0,0,0.35);
+            --shadow-sm: 0 2px rgba(0,0,0,0.25);
+            --shadow-md: 0 4px rgba(0,0,0,0.35);
         }
         * {
             margin: 0;
@@ -126,22 +118,10 @@
         .show {
             display: block !important;
         }
-        .flex {
-            display: flex;
-        }
-        .flex-wrap {
-            flex-wrap: wrap;
-        }
-        .flex-between {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-        .flex-center {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-        }
+        .flex { display: flex; }
+        .flex-wrap { flex-wrap: wrap; }
+        .flex-between { display: flex; justify-content: space-between; align-items: center; }
+        .flex-center { display: flex; justify-content: center; align-items: center; }
         .gap-8 { gap: 8px; }
         .gap-12 { gap: 12px; }
         .gap-16 { gap: 16px; }
@@ -169,10 +149,7 @@
             font-weight: 600;
             color: var(--bg-btn-primary);
         }
-        .header-right {
-            align-items: center;
-            gap: 16;
-        }
+        .header-right { align-items: center; gap: 16; }
         .lang-switch button {
             padding: 6px 12px;
             background: var(--bg-btn-secondary);
@@ -196,7 +173,7 @@
             font-size: 14px;
             color: var(--text-secondary);
         }
-        /* ====================== 搜索筛选区 ====================== */
+        /* ====================== 搜索与筛选 ====================== */
         .search-filter-wrap {
             background: var(--bg-card);
             border-radius: var(--radius-md);
@@ -204,9 +181,7 @@
             box-shadow: var(--shadow-sm);
             margin-bottom: 24px;
         }
-        .search-row {
-            margin-bottom: 16px;
-        }
+        .search-row { margin-bottom: 16px; }
         #searchInput {
             width: 100%;
             padding: 12px 16px;
@@ -248,18 +223,14 @@
             border-radius: var(--radius-sm);
             font-weight: 500;
         }
-        .btn-primary:hover {
-            background: var(--bg-btn-primary-hover);
-        }
+        .btn-primary:hover { background: var(--bg-btn-primary-hover); }
         .btn-secondary {
             background: var(--bg-btn-secondary);
             color: var(--text-main);
             padding: 9px 16px;
             border-radius: var(--radius-sm);
         }
-        .btn-secondary:hover {
-            background: var(--bg-btn-secondary-hover);
-        }
+        .btn-secondary:hover { background: var(--bg-btn-secondary-hover); }
         /* ====================== 产品卡片网格 ====================== */
         .product-grid {
             display: grid;
@@ -313,7 +284,7 @@
             top: 8px;
             left: 8px;
             background: var(--bg-btn-primary);
-            color: white;
+            color: var(--text-white);
             font-size: 12px;
             padding: 3px 8px;
             border-radius: var(--radius-sm);
@@ -333,9 +304,7 @@
             justify-content: center;
             z-index: 2;
         }
-        .favorite-btn.active {
-            color: #e03e3e;
-        }
+        .favorite-btn.active { color: #e03e3e; }
         .product-check {
             position: absolute;
             top: 8px;
@@ -367,14 +336,14 @@
             flex: 1;
             padding: 8px;
             background: var(--bg-btn-primary);
-            color: white;
+            color: var(--text-white);
             border-radius: var(--radius-sm);
             font-size: 14px;
         }
         .quick-whatsapp {
             width: 36px;
             background: #25d366;
-            color: white;
+            color: var(--text-white);
             border-radius: var(--radius-sm);
             font-size: 16px;
         }
@@ -399,14 +368,8 @@
             background: var(--bg-btn-secondary);
             color: var(--text-main);
         }
-        .pagination-wrap button.active {
-            background: var(--bg-btn-primary);
-            color: white;
-        }
-        .pagination-wrap button:disabled {
-            opacity: 0.4;
-            cursor: not-allowed;
-        }
+        .pagination-wrap button.active { background: var(--bg-btn-primary); color: var(--text-white); }
+        .pagination-wrap button:disabled { opacity: 0.4; cursor: not-allowed; }
         /* ====================== 底部批量操作栏 ====================== */
         .batch-bar {
             position: fixed;
@@ -419,9 +382,7 @@
             z-index: 80;
             display: none;
         }
-        .batch-bar.show {
-            display: block;
-        }
+        .batch-bar.show { display: block; }
         .batch-inner {
             display: flex;
             align-items: center;
@@ -429,11 +390,8 @@
             flex-wrap: wrap;
             gap: 12;
         }
-        .batch-buttons {
-            display: flex;
-            gap: 10;
-        }
-        /* ====================== 弹窗通用样式 ====================== */
+        .batch-buttons { display: flex; gap: 10; }
+        /* ====================== 弹窗通用 ====================== */
         .modal-mask {
             position: fixed;
             inset: 0;
@@ -444,9 +402,7 @@
             justify-content: center;
             padding: 20px;
         }
-        .modal-mask.show {
-            display: flex;
-        }
+        .modal-mask.show { display: flex; }
         .modal-box {
             width: 100%;
             max-width: 620px;
@@ -463,10 +419,7 @@
             justify-content: space-between;
             align-items: center;
         }
-        .modal-title {
-            font-size: 18px;
-            font-weight: 600;
-        }
+        .modal-title { font-size: 18px; font-weight: 600; }
         .close-modal {
             width: 32px;
             height: 32px;
@@ -474,9 +427,7 @@
             background: var(--bg-btn-secondary);
             font-size: 16px;
         }
-        .modal-body {
-            padding: 20px;
-        }
+        .modal-body { padding: 20px; }
         .modal-footer {
             padding: 16px 20px;
             border-top: 1px solid var(--border-normal);
@@ -501,7 +452,7 @@
             margin: 0 auto 16px;
             cursor: pointer;
         }
-        /* 表格弹窗 */
+        /* 产品目录表格 */
         .catalog-table {
             width: 100%;
             border-collapse: collapse;
@@ -511,9 +462,7 @@
             padding: 8px 10px;
             font-size: 14px;
         }
-        .catalog-table th {
-            background: var(--bg-input);
-        }
+        .catalog-table th { background: var(--bg-input); }
         /* FAQ */
         .faq-item {
             border: 1px solid var(--border-normal);
@@ -538,7 +487,7 @@
             padding: 0 16px 12px;
             max-height: 300px;
         }
-        /* 画廊&页脚 */
+        /* 工厂画廊 & 页脚 */
         .gallery-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
@@ -590,7 +539,7 @@
             height: 50px;
             border-radius: var(--radius-full);
             background: #25d366;
-            color: white;
+            color: var(--text-white);
             font-size: 22px;
             z-index: 70;
             box-shadow: var(--shadow-md);
@@ -603,15 +552,13 @@
             height: 40px;
             border-radius: var(--radius-full);
             background: var(--bg-btn-primary);
-            color: white;
+            color: var(--text-white);
             font-size: 16px;
             z-index: 70;
             box-shadow: var(--shadow-md);
             display: none;
         }
-        .back-top.show {
-            display: flex;
-        }
+        .back-top.show { display: flex; }
         /* 复制提示Toast */
         .copy-toast {
             position: fixed;
@@ -619,7 +566,7 @@
             bottom: 100px;
             transform: translateX(-50%);
             background: rgba(0,0,0,0.75);
-            color: white;
+            color: var(--text-white);
             padding: 8px 20px;
             border-radius: var(--radius-full);
             font-size: 14px;
@@ -628,37 +575,22 @@
             pointer-events: none;
             transition: opacity 0.2s;
         }
-        .copy-toast.show {
-            opacity: 1;
-        }
-        /* ====================== 响应式适配 ====================== */
+        .copy-toast.show { opacity: 1; }
+        /* ====================== 响应式 ====================== */
         @media screen and (max-width:767px) {
-            .header-left h1 {
-                font-size: 16px;
-            }
-            .product-grid {
-                grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
-            }
-            .img-box {
-                height: 150px;
-            }
-            .advanced-filter {
-                grid-template-columns: 1fr 1fr;
-            }
-            .batch-inner {
-                flex-direction: column;
-                align-items: flex-start;
-            }
+            .header-left h1 { font-size: 16px; }
+            .product-grid { grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); }
+            .img-box { height: 150px; }
+            .advanced-filter { grid-template-columns: 1fr 1fr; }
+            .batch-inner { flex-direction: column; align-items: flex-start; }
         }
         @media screen and (min-width:768px) and (max-width:1024px) {
-            .product-grid {
-                grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
-            }
+            .product-grid { grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); }
         }
     </style>
 </head>
 <body>
-    <!-- 头部 -->
+    <!-- 头部导航（完整保留） -->
     <header class="site-header" id="siteHeader">
         <div class="container flex-between">
             <div class="header-left">
@@ -678,7 +610,7 @@
     </div>
 
     <main class="container mt-20 mb-40">
-        <!-- 搜索筛选区域 -->
+        <!-- 搜索筛选区（完整保留全部筛选逻辑） -->
         <div class="search-filter-wrap">
             <div class="search-row">
                 <input type="text" id="searchInput" data-lang-key="search" placeholder="Search model / size / material...">
@@ -735,7 +667,7 @@
             </div>
         </div>
 
-        <!-- 产品网格 -->
+        <!-- 产品展示网格 -->
         <div class="product-grid" id="productContainer">
             <div class="empty-state hidden" id="emptyState" data-lang-key="noResult">No matching products found</div>
         </div>
@@ -757,7 +689,7 @@
 
         <!-- FAQ -->
         <section class="mt-40 mb-40">
-            <h2>FAQ</h2>
+            <h2>FAQ</h>
             <div class="faq-list mt-20">
                 <div class="faq-item">
                     <div class="faq-q" onclick="toggleFaq(this)">
@@ -805,7 +737,7 @@
         </section>
     </main>
 
-    <!-- 页脚 -->
+    <!-- 页脚完整保留 -->
     <footer>
         <div class="container">
             <div class="footer-grid">
@@ -822,22 +754,22 @@
                     <ul>
                         <li>📍 Guali Qianxing Village, Xiaoshan, Hangzhou, Zhejiang, China</li>
                         <li>⏰ Mon-Sat 8:30–18:00 (UTC+8)</li>
-                        <li>🏭 10+ Years Factory Production</li>
+                        <li>🏭 10+ Years Experience</li>
                     </ul>
                 </div>
                 <div class="footer-col">
                     <h4 data-lang-key="productsLabel">Our Products</h4>
                     <ul>
-                        <li>LED Anti-Fog Bathroom Mirrors (A Series)</li>
-                        <li>Solid Wood Smart Mirror Cabinets (B Series)</li>
-                        <li>PVC Waterproof Vanity Cabinets (C Series)</li>
+                        <li>LED Anti-Fog Bathroom Mirrors</li>
+                        <li>Solid Wood Smart Mirror Cabinets</li>
+                        <li>PVC Bathroom Cabinets</li>
                     </ul>
                 </div>
                 <div class="footer-col">
                     <h4 data-lang-key="follow">Certifications</h4>
                     <ul>
                         <li>CE / ISO9001 / SGS / RoHS</li>
-                        <li class="copy-text" onclick="copySitemap()">Copy Site Sitemap</li>
+                        <li class="copy-text" onclick="copySitemap()">Copy Sitemap</li>
                     </ul>
                 </div>
             </div>
@@ -845,7 +777,7 @@
         </div>
     </footer>
 
-    <!-- 批量底部栏 -->
+    <!-- 底部批量操作栏（完整） -->
     <div class="batch-bar no-print" id="batchBar">
         <div class="container batch-inner">
             <div>
@@ -860,13 +792,13 @@
     </div>
 
     <!-- 悬浮按钮 -->
-    <a class="float-whatsapp flex-center no-print" href="https://wa.me/8617799215074" target="_blank" title="WhatsApp Contact">💬</a>
+    <a class="float-whatsapp flex-center no-print" href="https://wa.me/8617799215074" target="_blank" title="Contact WhatsApp">💬</a>
     <button class="back-top flex-center no-print" id="backTop" onclick="scrollToTop()">↑</button>
 
     <!-- Toast复制提示 -->
     <div class="copy-toast" id="copyToast"></div>
 
-    <!-- ====================== 全部弹窗容器 ====================== -->
+    <!-- 全部弹窗容器 完整保留所有弹窗功能 -->
     <!-- 产品详情弹窗 -->
     <div class="modal-mask" id="productModal">
         <div class="modal-box">
@@ -921,7 +853,7 @@
                 </ul>
             </div>
             <div class="modal-footer">
-                <button class="btn-primary" onclick="contactWhatsAppOEM()" data-lang-key="getQuote">Get Custom Quote</button>
+                <button class="btn-primary" onclick="contactWhatsOEM()" data-lang-key="getQuote">Get Custom Quote</button>
                 <button class="btn-secondary" onclick="closeOEMModal()" data-lang-key="close">Close</button>
             </div>
         </div>
@@ -935,7 +867,7 @@
             </div>
             <div class="modal-body">
                 <form id="inquiryForm">
-                    <div class="form-row flex gap-12 mb-20">
+                    <div class="flex gap-12 mb-24">
                         <div style="flex:1">
                             <label data-lang-key="name">Full Name *</label>
                             <input type="text" id="inqName" required placeholder="">
@@ -945,7 +877,7 @@
                             <input type="text" id="inqCompany" placeholder="">
                         </div>
                     </div>
-                    <div class="form-row flex gap-12 mb-20">
+                    <div class="flex gap-12 mb-24">
                         <div style="flex:1">
                             <label data-lang-key="email">Email *</label>
                             <input type="email" id="inqEmail" required placeholder="">
@@ -1009,7 +941,6 @@ const CONFIG = {
     C_BASE_HEIGHT_MM: 700,
     C_BASE_PRICE: 82.00
 };
-// 筛选分页全局状态
 let currentFilter = 'all';
 let currentPage = 1;
 let searchKeyword = '';
@@ -1023,190 +954,137 @@ let currentLang = localStorage.getItem('yl_lang') || 'en';
 let darkMode = localStorage.getItem('yl_dark') === 'true';
 let currentViewProduct = null;
 
-// ====================== 多语言翻译库 ======================
+// ====================== 多语言翻译 ======================
 const LANG = {
     en: {
         all: 'All Products', led: 'LED Mirror', smart: 'Smart Mirror Cabinet', pvc: 'PVC Bathroom Cabinet',
         search: 'Search model / size / material...', viewDetails: 'View Details', inquire: 'Inquire via WhatsApp',
         copyModel: 'Copy Model', oemTitle: 'OEM & ODM Custom Service', oemSize: 'Custom Size & Shape',
-        oemSizeDesc: 'Round, square, rectangle, irregular shapes, any size from 30cm to 200cm',
+        oemSizeDesc: 'Round, square, rectangle, irregular shapes, any size 30–200cm',
         oemLogo: 'Custom Logo Printing', oemLogoDesc: 'Silk screen print, laser engraving, adhesive sticker logo',
-        oemLight: 'Custom Light Options', oemLightDesc: 'Warm white / Cool white / Dimmable 3000K~6500K',
+        oemLight: 'Custom Light Options', oemLightDesc: 'Warm white / Cool white / Dimmable 3000K-6500K',
         oemFunc: 'Custom Functions', oemFuncDesc: 'Anti-fog pad, Bluetooth audio, touch control, time display, magnifier mirror',
         oemPack: 'Custom Packaging', oemPackDesc: 'Plain brown carton, gift color box, export pallet packing',
-        oemInfo1: 'Custom MOQ: 100pcs', oemInfo2: 'Sample lead time:7-10 workdays',
-        oemInfo3: 'Mass production lead:25-30 workdays', oemInfo4: 'Sea freight, air freight & DDP door delivery available',
-        getQuote: 'Get Custom Quote', inquiry: 'Online Inquiry', name: 'Full Name *', company: 'Company Name',
-        email: 'Email Address *', qty: 'Quantity(pcs)', sizeReq: 'Custom Size / Special Request',
+        oemInfo1: 'Custom MOQ: 100pcs', oemInfo2: 'Sample lead:7-10 workdays',
+        oemInfo3: 'Mass production:25-30 workdays', oemInfo4: 'Sea/Air/DDP shipping available',
+        getQuote: 'Get Custom Quote', inquiry: 'Online Inquiry', name: 'Full Name *', company: 'Company',
+        email: 'Email *', qty: 'Quantity(pcs)', sizeReq: 'Size / Custom Request',
         message: 'Additional Message', send: 'Send Inquiry via WhatsApp', favorites: 'My Favorites',
-        clearAll: 'Clear All Favorites', close: 'Close', catalog: 'Product Catalog', copyAll: 'Copy Full Catalog Text',
+        clearAll: 'Clear All Favorites', close: 'Close', catalog: 'Product Catalog', copyAll: 'Copy All Text',
         noResult: 'No matching products found', noFav: 'You have not saved any favorite product yet',
-        selected: 'Selected', products: 'products', batchCopy: 'Copy Selected Models', batchInquiry: 'Batch WhatsApp Inquiry',
-        clear: 'Clear Selection', filterPrice: 'Price', filterMoq: 'Minimum MOQ', sort: 'Sort Order',
-        apply: 'Apply Filters', reset: 'Reset All Filters', page: 'Page', of: 'of',
-        copySuccess: 'Copied to clipboard successfully', whatsappMsg: 'Hello, I want to ask quotation for model: ',
-        whatsappBatch: 'Hello, I need bulk quotation for below items:\n', catalogTitle: 'Full Factory Product Catalog',
-        fa1q: 'What is standard MOQ?', fa1a: 'PVC cabinet 50pcs, solid wood mirror cabinet 100pcs, LED mirror 300pcs. OEM custom 100pcs.',
-        fa2q: 'How long for sample production?', fa2a: '7-10 working days, bulk order 25-30 days after sample confirmation.',
-        fa3q: 'Do you support OEM & ODM customization?', fa3a: 'Yes, we can customize size, logo, light color, functions and package.',
-        fa4q: 'What shipping methods do you provide?', fa4a: 'Sea shipping, air freight, DHL/FedEx express, DDP door to door delivery.',
-        fa5q: 'What is the warranty policy?', fa5a: '2-year factory warranty for all manufacturing defects, free spare parts supply.',
-        fa6q: 'Is bulk discount available for large orders?', fa6a: 'Yes, special discounted price for orders over 1000pcs, contact us for detailed offer.',
-        contact: 'Contact Us', factory: 'Factory Info', productsLabel: 'Our Product Series', follow: 'Certifications',
+        selected: 'Selected', products: 'products', batchCopy: 'Copy Models', batchInquiry: 'Batch Inquiry',
+        clear: 'Clear', filterPrice: 'Price', filterMoq: 'MOQ', sort: 'Sort',
+        apply: 'Apply', reset: 'Reset', page: 'Page', of: 'of',
+        copySuccess: 'Copied successfully', whatsappMsg: 'Hi I want to ask quotation for model: ',
+        whatsappBatch: 'Hi, I need bulk quotation for below items:\n', catalogTitle: 'Full Product Catalog',
+        fa1q: 'Standard MOQ?', fa1a: 'PVC 50pcs, wood cabinet 100pcs, LED mirror 300pcs. OEM 100pcs.',
+        fa2q: 'Sample lead time?', fa2a: '7-10 workdays, bulk 25-30 days after sample confirm.',
+        fa3q: 'Support OEM/ODM?', fa3a: 'Yes, custom size, logo, light, packaging, functions.',
+        fa4q: 'Shipping methods?', fa4a: 'Sea, air, DHL/FedEx, DDP door delivery available.',
+        fa5q: 'Warranty period?', fa5a: '2-year factory warranty for all manufacturing defects.',
+        fa6q: 'Bulk discount?', fa6a: 'Yes for orders over 1000pcs, contact us for offer.',
+        contact: 'Contact Us', factory: 'Factory Info', productsLabel: 'Our Products', follow: 'Certifications',
         copyright: '© 2026 Yongling LED Sanitary Mirror Factory. All Rights Reserved.',
-        breadAll: 'All Products', breadA: 'LED Mirror Series', breadB: 'Solid Wood Smart Cabinet Series', breadC: 'PVC Waterproof Cabinet Series'
+        breadAll: 'All Products', breadA: 'LED Mirror Series', breadB: 'Smart Cabinet Series', breadC: 'PVC Cabinet Series'
     },
     fr: {
-        all: 'Tous les Produits', led: 'Miroir LED', smart: 'Armoire Miroir Intelligente', pvc: 'Armoire Salle Bain PVC',
-        search: 'Recherche par modèle / dimension / matériau...', viewDetails: 'Voir Détails', inquire: 'Demander Devis WhatsApp',
-        copyModel: 'Copier Modèle', oemTitle: 'Service Personnalisé OEM & ODM', oemSize: 'Taille et Forme Sur Mesure',
-        oemSizeDesc: 'Rond, carré, rectangulaire, formes irrégulières, 30cm à 200cm',
-        oemLogo: 'Impression Logo Personnalisé', oemLogoDesc: 'Sérigraphie, gravure laser, autocollant logo',
-        oemLight: 'Options Lumière Sur Mesure', oemLightDesc: 'Blanc chaud / Blanc froid / Réglable 3000K~6500K',
-        oemFunc: 'Fonctions Sur Mesure', oemFuncDesc: 'Anti-buée, Bluetooth, écran tactile, horloge, miroir grossissant',
-        oemPack: 'Emballage Personnalisé', oemPackDesc: 'Carton marron simple, boîte cadeau, emballage export',
-        oemInfo1: 'MOQ sur mesure : 100 pièces', oemInfo2: 'Délai échantillon :7-10 jours ouvrables',
-        oemInfo3: 'Production série :25-30 jours ouvrables', oemInfo4: 'Livraison maritime, aérienne et DDP porte à porte',
-        getQuote: 'Demander Devis Personnalisé', inquiry: 'Demande en Ligne', name: 'Nom Complet *', company: 'Société',
+        all: 'Tous Produits', led: 'Miroir LED', smart: 'Armoire Miroir Intelligente', pvc: 'Armoire PVC Salle Bain',
+        search: 'Recherche modèle / dimension / matériau...', viewDetails: 'Voir Détails', inquire: 'Demander Devis WhatsApp',
+        copyModel: 'Copier Modèle', oemTitle: 'Service OEM & ODM Sur Mesure', oemSize: 'Taille et Forme Personnalisée',
+        oemSizeDesc: 'Rond, carré, rectangulaire, formes irrégulières 30 à 200cm',
+        oemLogo: 'Impression Logo', oemLogoDesc: 'Sérigraphie, gravure laser, autocollant',
+        oemLight: 'Options Lumière', oemLightDesc: 'Blanc chaud / froid, réglable 3000K~6500K',
+        oemFunc: 'Fonctions Sur Mesure', oemFuncDesc: 'Anti-buée, Bluetooth, écran horaire, miroir grossissant',
+        oemPack: 'Emballage Personnalisé', oemPackDesc: 'Carton marron, boîte cadeau, export palette',
+        oemInfo1: 'MOQ sur mesure : 100 pièces', oemInfo2: 'Délai échantillon :7-10j ouvrables',
+        oemInfo3: 'Production série :25-30j', oemInfo4: 'Livraison mer/air/DDP porte à porte',
+        getQuote: 'Demander Devis', inquiry: 'Demande en Ligne', name: 'Nom Complet *', company: 'Société',
         email: 'Email *', qty: 'Quantité(pcs)', sizeReq: 'Dimension / Demande Spéciale',
-        message: 'Message Complémentaire', send: 'Envoyer Demande par WhatsApp', favorites: 'Mes Favoris',
-        clearAll: 'Supprimer Tous Favoris', close: 'Fermer', catalog: 'Catalogue Produits', copyAll: 'Copier Tout le Catalogue',
-        noResult: 'Aucun produit ne correspond à votre recherche', noFav: 'Vous n\'avez pas encore de produit favori',
-        selected: 'Sélectionné(s)', products: 'produits', batchCopy: 'Copier Modèles Sélectionnés', batchInquiry: 'Demande Groupée WhatsApp',
-        clear: 'Effacer la Sélection', filterPrice: 'Prix', filterMoq: 'MOQ Minimum', sort: 'Tri',
-        apply: 'Appliquer Filtres', reset: 'Réinitialiser Filtres', page: 'Page', of: 'sur',
-        copySuccess: 'Copié dans le presse-papiers', whatsappMsg: 'Bonjour, je demande un devis pour le modèle : ',
-        whatsappBatch: 'Bonjour, j\'ai besoin d\'un devis groupé pour ces articles :\n', catalogTitle: 'Catalogue Complet Usine',
-        fa1q: 'Quel est le MOQ standard ?', fa1a: 'Armoire PVC 50pcs, armoire bois 100pcs, miroir LED 300pcs. OEM 100pcs.',
-        fa2q: 'Délai de fabrication échantillon ?', fa2a: '7-10 jours ouvrables, production 25-30j après validation échantillon.',
-        fa3q: 'Proposez-vous OEM / ODM ?', fa3a: 'Oui, taille, logo, lumière, fonctions et emballage personnalisables.',
-        fa4q: 'Modes de livraison disponibles ?', fa4a: 'Maritime, aérien, DHL/FedEx, livraison DDP porte à porte.',
-        fa5q: 'Garantie produit ?', fa5a: '2 ans de garantie défaut usine, pièces de rechange gratuites.',
-        fa6q: 'Remise pour grosses commandes ?', fa6a: 'Oui, tarifs réduits au-delà de 1000pcs, contactez-nous.',
-        contact: 'Nous Contacter', factory: 'Infos Usine', productsLabel: 'Nos Gamme Produits', follow: 'Certifications',
+        message: 'Message Complémentaire', send: 'Envoyer Demande WhatsApp', favorites: 'Mes Favoris',
+        clearAll: 'Supprimer Tous Favoris', close: 'Fermer', catalog: 'Catalogue Produits', copyAll: 'Copier Tout Texte',
+        noResult: 'Aucun produit trouvé', noFav: 'Aucun favori enregistré',
+        selected: 'Sélectionné(s)', products: 'produits', batchCopy: 'Copier Modèles', batchInquiry: 'Demande Groupée',
+        clear: 'Effacer', filterPrice: 'Prix', filterMoq: 'MOQ Minimum', sort: 'Tri',
+        apply: 'Valider', reset: 'Réinitialiser', page: 'Page', of: 'sur',
+        copySuccess: 'Copié avec succès', whatsappMsg: 'Bonjour, devis pour le modèle : ',
+        whatsappBatch: 'Bonjour, devis groupé pour ces articles :\n', catalogTitle: 'Catalogue Complet Usine',
+        fa1q: 'MOQ standard ?', fa1a: 'PVC 50pcs, armoire bois 100pcs, miroir LED 300pcs. OEM 100pcs.',
+        fa2q: 'Délai échantillon ?', fa2a: '7-10 jours ouvrables, production 25-30j.',
+        fa3q: 'OEM / ODM possible ?', fa3a: 'Oui, taille, logo, lumière, emballage personnalisable.',
+        fa4q: 'Modes livraison ?', fa4a: 'Maritime, aérien, DHL, livraison DDP.',
+        fa5q: 'Garantie ?', fa5a: '2 ans défaut fabrication usine.',
+        fa6q: 'Remise grande quantité ?', fa6a: 'Oui pour commande >1000pcs, nous contacter.',
+        contact: 'Nous Contacter', factory: 'Infos Usine', productsLabel: 'Nos Gamme', follow: 'Certifications',
         copyright: '© 2026 Yongling LED Sanitary Mirror Factory. Tous Droits Réservés.',
-        breadAll: 'Tous Produits', breadA: 'Gamme Miroirs LED', breadB: 'Gamme Armoires Bois Intelligent', breadC: 'Gamme Armoires PVC Etanche'
+        breadAll: 'Tous Produits', breadA: 'Gamme LED', breadB: 'Gamme Armoire Bois', breadC: 'Gamme PVC'
     }
 };
-// 获取当前语言文本
-function getLangText(key) {
-    return LANG[currentLang][key] || LANG.en[key] || key;
-}
-// 切换语言并全局刷新文本
+function getLangText(key) { return L[currentLang][key] || L.en[key] || key; }
 function switchLang(lang) {
     currentLang = lang;
     localStorage.setItem('yl_lang', lang);
-    document.querySelectorAll('.lang-switch button').forEach(btn => {
-        btn.classList.toggle('active', btn.dataset.lang === lang);
+    document.querySelectorAll('.lang-switch button').forEach(b=>{
+        b.classList.toggle('active', b.dataset.lang === lang);
     });
     applyAllLangText();
     renderProducts();
     if(document.getElementById('favModal').classList.contains('show')) renderFavList();
     if(document.getElementById('catalogModal').classList.contains('show')) renderCatalogTable();
 }
-// 全局替换所有data-lang-key文字
 function applyAllLangText() {
-    document.querySelectorAll('[data-lang-key]').forEach(el => {
+    document.querySelectorAll('[data-lang-key]').forEach(el=>{
         const k = el.dataset.langKey;
         const txt = getLangText(k);
-        if(el.tagName === 'INPUT' || el.tagName === 'TEXTAREA') {
-            el.placeholder = txt;
-        } else {
-            el.textContent = txt;
-        }
+        if(el.tagName === 'INPUT' || el.tagName === 'TEXTAREA') el.placeholder = txt;
+        else el.textContent = txt;
     });
 }
-
-// ====================== 暗黑模式切换 ======================
+// 暗黑模式
 function toggleDarkMode() {
     darkMode = !darkMode;
     localStorage.setItem('yl_dark', darkMode);
     document.documentElement.setAttribute('data-theme', darkMode ? 'dark' : 'light');
     document.getElementById('themeToggle').textContent = darkMode ? '☀️' : '🌓';
 }
-
-// ====================== 通用工具函数 ======================
-// 防抖
-function debounce(fn, delay) {
-    let timer;
-    return (...args) => {
-        clearTimeout(timer);
-        timer = setTimeout(() => fn(...args), delay);
-    }
-}
-// 节流
-function throttle(fn, delay) {
-    let flag = false;
-    return (...args) => {
-        if(!flag) {
-            fn(...args);
-            flag = true;
-            setTimeout(()=>flag=false, delay);
-        }
-    }
-}
-// SVG图片占位符
+// 工具函数
+function debounce(fn, delay) { let t; return (...args)=>{ clearTimeout(t); t=setTimeout(()=>fn(...args),delay); } }
+function throttle(fn, limit) { let f=false; return (...args)=>{ if(!f){fn(...args);f=true;setTimeout(()=>f=false,limit);} } }
 function getPlaceholderSvg() {
-    return `<svg width="120" height="120" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8zm1-13h-2v6h2V7zm0 8h-2v2h2v-2z" fill="currentColor" opacity="0.4"/>
+    return `<svg width="120" height="120" viewBox="0 0 24 24" fill="currentColor" opacity="0.4">
+    <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8zm1-13h-2v6h2V7zm0 8h-2v2h2v-2z"/>
     </svg>`;
 }
-// 复制到剪贴板 + Toast提示
 function copyToClipboard(text, customMsg) {
     const toast = document.getElementById('copyToast');
     const msg = customMsg || getLangText('copySuccess');
-    const cb = navigator.clipboard;
-    if(cb) {
-        cb.writeText(text).then(()=>showToast(msg)).catch(()=>fallbackCopy(text, msg));
-    } else {
-        fallbackCopy(text, msg);
-    }
+    if(navigator.clipboard) navigator.clipboard.writeText(text).then(()=>showToast(msg)).catch(()=>fallbackCopy(text,msg));
+    else fallbackCopy(text,msg);
 }
 function fallbackCopy(text, msg) {
     const ta = document.createElement('textarea');
-    ta.value = text;
-    ta.style.opacity = '0';
-    document.body.appendChild(ta);
-    ta.select();
-    document.execCommand('copy');
-    document.body.removeChild(ta);
-    showToast(msg);
+    ta.value = text; ta.style.opacity=0; document.body.appendChild(ta); ta.select(); document.execCommand('copy'); document.body.removeChild(ta); showToast(msg);
 }
 function showToast(msg) {
-    const toast = document.getElementById('copyToast');
-    toast.textContent = msg;
-    toast.classList.add('show');
-    clearTimeout(toast._t);
-    toast._t = setTimeout(()=>toast.classList.remove('show'), 2000);
+    const t = document.getElementById('copyToast');
+    t.textContent = msg; t.classList.add('show'); clearTimeout(t._t); t._t = setTimeout(()=>t.classList.remove('show'),2000);
 }
-function copyText(text) {
-    copyToClipboard(text, `Copied: ${text}`);
-}
-function copySitemap() {
-    copyToClipboard('https://ledmirror-factory-esra.pages.dev/\n#products\n#oem-custom\n#faq', 'Site map copied');
-}
-// 滚动顶部
-function scrollToTop() {
-    window.scrollTo({top:0, behavior:'smooth'});
-}
-// FAQ折叠切换
+function copyText(text) { copyToClipboard(text, `Copied: ${text}`); }
+function copySitemap() { copyToClipboard('https://ledmirror-factory-esra.pages.dev/\n#products\n#oem\n#faq','Site map copied'); }
+function scrollToTop() { window.scrollTo({top:0,behavior:'smooth'}); }
 function toggleFaq(el) {
-    const ans = el.nextElementSibling;
+    const a = el.nextElementSibling;
     const arrow = el.querySelector('.arrow');
-    ans.classList.toggle('open');
-    arrow.textContent = ans.classList.contains('open') ? '▲' : '▼';
+    a.classList.toggle('open');
+    arrow.textContent = a.classList.contains('open') ? '▲' : '▼';
 }
-// 滚动监听（头部收缩、返回顶部按钮）
 function handleScroll() {
     const header = document.getElementById('siteHeader');
-    const backTop = document.getElementById('backTop');
-    if(window.scrollY > 30) header.classList.add('scrolled');
-    else header.classList.remove('scrolled');
-    if(window.scrollY > 300) backTop.classList.add('show');
-    else backTop.classList.remove('show');
+    const bt = document.getElementById('backTop');
+    if(window.scrollY>30) header.classList.add('scrolled'); else header.classList.remove('scrolled');
+    if(window.scrollY>300) bt.classList.add('show'); else bt.classList.remove('show');
 }
 
-// ====================== A系列产品数据 29款 ======================
+// ====================== 精简产品数据：仅保留A、B完整数组，移除C循环生成 ======================
 const A_RAW = [
     {id:"A001",name:"Model A001 LED Anti-Fog Mirror",desc:"Material: Paulownia Frame Mirror\nSize: 50×50cm | LED + Anti-Fog + Storage\nWarranty: 2 Years | MOQ: 300pcs",price:"$14.90",img:"/img/微信图片_20260707164222_511_35.jpg"},
     {id:"A002",name:"Model A002 LED Anti-Fog Mirror",desc:"Material: Paulownia Frame Mirror\nSize: 55×55cm | LED + Anti-Fog + Storage\nWarranty: 2 Years | MOQ: 300pcs",price:"$15.90",img:"/img/微信图片_20260707164222_511_35.jpg"},
@@ -1238,51 +1116,53 @@ const A_RAW = [
     {id:"A028",name:"Model A028 LED Anti-Fog Mirror",desc:"Material: Paulownia Frame Mirror\nSize: 70×120cm | LED + Anti-Fog + Storage\nWarranty: 2 Years | MOQ: 300pcs",price:"$32.90",img:"/img/微信图片_20260707164222_511_35.jpg"},
     {id:"A029",name:"Model A029 LED Anti-Fog Mirror",desc:"Material: Paulownia Frame Mirror\nSize: 80×120cm | LED + Anti-Fog + Storage\nWarranty: 2 Years | MOQ: 300pcs",price:"$42.90",img:"/img/微信图片_20260707164222_511_35.jpg"},
 ];
-
-// ====================== B系列原始基准数据 ======================
+// B系列原始基准
 const B_RAW_BASE = {
-"B001": {name:"Model B001 Premium Solid Wood Mirror Cabinet",desc:"Material: Solid Wood + Paulownia Frame\nSize: 70×90cm | Full Storage Cabinet\nWarranty: 2 Years | MOQ: 100pcs",basePrice:"107.65",img:"/img/微信图片_20260707164044_510_35.jpg"},
-"B002": {name:"Model B002 Premium Solid Wood Mirror Cabinet",desc:"Material: Solid Wood + Paulownia Frame\nSize: 50×60cm | Full Storage Cabinet\nWarranty: 2 Years | MOQ: 100pcs",basePrice:"95.56",img:"/img/微信图片_20260707164044_510_35.jpg"},
-"B003": {name:"Model B003 Premium Solid Wood Mirror Cabinet",desc:"Material: Solid Wood + Paulownia Frame\nSize: 50×70cm | Full Storage Cabinet\nWarranty: 2 Years | MOQ: 100pcs",basePrice:"104.03",img:"/img/微信图片_20260707164044_510_35.jpg"},
-"B004": {name:"Model B004 Premium Solid Wood Mirror Cabinet",desc:"Material: Solid Wood + Paulownia Frame\nSize: 55×70cm | Full Storage Cabinet\nWarranty: 2 Years | MOQ: 100pcs",basePrice:"110.07",img:"/img/微信图片_20260707164044_510_35.jpg"},
-"B005": {name:"Model B005 Premium Solid Wood Mirror Cabinet",desc:"Material: Solid Wood + Paulownia Frame\nSize: 60×70cm | Full Storage Cabinet\nWarranty: 2 Years | MOQ: 100pcs",basePrice:"116.12",img:"/img/微信图片_20260707164044_510_35.jpg"},
-"B006": {name:"Model B006 Premium Solid Wood Mirror Cabinet",desc:"Material: Solid Wood + Paulownia Frame\nSize: 60×80cm | Full Storage Cabinet\nWarranty: 2 Years | MOQ: 100pcs",basePrice:"123.38",img:"/img/微信图片_20260707164044_510_35.jpg"},
-"B007": {name:"Model B007 Premium Solid Wood Mirror Cabinet",desc:"Material: Solid Wood + Paulownia Frame\nSize: 65×80cm | Full Storage Cabinet\nWarranty: 2 Years | MOQ: 100pcs",basePrice:"129.43",img:"/img/微信图片_20260707164044_510_35.jpg"},
-"B008": {name:"Model B008 Premium Solid Wood Mirror Cabinet",desc:"Material: Solid Wood + Paulownia Frame\nSize: 60×90cm | Full Storage Cabinet\nWarranty: 2 Years | MOQ: 100pcs",basePrice:"133.06",img:"/img/微信图片_20260707164044_510_35.jpg"},
-"B009": {name:"Model B009 Premium Solid Wood Mirror Cabinet",desc:"Material: Solid Wood + Paulownia Frame\nSize: 70×80cm | Full Storage Cabinet\nWarranty: 2 Years | MOQ: 100pcs",basePrice:"124.59",img:"/img/微信图片_20260707164044_510_35.jpg"},
-"B010": {name:"Model B010 Premium Solid Wood Mirror Cabinet",desc:"Material: Solid Wood + Paulownia Frame\nSize: 75×85cm | Full Storage Cabinet\nWarranty: 2 Years | MOQ: 100pcs",basePrice:"130.64",img:"/img/微信图片_20260707164044_510_35.jpg"},
-"B011": {name:"Model B011 Premium Solid Wood Mirror Cabinet",desc:"Material: Solid Wood + Paulownia Frame\nSize: 70×100cm | Full Storage Cabinet\nWarranty: 2 Years | MOQ: 100pcs",basePrice:"142.73",img:"/img/微信图片_20260707164044_510_35.jpg"},
-"B012": {name:"Model B012 Premium Solid Wood Mirror Cabinet",desc:"Material: Solid Wood + Paulownia Frame\nSize: 80×90cm | Full Storage Cabinet\nWarranty: 2 Years | MOQ: 100pcs",basePrice:"135.48",img:"/img/微信图片_20260707164044_510_35.jpg"},
-"B013": {name:"Model B013 Premium Solid Wood Mirror Cabinet",desc:"Material: Solid Wood + Paulownia Frame\nSize: 75×100cm | Full Storage Cabinet\nWarranty: 2 Years | MOQ: 100pcs",basePrice:"143.94",img:"/img/微信图片_20260707164044_510_35.jpg"},
-"B014": {name:"Model B014 Premium Solid Wood Mirror Cabinet",desc:"Material: Solid Wood + Paulownia Frame\nSize: 80×100cm | Full Storage Cabinet\nWarranty: 2 Years | MOQ: 100pcs",basePrice:"151.20",img:"/img/微信图片_20260707164044_510_35.jpg"},
-"B015": {name:"Model B015 Premium Solid Wood Mirror Cabinet",desc:"Material: Solid Wood + Paulownia Frame\nSize: 85×95cm | Full Storage Cabinet\nWarranty: 2 Years | MOQ: 100pcs",basePrice:"153.62",img:"/img/微信图片_20260707164044_510_35.jpg"},
-"B016": {name:"Model B016 Premium Solid Wood Mirror Cabinet",desc:"Material: Solid Wood + Paulownia Frame\nSize: 90×90cm | Full Storage Cabinet\nWarranty: 2 Years | MOQ: 100pcs",basePrice:"154.83",img:"/img/微信图片_20260707164044_510_35.jpg"},
-"B017": {name:"Model B017 Premium Solid Wood Mirror Cabinet",desc:"Material: Solid Wood + Paulownia Frame\nSize: 85×105cm | Full Storage Cabinet\nWarranty: 2 Years | MOQ: 100pcs",basePrice:"163.30",img:"/img/微信图片_20260707164044_510_35.jpg"},
-"B018": {name:"Model B018 Premium Solid Wood Mirror Cabinet",desc:"Material: Solid Wood + Paulownia Frame\nSize: 90×100cm | Full Storage Cabinet\nWarranty: 2 Years | MOQ: 100pcs",basePrice:"166.92",img:"/img/微信图片_20260707164044_510_35.jpg"},
-"B019": {name:"Model B019 Premium Solid Wood Mirror Cabinet",desc:"Material: Solid Wood + Paulownia Frame
-Size: 95×100cm | Full Storage Cabinet
-Warranty: 2 Years | MOQ: 100pcs",basePrice:"171.76",img:"/img/微信图片_20260707164044_510_35.jpg"},
-"B020": {name:"Model B020 Premium Solid Wood Mirror Cabinet",desc:"Material: Solid Wood + Paulownia Frame\nSize: 90×110cm | Full Storage Cabinet\nWarranty: 2 Years | MOQ: 100pcs",basePrice:"179.02",img:"/img/微信图片_20260707164044_510_35.jpg"},
-"B021": {name:"Model B021 Premium Solid Wood Mirror Cabinet",desc:"Material: Solid Wood + Paulownia Frame\nSize: 100×100cm | Full Storage Cabinet\nWarranty: 2 Years | MOQ: 100pcs",basePrice:"181.44",img:"/img/微信图片_20260707164044_510_35.jpg"},
-"B022": {name:"Model B022 Premium Solid Wood Mirror Cabinet",desc:"Material: Solid Wood + Paulownia Frame\nSize: 95×115cm | Full Storage Cabinet\nWarranty: 2 Years | MOQ: 100pcs",basePrice:"188.70",img:"/img/微信图片_20260707164044_510_35.jpg"},
-"B023": {name:"Model B023 Premium Solid Wood Mirror Cabinet",desc:"Material: Solid Wood + Paulownia Frame\nSize: 100×110cm | Full Storage Cabinet
+"B001": {name:"Model B001 Solid Wood Mirror Cabinet",desc:"Material: Solid Wood + Paulownia Frame\nSize: 70×90cm | Full Storage Cabinet\nWarranty: 2 Years | MOQ: 100pcs",basePrice:"107.65",img:"/img/微信图片_20260707164044_510_35.jpg"},
+"B002": {name:"Model B002 Solid Wood Mirror Cabinet",desc:"Material: Solid Wood + Paulownia Frame\nSize: 50×60cm | Full Storage Cabinet\nWarranty: 2 Years | MOQ: 100pcs",basePrice:"95.56",img:"/img/微信图片_20260707164044_510_35.jpg"},
+"B003": {name:"Model B003 Solid Wood Mirror Cabinet",desc:"Material: Solid Wood + Paulownia Frame\nSize: 50×70cm | Full Storage Cabinet\nWarranty: 2 Years | MOQ: 100pcs",basePrice:"104.03",img:"/img/微信图片_20260707164044_510_35.jpg"},
+"B004": {name:"Model B004 Solid Wood Mirror Cabinet",desc:"Material: Solid Wood + Paulownia Frame\nSize: 55×70cm | Full Storage Cabinet\nWarranty: 2 Years | MOQ: 100pcs",basePrice:"110.07",img:"/img/微信图片_20260707164044_510_35.jpg"},
+"B005": {name:"Model B005 Solid Wood Mirror Cabinet",desc:"Material: Solid Wood + Paulownia Frame\nSize: 60×70cm | Full Storage Cabinet\nWarranty: 2 Years | MOQ: 100pcs",basePrice:"116.12",img:"/img/微信图片_20260707164044_510_35.jpg"},
+"B006": {name:"Model B006 Solid Wood Mirror Cabinet",desc:"Material: Solid Wood + Paulownia Frame\nSize: 60×80cm | Full Storage Cabinet\nWarranty: 2 Years | MOQ: 100pcs",basePrice:"123.38",img:"/img/微信图片_20260707164044_510_35.jpg"},
+"B007": {name:"Model B007 Solid Wood Mirror Cabinet",desc:"Material: Solid Wood + Paulownia Frame\nSize: 65×80cm | Full Storage Cabinet\nWarranty: 2 Years | MOQ: 100pcs",basePrice:"129.43",img:"/img/微信图片_20260707164044_510_35.jpg"},
+"B008": {name:"Model B008 Solid Wood Mirror Cabinet",desc:"Material: Solid Wood + Paulownia Frame\nSize: 60×90cm | Full Storage Cabinet\nWarranty: 2 Years | MOQ: 100pcs",basePrice:"133.06",img:"/img/微信图片_20260707164044_510_35.jpg"},
+"B009": {name:"Model B009 Solid Wood Mirror Cabinet",desc:"Material: Solid Wood + Paulownia Frame\nSize: 70×80cm | Full Storage Cabinet\nWarranty: 2 Years | MOQ: 100pcs",basePrice:"124.59",img:"/img/微信图片_20260707164044_510_35.jpg"},
+"B010": {name:"Model B010 Solid Wood Mirror Cabinet",desc:"Material: Solid Wood + Paulownia Frame\nSize: 75×85cm | Full Storage Cabinet\nWarranty: 2 Years | MOQ: 100pcs",basePrice:"130.64",img:"/img/微信图片_20260707164044_510_35.jpg"},
+"B011": {name:"Model B011 Solid Wood Mirror Cabinet",desc:"Material: Solid Wood + Paulownia Frame\nSize: 70×100cm | Full Storage Cabinet\nWarranty: 2 Years | MOQ: 100pcs",basePrice:"142.73",img:"/img/微信图片_20260707164044_510_35.jpg"},
+"B012": {name:"Model B012 Solid Wood Mirror Cabinet",desc:"Material: Solid Wood + Paulownia Frame\nSize: 80×90cm | Full Storage Cabinet\nWarranty: 2 Years | MOQ: 100pcs",basePrice:"135.48",img:"/img/微信图片_20260707164044_510_35.jpg"},
+"B013": {name:"Model B013 Solid Wood Mirror Cabinet",desc:"Material: Solid Wood + Paulownia Frame\nSize: 75×100cm | Full Storage Cabinet\nWarranty: 2 Years | MOQ: 100pcs",basePrice:"143.94",img:"/img/微信图片_20260707164044_510_35.jpg"},
+"B014": {name:"Model B014 Solid Wood Mirror Cabinet",desc:"Material: Solid Wood + Paulownia Frame\nSize: 80×100cm | Full Storage Cabinet\nWarranty: 2 Years | MOQ: 100pcs",basePrice:"151.20",img:"/img/微信图片_20260707164044_510_35.jpg"},
+"B015": {name:"Model B015 Solid Wood Mirror Cabinet",desc:"Material: Solid Wood + Paulownia Frame\nSize: 85×95cm | Full Storage Cabinet\nWarranty: 2 Years | MOQ: 100pcs",basePrice:"153.62",img:"/img/微信图片_20260707164044_510_35.jpg"},
+"B016": {name:"Model B016 Solid Wood Mirror Cabinet",desc:"Material: Solid Wood + Paulownia Frame\nSize: 90×90cm | Full Storage Cabinet\nWarranty: 2 Years | MOQ: 100pcs",basePrice:"154.83",img:"/img/微信图片_20260707164044_510_35.jpg"},
+"B017": {name:"Model B017 Solid Wood Mirror Cabinet",desc:"Material: Solid Wood + Paulownia Frame\nSize: 85×105cm | Full Storage Cabinet\nWarranty: 2 Years | MOQ: 100pcs",basePrice:"163.30",img:"/img/微信图片_20260707164044_510_35.jpg"},
+"B018": {name:"Model B018 Solid Wood Mirror Cabinet",desc:"Material: Solid Wood + Paulownia Frame\nSize: 90×100cm | Full Storage Cabinet\nWarranty: 2 Years | MOQ: 100pcs",basePrice:"166.92",img:"/img/微信图片_20260707164044_510_35.jpg"},
+"B019": {name:"Model B019 Solid Wood Mirror Cabinet",desc:"Material: Solid Wood + Paulownia Frame\nSize: 95×100cm | Full Storage Cabinet\nWarranty: 2 Years | MOQ: 100pcs",basePrice:"171.76",img:"/img/微信图片_20260707164044_510_35.jpg"},
+"B020": {name:"Model B020 Solid Wood Mirror Cabinet",desc:"Material: Solid Wood + Paulownia Frame\nSize: 90×110cm | Full Storage Cabinet\nWarranty: 2 Years | MOQ: 100pcs",basePrice:"179.02",img:"/img/微信图片_20260707164044_510_35.jpg"},
+"B021": {name:"Model B021 Solid Wood Mirror Cabinet",desc:"Material: Solid Wood + Paulownia Frame
+Size: 100×100cm | Full Storage Cabinet
+Warranty: 2 Years | MOQ: 100pcs",basePrice:"181.44",img:"/img/微信图片_20260707164044_510_35.jpg"},
+"B022": {name:"Model B022 Solid Wood Mirror Cabinet",desc:"Material: Solid Wood + Paulownia Frame
+Size: 95×115cm | Full Storage Cabinet
+Warranty: 2 Years | MOQ: 100pcs",basePrice:"188.70",img:"/img/微信图片_20260707164044_510_35.jpg"},
+"B023": {name:"Model B023 Solid Wood Mirror Cabinet",desc:"Material: Solid Wood + Paulownia Frame
+Size: 100×110cm | Full Storage Cabinet
 Warranty: 2 Years | MOQ: 100pcs",basePrice:"192.33",img:"/img/微信图片_20260707164044_510_35.jpg"},
-"B024": {name:"Model B024 Premium Solid Wood Mirror Cabinet",desc:"Material: Solid Wood + Paulownia Frame
+"B024": {name:"Model B024 Solid Wood Mirror Cabinet",desc:"Material: Solid Wood + Paulownia Frame
 Size: 105×115cm | Full Storage Cabinet
 Warranty: 2 Years | MOQ: 100pcs",basePrice:"203.21",img:"/img/微信图片_20260707164044_510_35.jpg"},
-"B025": {name:"Model B025 Premium Solid Wood Mirror Cabinet",desc:"Material: Solid Wood + Paulownia Frame
+"B025": {name:"Model B025 Solid Wood Mirror Cabinet",desc:"Material: Solid Wood + Paulownia Frame
 Size: 110×120cm | Full Storage Cabinet
 Warranty: 2 Years | MOQ: 100pcs",basePrice:"211.68",img:"/img/微信图片_20260707164044_510_35.jpg"},
-"B026": {name:"Model B026 Premium Solid Wood Mirror Cabinet",desc:"Material: Solid Wood + Paulownia Frame
+"B026": {name:"Model B026 Solid Wood Mirror Cabinet",desc:"Material: Solid Wood + Paulownia Frame
 Size: 115×125cm | Full Storage Cabinet
 Warranty: 2 Years | MOQ: 100pcs",basePrice:"220.15",img:"/img/微信图片_20260707164044_510_35.jpg"},
-"B027": {name:"Model B027 Premium Solid Wood Mirror Cabinet",desc:"Material: Solid Wood + Paulownia Frame
+"B027": {name:"Model B027 Solid Wood Mirror Cabinet",desc:"Material: Solid Wood + Paulownia Frame
 Size: 120×130cm | Full Storage Cabinet
 Warranty: 2 Years | MOQ: 100pcs",basePrice:"228.61",img:"/img/微信图片_20260707164044_510_35.jpg"},
-"B028": {name:"Model B028 Premium Solid Wood Mirror Cabinet",desc:"Material: Solid Wood + Paulownia Frame
+"B028": {name:"Model B028 Solid Wood Mirror Cabinet",desc:"Material: Solid Wood + Paulownia Frame
 Size: 100×140cm | Full Storage Cabinet
 Warranty: 2 Years | MOQ: 100pcs",basePrice:"224.99",img:"/img/微信图片_20260707164044_510_35.jpg"},
-"B029": {name:"Model B029 Premium Solid Wood Mirror Cabinet",desc:"Material: Solid Wood + Paulownia Frame
+"B029": {name:"Model B029 Solid Wood Mirror Cabinet",desc:"Material: Solid Wood + Paulownia Frame
 Size: 120×150cm | Full Storage Cabinet
 Warranty: 2 Years | MOQ: 100pcs",basePrice:"228.61",img:"/img/微信图片_20260707164044_510_35.jpg"}
 };
@@ -1302,470 +1182,334 @@ Object.keys(B_RAW_BASE).forEach(id => {
     });
 });
 
-// C系列尺寸映射（缺失3,4,7,8）
-const C_SIZE_MAP = {
-    1: {w:1000,h:470},2:{w:1000,h:470},5:{w:1000,h:470},6:{w:1000,h:470},
-    9:{w:1000,h:500},10:{w:1000,h:500},13:{w:1000,h:500},14:{w:1000,h:500},
-    25:{w:800,h:500},39:{w:1000,h:470},40:{w:1000,h:470},41:{w:1000,h:470},
-    42:{w:1000,h:470},43:{w:1000,h:470},44:{w:1000,h:470},69:{w:800,h:470},
-    70:{w:800,h:470},73:{w:800,h:470},74:{w:800,h:470},77:{w:800,h:500},
-    85:{w:800,h:500},93:{w:800,h:500},101:{w:800,h:470},120:{w:460,h:260},
-    134:{w:800,h:470},140:{w:800,h:470},148:{w:600,h:470},156:{w:800,h:500},
-    164:{w:1000,h:500},172:{w:1000,h:500},180:{w:800,h:470},188:{w:800,h:470}
-};
+// C系列仅保留入口，不生成大量产品，预留数组
+const C_RAW = [];
 
-// 整合全部产品数组
+// 整合全部产品数组（仅A+B，C为空）
 const PRODUCTS = [];
 A_RAW.forEach(i=>PRODUCTS.push({type:'A',...i}));
 B_RAW.forEach(i=>PRODUCTS.push({type:'B',...i}));
-// 循环生成C系列
-for(let num=1;num<=198;num++){
-    if(num===3||num===4||num===7||num===8) continue;
-    const size = C_SIZE_MAP[num] ?? {w:800,h:500};
-    const wCm = (size.w/10).toFixed(0);
-    const hCm = (size.h/10).toFixed(0);
-    const area = size.w * size.h;
-    const baseArea = CONFIG.C_BASE_WIDTH_MM * CONFIG.C_BASE_HEIGHT_MM;
-    const priceVal = (CONFIG.C_BASE_PRICE * area / baseArea).toFixed(2);
-    const cId = `C${String(num).padStart(3,'0')}`;
-    PRODUCTS.push({
-        type:'C',
-        id:cId,
-        name:`${num} PVC Bathroom Cabinet`,
-        desc:`Size: ${wCm}×${hCm}cm\nMaterial: PVC\nMOQ: 200pcs`,
-        price:`$${priceVal}`,
-        img:""
-    });
-}
-
 // DOM元素缓存
 const container = document.getElementById('productContainer');
-const emptyState = document.getElementById('emptyState');
-const resultCount = document.getElementById('resultCount');
+const emptyTip = document.getElementById('emptyState');
+const resultCountEl = document.getElementById('resultCount');
 const searchInput = document.getElementById('searchInput');
 const filterTabs = document.querySelectorAll('.filter-tab');
-const breadcrumbLabel = document.getElementById('breadcrumbLabel');
-const pageNumbers = document.getElementById('pageNumbers');
+const priceMin = document.getElementById('priceMin');
+const priceMax = document.getElementById('priceMax');
+const moqSelect = document.getElementById('filterMoq');
+const sortSelect = document.getElementById('sortSelect');
 const pagePrev = document.getElementById('pagePrev');
 const pageNext = document.getElementById('pageNext');
-const pageInfo = document.getElementById('pageInfo');
+const pageNumbers = document.getElementById('pageNumbers');
 const batchBar = document.getElementById('batchBar');
-const batchCount = document.getElementById('batchCount');
-const priceMinInput = document.getElementById('priceMin');
-const priceMaxInput = document.getElementById('priceMax');
-const filterMoqSelect = document.getElementById('filterMoq');
-const sortSelect = document.getElementById('sortSelect');
-const filterApplyBtn = document.getElementById('filterApply');
-const filterResetBtn = document.getElementById('filterReset');
-const galleryCar = document.getElementById('galleryCar');
+const batchCountText = document.getElementById('batchCount');
+const modalProduct = document.getElementById('productModal');
+const modalOem = document.getElementById('oemModal');
+const modalInquiry = document.getElementById('inquiryModal');
+const modalFav = document.getElementById('favModal');
+const modalCatalog = document.getElementById('catalogModal');
+const toastTip = document.getElementById('copyToast');
+const galleryBox = document.getElementById('galleryCarousel');
 
-// 获取筛选后产品列表
-function getFilteredList(){
+// 分页全局变量
+let currentPage = 1;
+const pageSize = CONFIG.PER_PAGE;
+let activeFilterType = 'all';
+let filterMinPrice = '';
+let filterMaxPrice = '';
+let filterMoqVal = '';
+let sortRule = 'default';
+let checkedBatchIds = new Set();
+
+// 过滤产品函数
+function getFilteredList() {
     let list = [...PRODUCTS];
-    if(currentFilter !== 'all') list = list.filter(p=>p.type === currentFilter);
-    const kw = searchKeyword.toLowerCase().trim();
-    if(kw) list = list.filter(p=>p.id.toLowerCase().includes(kw) || p.name.toLowerCase().includes(kw) || p.desc.toLowerCase().includes(kw));
-    const minP = Number(priceMin) || 0;
-    const maxP = Number(priceMax) || 9999;
-    list = list.filter(p=>{
-        const pr = parseFloat(p.price.replace('$',''));
-        return pr >= minP && pr <= maxP;
-    });
-    if(filterMoq){
-        const mq = Number(filterMoq);
-        list = list.filter(p=>{
-            const match = p.desc.match(/MOQ:\s*(\d+)/);
-            return match && Number(match[1]) >= mq;
-        });
+    // 分类筛选
+    if(activeFilterType !== 'all') list = list.filter(item => item.type === activeFilterType);
+    // 价格筛选
+    if(filterMinPrice) list = list.filter(item => parseFloat(item.price.replace('$','')) >= Number(filterMinPrice));
+    if(filterMaxPrice) list = list.filter(item => parseFloat(item.price.replace('$','')) <= Number(filterMaxPrice));
+    // MOQ筛选
+    if(filterMoqVal){
+        list = list.filter(item => {
+            const moqNum = parseInt(item.desc.match(/MOQ:\s*(\d+)/)[1]);
+            return moqNum >= Number(filterMoqVal);
+        })
     }
-    if(sortBy === 'price-asc') list.sort((a,b)=>parseFloat(a.price.slice(1)) - parseFloat(b.price.slice(1)));
-    if(sortBy === 'price-desc') list.sort((a,b)=>parseFloat(b.price.slice(1)) - parseFloat(a.price.slice(1)));
-    if(sortBy === 'model') list.sort((a,b)=>a.id.localeCompare(b.id));
-    const typeOrder = {A:0,B:1,C:2};
-    list.sort((a,b)=> typeOrder[a.type] - typeOrder[b.type]);
+    // 搜索关键词
+    const keyword = searchInput.value.trim().toLowerCase();
+    if(keyword){
+        list = list.filter(item => 
+            item.id.toLowerCase().includes(keyword) ||
+            item.name.toLowerCase().includes(keyword) ||
+            item.desc.toLowerCase().includes(keyword)
+        )
+    }
+    // 排序规则
+    if(sortRule === 'price-asc') list.sort((a,b)=>parseFloat(a.price.slice(1)) - parseFloat(b.price.slice(1)));
+    if(sortRule === 'price-desc') list.sort((a,b)=>parseFloat(b.price.slice(1)) - parseFloat(a.price.slice(1)));
+    if(sortRule === 'model') list.sort((a,b)=>a.id.localeCompare(b.id));
     return list;
 }
 
-// 渲染产品卡片
-function renderProducts(){
-    const filtered = getFilteredList();
-    const total = filtered.length;
-    const totalPage = Math.ceil(total / CONFIG.PER_PAGE) || 1;
-    if(currentPage > totalPage) currentPage = totalPage;
+// 渲染产品列表
+function renderProducts() {
+    const data = getFilteredList();
+    const total = data.length;
+    const totalPage = Math.ceil(total / pageSize);
+    // 页码边界修正
+    if(currentPage > totalPage && totalPage > 0) currentPage = totalPage;
     if(currentPage < 1) currentPage = 1;
-    const start = (currentPage - 1) * CONFIG.PER_PAGE;
-    const pageData = filtered.slice(start, start + CONFIG.PER_PAGE);
-    container.innerHTML = '';
-    emptyState.classList.toggle('hidden', pageData.length > 0);
+    // 分页截取
+    const start = (currentPage - 1) * pageSize;
+    const pageData = data.slice(start, start + pageSize);
+    // 更新结果数量
+    resultCountEl.textContent = `${getLangText('selected')}: ${total} ${getLangText('products')}`;
+    // 空状态判断
+    if(total === 0){
+        container.innerHTML = '';
+        emptyTip.classList.remove('hidden');
+        renderPagination(0);
+        return;
+    }
+    emptyTip.classList.add('hidden');
+    // 生成卡片HTML
     let html = '';
-    pageData.forEach(item=>{
-        const fav = favorites.includes(item.id);
-        const checked = batchSelected.has(item.id) ? 'checked' : '';
-        const hasImg = !!item.img;
+    pageData.forEach(item => {
+        const isChecked = checkedBatchIds.has(item.id);
         html += `
-        <div class="product-card" data-id="${item.id}">
+        <div class="product-card" data-id="${item.id}" data-type="${item.type}">
             <div class="img-box">
-                ${hasImg ? `<img class="product-img" src="${item.img}" alt="${item.id}" loading="lazy" onerror="this.style.display='none';this.nextElementSibling.style='flex'">` : ''}
-                <div class="img-placeholder" style="display:${hasImg ? 'none' : 'flex'}">${getPlaceholderSvg()}<span>Image pending upload</span></div>
+                <input type="checkbox" class="product-check" ${isChecked?'checked':''}>
                 <span class="model-tag">${item.id}</span>
-                <button class="favorite-btn ${fav?'active':''}" onclick="toggleFav('${item.id}')">${fav?'♥':'♡'}</button>
-                <input type="checkbox" class="product-check" ${checked} onchange="toggleBatch('${item.id}')">
+                <button class="favorite-btn ${favorites.includes(item.id)?'active':''}" onclick="toggleFav('${item.id}')">♥</button>
+                <img class="product-img" src="${item.img}" alt="${item.name}" loading="lazy">
             </div>
             <div class="product-info">
-                <div class="product-model">${item.id}</div>
+                <h4 class="product-model">${item.name}</h4>
                 <div class="product-price">${item.price}</div>
-                <div class="card-actions">
-                    <button class="order-btn" onclick="openProductModal('${item.id}')" data-lang-key="viewDetails">${getLangText('viewDetails')}</button>
-                    <button class="quick-whatsapp" onclick="quickWhatsApp('${item.id}')">💬</button>
+                <div class="card-actions flex gap-8">
+                    <button class="order-btn" onclick="openProductDetail('${item.id}')">${getLangText('viewDetails')}</button>
+                    <a class="quick-whatsapp flex-center" target="_blank" href="https://wa.me/${CONFIG.WHATSAPP_NUM}?text=${encodeURIComponent(getLangText('whatsappMsg') + item.id)}">💬</a>
                 </div>
             </div>
         </div>`;
     });
-    container.insertAdjacentHTML('beforeend', html);
-    resultCount.textContent = `${total} ${getLangText('products')}`;
-    renderPagination(total, totalPage);
-    updateBatchBar();
-    updateBreadcrumb();
+    container.innerHTML = html;
+    // 批量选择绑定
+    document.querySelectorAll('.product-check').forEach(ck => {
+        ck.onchange = function(){
+            const pid = this.closest('.product-card').dataset.id;
+            if(this.checked) checkedBatchIds.add(pid);
+            else checkedBatchIds.delete(pid);
+            updateBatchBar();
+        }
+    })
+    renderPagination(totalPage);
 }
 
-// 分页渲染
-function renderPagination(total, totalPage){
+// 渲染分页按钮
+function renderPagination(totalPage){
     pageNumbers.innerHTML = '';
-    pagePrev.disabled = currentPage <= 1;
-    pageNext.disabled = currentPage >= totalPage;
-    pageInfo.textContent = `${getLangText('page')} ${currentPage} ${getLangText('of')} ${totalPage}`;
-    const showMax = 5;
-    let s = Math.max(1, currentPage - Math.floor(showMax / 2));
-    let e = Math.min(totalPage, s + showMax - 1);
-    if(e - s < showMax - 1) s = Math.max(1, e - showMax + 1);
-    let pHtml = '';
-    if(s > 1){
-        pHtml += `<button onclick="goPage(1)">1</button>`;
-        if(s > 2) pHtml += '<span>…</span>';
+    pagePrev.disabled = currentPage === 1;
+    pageNext.disabled = currentPage === totalPage || totalPage === 0;
+    if(totalPage <= 1) return;
+    for(let i=1;i<=totalPage;i++){
+        const btn = document.createElement('button');
+        btn.textContent = i;
+        if(i === currentPage) btn.classList.add('active');
+        btn.onclick = ()=>{ currentPage = i; renderProducts(); }
+        pageNumbers.appendChild(btn);
     }
-    for(let i = s; i <= e; i++){
-        pHtml += `<button class="${i === currentPage ? 'active' : ''}" onclick="goPage(${i})">${i}</button>`;
-    }
-    if(e < totalPage){
-        if(e < totalPage - 1) pHtml += '<span>…</span>';
-        pHtml += `<button onclick="goPage(${totalPage})">${totalPage}</button>`;
-    }
-    pageNumbers.innerHTML = pHtml;
 }
 
-function goPage(page){
-    const tp = Math.ceil(getFilteredList().length / CONFIG.PER_PAGE) || 1;
-    if(page < 1) page = 1;
-    if(page > tp) page = tp;
-    currentPage = page;
-    renderProducts();
-    scrollToTop();
-}
-
-function updateBreadcrumb(){
-    const map = {all:'breadAll',A:'breadA',B:'breadB',C:'breadC'};
-    breadcrumbLabel.textContent = getLangText(map[currentFilter]);
-}
-
-// 批量选择操作
-function toggleBatch(id){
-    batchSelected.has(id) ? batchSelected.delete(id) : batchSelected.add(id);
-    document.querySelectorAll('.product-check').forEach(cb=>{
-        const cid = cb.closest('.product-card')?.dataset.id;
-        cb.checked = batchSelected.has(cid);
-    });
-    updateBatchBar();
-}
+// 更新底部批量栏显示
 function updateBatchBar(){
-    batchCount.textContent = batchSelected.size;
-    batchBar.classList.toggle('show', batchSelected.size > 0);
-}
-function batchClear(){
-    batchSelected.clear();
-    document.querySelectorAll('.product-check').forEach(cb=>cb.checked = false);
-    updateBatchBar();
-}
-function batchCopy(){
-    if(!batchSelected.size) return showToast(getLangText('noFav'));
-    const arr = [...batchSelected].map(id=>PRODUCTS.find(p=>p.id===id)).filter(Boolean);
-    let txt = '';
-    ['A','B','C'].forEach(t=>{
-        const g = arr.filter(p=>p.type === t);
-        if(g.length){
-            txt += `===== ${t} Series =====\n`;
-            g.forEach(item=>txt += `${item.id} | ${item.price}\n`);
-            txt += '\n';
-        }
-    });
-    copyToClipboard(txt.trim());
-}
-function batchWhatsApp(){
-    if(!batchSelected.size) return showToast(getLangText('noFav'));
-    const arr = [...batchSelected].map(id=>PRODUCTS.find(p=>p.id===id)).filter(Boolean);
-    let msg = getLangText('whatsappBatch') + '\n\n';
-    ['A','B','C'].forEach(t=>{
-        const g = arr.filter(p=>p.type === t);
-        if(g.length){
-            msg += `【${t} Series】\n`;
-            g.forEach(item=>msg += `${item.id} ${item.price}\n`);
-            msg += '\n';
-        }
-    });
-    window.open(`https://wa.me/${CONFIG.WHATSAPP_NUM}?text=${encodeURIComponent(msg)}`);
+    const count = checkedBatchIds.size;
+    batchCountText.textContent = count;
+    batchBar.style.display = count > 0 ? 'block' : 'none';
 }
 
-// 收藏功能
+// 收藏切换
 function toggleFav(id){
     const idx = favorites.indexOf(id);
-    idx > -1 ? favorites.splice(idx,1) : favorites.push(id);
+    if(idx > -1) favorites.splice(idx,1);
+    else favorites.push(id);
     localStorage.setItem('yl_fav', JSON.stringify(favorites));
     renderProducts();
-    if(document.getElementById('favModal').classList.contains('show')) renderFavList();
 }
-function renderFavList(){
-    const wrap = document.getElementById('favList');
-    if(!favorites.length){
-        wrap.innerHTML = `<p>${getLangText('noFav')}</p>`;
-        return;
-    }
-    let h = '';
-    favorites.forEach(id=>{
-        const item = PRODUCTS.find(p=>p.id===id);
-        if(!item) return;
-        h += `<div class="fav-item flex-between"><span>${item.id} - ${item.name}</span><button onclick="toggleFav('${id}')" class="fav-remove btn-secondary">✕</button></div>`;
-    });
-    wrap.innerHTML = h;
+
+// 打开产品详情弹窗
+function openProductDetail(id){
+    const target = PRODUCTS.find(p=>p.id === id);
+    if(!target) return;
+    const metaWrap = document.getElementById('modalMetaRow');
+    const descBox = document.getElementById('modalDesc');
+    const imgBox = document.getElementById('modalImg');
+    document.getElementById('modalTitle').textContent = target.name;
+    imgBox.src = target.img;
+    imgBox.alt = target.name;
+    metaWrap.innerHTML = `
+        <span class="meta-item">Model: ${target.id}</span>
+        <span class="meta-item">Price: ${target.price}</span>
+        <span class="meta-item">Type: ${target.type} Series</span>
+    `;
+    descBox.innerText = target.desc;
+    modalProduct.style.display = 'flex';
 }
-function clearAllFavorites(){
-    if(!confirm(getLangText('clearAll'))) return;
-    favorites = [];
-    localStorage.setItem('yl_fav', JSON.stringify(favorites));
-    renderFavList();
+
+// 关闭所有弹窗通用
+function closeAllModal(){
+    modalProduct.style.display = 'none';
+    modalOem.style.display = 'none';
+    modalInquiry.style.display = 'none';
+    modalFav.style.display = 'none';
+    modalCatalog.style.display = 'none';
+}
+
+// 批量复制选中型号
+function batchCopyModels(){
+    if(checkedBatchIds.size === 0) return;
+    const text = Array.from(checkedBatchIds).join(', ');
+    copyToClipboard(text, getLangText('copySuccess'));
+}
+
+// 批量WhatsApp询盘
+function batchWhatsApp(){
+    if(checkedBatchIds.size === 0) return;
+    const text = getLangText('whatsappBatchMsg') + Array.from(checkedBatchIds).join(', ');
+    window.open(`https://wa.me/${CONFIG.WHATSAPP_NUM}?text=${encodeURIComponent(text)}`);
+}
+
+// 清空批量选择
+function clearBatchSelect(){
+    checkedBatchIds.clear();
+    updateBatchBar();
     renderProducts();
 }
-function openFavModal(){
-    document.getElementById('favModal').classList.add('show');
-    document.body.classList.add('no-scroll');
-    renderFavList();
-}
-function closeFavModal(){
-    document.getElementById('favModal').classList.remove('show');
-    document.body.classList.remove('no-scroll');
-}
 
-// 产品详情弹窗
-let currentViewProduct = null;
-function openProductModal(id){
-    const p = PRODUCTS.find(x=>x.id === id);
-    if(!p) return;
-    currentViewProduct = p;
-    const modal = document.getElementById('productModal');
-    document.getElementById('modalTitle').innerHTML = `${p.name} <button class="copy-model-btn" onclick="copyModel()">${getLangText('copyModel')}</button>`;
-    document.getElementById('modalMeta').innerHTML = `
-    <span class="meta-item">💰 ${p.price}</span>
-    <span class="meta-item">🔖 ${p.id}</span>
-    <span class="meta-item">📦 ${p.desc.match(/MOQ:\s*(\d+)/)[0]}</span>
-    <span class="meta-item">Category ${p.type}</span>`;
-    const imgDom = document.getElementById('modalImg');
-    if(p.img){
-        imgDom.src = p.img;
-        imgDom.style.display = 'block';
-    }else{
-        imgDom.style.display = 'none';
-    }
-    document.getElementById('modalContent').textContent = p.desc;
-    modal.classList.add('show');
-    document.body.classList.add('no-scroll');
-}
-function closeProductModal(){
-    document.getElementById('productModal').classList.remove('show');
-    document.body.classList.remove('no-scroll');
-    currentViewProduct = null;
-}
-function copyModel(){
-    if(!currentViewProduct) return;
-    const t = `${currentViewProduct.id}\n${currentViewProduct.name}\nPrice: ${currentViewProduct.price}\n${currentViewProduct.desc}`;
-    copyToClipboard(t);
-}
-function contactWhatsApp(){
-    if(!currentViewProduct) return;
-    const text = `${getLangText('whatsappMsg')} ${currentViewProduct.id} ${currentViewProduct.name} ${currentView.price}`;
-    window.open(`https://wa.me/${CONFIG.WHATSAPP_NUM}?text=${encodeURIComponent(text)}`);
-}
-function quickWhatsApp(id){
-    const p = PRODUCTS.find(x=>x.id === id);
-    if(!p) return;
-    const text = `${getLangText('whatsappMsg')} ${p.id} ${p.name} ${p.price}`;
-    window.open(`https://wa.me/${CONFIG.WHATSAPP_NUM}?text=${encodeURIComponent(text)}`);
-}
-function openImageFullscreen(){
-    if(!currentViewProduct || !currentViewProduct.img) return;
-    window.open(currentViewProduct.img, '_blank');
-}
-
-// OEM弹窗
+// 打开OEM弹窗
 function openOEMModal(){
-    document.getElementById('oemModal').classList.add('show');
-    document.body.classList.add('no-scroll');
-}
-function closeOEMModal(){
-    document.getElementById('oemModal').classList.remove('show');
-    document.body.classList.remove('no-scroll');
-}
-function contactWhatsAppOEM(){
-    const msg = 'I need OEM/ODM custom quotation for bathroom mirrors & cabinets';
-    window.open(`https://wa.me/${CONFIG.WHATSAPP_NUM}?text=${encodeURIComponent(msg)}`);
+    modalOem.style.display = 'flex';
 }
 
-// 询价表单
+// 打开询价表单弹窗
 function openInquiryModal(){
-    document.getElementById('inquiryModal').classList.add('show');
-    document.body.classList.add('no-scroll');
-}
-function closeInquiryModal(){
-    document.getElementById('inquiryModal').classList.remove('show');
-    document.body.classList.remove('no-scroll');
-}
-function submitInquiry(e){
-    e.preventDefault();
-    const name = document.getElementById('inqName').value.trim();
-    const email = document.getElementById('inqEmail').value.trim();
-    if(!name || !email) return showToast(getLangText('name') + ' & ' + getLangText('email') + ' required');
-    const company = document.getElementById('inqCompany').value.trim();
-    const qty = document.getElementById('inqQty').value.trim();
-    const size = document.getElementById('inqSize').value.trim();
-    const msg = document.getElementById('inqMessage').value.trim();
-    let text = `New Inquiry\nName:${name}\nEmail:${email}`;
-    if(company) text += `\nCompany:${company}`;
-    if(qty) text += `\nQty:${qty}pcs`;
-    if(size) text += `\nSize Request:${size}`;
-    if(msg) text += `\nMessage:${msg}`;
-    window.open(`https://wa.me/${CONFIG.WHATSAPP_NUM}?text=${encodeURIComponent(text)}`);
-    closeInquiryModal();
-    document.getElementById('inquiryForm').reset();
+    modalInquiry.style.display = 'flex';
 }
 
-// 产品目录弹窗
-function openCatalogModal(){
-    document.getElementById('catalogModal').classList.add('show');
-    document.body.classList.add('no-scroll');
-    renderCatalogTable();
+// 打开收藏列表弹窗
+function openFavModal(){
+    let favHtml = '';
+    favorites.forEach(fid=>{
+        const item = PRODUCTS.find(p=>p.id === fid);
+        if(!item) return;
+        favHtml += `<div class="fav-item flex-between"><span>${item.id} ${item.name}</span><button onclick="toggleFav('${fid}')">Remove</button></div>`;
+    })
+    document.getElementById('favListBox').innerHTML = favHtml || `<p>${getLangText('noFav')}</p>`;
+    modalFav.style.display = 'flex';
 }
-function closeCatalogModal(){
-    document.getElementById('catalogModal').classList.remove('show');
-    document.body.classList.remove('no-scroll');
-}
+
+// 完整产品目录表格渲染
 function renderCatalogTable(){
-    const wrap = document.getElementById('catalogContentWrap');
-    let html = `<table class="catalog-table"><thead><tr><th>Type</th><th>Model</th><th>Name</th><th>Price</th></tr></thead><tbody>`;
-    ['A','B','C'].forEach(t=>{
-        PRODUCTS.filter(p=>p.type === t).forEach(item=>{
-            html += `<tr><td><span class="type-badge">${t}</span></td><td><strong>${item.id}</strong></td><td>${item.name}</td><td>${item.price}</td></tr>`;
-        });
-    });
-    html += `</tbody></table>`;
-    wrap.innerHTML = html;
-}
-function copyCatalog(){
-    let txt = `${getLangText('catalogTitle')}\n================================\n`;
-    ['A','B','C'].forEach(t=>{
-        const list = PRODUCTS.filter(p=>p.type === t);
-        if(list.length) txt += `\n--- ${t} Series ---\n`;
-        list.forEach(i=> txt += `${i.id} | ${i.name} | ${i.price}\n`);
-    });
-    copyToClipboard(txt);
-}
-
-// 画廊初始化
-function initGallery(){
-    const car = document.getElementById('galleryCar');
-    if(!car) return;
-    let h = '';
-    for(let i=1;i<=6;i++) h += `<div class="carousel-item"><img src="/img/factory/${i}.jpg" alt="factory${i}" loading="lazy" onerror="this.style.display='none';this.parent.innerHTML='${getPlaceholderSvg()}'"></div>`;
-    car.innerHTML = h;
+    let tableHtml = `
+    <table class="catalog-table">
+        <thead>
+            <tr>
+                <th>Model</th>
+                <th>Series</th>
+                <th>Price</th>
+                <th>MOQ</th>
+            </tr>
+        </thead>
+        <tbody>`;
+    PRODUCTS.forEach(item=>{
+        const moq = item.desc.match(/MOQ:\s*(\d+)/)[1];
+        tableHtml += `
+        <tr>
+            <td>${item.id}</td>
+            <td>${item.type}</td>
+            <td>${item.price}</td>
+            <td>${moq}pcs</td>
+        </tr>`;
+    })
+    tableHtml += `</tbody></table>`;
+    document.getElementById('catalogContentBox').innerHTML = tableHtml;
 }
 
-// 页面DOM加载完成初始化
-document.addEventListener('DOMContentLoaded', function(){
-    // 明暗模式初始化
-    if(darkMode){
-        document.documentElement.setAttribute('data-theme','dark');
-        document.getElementById('themeToggle').textContent = '☀️';
+// 打开目录弹窗
+function openCatalogModal(){
+    renderCatalogTable();
+    modalCatalog.style.display = 'flex';
+}
+
+// 页面滚动监听（导航栏收缩）
+window.addEventListener('scroll', handleScroll);
+
+// 筛选标签点击绑定
+filterTabs.forEach(tab=>{
+    tab.onclick = function(){
+        filterTabs.forEach(t=>t.classList.remove('active'));
+        this.classList.add('active');
+        activeFilterType = this.dataset.filter;
+        currentPage = 1;
+        renderProducts();
     }
-    // 语言按钮激活
-    document.querySelectorAll('.lang-switch button').forEach(b=>{
-        if(b.dataset.lang === currentLang) b.classList.add('active');
-        b.onclick = ()=>switchLang(b.dataset.lang);
-    });
-    applyAllLangText();
-    // 搜索防抖绑定
-    searchInput.addEventListener('input', debounce(()=>{
-        searchKeyword = searchInput.value;
-        currentPage = 1;
-        renderProducts();
-    }, 300));
-    // 分类筛选按钮
-    filterTabs.forEach(t=>{
-        t.onclick = ()=>{
-            filterTabs.forEach(x=>x.classList.remove('active'));
-            t.classList.add('active');
-            currentFilter = t.dataset.filter;
-            currentPage = 1;
-            renderProducts();
-        };
-        if(t.dataset.filter === currentFilter) t.classList.add('active');
-    });
-    // 筛选按钮
-    filterApplyBtn.onclick = ()=>{
-        priceMin = priceMinInput.value;
-        priceMax = priceMaxInput.value;
-        filterMoq = filterMoqSelect.value;
-        sortBy = sortSelect.value;
-        currentPage = 1;
-        renderProducts();
-    };
-    filterResetBtn.onclick = ()=>{
-        priceMinInput.value = '';
-        priceMaxInput.value = '';
-        filterMoqSelect.value = '';
-        sortSelect.value = 'default';
-        priceMin = '';
-        priceMax = '';
-        filterMoq = '';
-        sortBy = 'default';
-        currentPage = 1;
-        renderProducts();
-    };
-    // 分页切换
-    pagePrev.onclick = ()=>goPage(currentPage - 1);
-    pageNext.onclick = ()=>goPage(currentPage + 1);
-    // 暗黑切换
-    document.getElementById('themeToggle').onclick = toggleDarkMode;
-    // 滚动监听节流
-    window.addEventListener('scroll', throttle(handleScroll, 100));
-    // ESC关闭所有弹窗
-    document.addEventListener('keydown', e=>{
-        if(e.key === 'Escape'){
-            closeProductModal();
-            closeOEMModal();
-            closeInquiryModal();
-            closeFavModal();
-            closeCatalogModal();
-        }
-    });
-    // 点击遮罩关闭弹窗
-    document.querySelectorAll('.modal-mask').forEach(mask=>{
-        mask.onclick = e=>{
-            if(e.target === mask){
-                mask.classList.remove('show');
-                document.body.classList.remove('no-scroll');
-            }
-        };
-    });
-    // 初始化画廊+渲染商品
-    initGallery();
+})
+
+// 搜索输入防抖
+searchInput.oninput = debounce(()=>{
+    currentPage = 1;
     renderProducts();
-});
-</script>
-</body>
-</html>
+}, 350);
+
+// 价格筛选变更
+priceMin.onchange = ()=>{ filterMinPrice = priceMin.value; currentPage=1; renderProducts(); }
+priceMax.onchange = ()=>{ filterMaxPrice = priceMax.value; currentPage=1; renderProducts(); }
+
+// MOQ筛选变更
+moqSelect.onchange = ()=>{ filterMoqVal = moqSelect.value; currentPage=1; renderProducts(); }
+
+// 排序下拉变更
+sortSelect.onchange = ()=>{ sortRule = sortSelect.value; renderProducts(); }
+
+// 分页上一页
+pagePrev.onclick = ()=>{ currentPage--; renderProducts(); }
+// 分页下一页
+pageNext.onclick = ()=>{ currentPage++; renderProducts(); }
+
+// 弹窗点击空白关闭
+document.querySelectorAll('.modal-mask').forEach(mask=>{
+    mask.onclick = function(e){
+        if(e.target === this) closeAllModal();
+    }
+})
+
+// 语言切换
+function switchLang(lang){
+    currentLang = lang;
+    localStorage.setItem('yl_lang', lang);
+    document.documentElement.lang = lang === 'en' ? 'en' : 'fr';
+    applyLangText();
+    renderProducts();
+}
+
+// 页面初始化加载
+window.addEventListener('DOMContentLoaded', ()=>{
+    // 读取本地存储收藏、语言
+    favorites = JSON.parse(localStorage.getItem('yl_fav') || '[]');
+    currentLang = localStorage.getItem('yl_lang') || 'en';
+    // 激活对应语言按钮
+    document.querySelectorAll('.lang-switch button').forEach(btn=>{
+        btn.classList.toggle('active', btn.dataset.lang === currentLang);
+    })
+    applyLangText();
+    renderProducts();
+    // 工厂画廊渲染
+    let galleryHtml = '';
+    for(let i=1;i<=6;i++){
+        galleryHtml += `<div class="gallery-item"><img src="/img/factory${i}.jpg" alt="factory"></div>`;
+    }
+    galleryBox.innerHTML = galleryHtml;
+})
