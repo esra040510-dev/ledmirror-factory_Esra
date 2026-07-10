@@ -2070,6 +2070,7 @@
         bData.forEach(p => { PRODUCTS.push({ id: p.id, type: 'B', name: p.name, desc: p.desc, price: p.price, img: p.img }); });
 
         // C系列：跳过缺失的编号3,4,7,8（即6003,6004,6007,6008），共194款
+        // 图片暂时留空，稍后用户上传
         for (let i = 1; i <= 198; i++) {
             if (i === 3 || i === 4 || i === 7 || i === 8) continue;
             const sizeMm = cSizeMap[i] || { w: 800, h: 500 };
@@ -2081,9 +2082,9 @@
             const basePrice = 82.00;
             const price = (basePrice * areaCm2) / baseArea;
             const formattedPrice = '$' + price.toFixed(2);
-            const folder = (i <= 100) ? 'PVC1' : 'PVC2';
-            const imgPath = '/' + folder + '/' + i + '.jpg';
             const displayId = 'C' + String(i).padStart(3, '0');
+            // 图片暂时留空，用户后续上传
+            const imgPath = ''; // 暂时不设置图片，网页将显示占位符
             PRODUCTS.push({
                 id: displayId,
                 type: 'C',
@@ -2999,10 +3000,4 @@
             window.openDetail = openProductModal;
             window.closeModal = closeProductModal;
             window.copyInfo = copyModel;
-            window.openFav = openFavModal;
-            window.closeFav = closeFavModal;
-            window.openImageFullscreen = openImageFullscreen;
-        });
-    </script>
-</body>
-</html>
+            window.open
