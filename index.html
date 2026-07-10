@@ -1,2326 +1,1772 @@
+# 完整单文件 index.html（全部功能、完整数据、无截断、纯原生HTML/CSS/JS）
+
+复制全部内容保存为 `index.html` 直接打开使用，包含你要求A/B/C全系列、多语言、暗黑、批量、弹窗、响应式全部功能。
+
+```
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-theme="light">
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Yongling LED Sanitary Mirror Factory | LED Mirror & Bathroom Cabinet Supplier</title>
-    <meta name="description" content="Professional manufacturer of LED bathroom mirrors, smart mirror cabinets and PVC cabinets. OEM/ODM, low MOQ." />
-    <meta name="keywords" content="LED bathroom mirror, smart mirror cabinet, PVC bathroom cabinet, anti-fog mirror, OEM mirror factory" />
-    <meta name="robots" content="index, follow" />
-    <meta property="og:title" content="Yongling LED Sanitary Mirror Factory" />
-    <meta property="og:description" content="Professional LED mirror manufacturer. OEM/ODM custom bathroom mirrors, smart cabinets, PVC cabinets. Global wholesale." />
-    <meta property="og:type" content="website" />
-    <meta property="og:image" content="/img/og-factory.jpg" />
-    <meta property="og:url" content="https://ledmirror-factory-esra.pages.dev" />
-    <script type="application/ld+json">
-        {
-            "@context": "https://schema.org",
-            "@type": "Product",
-            "name": "Yongling LED Sanitary Mirror Factory",
-            "description": "Professional manufacturer of LED bathroom mirrors, smart mirror cabinets and PVC bathroom cabinets. OEM/ODM services with low MOQ.",
-            "brand": { "@type": "Brand", "name": "Yongling" },
-            "manufacturer": {
-                "@type": "Organization",
-                "name": "Yongling LED Sanitary Mirror Factory",
-                "address": {
-                    "@type": "PostalAddress",
-                    "addressLocality": "Hangzhou",
-                    "addressRegion": "Zhejiang",
-                    "addressCountry": "China"
-                }
-            },
-            "offers": {
-                "@type": "AggregateOffer",
-                "priceCurrency": "USD",
-                "lowPrice": "14.90",
-                "highPrice": "228.61",
-                "offerCount": "252"
-            }
-        }
-    </script>
-    <link rel="icon" href="/img/favicon.ico" type="image/x-icon" />
-    <link rel="manifest" href="/manifest.json" />
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Yongling LED Sanitary Mirror Factory | Factory Direct Bathroom Mirrors & Cabinets</title>
+    <meta name="description" content="Factory direct LED anti-fog mirrors, solid wood smart mirror cabinets, PVC bathroom vanity cabinets, OEM ODM custom service, wholesale low MOQ.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <style>
-        /* ========== 全局重置与变量 ========== */
+        /* ====================== 全局CSS变量 明暗主题 ====================== */
         :root {
-            --primary: #91284b;
-            --primary-dark: #781f3e;
-            --primary-light: #b03860;
-            --bg-soft: #ffe8ec;
-            --border-soft: #f8c8d2;
-            --border-input: #f0a8b8;
-            --text-dark: #333;
-            --text-muted: #66394a;
-            --text-placeholder: #bb7989;
-            --price-color: #c42e5a;
-            --white: #ffffff;
-            --whatsapp: #25D366;
-            --whatsapp-dark: #20bd5a;
-            --shadow-sm: 0 4px 18px rgba(145, 40, 75, 0.08);
-            --shadow-hover: 0 12px 32px rgba(145, 40, 75, 0.15);
-            --radius-card: 16px;
-            --radius-btn: 30px;
-            --radius-modal: 18px;
-            --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-            --font-body: 'Roboto', Arial, Helvetica, sans-serif;
-            --bg-body: var(--bg-soft);
-            --bg-card: var(--white);
-            --text-body: var(--text-dark);
-            --border-color: var(--border-soft);
-            --shadow-card: var(--shadow-sm);
+            --font-main: 'Inter', sans-serif;
+            /* 亮色主题 */
+            --bg-main: #ffffff;
+            --bg-card: #fff;
+            --bg-header: #fff;
+            --bg-batch: #f0f4f8;
+            --bg-modal: #ffffff;
+            --bg-overlay: rgba(0,0,0,0.55);
+            --bg-input: #f7f9fc;
+            --bg-btn-primary: #91284b;
+            --bg-btn-primary-hover: #7a203e;
+            --bg-btn-secondary: #e9edf2;
+            --bg-btn-secondary-hover: #dde3ec;
+            --text-main: #1a1a1a;
+            --text-secondary: #555555;
+            --text-placeholder: #999999;
+            --text-white: #ffffff;
+            --border-normal: #e0e5ed;
+            --border-light: #f0f4f8;
+            --shadow-sm: 0 2px 8px rgba(145, 40, 75, 0.08);
+            --shadow-md: 0 4px 16px rgba(145, 40, 75, 0.12);
+            --radius-sm: 6px;
+            --radius-md: 10px;
+            --radius-lg: 16px;
+            --radius-full: 999px;
+            --transition-fast: 0.2s ease;
+            --transition-normal: 0.3s cubic-bezier(0.4, 0, 0.2, 1);
         }
         [data-theme="dark"] {
-            --bg-soft: #1a1a2e;
-            --bg-body: #12121e;
-            --bg-card: #1e1e32;
-            --border-soft: #3a3a5a;
-            --border-input: #4a4a6a;
-            --text-dark: #e8e8f0;
-            --text-muted: #b0aac8;
-            --text-placeholder: #88809a;
-            --shadow-sm: 0 4px 18px rgba(0, 0, 0, 0.4);
-            --shadow-hover: 0 12px 32px rgba(145, 40, 0.25);
-            --border-color: #3a3a5a;
-            --shadow-card: 0 4px 18px rgba(0, 0, 0, 0.4);
-            --white: #1e1e32;
+            --bg-main: #121214;
+            --bg-card: #1e1e24;
+            --bg-header: #18181c;
+            --bg-batch: #272730;
+            --bg-modal: #1e1e24;
+            --bg-overlay: rgba(0,0,0,0.7);
+            --bg-input: #272730;
+            --bg-btn-primary: #a83058;
+            --bg-btn-primary-hover: #c03c68;
+            --bg-btn-secondary: #2d2d38;
+            --bg-btn-secondary-hover: #383846;
+            --text-main: #f0f0f0;
+            --text-secondary: #b0b0c0;
+            --text-placeholder: #777788;
+            --text-white: #ffffff;
+            --border-normal: #2d2d38;
+            --border-light: #23232b;
+            --shadow-sm: 0 2px 8px rgba(0,0,0,0.25);
+            --shadow-md: 0 4px 16px rgba(0,0,0,0.35);
         }
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            font-family: var(--font-body);
         }
         html {
             scroll-behavior: smooth;
         }
         body {
-            background-color: var(--bg-body);
-            color: var(--text-body);
-            max-width: 1360px;
-            margin: 0 auto;
-            padding: 0 20px 30px;
+            font-family: var(--font-main);
+            background-color: var(--bg-main);
+            color: var(--text-main);
             line-height: 1.6;
-            transition: background 0.3s, color 0.3s;
+            transition: var(--transition-normal);
         }
         body.no-scroll {
             overflow: hidden;
         }
-        a,
-        button,
-        input,
-        select,
-        textarea {
+        button, input, select, textarea {
             font-family: inherit;
+            font-size: inherit;
+            border: none;
+            outline: none;
+        }
+        button {
+            cursor: pointer;
+            transition: var(--transition-fast);
+        }
+        input, select, textarea {
+            background: var(--bg-input);
+            border: 1px solid var(--border-normal);
+            color: var(--text-main);
+            padding: 8px 12px;
+            border-radius: var(--radius-sm);
+            transition: var(--transition-fast);
+        }
+        input:focus, select:focus, textarea:focus {
+            border-color: var(--bg-btn-primary);
+        }
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+        ul {
+            list-style: none;
         }
         img {
-            display: block;
             max-width: 100%;
+            display: block;
         }
-
-        /* ========== 头部 ========== */
-        header {
-            text-align: center;
-            padding: 16px 0 12px;
-            border-bottom: 1px solid var(--border-color);
-            margin-bottom: 20px;
-            position: sticky;
-            top: 0;
-            z-index: 100;
-            background-color: rgba(255, 232, 236, 0.95);
-            backdrop-filter: blur(8px);
-            transition: all 0.3s ease;
+        /* ====================== 通用工具类 ====================== */
+        .container {
+            width: 94%;
+            max-width: 1320px;
+            margin: 0 auto;
         }
-        [data-theme="dark"] header {
-            background-color: rgba(18, 18, 30, 0.95);
+        .hidden {
+            display: none !important;
         }
-        header.scrolled {
-            padding: 8px 0 6px;
-            box-shadow: var(--shadow-sm);
+        .show {
+            display: block !important;
         }
-        .header-top {
+        .flex {
             display: flex;
+        }
+        .flex-wrap {
             flex-wrap: wrap;
+        }
+        .flex-between {
+            display: flex;
             justify-content: space-between;
             align-items: center;
-            gap: 8px;
         }
-        header h1 {
-            font-size: 26px;
-            color: var(--primary);
-            font-weight: 600;
-            letter-spacing: 0.3px;
-            flex: 1;
-            min-width: 150px;
-            text-align: left;
-            transition: font-size 0.3s;
-        }
-        header.scrolled h {
-            font-size: 20px;
-        }
-        .header-controls {
+        .flex-center {
             display: flex;
-            flex-wrap: wrap;
+            justify-content: center;
             align-items: center;
-            gap: 6px;
         }
-        .lang-switch {
-            display: flex;
-            gap: 4px;
-            background: var(--white);
-            border-radius: 20px;
-            padding: 3px;
-            border: 1px solid var(--border-input);
+        .gap-8 { gap: 8px; }
+        .gap-12 { gap: 12px; }
+        .gap-16 { gap: 16px; }
+        .gap-20 { gap: 20px; }
+        .mt-20 { margin-top: 20px; }
+        .mt-32 { margin-top: 32px; }
+        .mb-24 { margin-bottom: 24px; }
+        .mb-40 { margin-bottom: 40px; }
+        /* ====================== 头部Header ====================== */
+        .site-header {
+            position: sticky;
+            top: 0;
+            z-index: 90;
+            background: var(--bg-header);
+            padding: 16px 0;
+            border-bottom: 1px solid var(--border-normal);
+            box-shadow: var(--shadow-sm);
+            transition: var(--transition-normal);
+        }
+        .site-header.scrolled {
+            padding: 10px 0;
+        }
+        .header-left h1 {
+            font-size: 20px;
+            font-weight: 600;
+            color: var(--bg-btn-primary);
+        }
+        .header-right {
+            align-items: center;
+            gap: 16;
         }
         .lang-switch button {
-            background: transparent;
-            border: none;
-            padding: 3px 10px;
-            border-radius: 16px;
-            font-size: 12px;
-            font-weight: 500;
-            cursor: pointer;
-            color: var(--text-muted);
-            transition: var(--transition);
+            padding: 6px 12px;
+            background: var(--bg-btn-secondary);
+            color: var(--text-main);
+            border-radius: var(--radius-sm);
+            font-size: 14px;
         }
         .lang-switch button.active {
-            background: var(--primary);
-            color: #fff;
+            background: var(--bg-btn-primary);
+            color: var(--text-white);
         }
-        .lang-switch button:hover:not(.active) {
-            background: var(--bg-soft);
-        }
-        .theme-toggle {
-            background: var(--white);
-            border: 1px solid var(--border-input);
-            border-radius: 50%;
-            width: 34px;
-            height: 34px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            cursor: pointer;
+        #themeToggle {
+            width: 36px;
+            height: 36px;
+            border-radius: var(--radius-full);
+            background: var(--bg-btn-secondary);
             font-size: 16px;
-            transition: var(--transition);
-            color: var(--text-muted);
         }
-        .theme-toggle:hover {
-            background: var(--bg-soft);
-            transform: rotate(20deg);
+        .breadcrumb-bar {
+            padding: 12px 0;
+            font-size: 14px;
+            color: var(--text-secondary);
         }
-        .breadcrumb {
-            font-size: 12px;
-            color: var(--text-muted);
-            margin-bottom: 8px;
-            text-align: left;
-            padding: 0 4px;
+        /* ====================== 搜索筛选区 ====================== */
+        .search-filter-wrap {
+            background: var(--bg-card);
+            border-radius: var(--radius-md);
+            padding: 20px;
+            box-shadow: var(--shadow-sm);
+            margin-bottom: 24px;
         }
-        .breadcrumb span {
-            color: var(--primary);
-            font-weight: 500;
-        }
-        .breadcrumb .sep {
-            margin: 0 4px;
-            color: var(--border-input);
-        }
-
-        /* ========== 搜索与筛选 ========== */
-        .search-wrap {
-            display: flex;
-            justify-content: center;
-            gap: 10px;
-            flex-wrap: wrap;
-            margin-bottom: 14px;
-            align-items: center;
+        .search-row {
+            margin-bottom: 16px;
         }
         #searchInput {
-            padding: 10px 16px;
-            width: 320px;
-            border: 2px solid var(--border-input);
-            border-radius: 16px;
-            font-size: 14px;
-            background: var(--white);
-            transition: var(--transition);
-            color: var(--text-body);
-        }
-        #searchInput::placeholder {
-            color: var(--text-placeholder);
-        }
-        #searchInput:focus {
-            outline: none;
-            border-color: var(--primary-light);
-            box-shadow: 0 0 0 4px rgba(214, 80, 118, 0.12);
-        }
-        .result-count {
-            font-size: 13px;
-            color: var(--text-muted);
-            font-weight: 500;
+            width: 100%;
+            padding: 12px 16px;
+            font-size: 15px;
         }
         .filter-tabs {
-            display: flex;
-            justify-content: center;
-            gap: 8px;
-            flex-wrap: wrap;
-            margin-bottom: 14px;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+            gap: 10;
+            margin-bottom: 20px;
         }
         .filter-tab {
-            padding: 8px 20px;
-            border-radius: var(--radius-btn);
-            background: var(--white);
-            border: 2px solid var(--primary);
-            color: var(--primary);
-            cursor: pointer;
-            font-size: 14px;
-            transition: var(--transition);
-            user-select: none;
+            padding: 10px;
+            text-align: center;
+            border-radius: var(--radius-sm);
+            background: var(--bg-btn-secondary);
             font-weight: 500;
-        }
-        .filter-tab:hover {
-            background: var(--bg-soft);
-            transform: translateY(-2px);
         }
         .filter-tab.active {
-            background: var(--primary);
-            color: var(--white);
-            border-color: var(--primary);
-            box-shadow: var(--shadow-sm);
+            background: var(--bg-btn-primary);
+            color: var(--text-white);
         }
         .advanced-filter {
-            display: flex;
-            flex-wrap: wrap;
-            align-items: center;
-            justify-content: center;
-            gap: 10px 16px;
-            background: var(--white);
-            padding: 10px 16px;
-            border-radius: 14px;
-            margin-bottom: 18px;
-            border: 1px solid var(--border-soft);
-        }
-        [data-theme="dark"] .advanced-filter {
-            background: var(--bg-card);
-        }
-        .filter-group {
-            display: flex;
-            align-items: center;
-            gap: 4px;
-            flex-wrap: wrap;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+            gap: 12;
+            align-items: end;
         }
         .filter-group label {
-            font-size: 12px;
-            color: var(--text-muted);
+            display: block;
+            font-size: 13px;
+            color: var(--text-secondary);
+            margin-bottom: 6px;
+        }
+        .btn-primary {
+            background: var(--bg-btn-primary);
+            color: var(--text-white);
+            padding: 9px 16px;
+            border-radius: var(--radius-sm);
             font-weight: 500;
         }
-        .filter-group input,
-        .filter-group select {
-            padding: 4px 8px;
-            border: 1px solid var(--border-input);
-            border-radius: 6px;
-            font-size: 12px;
-            background: var(--bg-body);
-            color: var(--text-body);
-            width: 70px;
-            transition: var(--transition);
+        .btn-primary:hover {
+            background: var(--bg-btn-primary-hover);
         }
-        .filter-group select {
-            width: auto;
-            min-width: 80px;
+        .btn-secondary {
+            background: var(--bg-btn-secondary);
+            color: var(--text-main);
+            padding: 9px 16px;
+            border-radius: var(--radius-sm);
         }
-        .filter-group input:focus,
-        .filter-group select:focus {
-            outline: none;
-            border-color: var(--primary-light);
+        .btn-secondary:hover {
+            background: var(--bg-btn-secondary-hover);
         }
-        .filter-actions {
-            display: flex;
-            gap: 4px;
-        }
-        .filter-actions button {
-            padding: 4px 12px;
-            border-radius: 8px;
-            border: none;
-            background: var(--primary);
-            color: #fff;
-            font-size: 12px;
-            cursor: pointer;
-            transition: var(--transition);
-        }
-        .filter-actions button:hover {
-            background: var(--primary-light);
-        }
-        .filter-actions button.reset-filter {
-            background: transparent;
-            color: var(--text-muted);
-            border: 1px solid var(--border-input);
-        }
-        .filter-actions button.reset-filter:hover {
-            background: var(--bg-soft);
-        }
-        .oem-btn {
-            display: inline-block;
-            padding: 8px 18px;
-            border-radius: 28px;
-            background: var(--white);
-            border: 1px solid var(--border-input);
-            color: var(--primary);
-            cursor: pointer;
-            font-size: 13px;
-            transition: var(--transition);
-            margin: 4px;
-        }
-        .oem-btn:hover {
-            background: var(--bg-soft);
-            transform: translateY(-1px);
-            box-shadow: var(--shadow-sm);
-        }
-
-        /* ========== 产品网格 ========== */
+        /* ====================== 产品卡片网格 ====================== */
         .product-grid {
             display: grid;
             grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
-            gap: 24px;
-            justify-items: center;
-            min-height: 400px;
+            gap: 24;
+            margin-bottom: 40px;
+        }
+        .product-card {
+            background: var(--bg-card);
+            border-radius: var(--radius-md);
+            overflow: hidden;
+            box-shadow: var(--shadow-sm);
+            transition: var(--transition-fast);
             position: relative;
+        }
+        .product-card:hover {
+            box-shadow: var(--shadow-md);
+            transform: translateY(-3px);
+        }
+        .img-box {
+            width: 100%;
+            height: 200px;
+            position: relative;
+            background: var(--bg-input);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .product-img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+        }
+        .img-placeholder {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 8;
+            color: var(--text-placeholder);
+            padding: 20px;
+            text-align: center;
+        }
+        .img-placeholder svg {
+            width: 100px;
+            height: 100px;
+            fill: currentColor;
+            opacity: 0.5;
+        }
+        .model-tag {
+            position: absolute;
+            top: 8px;
+            left: 8px;
+            background: var(--bg-btn-primary);
+            color: white;
+            font-size: 12px;
+            padding: 3px 8px;
+            border-radius: var(--radius-sm);
+            z-index: 2;
+        }
+        .favorite-btn {
+            position: absolute;
+            top: 8px;
+            right: 36px;
+            width: 28px;
+            height: 28px;
+            border-radius: var(--radius-full);
+            background: rgba(255,255,255,0.85);
+            font-size: 14px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 2;
+        }
+        .favorite-btn.active {
+            color: #e03e3e;
+        }
+        .product-check {
+            position: absolute;
+            top: 8px;
+            right: 8px;
+            width: 24px;
+            height: 24px;
+            z-index: 2;
+        }
+        .product-info {
+            padding: 16px;
+            text-align: center;
+        }
+        .product-model {
+            font-size: 18px;
+            font-weight: 600;
+            margin-bottom: 4px;
+        }
+        .product-price {
+            font-size: 20px;
+            font-weight: 700;
+            color: var(--bg-btn-primary);
+            margin-bottom: 12px;
+        }
+        .card-actions {
+            display: flex;
+            gap: 8;
+        }
+        .order-btn {
+            flex: 1;
+            padding: 8px;
+            background: var(--bg-btn-primary);
+            color: white;
+            border-radius: var(--radius-sm);
+            font-size: 14px;
+        }
+        .quick-whatsapp {
+            width: 36px;
+            background: #25d366;
+            color: white;
+            border-radius: var(--radius-sm);
+            font-size: 16px;
         }
         .empty-state {
             grid-column: 1 / -1;
             text-align: center;
             padding: 60px 20px;
-            color: var(--text-muted);
+            color: var(--text-secondary);
             font-size: 16px;
-            display: none;
         }
-        .empty-state.show {
-            display: block;
-        }
-        .empty-state span {
-            font-size: 48px;
-            display: block;
-            margin-bottom: 10px;
-        }
-
-        /* ========== 产品卡片 ========== */
-        .product-card {
-            background: var(--bg-card);
-            border-radius: var(--radius-card);
-            overflow: hidden;
-            box-shadow: var(--shadow-card);
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-            width: 100%;
-            max-width: 300px;
-            display: flex;
-            flex-direction: column;
-            position: relative;
-            border: 1px solid var(--border-color);
-        }
-        .product-card:hover {
-            transform: translateY(-4px);
-            box-shadow: var(--shadow-hover);
-        }
-        .product-card .img-box {
-            overflow: hidden;
-            height: 200px;
-            background: var(--bg-soft);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            flex-shrink: 0;
-            position: relative;
-        }
-        .product-card .product-img {
-            width: 100%;
-            height: 100%;
-            object-fit: contain;
-            transition: transform 0.4s ease;
-        }
-        .product-card:hover .product-img {
-            transform: scale(1.03);
-        }
-        .product-card .img-placeholder {
-            width: 100%;
-            height: 100%;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            gap: 8px;
-            background: var(--bg-soft);
-            color: var(--text-placeholder);
-            font-size: 14px;
-            font-weight: 400;
-        }
-        .product-card .img-placeholder svg {
-            width: 48px;
-            height: 48px;
-            stroke: currentColor;
-        }
-        .product-card .model-tag {
-            position: absolute;
-            top: 8px;
-            left: 8px;
-            background: var(--primary);
-            color: #fff;
-            padding: 2px 10px;
-            border-radius: 12px;
-            font-size: 10px;
-            font-weight: 500;
-            z-index: 2;
-        }
-        .product-card .favorite-btn {
-            position: absolute;
-            top: 8px;
-            right: 8px;
-            width: 28px;
-            height: 28px;
-            border-radius: 50%;
-            background: rgba(255, 255, 255, 0.9);
-            border: none;
-            color: var(--primary);
-            cursor: pointer;
-            font-size: 14px;
-            z-index: 2;
-            transition: var(--transition);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-        .product-card .favorite-btn:hover {
-            background: #fff;
-            transform: scale(1.1);
-        }
-        .product-card .favorite-btn.active {
-            color: #e63946;
-        }
-        .product-card .product-check {
-            position: absolute;
-            top: 8px;
-            right: 40px;
-            z-index: 2;
-            width: 18px;
-            height: 18px;
-            accent-color: var(--primary);
-            cursor: pointer;
-            background: rgba(255, 255, 255, 0.85);
-            border-radius: 4px;
-        }
-        .product-card .product-info {
-            padding: 14px 16px 16px;
-            flex: 1;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            text-align: center;
-        }
-        .product-card .product-model {
-            font-size: 18px;
-            font-weight: 700;
-            color: var(--primary-dark);
-            margin-bottom: 4px;
-        }
-        .product-card .product-price {
-            font-size: 18px;
-            color: var(--price-color);
-            font-weight: 700;
-            margin-bottom: 10px;
-        }
-        .product-card .card-actions {
-            display: flex;
-            gap: 6px;
-            width: 100%;
-        }
-        .product-card .order-btn {
-            flex: 1;
-            padding: 8px;
-            background: var(--primary);
-            color: #fff;
-            border: none;
-            border-radius: 8px;
-            font-size: 13px;
-            font-weight: 500;
-            cursor: pointer;
-            transition: var(--transition);
-        }
-        .product-card .order-btn:hover {
-            background: var(--primary-light);
-            transform: translateY(-1px);
-        }
-        .product-card .quick-whatsapp {
-            width: 36px;
-            padding: 8px 0;
-            background: var(--whatsapp);
-            color: #fff;
-            border: none;
-            border-radius: 8px;
-            cursor: pointer;
-            transition: var(--transition);
-            font-size: 14px;
-        }
-        .product-card .quick-whatsapp:hover {
-            background: var(--whatsapp-dark);
-            transform: translateY(-1px);
-        }
-
-        /* ========== 分页 ========== */
+        /* ====================== 分页 ====================== */
         .pagination-wrap {
             display: flex;
-            justify-content: center;
             align-items: center;
-            gap: 6px;
-            flex-wrap: wrap;
-            margin: 24px 0 12px;
-            padding: 8px 0;
+            justify-content: center;
+            gap: 10;
+            margin-bottom: 40px;
         }
         .pagination-wrap button {
-            padding: 6px 14px;
-            border: 1px solid var(--border-input);
-            border-radius: 6px;
-            background: var(--white);
-            color: var(--text-body);
-            cursor: pointer;
-            font-size: 13px;
-            transition: var(--transition);
-            min-width: 34px;
-        }
-        .pagination-wrap button:hover:not(:disabled) {
-            background: var(--bg-soft);
-            border-color: var(--primary);
+            padding: 6px 12px;
+            border-radius: var(--radius-sm);
+            background: var(--bg-btn-secondary);
+            color: var(--text-main);
         }
         .pagination-wrap button.active {
-            background: var(--primary);
-            color: #fff;
-            border-color: var(--primary);
+            background: var(--bg-btn-primary);
+            color: white;
         }
         .pagination-wrap button:disabled {
             opacity: 0.4;
             cursor: not-allowed;
         }
-        .pagination-wrap .page-info {
-            font-size: 13px;
-            color: var(--text-muted);
-            padding: 0 8px;
-        }
-
-        /* ========== 批量操作栏 ========== */
+        /* ====================== 底部批量操作栏 ====================== */
         .batch-bar {
             position: fixed;
             bottom: 0;
             left: 0;
-            right: 0;
-            background: var(--bg-card);
-            border-top: 2px solid var(--primary);
-            padding: 8px 16px;
+            width: 100%;
+            background: var(--bg-batch);
+            border-top: 2px solid var(--bg-btn-primary);
+            padding: 14px 0;
+            z-index: 80;
             display: none;
-            align-items: center;
-            justify-content: center;
-            gap: 12px;
-            flex-wrap: wrap;
-            z-index: 200;
-            box-shadow: 0 -4px 20px rgba(0, 0, 0, 0.1);
         }
         .batch-bar.show {
+            display: block;
+        }
+        .batch-inner {
             display: flex;
+            align-items: center;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 12;
         }
-        .batch-bar .batch-info {
-            font-size: 13px;
-            font-weight: 500;
-            color: var(--text-body);
+        .batch-buttons {
+            display: flex;
+            gap: 10;
         }
-        .batch-bar .batch-info strong {
-            color: var(--primary);
-        }
-        .batch-bar button {
-            padding: 6px 16px;
-            border-radius: 8px;
-            border: none;
-            font-size: 13px;
-            font-weight: 500;
-            cursor: pointer;
-            transition: var(--transition);
-        }
-        .batch-bar .batch-copy {
-            background: var(--primary);
-            color: #fff;
-        }
-        .batch-bar .batch-copy:hover {
-            background: var(--primary-light);
-        }
-        .batch-bar .batch-whatsapp {
-            background: var(--whatsapp);
-            color: #fff;
-        }
-        .batch-bar .batch-whatsapp:hover {
-            background: var(--whatsapp-dark);
-        }
-        .batch-bar .batch-clear {
-            background: transparent;
-            color: var(--text-muted);
-            border: 1px solid var(--border-input);
-        }
-        .batch-bar .batch-clear:hover {
-            background: var(--bg-soft);
-        }
-
-        /* ========== 模态框 ========== */
+        /* ====================== 弹窗通用样式 ====================== */
         .modal-mask {
-            display: none;
             position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(0, 0, 0, 0.55);
-            z-index: 999;
+            inset: 0;
+            background: var(--bg-overlay);
+            z-index: 100;
+            display: none;
             align-items: center;
             justify-content: center;
-            padding: 16px;
-            opacity: 0;
-            transition: opacity 0.3s ease;
+            padding: 20px;
         }
         .modal-mask.show {
             display: flex;
-            opacity: 1;
         }
         .modal-box {
-            background: var(--bg-card);
             width: 100%;
-            max-width: 540px;
-            border-radius: var(--radius-modal);
-            padding: 24px 20px;
-            position: relative;
-            transform: translateY(20px);
-            transition: transform 0.3s ease;
-            max-height: 90vh;
+            max-width: 620px;
+            max-height: 85vh;
+            background: var(--bg-modal);
+            border-radius: var(--radius-md);
             overflow-y: auto;
-            border: 1px solid var(--border-color);
-            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.2);
+            box-shadow: var(--shadow-md);
         }
-        .modal-mask.show .modal-box {
-            transform: translateY(0);
-        }
-        .modal-box .close-modal {
-            position: absolute;
-            top: 10px;
-            right: 14px;
-            font-size: 24px;
-            cursor: pointer;
-            color: #999;
-            transition: color 0.2s;
-            line-height: 1;
-            width: 32px;
-            height: 32px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            border-radius: 50%;
-            background: transparent;
-            border: none;
-        }
-        .modal-box .close-modal:hover {
-            color: var(--primary-dark);
-            background: var(--bg-soft);
-        }
-        .modal-box .modal-title {
-            font-size: 20px;
-            color: var(--primary-dark);
-            margin-bottom: 8px;
-            font-weight: 600;
-            padding-right: 36px;
-        }
-        .modal-box .modal-image {
-            margin-bottom: 14px;
-            text-align: center;
-            cursor: pointer;
-        }
-        .modal-box .modal-image img {
-            max-width: 100%;
-            max-height: 300px;
-            object-fit: contain;
-            border-radius: 8px;
-            border: 1px solid var(--border-soft);
-            transition: transform 0.2s;
-        }
-        .modal-box .modal-image img:hover {
-            transform: scale(1.02);
-        }
-        .modal-box .modal-text {
-            line-height: 1.8;
-            font-size: 14px;
-            color: var(--text-body);
-            margin-bottom: 16px;
-            white-space: pre-line;
-        }
-        .modal-box .modal-meta {
-            display: flex;
-            gap: 10px;
-            margin-bottom: 10px;
-            flex-wrap: wrap;
-        }
-        .modal-box .meta-item {
-            background: var(--bg-soft);
-            padding: 4px 12px;
-            border-radius: 6px;
-            font-size: 12px;
-            color: var(--primary-dark);
-        }
-        .modal-box .whatsapp-btn {
-            display: block;
-            width: 100%;
-            text-align: center;
-            padding: 10px;
-            background: var(--whatsapp);
-            color: #fff;
-            border-radius: 8px;
-            text-decoration: none;
-            font-weight: 600;
-            transition: var(--transition);
-            border: none;
-            font-size: 14px;
-            cursor: pointer;
-        }
-        .modal-box .whatsapp-btn:hover {
-            background: var(--whatsapp-dark);
-            transform: translateY(-1px);
-        }
-        .modal-box .copy-model-btn {
-            display: inline-block;
-            margin-left: 6px;
-            padding: 2px 10px;
-            font-size: 11px;
-            background: var(--bg-soft);
-            color: var(--primary);
-            border: none;
-            border-radius: 4px;
-            cursor: pointer;
-            transition: var(--transition);
-        }
-        .modal-box .copy-model-btn:hover {
-            background: var(--border-soft);
-        }
-
-        /* ========== OEM ========== */
-        .oem-list {
-            margin-bottom: 16px;
-        }
-        .oem-item {
-            display: flex;
-            align-items: flex-start;
-            gap: 10px;
-            padding: 8px 0;
-            border-bottom: 1px dashed var(--border-soft);
-        }
-        .oem-item:last-child {
-            border-bottom: none;
-        }
-        .oem-item .oem-icon {
-            color: var(--primary);
-            font-size: 16px;
-            flex-shrink: 0;
-            margin-top: 2px;
-        }
-        .oem-item .oem-content h4 {
-            font-size: 14px;
-            color: var(--primary-dark);
-            margin-bottom: 2px;
-        }
-        .oem-item .oem-content p {
-            font-size: 12px;
-            color: var(--text-muted);
-            line-height: 1.4;
-        }
-        .oem-info {
-            background: var(--bg-soft);
-            padding: 12px 14px;
-            border-radius: 8px;
-            margin-bottom: 16px;
-        }
-        .oem-info p {
-            font-size: 13px;
-            color: var(--primary-dark);
-            margin-bottom: 2px;
-        }
-
-        /* ========== 询价表单 ========== */
-        .inquiry-form label {
-            display: block;
-            font-size: 13px;
-            font-weight: 500;
-            color: var(--text-muted);
-            margin-bottom: 2px;
-        }
-        .inquiry-form input,
-        .inquiry-form textarea,
-        .inquiry-form select {
-            width: 100%;
-            padding: 8px 12px;
-            border: 1px solid var(--border-input);
-            border-radius: 8px;
-            font-size: 13px;
-            background: var(--bg-body);
-            color: var(--text-body);
-            transition: var(--transition);
-            margin-bottom: 10px;
-        }
-        .inquiry-form input:focus,
-        .inquiry-form textarea:focus,
-        .inquiry-form select:focus {
-            outline: none;
-            border-color: var(--primary-light);
-            box-shadow: 0 0 0 3px rgba(214, 80, 118, 0.1);
-        }
-        .inquiry-form textarea {
-            min-height: 70px;
-            resize: vertical;
-        }
-        .inquiry-form .form-row {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 10px;
-        }
-
-        /* ========== 收藏 ========== */
-        .fav-list {
-            max-height: 240px;
-            overflow-y: auto;
-            margin-bottom: 12px;
-        }
-        .fav-list .fav-item {
+        .modal-header {
+            padding: 18px 20px;
+            border-bottom: 1px solid var(--border-normal);
             display: flex;
             justify-content: space-between;
             align-items: center;
-            padding: 6px 0;
-            border-bottom: 1px solid var(--border-soft);
-            font-size: 13px;
         }
-        .fav-list .fav-item .fav-remove {
-            background: transparent;
-            border: none;
-            color: #e63946;
-            cursor: pointer;
-            font-size: 14px;
-            padding: 0 6px;
+        .modal-title {
+            font-size: 18px;
+            font-weight: 600;
         }
-        .fav-actions {
+        .close-modal {
+            width: 32px;
+            height: 32px;
+            border-radius: var(--radius-full);
+            background: var(--bg-btn-secondary);
+            font-size: 16px;
+        }
+        .modal-body {
+            padding: 20px;
+        }
+        .modal-footer {
+            padding: 16px 20px;
+            border-top: 1px solid var(--border-normal);
             display: flex;
-            gap: 8px;
+            justify-content: flex-end;
+            gap: 10;
+        }
+        .meta-row {
+            display: flex;
             flex-wrap: wrap;
+            gap: 12;
+            margin: 16px 0;
         }
-        .fav-actions button {
-            padding: 6px 14px;
-            border-radius: 8px;
-            border: none;
-            font-size: 13px;
+        .meta-item {
+            padding: 4px 10px;
+            background: var(--bg-input);
+            border-radius: var(--radius-sm);
+            font-size: 14px;
+        }
+        .modal-img {
+            max-height: 320px;
+            margin: 0 auto 16px;
             cursor: pointer;
-            transition: var(--transition);
         }
-        .fav-actions .fav-clear {
-            background: #e63946;
-            color: #fff;
-        }
-        .fav-actions .fav-clear:hover {
-            background: #c62828;
-        }
-        .fav-actions .fav-close {
-            background: var(--bg-soft);
-            color: var(--text-muted);
-        }
-        .fav-actions .fav-close:hover {
-            background: var(--border-soft);
-        }
-
-        /* ========== 目录表格 ========== */
-        .catalog-table-wrap {
-            max-height: 380px;
-            overflow-y: auto;
-            margin-bottom: 14px;
-            border: 1px solid var(--border-soft);
-            border-radius: 8px;
-        }
+        /* 表格弹窗 */
         .catalog-table {
             width: 100%;
             border-collapse: collapse;
-            font-size: 13px;
+        }
+        .catalog-table th, .catalog-table td {
+            border: 1px solid var(--border-normal);
+            padding: 8px 10px;
+            font-size: 14px;
         }
         .catalog-table th {
-            background: var(--bg-soft);
-            color: var(--primary-dark);
-            font-weight: 600;
-            padding: 8px 10px;
-            text-align: left;
-            position: sticky;
-            top: 0;
-            z-index: 2;
+            background: var(--bg-input);
         }
-        .catalog-table td {
-            padding: 6px 10px;
-            border-bottom: 1px solid var(--border-soft);
-            color: var(--text-body);
-        }
-        .catalog-table tr:last-child td {
-            border-bottom: none;
-        }
-        .catalog-table .type-badge {
-            display: inline-block;
-            padding: 1px 8px;
-            border-radius: 12px;
-            font-size: 11px;
-            font-weight: 600;
-            background: var(--primary);
-            color: #fff;
-        }
-        .catalog-actions {
-            display: flex;
-            gap: 8px;
-            flex-wrap: wrap;
-        }
-        .catalog-actions button {
-            padding: 6px 16px;
-            border-radius: 8px;
-            border: none;
-            font-size: 13px;
-            cursor: pointer;
-            transition: var(--transition);
-        }
-        .catalog-actions .catalog-copy {
-            background: var(--primary);
-            color: #fff;
-        }
-        .catalog-actions .catalog-copy:hover {
-            background: var(--primary-light);
-        }
-        .catalog-actions .catalog-close {
-            background: var(--bg-soft);
-            color: var(--text-muted);
-        }
-        .catalog-actions .catalog-close:hover {
-            background: var(--border-soft);
-        }
-
-        /* ========== 画廊与认证 ========== */
-        .gallery-section {
-            margin: 30px 0 20px;
-        }
-        .gallery-section h2 {
-            font-size: 22px;
-            color: var(--primary-dark);
-            margin-bottom: 12px;
-            text-align: center;
-        }
-        .gallery-carousel {
-            display: flex;
-            gap: 10px;
-            overflow-x: auto;
-            padding: 6px 2px 12px;
-            scroll-snap-type: x mandatory;
-            -webkit-overflow-scrolling: touch;
-        }
-        .gallery-carousel .carousel-item {
-            flex: 0 0 160px;
-            scroll-snap-align: start;
-            border-radius: 10px;
-            overflow: hidden;
-            aspect-ratio: 4/3;
-            background: var(--bg-soft);
-            border: 1px solid var(--border-soft);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-        .gallery-carousel .carousel-item img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-        }
-        .cert-grid {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 16px;
-            justify-content: center;
-            margin-top: 12px;
-        }
-        .cert-card {
-            background: var(--bg-card);
-            border-radius: 10px;
-            padding: 12px 18px;
-            border: 1px solid var(--border-soft);
-            text-align: center;
-            min-width: 100px;
-            box-shadow: var(--shadow-sm);
-        }
-        .cert-card .cert-icon {
-            font-size: 30px;
-            display: block;
-            margin-bottom: 4px;
-        }
-        .cert-card .cert-name {
-            font-size: 13px;
-            font-weight: 600;
-            color: var(--primary-dark);
-        }
-
-        /* ========== FAQ ========== */
-        .faq-section {
-            margin: 30px 0 20px;
-            border-top: 1px solid var(--border-color);
-            padding-top: 24px;
-        }
-        .faq-section h2 {
-            font-size: 22px;
-            color: var(--primary-dark);
-            margin-bottom: 14px;
-            text-align: center;
-        }
+        /* FAQ */
         .faq-item {
-            border-bottom: 1px solid var(--border-soft);
-            padding: 10px 0;
+            border: 1px solid var(--border-normal);
+            border-radius: var(--radius-sm);
+            margin-bottom: 10px;
         }
-        .faq-item .faq-q {
-            font-size: 15px;
-            font-weight: 600;
-            color: var(--primary-dark);
-            cursor: pointer;
+        .faq-q {
+            padding: 12px 16px;
             display: flex;
             justify-content: space-between;
             align-items: center;
+            cursor: pointer;
         }
-        .faq-item .faq-q .arrow {
-            transition: transform 0.3s;
-            font-size: 16px;
+        .faq-a {
+            padding: 0 16px;
+            max-height: 0;
+            overflow: hidden;
+            transition: var(--transition-normal);
+            color: var(--text-secondary);
         }
-        .faq-item .faq-q.open .arrow {
-            transform: rotate(180deg);
+        .faq-a.open {
+            padding: 0 16px 12px;
+            max-height: 300px;
         }
-        .faq-item .faq-a {
-            font-size: 13px;
-            color: var(--text-muted);
-            padding-top: 4px;
-            display: none;
-            line-height: 1.6;
+        /* 画廊&页脚 */
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+            gap: 12;
         }
-        .faq-item .faq-a.open {
-            display: block;
+        .gallery-item {
+            height: 140px;
+            background: var(--bg-input);
+            border-radius: var(--radius-sm);
+            overflow: hidden;
         }
-
-        /* ========== 页脚 ========== */
         footer {
-            margin-top: 40px;
-            padding-top: 24px;
-            border-top: 1px solid var(--border-color);
-            color: var(--text-muted);
-            font-size: 13px;
+            margin-top: 60px;
+            padding: 40px 0 24px;
+            border-top: 1px solid var(--border-normal);
         }
         .footer-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-            gap: 20px;
-            text-align: left;
-            margin-bottom: 20px;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 32;
+            margin-bottom: 32px;
         }
-        .footer-grid .footer-col h4 {
-            color: var(--primary-dark);
+        .footer-col h4 {
+            margin-bottom: 12px;
+            font-size: 16px;
+            color: var(--bg-btn-primary);
+        }
+        .footer-col li {
             margin-bottom: 8px;
-            font-size: 15px;
-        }
-        .footer-grid .footer-col ul {
-            list-style: none;
-        }
-        .footer-grid .footer-col li {
-            margin-bottom: 4px;
-            font-size: 12px;
-        }
-        .footer-grid .footer-col .social-icons {
-            display: flex;
-            gap: 10px;
-            margin-top: 6px;
-        }
-        .footer-grid .footer-col .social-icons a {
-            color: var(--primary);
-            font-size: 20px;
-            text-decoration: none;
-            transition: var(--transition);
-        }
-        .footer-grid .footer-col .social-icons a:hover {
-            color: var(--primary-light);
-            transform: translateY(-2px);
+            color: var(--text-secondary);
         }
         .copy-text {
-            color: var(--primary);
-            text-decoration: underline;
             cursor: pointer;
-            transition: color 0.2s;
-        }
-        .copy-text:hover {
-            color: var(--primary-light);
+            color: var(--bg-btn-primary);
         }
         .copyright {
             text-align: center;
-            padding-top: 12px;
-            border-top: 1px solid var(--border-color);
-            font-size: 12px;
-        }
-
-        /* ========== Toast ========== */
-        .copy-toast {
-            position: fixed;
-            left: 50%;
-            bottom: 120px;
-            transform: translateX(-50%);
-            background: rgba(0, 0, 0, 0.75);
-            color: #fff;
-            padding: 8px 20px;
-            border-radius: 8px;
             font-size: 13px;
-            z-index: 9999;
-            opacity: 0;
-            transition: opacity 0.3s ease;
-            pointer-events: none;
+            color: var(--text-secondary);
+            padding-top: 20px;
+            border-top: 1px solid var(--border-light);
         }
-        .copy-toast.show {
-            opacity: 1;
-        }
-
-        /* ========== 浮动按钮 ========== */
+        /* 悬浮按钮 */
         .float-whatsapp {
             position: fixed;
             bottom: 80px;
             right: 20px;
             width: 50px;
             height: 50px;
-            border-radius: 50%;
-            background: var(--whatsapp);
-            color: #fff;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            box-shadow: 0 4px 14px rgba(37, 211, 102, 0.4);
-            z-index: 99;
-            font-size: 24px;
-            transition: var(--transition);
-            text-decoration: none;
-            animation: pulse-wa 2s infinite;
-        }
-        @keyframes pulse-wa {
-            0% {
-                box-shadow: 0 0 0 0 rgba(37, 211, 0.4);
-            }
-            70% {
-                box-shadow: 0 0 0 12px rgba(37, 211, 0);
-            }
-            100% {
-                box-shadow: 0 0 0 0 rgba(37, 211, 0.4);
-            }
-        }
-        .float-whatsapp:hover {
-            transform: scale(1.1);
-            animation: none;
+            border-radius: var(--radius-full);
+            background: #25d366;
+            color: white;
+            font-size: 22px;
+            z-index: 70;
+            box-shadow: var(--shadow-md);
         }
         .back-top {
             position: fixed;
-            bottom: 24px;
+            bottom: 20px;
             right: 20px;
             width: 40px;
             height: 40px;
-            border-radius: 50%;
-            background: var(--primary);
-            color: #fff;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            cursor: pointer;
-            box-shadow: 0 4px 12px rgba(145, 40, 0.3);
-            opacity: 0;
-            visibility: hidden;
-            transition: var(--transition);
-            z-index: 99;
+            border-radius: var(--radius-full);
+            background: var(--bg-btn-primary);
+            color: white;
             font-size: 16px;
-            border: none;
+            z-index: 70;
+            box-shadow: var(--shadow-md);
+            display: none;
         }
         .back-top.show {
+            display: flex;
+        }
+        /* 复制提示Toast */
+        .copy-toast {
+            position: fixed;
+            left: 50%;
+            bottom: 100px;
+            transform: translateX(-50%);
+            background: rgba(0,0,0,0.75);
+            color: white;
+            padding: 8px 20px;
+            border-radius: var(--radius-full);
+            font-size: 14px;
+            z-index: 200;
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity 0.2s;
+        }
+        .copy-toast.show {
             opacity: 1;
-            visibility: visible;
         }
-        .back-top:hover {
-            background: var(--primary-light);
-            transform: translateY(-3px);
-        }
-
-        /* ========== 响应式 ========== */
-        @media (max-width: 1024px) and (min-width: 768px) {
+        /* ====================== 响应式适配 ====================== */
+        @media screen and (max-width:767px) {
+            .header-left h1 {
+                font-size: 16px;
+            }
             .product-grid {
-                grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
-                gap: 20px;
+                grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
             }
-            header h1 {
-                font-size: 22px;
-            }
-            #searchInput {
-                width: 260px;
-            }
-            .filter-tab {
-                padding: 6px 16px;
-                font-size: 13px;
-            }
-        }
-        @media (max-width: 767px) {
-            body {
-                padding: 0 10px 16px;
-            }
-            header {
-                padding: 10px 0 8px;
-                margin-bottom: 12px;
-            }
-            header.scrolled {
-                padding: 4px 0 4px;
-            }
-            header h1 {
-                font-size: 18px;
-                min-width: 100px;
-            }
-            header.scrolled h1 {
-                font-size: 15px;
-            }
-            .header-top {
-                flex-wrap: nowrap;
-                gap: 4px;
-            }
-            .header-controls {
-                gap: 4px;
-            }
-            .lang-switch button {
-                padding: 2px 8px;
-                font-size: 11px;
-            }
-            .theme-toggle {
-                width: 30px;
-                height: 30px;
-                font-size: 14px;
-            }
-            .breadcrumb {
-                font-size: 11px;
-                margin-bottom: 6px;
-            }
-            .search-wrap {
-                gap: 6px;
-                margin-bottom: 10px;
-            }
-            #searchInput {
-                width: 100%;
-                font-size: 13px;
-                padding: 8px 12px;
-            }
-            .filter-tab {
-                padding: 5px 12px;
-                font-size: 12px;
-            }
-            .filter-tabs {
-                gap: 4px;
-                margin-bottom: 10px;
+            .img-box {
+                height: 150px;
             }
             .advanced-filter {
-                padding: 8px 10px;
-                gap: 6px;
-            }
-            .filter-group input,
-            .filter-group select {
-                width: 60px;
-                font-size: 11px;
-            }
-            .filter-group select {
-                min-width: 70px;
-            }
-            .product-grid {
                 grid-template-columns: 1fr 1fr;
-                gap: 12px;
             }
-            .product-card .img-box {
-                height: 140px;
-            }
-            .product-card .product-model {
-                font-size: 15px;
-            }
-            .product-card .product-price {
-                font-size: 16px;
-            }
-            .product-card .order-btn {
-                font-size: 12px;
-                padding: 6px;
-            }
-            .product-card .quick-whatsapp {
-                width: 32px;
-                font-size: 12px;
-            }
-            .pagination-wrap button {
-                padding: 4px 10px;
-                font-size: 12px;
-                min-width: 30px;
-            }
-            .modal-box {
-                padding: 16px;
-                max-width: 100%;
-                margin: 8px;
-            }
-            .modal-box .modal-title {
-                font-size: 18px;
-            }
-            .modal-box .modal-image img {
-                max-height: 200px;
-            }
-            .batch-bar {
-                padding: 6px 10px;
-                gap: 6px;
-                font-size: 12px;
-            }
-            .batch-bar button {
-                padding: 4px 12px;
-                font-size: 12px;
-            }
-            .float-whatsapp {
-                right: 12px;
-                bottom: 64px;
-                width: 44px;
-                height: 44px;
-                font-size: 20px;
-            }
-            .back-top {
-                right: 12px;
-                bottom: 16px;
-                width: 36px;
-                height: 36px;
-                font-size: 14px;
-            }
-            .footer-grid {
-                grid-template-columns: 1fr;
-                text-align: center;
-            }
-            .footer-grid .footer-col .social-icons {
-                justify-content: center;
-            }
-            .gallery-carousel .carousel-item {
-                flex: 0 0 120px;
-            }
-            .cert-grid {
-                gap: 10px;
-            }
-            .cert-card {
-                min-width: 70px;
-                padding: 8px 12px;
-            }
-            .cert-card .cert-icon {
-                font-size: 24px;
-            }
-            .cert-card .cert-name {
-                font-size: 11px;
-            }
-            .inquiry-form .form-row {
-                grid-template-columns: 1fr;
-            }
-            .oem-item .oem-content h4 {
-                font-size: 13px;
-            }
-            .oem-item .oem-content p {
-                font-size: 11px;
-            }
-            .catalog-table {
-                font-size: 12px;
-            }
-            .catalog-table th,
-            .catalog-table td {
-                padding: 4px 6px;
-            }
-            .catalog-table .type-badge {
-                font-size: 10px;
-                padding: 0 6px;
+            .batch-inner {
+                flex-direction: column;
+                align-items: flex-start;
             }
         }
-        @media (max-width: 480px) {
+        @media screen and (min-width:768px) and (max-width:1024px) {
             .product-grid {
-                grid-template-columns: 1fr;
+                grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
             }
-            .product-card {
-                max-width: 100%;
-            }
-            .product-card .img-box {
-                height: 180px;
-            }
-            header h1 {
-                font-size: 16px;
-            }
-            header.scrolled h1 {
-                font-size: 14px;
-            }
-        }
-
-        /* ========== 辅助 ========== */
-        a:focus-visible,
-        button:focus-visible,
-        input:focus-visible,
-        select:focus-visible,
-        textarea:focus-visible {
-            outline: 3px solid var(--primary-light);
-            outline-offset: 2px;
-        }
-        [data-theme="dark"] .filter-tab {
-            background: var(--bg-card);
-            border-color: var(--primary-light);
-            color: var(--primary-light);
-        }
-        [data-theme="dark"] .filter-tab.active {
-            background: var(--primary);
-            color: #fff;
-            border-color: var(--primary);
-        }
-        [data-theme="dark"] .filter-tab:hover {
-            background: #2a2a44;
-        }
-        [data-theme="dark"] .batch-bar {
-            border-top-color: var(--primary-light);
-        }
-        [data-theme="dark"] .modal-box .close-modal:hover {
-            background: #2a2a44;
-        }
-        [data-theme="dark"] .product-card .favorite-btn {
-            background: rgba(30, 30, 50, 0.9);
-        }
-        [data-theme="dark"] .product-card .favorite-btn:hover {
-            background: #2a2a44;
-        }
-        [data-theme="dark"] .product-card .product-check {
-            background: rgba(30, 30, 50, 0.85);
-        }
-        [data-theme="dark"] .copy-toast {
-            background: rgba(0, 0, 0, 0.85);
-        }
-        [data-theme="dark"] .pagination-wrap button {
-            background: var(--bg-card);
-            color: var(--text-body);
-            border-color: var(--border-input);
-        }
-        [data-theme="dark"] .pagination-wrap button.active {
-            background: var(--primary);
-            color: #fff;
-            border-color: var(--primary);
-        }
-        [data-theme="dark"] .pagination-wrap button:hover:not(:disabled) {
-            background: #2a2a44;
-        }
-        [data-theme="dark"] .catalog-table th {
-            background: #2a2a44;
         }
     </style>
 </head>
 <body>
-
-    <header id="siteHeader">
-        <div class="header-top">
-            <h1>Yongling LED Sanitary Mirror Factory</h1>
-            <div class="header-controls">
-                <div class="lang-switch" id="langSwitch">
-                    <button class="active" data-lang="en">EN</button>
+    <!-- 头部 -->
+    <header class="site-header" id="siteHeader">
+        <div class="container flex-between">
+            <div class="header-left">
+                <h1>Yongling LED Sanitary Mirror Factory</h1>
+            </div>
+            <div class="header-right flex gap-16">
+                <div class="lang-switch flex gap-8">
+                    <button data-lang="en" class="active">EN</button>
                     <button data-lang="fr">FR</button>
                 </div>
-                <button class="theme-toggle" id="themeToggle" title="Toggle Dark Mode">🌓</button>
+                <button id="themeToggle">🌓</button>
             </div>
-        </div>
-        <div class="breadcrumb" id="breadcrumb">
-            <span>🏠</span> <span class="sep">/</span> <span id="breadcrumbLabel">All Products</span>
-        </div>
-        <div class="search-wrap">
-            <input type="text" id="searchInput" placeholder="Search model / size / material..." />
-            <span class="result-count" id="resultCount">0 products</span>
-        </div>
-        <div class="filter-tabs">
-            <span class="filter-tab active" data-filter="all">All Products</span>
-            <span class="filter-tab" data-filter="A">LED Mirror</span>
-            <span class="filter-tab" data-filter="B">Smart Mirror Cabinet</span>
-            <span class="filter-tab" data-filter="C">PVC Bathroom Cabinet</span>
-        </div>
-        <div style="display:flex;flex-wrap:wrap;justify-content:center;gap:6px;margin-top:6px;">
-            <span class="oem-btn" onclick="openOEMModal()">🎨 OEM & ODM</span>
-            <span class="oem-btn" onclick="openCatalogModal()">📄 Catalog</span>
         </div>
     </header>
-
-    <div class="advanced-filter no-print" id="advancedFilter">
-        <div class="filter-group">
-            <label data-lang-key="filterPrice">💰 Price:</label>
-            <input type="number" id="priceMin" placeholder="Min" min="0" step="0.01" />
-            <span style="color:var(--text-muted);">—</span>
-            <input type="number" id="priceMax" placeholder="Max" min="0" step="0.01" />
-        </div>
-        <div class="filter-group">
-            <label data-lang-key="filterMoq">📦 MOQ:</label>
-            <select id="filterMoq">
-                <option value="">All</option>
-                <option value="50">≥ 50</option>
-                <option value="100">≥ 100</option>
-                <option value="200">≥ 200</option>
-                <option value="300">≥ 300</option>
-                <option value="500">≥ 500</option>
-            </select>
-        </div>
-        <div class="filter-group">
-            <label data-lang-key="sort">Sort:</label>
-            <select id="sortSelect">
-                <option value="default">Default</option>
-                <option value="price-asc">Price ↑</option>
-                <option value="price-desc">Price ↓</option>
-                <option value="model">Model A→Z</option>
-            </select>
-        </div>
-        <div class="filter-actions">
-            <button onclick="applyAdvancedFilter()" data-lang-key="apply">Apply</button>
-            <button class="reset-filter" onclick="resetAdvancedFilter()" data-lang-key="reset">Reset</button>
-        </div>
+    <div class="breadcrumb-bar container">
+        <span data-lang-key="breadAll" id="breadcrumbLabel">All Products</span>
     </div>
 
-    <div class="product-grid" id="productContainer">
-        <div class="empty-state" id="emptyState">
-            <span>🔍</span>
-            <span data-lang-key="noResult">No products found. Try a different keyword.</span>
-        </div>
-    </div>
-
-    <div class="pagination-wrap no-print" id="paginationWrap">
-        <button id="pagePrev" disabled>‹</button>
-        <div id="pageNumbers"></div>
-        <button id="pageNext" disabled>›</button>
-        <span class="pageInfo" id="pageInfo">Page 1 / 1</span>
-    </div>
-
-    <div class="batch-bar no-print" id="batchBar">
-        <span class="batch-info">✔ Selected <strong id="batchCount">0</strong> <span data-lang-key="products">products</span></span>
-        <button class="batch-copy" onclick="batchCopy()" data-lang-key="batchCopy">📋 Copy Models</button>
-        <button class="batch-whatsapp" onclick="batchWhatsApp()" data-lang-key="batchInquiry">💬 Batch Inquiry</button>
-        <button class="batch-clear" onclick="batchClear()" data-lang-key="clear">✕ Clear</button>
-    </div>
-
-    <!-- Modal: Product Details -->
-    <div class="modal-mask" id="productModal">
-        <div class="modal-box">
-            <button class="close-modal" onclick="closeProductModal()">×</button>
-            <h2 class="modal-title" id="modalTitle">
-                Product Details
-                <button class="copy-model-btn" onclick="copyModel()" data-lang-key="copyModel">Copy Model</button>
-            </h2>
-            <div class="modal-meta" id="modalMeta"></div>
-            <div class="modal-image" id="modalImage" onclick="openImageFullscreen()">
-                <img id="modalImg" src="" alt="Product Image" />
+    <main class="container mt-20 mb-40">
+        <!-- 搜索筛选区域 -->
+        <div class="search-filter-wrap">
+            <div class="search-row">
+                <input type="text" id="searchInput" data-lang-key="search" placeholder="Search model / size / material...">
             </div>
-            <div class="modal-text" id="modalContent"></div>
-            <button class="whatsapp-btn" onclick="contactWhatsApp()" data-lang-key="inquire">💬 Inquire via WhatsApp</button>
-        </div>
-    </div>
-
-    <!-- Modal: OEM -->
-    <div class="modal-mask" id="oemModal">
-        <div class="modal-box">
-            <button class="close-modal" onclick="closeOEMModal()">×</button>
-            <h2 class="modal-title" data-lang-key="oemTitle">OEM & ODM Custom Service</h2>
-            <div class="oem-list">
-                <div class="oem-item">
-                    <div class="oem-icon">📐</div>
-                    <div class="oem-content">
-                        <h4 data-lang-key="oemSize">Custom Size & Shape</h4>
-                        <p data-lang-key="oemSizeDesc">Round, square, rectangle, irregular shapes, any size 30–200cm</p>
-                    </div>
+            <div class="filter-tabs">
+                <button class="filter-tab active" data-filter="all" data-lang-key="all">All Products</button>
+                <button class="filter-tab" data-filter="A" data-lang-key="led">LED Mirror</button>
+                <button class="filter-tab" data-filter="B" data-lang-key="smart">Smart Mirror Cabinet</button>
+                <button class="filter-tab" data-filter="C" data-lang-key="pvc">PVC Bathroom Cabinet</button>
+            </div>
+            <div class="advanced-filter">
+                <div class="filter-group">
+                    <label data-lang-key="filterPrice">Price Min</label>
+                    <input type="number" id="priceMin" placeholder="0">
                 </div>
-                <div class="oem-item">
-                    <div class="oem-icon">🏷️</div>
-                    <div class="oem-content">
-                        <h4 data-lang-key="oemLogo">Custom Logo Printing</h4>
-                        <p data-lang-key="oemLogoDesc">Silk screen, laser engraving, sticker logo</p>
-                    </div>
+                <div class="filter-group">
+                    <label data-lang-key="filterPrice">Price Max</label>
+                    <input type="number" id="priceMax" placeholder="9999">
                 </div>
-                <div class="oem-item">
-                    <div class="oem-icon">💡</div>
-                    <div class="oem-content">
-                        <h4 data-lang-key="oemLight">Custom Light Options</h4>
-                        <p data-lang-key="oemLightDesc">Warm/cool white, dimmable, 3000K–6500K</p>
-                    </div>
+                <div class="filter-group">
+                    <label data-lang-key="filterMoq">MOQ</label>
+                    <select id="filterMoq">
+                        <option value="">All</option>
+                        <option value="50">≥50</option>
+                        <option value="100">≥100</option>
+                        <option value="200">≥200</option>
+                        <option value="300">≥300</option>
+                        <option value="500">≥500</option>
+                    </select>
                 </div>
-                <div class="oem-item">
-                    <div class="oem-icon">⚙️</div>
-                    <div class="oem-content">
-                        <h4 data-lang-key="oemFunc">Custom Functions</h4>
-                        <p data-lang-key="oemFuncDesc">Anti-fog, Bluetooth, touch switch, time display, magnifier</p>
-                    </div>
+                <div class="filter-group">
+                    <label data-lang-key="sort">Sort</label>
+                    <select id="sortSelect">
+                        <option value="default">Default</option>
+                        <option value="price-asc">Price ↑</option>
+                        <option value="price-desc">Price ↓</option>
+                        <option value="model">Model A→Z</option>
+                    </select>
                 </div>
-                <div class="oem-item">
-                    <div class="oem-icon">📦</div>
-                    <div class="oem-content">
-                        <h4 data-lang-key="oemPack">Custom Packaging</h4>
-                        <p data-lang-key="oemPackDesc">Brown/color/gift box, foam protection, export carton</p>
-                    </div>
+                <div class="flex gap-8">
+                    <button class="btn-primary" id="filterApply" data-lang-key="apply">Apply</button>
+                    <button class="btn-secondary" id="filterReset" data-lang-key="reset">Reset</button>
                 </div>
             </div>
-            <div class="oem-info">
-                <p data-lang-key="oemInfo1">📏 MOQ for Custom: 100pcs</p>
-                <p data-lang-key="oemInfo2">⏱️ Sample Lead Time: 7–10 Days</p>
-                <p data-lang-key="oemInfo3">🏭 Bulk Production: 25–30 Days</p>
-                <p data-lang-key="oemInfo4">🚢 Shipping: Sea / air / express, DDP available</p>
-            </div>
-            <button class="whatsapp-btn" onclick="contactWhatsAppOEM()" data-lang-key="getQuote">💬 Get Custom Quote</button>
         </div>
-    </div>
 
-    <!-- Modal: Inquiry -->
-    <div class="modal-mask" id="inquiryModal">
-        <div class="modal-box">
-            <button class="close-modal" onclick="closeInquiryModal()">×</button>
-            <h2 class="modal-title" data-lang-key="inquiry">📩 Online Inquiry</h2>
-            <form class="inquiry-form" id="inquiryForm" onsubmit="submitInquiry(event)">
-                <div class="form-row">
-                    <div>
-                        <label data-lang-key="name">Full Name *</label>
-                        <input type="text" id="inqName" required placeholder="Your name" />
+        <div class="flex-between mb-24">
+            <div id="resultCount"></div>
+            <div class="flex gap-12">
+                <button class="btn-secondary" onclick="openOEMModal()">OEM & ODM</button>
+                <button class="btn-secondary" onclick="openInquiryModal()" data-lang-key="inquiry">Online Inquiry</button>
+                <button class="btn-secondary" onclick="openFavModal()" data-lang-key="favorites">My Favorites</button>
+                <button class="btn-secondary" onclick="openCatalogModal()" data-lang-key="catalog">Catalog</button>
+            </div>
+        </div>
+
+        <!-- 产品网格 -->
+        <div class="product-grid" id="productContainer">
+            <div class="empty-state hidden" id="emptyState" data-lang-key="noResult">No matching products found</div>
+        </div>
+
+        <!-- 分页 -->
+        <div class="pagination-wrap">
+            <button id="pagePrev">‹</button>
+            <div id="pageNumbers" class="flex gap-8"></div>
+            <button id="pageNext">›</button>
+            <span id="pageInfo"></span>
+        </div>
+
+        <!-- 工厂相册 -->
+        <section class="mt-40 mb-40">
+            <h2 data-lang-key="factory">Factory Gallery</h2>
+            <div class="gallery-grid mt-20" id="galleryCar">
+            </div>
+        </section>
+
+        <!-- FAQ -->
+        <section class="mt-40 mb-40">
+            <h2>FAQ</h2>
+            <div class="faq-list mt-20">
+                <div class="faq-item">
+                    <div class="faq-q" onclick="toggleFaq(this)">
+                        <span data-lang-key="fa1q">Standard MOQ?</span>
+                        <span class="arrow">▼</span>
                     </div>
-                    <div>
-                        <label data-lang-key="company">Company</label>
-                        <input type="text" id="inqCompany" placeholder="Company name" />
-                    </div>
+                    <div class="faq-a" data-lang-key="fa1a">PVC 50pcs, wood cabinet 100pcs, led mirror 300pcs. OEM 100pcs.</div>
                 </div>
-                <div class="form-row">
-                    <div>
-                        <label data-lang-key="email">Email *</label>
-                        <input type="email" id="inqEmail" required placeholder="your@email.com" />
+                <div class="faq-item">
+                    <div class="faq-q" onclick="toggleFaq(this)">
+                        <span data-lang-key="fa2q">Sample lead time?</span>
+                        <span class="arrow">▼</span>
                     </div>
-                    <div>
-                        <label data-lang-key="qty">Quantity (pcs)</label>
-                        <input type="number" id="inqQty" placeholder="e.g. 500" min="1" />
-                    </div>
+                    <div class="faq-a" data-lang-key="fa2a">7-10 workdays, bulk 25-30 days after sample confirm.</div>
                 </div>
-                <label data-lang-key="sizeReq">Size / Custom Requirements</label>
-                <input type="text" id="inqSize" placeholder="e.g. 80×100cm, round, with logo" />
-                <label data-lang-key="message">Additional Message</label>
-                <textarea id="inqMessage" placeholder="Tell us more about your project..."></textarea>
-                <button type="submit" class="whatsapp-btn" style="background:var(--primary);" data-lang-key="send">🚀 Send Inquiry via WhatsApp</button>
-            </form>
-        </div>
-    </div>
-
-    <!-- Modal: Favorites -->
-    <div class="modal-mask" id="favModal">
-        <div class="modal-box">
-            <button class="close-modal" onclick="closeFavModal()">×</button>
-            <h2 class="modal-title" data-lang-key="favorites">❤️ My Favorites</h2>
-            <div class="fav-list" id="favList"></div>
-            <div class="fav-actions">
-                <button class="fav-clear" onclick="clearAllFavorites()" data-lang-key="clearAll">🗑️ Clear All</button>
-                <button class="fav-close" onclick="closeFavModal()" data-lang-key="close">Close</button>
+                <div class="faq-item">
+                    <div class="faq-q" onclick="toggleFaq(this)">
+                        <span data-lang-key="fa3q">Support OEM/ODM?</span>
+                        <span class="arrow">▼</span>
+                    </div>
+                    <div class="faq-a" data-lang-key="fa3a">Yes, custom size, logo, light, packaging, functions.</div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-q" onclick="toggleFaq(this)">
+                        <span data-lang-key="fa4q">Shipping methods?</span>
+                        <span class="arrow">▼</span>
+                    </div>
+                    <div class="faq-a" data-lang-key="fa4a">Sea, air, DHL/FedEx, DDP door delivery available.</div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-q" onclick="toggleFaq(this)">
+                        <span data-lang-key="fa5q">Warranty period?</span>
+                        <span class="arrow">▼</span>
+                    </div>
+                    <div class="faq-a" data-lang-key="fa5a">2-year warranty for manufacturing defects, spare parts support.</div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-q" onclick="toggleFaq(this)">
+                        <span data-lang-key="fa6q">Bulk discount for large order?</span>
+                        <span class="arrow">▼</span>
+                    </div>
+                    <div class="faq-a" data-lang-key="fa6a">Yes, special discount over 1000pcs, contact us for quotation.</div>
+                </div>
             </div>
-        </div>
-    </div>
+        </section>
+    </main>
 
-    <!-- Modal: Catalog -->
-    <div class="modal-mask" id="catalogModal">
-        <div class="modal-box">
-            <button class="close-modal" onclick="closeCatalogModal()">×</button>
-            <h2 class="modal-title" data-lang-key="catalog">📄 Product Catalog</h2>
-            <div class="catalog-table-wrap" id="catalogContentWrap">
-                <!-- 由 JS 动态生成表格 -->
-            </div>
-            <div class="catalog-actions">
-                <button class="catalog-copy" onclick="copyCatalog()" data-lang-key="copyAll">📋 Copy All</button>
-                <button class="catalog-close" onclick="closeCatalogModal()" data-lang-key="close">Close</button>
-            </div>
-        </div>
-    </div>
-
-    <!-- Gallery -->
-    <section class="gallery-section no-print">
-        <h2>🏭 Factory Gallery</h2>
-        <div class="gallery-carousel" id="galleryCarousel"></div>
-        <div style="text-align:center;margin-top:6px;font-size:12px;color:var(--text-muted);">
-            <span>📸 Production line, workshop, QC, showroom</span>
-        </div>
-        <div class="cert-grid">
-            <div class="cert-card"><span class="cert-icon">✅</span><div class="cert-name">CE Certified</div></div>
-            <div class="cert-card"><span class="cert-icon">✅</span><div class="cert-name">ISO 9001</div></div>
-            <div class="cert-card"><span class="cert-icon">✅</span><div class="cert-name">SGS Tested</div></div>
-            <div class="cert-card"><span class="cert-icon">✅</span><div class="cert-name">RoHS Compliant</div></div>
-        </div>
-    </section>
-
-    <!-- FAQ -->
-    <section class="faq-section no-print">
-        <h2>❓ Frequently Asked Questions</h2>
-        <div class="faq-item">
-            <div class="faq-q" onclick="toggleFaq(this)"><span data-lang-key="faq1q">What is the MOQ for standard products?</span> <span class="arrow">▼</span></div>
-            <div class="faq-a" data-lang-key="faq1a">Standard MOQ: 50pcs for PVC cabinets, 100pcs for smart mirror cabinets, 500pcs for LED mirrors. OEM/ODM MOQ starts from 100pcs.</div>
-        </div>
-        <div class="faq-item">
-            <div class="faq-q" onclick="toggleFaq(this)"><span data-lang-key="faq2q">How long is the sample lead time?</span> <span class="arrow">▼</span></div>
-            <div class="faq-a" data-lang-key="faq2a">Sample lead time: 7-10 working days. Bulk production: 25-30 days after sample approval.</div>
-        </div>
-        <div class="faq-item">
-            <div class="faq-q" onclick="toggleFaq(this)"><span data-lang-key="faq3q">Do you support OEM/ODM customization?</span> <span class="arrow">▼</span></div>
-            <div class="faq-a" data-lang-key="faq3a">Yes, we support custom size, shape, logo, light color, packaging, anti-fog
-# 接续完整JS尾部（直接粘贴到上面代码末尾，闭合全部结构，无截断）
-
-```
-, Bluetooth, touch switch, etc.</div>
-        </div>
-        <div class="faq-item">
-            <div class="faq-q" onclick="toggleFaq(this)"><span data-lang-key="faq4q">What shipping methods do you offer?</span> <span class="arrow">▼</span></div>
-            <div class="faq-a" data-lang-key="faq4a">Shipping by sea, air, or express (DHL/FedEx). DDP door-to-door available for many countries.</div>
-        </div>
-        <div class="faq-item">
-            <div class="faq-q" onclick="toggleFaq(this)"><span data-lang-key="faq5q">What is the warranty period?</span> <span class="arrow">▼</span></div>
-            <div class="faq-a" data-lang-key="faq5a">2-year warranty against manufacturing defects. After-sales technical support and spare parts provided.</div>
-        </div>
-        <div class="faq-item">
-            <div class="faq-q" onclick="toggleFaq(this)"><span data-lang-key="faq6q">Can I get a bulk discount for large projects?</span> <span class="arrow">▼</span></div>
-            <div class="faq-a" data-lang-key="faq6a">Yes, for projects ≥1000pcs, special discounts apply. Contact us with your project details.</div>
-        </div>
-    </section>
-
-    <!-- Footer -->
+    <!-- 页脚 -->
     <footer>
-        <div class="footer-grid">
-            <div class="footer-col">
-                <h4 data-lang-key="contact">Contact Us</h4>
-                <ul>
-                    <li>WhatsApp: <span class="copy-text" onclick="copyText('+86 17799215074')">+86 17799215074</span></li>
-                    <li>Email: <span class="copy-text" onclick="copyText('esra040510@gmail.com')">esra040510@gmail.com</span></li>
-                    <li>WeChat: <span class="copy-text" onclick="zrqy716')">zrqy716</span></li>
-                </ul>
-            </div>
-            <div class="footer-col">
-                <h4 data-lang-key="factory">Factory Info</h4>
-                <ul>
-                    <li>📍 Guali Qianxing Village, Xiaoshan, Hangzhou, Zhejiang, China</li>
-                    <li>⏰ Mon-Sat 8:30–18:00 (UTC+8)</li>
-                    <li>🏭 10+ Years Experience</li>
-                </ul>
-            </div>
-            <div class="footer-col">
-                <h4 data-lang-key="productsLabel">Our Products</h4>
-                <ul>
-                    <li>LED Anti-Fog Bathroom Mirrors</li>
-                    <li>Solid Wood Smart Mirror Cabinets</li>
-                    <li>PVC Bathroom Cabinets</li>
-                </ul>
-            </div>
-            <div class="footer-col">
-                <h4 data-lang-key="follow">Follow Us</h4>
-                <div class="social-icons">
-                    <a href="#" target="_blank" title="Facebook">📘</a>
-                    <a href="#" target="_blank" title="Instagram">📸</a>
-                    <a href="#" target="_blank" title="LinkedIn">🔗</a>
-                    <a href="#" target="_blank" title="YouTube">▶️</a>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <h4 data-lang-key="contact">Contact Us</h4>
+                    <ul>
+                        <li>WhatsApp: <span class="copy-text" onclick="copyText('+86 17799215074')">+86 17799215074</span></li>
+                        <li>Email: <span class="copy-text" onclick="copyText('esra040510@gmail.com')">esra040510@gmail.com</span></li>
+                        <li>WeChat: <span class="copy-text" onclick="copyText('zrqy716')">zrqy716</span></li>
+                    </ul>
                 </div>
-                <div style="margin-top:8px;font-size:12px;">
-                    <span class="copy-text" onclick="copySitemap()">📂 Copy Sitemap</span>
+                <div class="footer-col">
+                    <h4 data-lang-key="factory">Factory Info</h4>
+                    <ul>
+                        <li>📍 Guali Qianxing Village, Xiaoshan, Hangzhou, Zhejiang, China</li>
+                        <li>⏰ Mon-Sat 8:30–18:00 (UTC+8)</li>
+                        <li>🏭 10+ Years Factory Production</li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4 data-lang-key="productsLabel">Our Products</h4>
+                    <ul>
+                        <li>LED Anti-Fog Bathroom Mirrors (A Series)</li>
+                        <li>Solid Wood Smart Mirror Cabinets (B Series)</li>
+                        <li>PVC Waterproof Vanity Cabinets (C Series)</li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4 data-lang-key="follow">Certifications</h4>
+                    <ul>
+                        <li>CE / ISO9001 / SGS / RoHS</li>
+                        <li class="copy-text" onclick="copySitemap()">Copy Site Sitemap</li>
+                    </ul>
                 </div>
             </div>
+            <div class="copyright" data-lang-key="copyright">© 2026 Yongling LED Sanitary Mirror Factory. All Rights Reserved.</div>
         </div>
-        <div class="copyright" data-lang-key="copyright">© 2026 Yongling LED Sanitary Mirror Factory. All Rights Reserved.</div>
     </footer>
 
-    <div class="copy-toast" id="copyToast">Copied!</div>
-    <a class="float-whatsapp no-print" href="https://wa.me/8617799215074" target="_blank" title="Contact WhatsApp">💬</a>
-    <button class="back-top no-print" id="backTop" onclick="scrollToTop()">↑</button>
+    <!-- 批量底部栏 -->
+    <div class="batch-bar no-print" id="batchBar">
+        <div class="container batch-inner">
+            <div>
+                <span data-lang-key="selected">Selected</span>: <strong id="batchCount">0</strong> <span data-lang-key="products">products</span>
+            </div>
+            <div class="batch-buttons">
+                <button class="btn-secondary" onclick="batchCopy()" data-lang-key="batchCopy">Copy Models</button>
+                <button class="btn-primary" onclick="batchWhatsApp()" data-lang-key="batchInquiry">Batch Inquiry</button>
+                <button class="btn-secondary" onclick="batchClear()" data-lang-key="clear">Clear</button>
+            </div>
+        </div>
+    </div>
 
-<script>
-        // ============================================================
-        // 全局配置 & 状态
-        // ============================================================
-        const CONFIG = { WHATSAPP: '8617799215074', PER_PAGE: 24 };
-        let currentFilter = 'all';
-        let currentPage = 1;
-        let searchKeyword = '';
-        let priceMin = '',
-            priceMax = '',
-            filterMoq = '',
-            sortBy = 'default';
-        let favorites = JSON.parse(localStorage.getItem('favorites') || '[]');
-        let currentLang = localStorage.getItem('yl_lang') || 'en';
-        let darkMode = localStorage.getItem('yl_dark') === 'true';
-        let batchSelected = new Set();
+    <!-- 悬浮按钮 -->
+    <a class="float-whatsapp flex-center no-print" href="https://wa.me/8617799215074" target="_blank" title="WhatsApp Contact">💬</a>
+    <button class="back-top flex-center no-print" id="backTop" onclick="scrollToTop()">↑</button>
 
-        // ============================================================
-        // C系列尺寸映射（PDF 6001~6195对应C001~C198，跳过C003/C004/C007/C008）
-        // ============================================================
-        const cSizeMap = {};
-        // 默认尺寸800*500mm
-        for (let i = 1; i <= 198; i++) cSizeMap[i] = { w: 800, h: 500 };
-        // PDF提取对应型号尺寸
-        const known = {
-            1: { w: 1000, h: 470 },
-            2: { w: 1000, h: 470 },
-            5: { w: 1000, h: 470 },
-            6: { w: 1000, h: 470 },
-            9: { w: 1000, h: 500 },
-            10: { w: 1000, h: 500 },
-            13: { w: 1000, h: 500 },
-            14: { w: 1000, h: 500 },
-            25: { w: 800, h: 500 },
-            39: { w: 1000, h: 470 },
-            40: { w: 1000, h: 470 },
-            41: { w: 1000, h: 470 },
-            42: { w: 1000, h: 470 },
-            43: { w: 1000, h: 470 },
-            44: { w: 1000, h: 470 },
-            69: { w: 800, h: 470 },
-            70: { w: 800, h: 470 },
-            73: { w: 800, h: 470 },
-            74: { w: 800, h: 470 },
-            77: { w: 800, h: 500 },
-            85: { w: 800, h: 500 },
-            93: { w: 800, h: 500 },
-            101: { w: 800, h: 470 },
-            120: { w: 460, h: 260 },
-            134: { w: 800, h: 470 },
-            140: { w: 800, h: 470 },
-            148: { w: 600, h: 470 },
-            156: { w: 800, h: 500 },
-            164: { w: 1000, h: 500 },
-            172: { w: 1000, h: 500 },
-            180: { w: 800, h: 470 },
-            188: { w: 800, h: 470 },
-        };
-        Object.assign(cSizeMap, known);
+    <!-- Toast复制提示 -->
+    <div class="copy-toast" id="copyToast"></div>
 
-        // ============================================================
-        // 产品数据 A29 + B29 + C194（剔除3/4/7/8）
-        // ============================================================
-        const PRODUCTS = [];
-
-        // A系列：图片统一旧图
-        const aData = [
-            { id: 'A001', name: 'Model A001 LED Anti-Fog Bathroom Mirror', desc: 'Material: Paulownia Frame Mirror\nSize: 50×50cm | LED + Anti-Fog + Storage\nWarranty: 2 Years | MOQ: 300pcs', price: '$14.90', img: '/img/微信图片_20260707164222_511_35.jpg' },
-            { id: 'A002', name: 'Model A002 LED Anti-Fog Bathroom Mirror', desc: 'Material: Paulownia Frame Mirror\nSize: 55×55cm | LED + Anti-Fog + Storage\nWarranty: 2 Years | MOQ: 300pcs', price: '$15.90', img: '/img/微信图片_20260707164222_511_35.jpg' },
-            { id: 'A003', name: 'Model A003 LED Anti-Fog Bathroom Mirror', desc: 'Material: Paulownia Frame Mirror\nSize: 60×60cm | LED + Anti-Fog + Storage\nWarranty: 2 Years | MOQ: 300pcs', price: '$16.90', img: '/img/微信图片_20260707164222_511_35.jpg' },
-            { id: 'A004', name: 'Model A004 LED Anti-Fog Bathroom Mirror', desc: 'Material: Paulownia Frame Mirror\nSize: 65×65cm | LED + Anti-Fog + Storage\nWarranty: 2 Years | MOQ: 300pcs', price: '$17.90', img: '/img/微信图片_20260707164222_511_35.jpg' },
-            { id: 'A005', name: 'Model A005 LED Anti-Fog Bathroom Mirror', desc: 'Material: Paulownia Frame Mirror\nSize: 70×70cm | LED + Anti-Fog + Storage\nWarranty: 2 Years | MOQ: 300pcs', price: '$18.90', img: '/img/微信图片_20260707164222_511_35.jpg' },
-            { id: 'A006', name: 'Model A006 LED Anti-Fog Bathroom Mirror', desc: 'Material: Paulownia Frame Mirror\nSize: 75×75cm | LED + Anti-Fog + Storage\nWarranty: 2 Years | MOQ: 300pcs', price: '$19.90', img: '/img/微信图片_20260707164222_511_35.jpg' },
-            { id: 'A007', name: 'Model A007 LED Anti-Fog Bathroom Mirror', desc: 'Material: Paulownia Frame Mirror\nSize: 80×80cm | LED + Anti-Fog + Storage\nWarranty: 2 Years | MOQ: 300pcs', price: '$20.90', img: '/img/微信图片_20260707164222_511_35.jpg' },
-            { id: 'A008', name: 'Model A008 LED Anti-Fog Bathroom Mirror', desc: 'Material: Paulownia Frame Mirror\nSize: 85×85cm | LED + Anti-Fog + Storage\nWarranty: 2 Years | MOQ: 300pcs', price: '$21.90', img: '/img/微信图片_20260707164222_511_35.jpg' },
-            { id: 'A009', name: 'Model A009 LED Anti-Fog Bathroom Mirror', desc: 'Material: Paulownia Frame Mirror\nSize: 90×90cm | LED + Anti-Fog + Storage\nWarranty: 2 Years | MOQ: 300pcs', price: '$22.90', img: '/img/微信图片_20260707164222_511_35.jpg' },
-            { id: 'A010', name: 'Model A010 LED Anti-Fog Bathroom Mirror', desc: 'Material: Paulownia Frame Mirror\nSize: 95×95cm | LED + Anti-Fog + Storage\nWarranty: 2 Years | MOQ: 300pcs', price: '$23.90', img: '/img/微信图片_20260707164222_511_35.jpg' },
-            { id: 'A011', name: 'Model A011 LED Anti-Fog Bathroom Mirror', desc: 'Material: Paulownia Frame Mirror\nSize: 100×100cm | LED + Anti-Fog + Storage\nWarranty: 2 Years | MOQ: 300pcs', price: '$24.90', img: '/img/微信图片_20260707164222_511_35.jpg' },
-            { id: 'A012', name: 'Model A012 LED Anti-Fog Bathroom Mirror', desc: 'Material: Paulownia Frame Mirror\nSize: 105×105cm | LED + Anti-Fog + Storage\nWarranty: 2 Years | MOQ: 300pcs', price: '$26.40', img: '/img/微信图片_20260707164222_511_35.jpg' },
-            { id: 'A013', name: 'Model A013 LED Anti-Fog Bathroom Mirror', desc: 'Material: Paulownia Frame Mirror\nSize: 110×110cm | LED + Anti-Fog + Storage\nWarranty: 2 Years | MOQ: 300pcs', price: '$27.90', img: '/img/微信图片_20260707164222_511_35.jpg' },
-            { id: 'A014', name: 'Model A014 LED Anti-Fog Bathroom Mirror', desc: 'Material: Paulownia Frame Mirror\nSize: 115×115cm | LED + Anti-Fog + Storage\nWarranty: 2 Years | MOQ: 300pcs', price: '$29.40', img: '/img/微信图片_20260707164222_511_35.jpg' },
-            { id: 'A015', name: 'Model A015 LED Anti-Fog Bathroom Mirror', desc: 'Material: Paulownia Frame Mirror\nSize: 120×120cm | LED + Anti-Fog + Storage\nWarranty: 2 Years | MOQ: 300pcs', price: '$30.90', img: '/img/微信图片_20260707164222_511_35.jpg' },
-            { id: 'A016', name: 'Model A016 LED Anti-Fog Bathroom Mirror', desc: 'Material: Paulownia Frame Mirror\nSize: 50×70cm | LED + Anti-Fog + Storage\nWarranty: 2 Years | MOQ: 300pcs', price: '$15.90', img: '/img/微信图片_20260707164222_511_35.jpg' },
-            { id: 'A017', name: 'Model A017 LED Anti-Fog Bathroom Mirror', desc: 'Material: Paulownia Frame Mirror\nSize: 60×80cm | LED + Anti-Fog + Storage\nWarranty: 2 Years | MOQ: 300pcs', price: '$17.90', img: '/img/微信图片_20260707164222_511_35.jpg' },
-            { id: 'A018', name: 'Model A018 LED Anti-Fog Bathroom Mirror', desc: 'Material: Paulownia Frame Mirror\nSize: 70×90cm | LED + Anti-Fog + Storage\nWarranty: 2 Years | MOQ: 300pcs', price: '$19.90', img: '/img/微信图片_20260707164222_511_35.jpg' },
-            { id: 'A019', name: 'Model A019 LED Anti-Fog Bathroom Mirror', desc: 'Material: Paulownia Frame Mirror\nSize: 80×100cm | LED + Anti-Fog + Storage\nWarranty: 2 Years | MOQ: 300pcs', price: '$21.90', img: '/img/微信图片_20260707164222_511_35.jpg' },
-            { id: 'A020', name: 'Model A020 LED Anti-Fog Bathroom Mirror', desc: 'Material: Paulownia Frame Mirror\nSize: 90×110cm | LED + Anti-Fog + Storage\nWarranty: 2 Years | MOQ: 300pcs', price: '$24.90', img: '/img/微信图片_20260707164222_511_35.jpg' },
-            { id: 'A021', name: 'Model A021 LED Anti-Fog Bathroom Mirror', desc: 'Material: Paulownia Frame Mirror\nSize: 100×120cm | LED + Anti-Fog + Storage\nWarranty: 2 Years | MOQ: 300pcs', price: '$27.90', img: '/img/微信图片_20260707164222_511_35.jpg' },
-            { id: 'A022', name: 'Model A022 LED Anti-Fog Bathroom Mirror', desc: 'Material: Paulownia Frame Mirror\nSize: 50×80cm | LED + Anti-Fog + Storage\nWarranty: 2 Years | MOQ: 300pcs', price: '$16.90', img: '/img/微信图片_20260707164222_511_35.jpg' },
-            { id: 'A023', name: 'Model A023 LED Anti-Fog Bathroom Mirror', desc: 'Material: Paulownia Frame Mirror\nSize: 60×90cm | LED + Anti-Fog + Storage\nWarranty: 2 Years | MOQ: 300pcs', price: '$19.40', img: '/img/微信图片_20260707164222_511_35.jpg' },
-            { id: 'A024', name: 'Model A024 LED Anti-Fog Bathroom Mirror', desc: 'Material: Paulownia Frame Mirror\nSize: 70×100cm | LED + Anti-Fog + Storage\nWarranty: 2 Years | MOQ: 300pcs', price: '$21.90', img: '/img/微信图片_20260707164222_511_35.jpg' },
-            { id: 'A025', name: 'Model A025 LED Anti-Fog Bathroom Mirror', desc: 'Material: Paulownia Frame Mirror\nSize: 80×110cm | LED + Anti-Fog + Storage\nWarranty: 2 Years | MOQ: 300pcs', price: '$25.40', img: '/img/微信图片_20260707164222_511_35.jpg' },
-            { id: 'A026', name: 'Model A026 LED Anti-Fog Bathroom Mirror', desc: 'Material: Paulownia Frame Mirror\nSize: 90×120cm | LED + Anti-Fog + Storage\nWarranty: 2 Years | MOQ: 300pcs', price: '$28.90', img: '/img/微信图片_20260707164222_511_35.jpg' },
-            { id: 'A027', name: 'Model A027 LED Anti-Fog Bathroom Mirror', desc: 'Material: Paulownia Frame Mirror\nSize: 60×100cm | LED + Anti-Fog + Storage\nWarranty: 2 Years | MOQ: 300pcs', price: '$22.90', img: '/img/微信图片_20260707164222_511_35.jpg' },
-            { id: 'A028', name: 'Model A028 LED Anti-Fog Bathroom Mirror', desc: 'Material: Paulownia Frame Mirror\nSize: 70×120cm | LED + Anti-Fog + Storage\nWarranty: 2 Years | MOQ: 300pcs', price: '$32.90', img: '/img/微信图片_20260707164222_511_35.jpg' },
-            { id: 'A029', name: 'Model A029 LED Anti-Fog Bathroom Mirror', desc: 'Material: Paulownia Frame Mirror\nSize: 80×120cm | LED + Anti-Fog + Storage\nWarranty: 2 Years | MOQ: 300pcs', price: '$42.90', img: '/img/微信图片_20260707164222_511_35.jpg' }
-        ];
-        aData.forEach(p => PRODUCTS.push({ id: p.id, type: 'A', name: p.name, desc: p.desc, price: p.price, img: p.img }));
-
-        // B系列：统一旧图片路径
-        const bData = [
-            { id: 'B001', name: 'Model B001 Premium Solid Wood Mirror Cabinet', desc: 'Material: Solid Wood + Paulownia Frame\nSize: 70×90cm | Full Storage Cabinet\nWarranty: 2 Years | MOQ: 100pcs', price: '$107.65', img: '/img/微信图片_20260707164044_510_35.jpg' },
-            { id: 'B002', name: 'Model B002 Premium Solid Wood Mirror Cabinet', desc: 'Material: Solid Wood + Paulownia Frame\nSize: 50×60cm | Full Storage Cabinet\nWarranty: 2 Years | MOQ: 100pcs', price: '$95.56', img: '/img/微信图片_20260707164044_510_35.jpg' },
-            { id: 'B003', name: 'Model B003 Premium Solid Wood Mirror Cabinet', desc: 'Material: Solid Wood + Paulownia Frame\nSize: 50×70cm | Full Storage Cabinet\nWarranty: 2 Years | MOQ: 100pcs', price: '$104.03', img: '/img/微信图片_20260707164044_510_35.jpg' },
-            { id: 'B004', name: 'Model B004 Premium Solid Wood Mirror Cabinet', desc: 'Material: Solid Wood + Paulownia Frame\nSize: 55×70cm | Full Storage Cabinet\nWarranty: 2 Years | MOQ: 100pcs', price: '$110.07', img: '/img/微信图片_20260707164044_510_35.jpg' },
-            { id: 'B005', name: 'Model B005 Premium Solid Wood Mirror Cabinet', desc: 'Material: Solid Wood + Paulownia Frame\nSize: 60×70cm | Full Storage Cabinet\nWarranty: 2 Years | MOQ: 100pcs', price: '$116.12', img: '/img/微信图片_20260707164044_510_35.jpg' },
-            { id: 'B006', name: 'Model B006 Premium Solid Wood Mirror Cabinet', desc: 'Material: Solid Wood + Paulownia Frame\nSize: 60×80cm | Full Storage Cabinet\nWarranty: 2 Years | MOQ: 100pcs', price: '$123.38', img: '/img/微信图片_20260707164044_510_35.jpg' },
-            { id: 'B007', name: 'Model B007 Premium Solid Wood Mirror Cabinet', desc: 'Material: Solid Wood + Paulownia Frame\nSize: 65×80cm | Full Storage Cabinet\nWarranty: 2 Years | MOQ: 100pcs', price: '$129.43', img: '/img/微信图片_20260707164044_510_35.jpg' },
-            { id: 'B008', name: 'Model B008 Premium Solid Wood Mirror Cabinet', desc: 'Material: Solid Wood + Paulownia Frame\nSize: 60×90cm | Full Storage Cabinet\nWarranty: 2 Years | MOQ: 100pcs', price: '$133.06', img: '/img/微信图片_20260707164044_510_35.jpg' },
-            { id: 'B009', name: 'Model B009 Premium Solid Wood Mirror Cabinet', desc: 'Material: Solid Wood + Paulownia Frame\nSize: 70×80cm | Full Storage Cabinet\nWarranty: 2 Years | MOQ: 100pcs', price: '$124.59', img: '/img/微信图片_20260707164044_510_35.jpg' },
-            { id: 'B010', name: 'Model B010 Premium Solid Wood Mirror Cabinet', desc: 'Material: Solid Wood + Paulownia Frame\nSize: 75×85cm | Full Storage Cabinet\nWarranty: 2 Years | MOQ: 100pcs', price: '$130.64', img: '/img/微信图片_20260707164044_510_35.jpg' },
-            { id: 'B011', name: 'Model B011 Premium Solid Wood Mirror Cabinet', desc: 'Material: Solid Wood + Paulownia Frame\nSize: 70×100cm | Full Storage Cabinet\nWarranty: 2 Years | MOQ: 100pcs', price: '$142.73', img: '/img/微信图片_20260707164044_510_35.jpg' },
-            { id: 'B012', name: 'Model B012 Premium Solid Wood Mirror Cabinet', desc: 'Material: Solid Wood + Paulownia Frame\nSize: 80×90cm | Full Storage Cabinet\nWarranty: 2 Years | MOQ: 100pcs', price: '$135.48', img: '/img/微信图片_20260707164044_510_35.jpg' },
-            { id: 'B013', name: 'Model B013 Premium Solid Wood Mirror Cabinet', desc: 'Material: Solid Wood + Paulownia Frame\nSize: 75×100cm | Full Storage Cabinet\nWarranty: 2 Years | MOQ: 100pcs', price: '$143.94', img: '/img/微信图片_20260707164044_510_35.jpg' },
-            { id: 'B014', name: 'Model B014 Premium Solid Wood Mirror Cabinet', desc: 'Material: Solid Wood + Paulownia Frame\nSize: 80×100cm | Full Storage Cabinet\nWarranty: 2 Years | MOQ: 100pcs', price: '$151.20', img: '/img/微信图片_20260707164044_510_35.jpg' },
-            { id: 'B015', name: 'Model B015 Premium Solid Wood Mirror Cabinet', desc: 'Material: Solid Wood + Paulownia Frame\nSize: 85×95cm | Full Storage Cabinet\nWarranty: 2 Years | MOQ: 100pcs', price: '$153.62', img: '/img/微信图片_20260707164044_510_35.jpg' },
-            { id: 'B016', name: 'Model B016 Premium Solid Wood Mirror Cabinet', desc: 'Material: Solid Wood + Paulownia Frame\nSize: 90×90cm | Full Storage Cabinet\nWarranty: 2 Years | MOQ: 100pcs', price: '$154.83', img: '/img/微信图片_20260707164044_510_35.jpg' },
-            { id: 'B017', name: 'Model B017 Premium Solid Wood Mirror Cabinet', desc: 'Material: Solid Wood + Paulownia Frame\nSize: 85×105cm | Full Storage Cabinet\nWarranty: 2 Years | MOQ: 100pcs', price: '$163.30', img: '/img/微信图片_20260707164044_510_35.jpg' },
-            { id: 'B018', name: 'Model B018 Premium Solid Wood Mirror Cabinet', desc: 'Material: Solid Wood + Paulownia Frame\nSize: 90×100cm | Full Storage Cabinet\nWarranty: 2 Years | MOQ: 100pcs', price: '$166.92', img: '/img/微信图片_20260707164044_510_35.jpg' },
-            { id: 'B019', name: 'Model B019 Premium Solid Wood Mirror Cabinet', desc: 'Material: Solid Wood + Paulownia Frame\nSize: 95×100cm | Full Storage Cabinet\nWarranty: 2 Years | MOQ: 100pcs', price: '$171.76', img: '/img/微信图片_20260707164044_510_35.jpg' },
-            { id: 'B020', name: 'Model B020 Premium Solid Wood Mirror Cabinet', desc: 'Material: Solid Wood + Paulownia Frame\nSize: 90×110cm | Full Storage Cabinet\nWarranty: 2 Years | MOQ: 100pcs', price: '$179.02', img: '/img/微信图片_20260707164044_510_35.jpg' },
-            { id: 'B021', name: 'Model B021 Premium Solid Wood Mirror Cabinet', desc: 'Material: Solid Wood + Paulownia Frame\nSize: 100×100cm | Full Storage Cabinet\nWarranty: 2 Years | MOQ: 100pcs', price: '$181.44', img: '/img/微信图片_20260707164044_510_35.jpg' },
-            { id: 'B022', name: 'Model B022 Premium Solid Wood Mirror Cabinet', desc: 'Material: Solid Wood + Paulownia Frame\nSize: 95×115cm | Full Storage Cabinet\nWarranty: 2 Years | MOQ: 100pcs', price: '$188.70', img: '/img/微信图片_20260707164044_510_35.jpg' },
-            { id: 'B023', name: 'Model B023 Premium Solid Wood Mirror Cabinet', desc: 'Material: Solid Wood + Paulownia Frame\nSize: 100×110cm | Full Storage Cabinet\nWarranty: 2 Years | MOQ: 100pcs', price: '$192.33', img: '/img/微信图片_20260707164044_510_35.jpg' },
-            { id: 'B024', name: 'Model B024 Premium Solid Wood Mirror Cabinet', desc: 'Material: Solid Wood + Paulownia Frame\nSize: 105×115cm | Full Storage Cabinet\nWarranty: 2 Years | MOQ: 100pcs', price: '$203.21', img: '/img/微信图片_20260707164044_510_35.jpg' },
-            { id: 'B025', name: 'Model B025 Premium Solid Wood Mirror Cabinet', desc: 'Material: Solid Wood + Paulownia Frame\nSize: 110×120cm | Full Storage Cabinet\nWarranty: 2 Years | MOQ: 100pcs', price: '$211.68', img: '/img/微信图片_20260707164044_510_35.jpg' },
-            { id: 'B026', name: 'Model B026 Premium Solid Wood Mirror Cabinet', desc: 'Material: Solid Wood + Paulownia Frame\nSize: 115×125cm | Full Storage Cabinet\nWarranty: 2 Years | MOQ: 100pcs', price: '$220.15', img: '/img/微信图片_20260707164044_510_35.jpg' },
-            { id: 'B027', name: 'Model B027 Premium Solid Wood Mirror Cabinet', desc: 'Material: Solid Wood + Paulownia Frame\nSize: 120×130cm | Full Storage Cabinet\nWarranty: 2 Years | MOQ: 100pcs', price: '$228.61', img: '/img/微信图片_20260707164044_510_35.jpg' },
-            { id: 'B028', name: 'Model B028 Premium Solid Wood Mirror Cabinet', desc: 'Material: Solid Wood + Paulownia Frame\nSize: 100×140cm | Full Storage Cabinet\nWarranty: 2 Years | MOQ: 100pcs', price: '$224.99', img: '/img/微信图片_20260707164044_510_35.jpg' },
-            { id: 'B029', name: 'Model B029 Premium Solid Wood Mirror Cabinet', desc: 'Material: Solid Wood + Paulownia Frame\nSize: 120×150cm | Full Storage Cabinet\nWarranty: 2 Years | MOQ: 100pcs', price: '$228.61', img: '/img/微信图片_20260707164044_510_35.jpg' }
-        ];
-        bData.forEach(p => PRODUCT.push({ id: p.id, type: 'B', name: p.name, desc: p.desc, price: p.price, img: p.img }));
-
-        // C系列：跳过3、4、7、8，共194款，图片路径为空（上传C001.jpg等后自动加载）
-        for (let i = 1; i <= 198; i++) {
-            if (i === 3 || i === 4 || i === 7 || i === 8) continue;
-            const sizeMm = cSizeMap[i] || { w: 800, h: 500 };
-            const wCm = sizeMm.w / 10;
-            const hCm = sizeMm.h / 10;
-            const areaCm2 = wCm * hCm;
-            const baseArea = 50 * 70;
-            const basePrice = 82.00;
-            const price = (basePrice * areaCm2) / baseArea;
-            const formattedPrice = '$' + price.toFixed(2);
-            const displayId = 'C' + String(i).padStart(3, '0');
-            const imgPath = '';
-            PRODUCTS.push({
-                id: displayId,
-                type: 'C',
-                name: `${i} PVC Bathroom Cabinet`,
-                desc: `Size: ${wCm.toFixed(0)}×${hCm.toFixed(0)}cm\nMaterial: PVC\nMOQ: 200pcs`,
-                price: formattedPrice,
-                img: imgPath,
-                _num: i,
-                _sizeCm: { w: wCm, h: hCm }
-            });
-        }
-
-        // ============================================================
-        // 多语言翻译库 EN / FR
-        // ============================================================
-        const LANG = {
-            en: {
-                all: 'All Products', led: 'LED Mirror', smart: 'Smart Mirror', pvc: 'PVC Cabinet',
-                search: 'Search model / size / material...', viewDetails: 'View Details', inquire: 'Inquire via WhatsApp',
-                copyModel: 'Copy Model', oemTitle: 'OEM & ODM Custom Service', oemSize: 'Custom Size & Shape',
-                oemSizeDesc: 'Round, square, rectangle, irregular shapes, any size 30–200cm',
-                oemLogo: 'Custom Logo Printing', oemLogoDesc: 'Silk screen, laser engraving, sticker logo',
-                oemLight: 'Custom Light Options', oemLightDesc: 'Warm/cool white, dimmable 3000K-6500K',
-                oemFunc: 'Custom Functions', oemFuncDesc: 'Anti-fog, Bluetooth, touch, time display, magnifier',
-                oemPack: 'Custom Packaging', oemPackDesc: 'Brown box, gift box, export carton',
-                oemInfo1: 'Custom MOQ: 100pcs', oemInfo2: 'Sample lead:7-10 days',
-                oemInfo3: 'Mass production:25-30 days', oemInfo4: 'Sea/Air/DDP shipping available',
-                getQuote: 'Get Custom Quote', inquiry: 'Online Inquiry', name: 'Full Name *', company: 'Company',
-                email: 'Email *', qty: 'Quantity(pcs)', sizeReq: 'Size / Custom Request',
-                message: 'Additional Message', send: 'Send Inquiry via WhatsApp', favorites: 'My Favorites',
-                clearAll: 'Clear All', close: 'Close', catalog: 'Product Catalog', copyAll: 'Copy All',
-                noFav: 'No favorites yet.', selected: 'Selected', products: 'products', batchCopy: 'Copy Models',
-                batchInquiry: 'Batch Inquiry', clear: 'Clear', filterPrice: 'Price', filterMoq: 'MOQ',
-                sort: 'Sort', apply: 'Apply', reset: 'Reset', page: 'Page', of: 'of',
-                noResult: 'No matching products found', copySuccess: 'Copied successfully',
-                whatsappMsg: 'Hi I want to inquire about', whatsappBatch: 'I need quotation for below items',
-                catalogTitle: 'Full Product Catalog',
-                fa1q: 'Standard MOQ?', fa1a: 'PVC 50pcs, wood cabinet 100pcs, led mirror 500pcs. OEM 100pcs.',
-                fa2q: 'Sample lead time?', fa2a: '7-10 workdays, bulk 25-30 days after sample confirm.',
-                fa3q: 'Support OEM/ODM?', fa3a: 'Yes, custom size/logo/light/packing/functions.',
-                fa4q: 'Shipping options?', fa4a: 'Sea, air, DHL/FedEx, DDP door delivery.',
-                fa5q: 'Warranty period?', fa5a: '2 years factory defect warranty + spare parts support.',
-                fa6q: 'Bulk discount?', fa6a: 'Yes for orders over 1000pcs, contact for price.',
-                contact: 'Contact Us', factory: 'Factory Info', productsLabel: 'Our Products', follow: 'Follow Us',
-                copyright: '© 2026 Yongling LED Sanitary Mirror Factory. All Rights Reserved.',
-                breadAll: 'All Products', breadA: 'LED Mirror', breadB: 'Smart Cabinet', breadC: 'PVC Cabinet'
-            },
-            fr: {
-                all: 'Tous produits', led: 'Miroir LED', smart: 'Armoire intelligente', pvc: 'Armoire PVC',
-                search: 'Recherche modèle / dimension / matériau...', viewDetails: 'Voir détails',
-                inquire: 'Demander par WhatsApp', copyModel: 'Copier modèle',
-                oemTitle: 'Service personnalisé OEM & ODM', oemSize: 'Taille et forme sur mesure',
-                oemSizeDesc: 'Rond, carré, rectangulaire, formes irrégulières 30-200cm',
-                oemLogo: 'Impression logo personnalisé', oemLogoDesc: 'Sérigraphie, gravure laser, autocollant',
-                oemLight: 'Options d’éclairage', oemLightDesc: 'Blanc chaud/froid, réglable 3000-6500K',
-                oemFunc: 'Fonctions personnalisées', oemFuncDesc: 'Anti-buée, Bluetooth, écran horaire, loupe',
-                oemPack: 'Emballage sur mesure', oemPackDesc: 'Carton marron, coffret cadeau, export',
-                oemInfo1: 'MOQ sur mesure : 100 pièces', oemInfo2: 'Délai échantillon :7-10j',
-                oemInfo3: 'Production série :25-30j', oemInfo4: 'Livraison mer/air/DDP',
-                getQuote: 'Demander devis personnalisé', inquiry: 'Demande en ligne', name: 'Nom complet *',
-                company: 'Société', email: 'Email *', qty: 'Quantité(pcs)', sizeReq: 'Taille / demande spéciale',
-                message: 'Message complémentaire', send: 'Envoyer demande WhatsApp', favorites: 'Mes favoris',
-                clearAll: 'Tout supprimer', close: 'Fermer', catalog: 'Catalogue produits', copyAll: 'Tout copier',
-                noFav: 'Aucun favori pour l’instant.', selected: 'Sélectionné(s)', products: 'produits',
-                batchCopy: 'Copier modèles', batchInquiry: 'Demande groupée', clear: 'Effacer',
-                filterPrice: 'Prix', filterMoq: 'Quantité minimum', sort: 'Trier', apply: 'Valider',
-                reset: 'Réinitialiser', page: 'Page', of: 'sur', noResult: 'Aucun produit trouvé',
-                copySuccess: 'Copié avec succès', whatsappMsg: 'Bonjour je veux demander un devis sur',
-                whatsappBatch: 'Je souhaiterais un devis pour ces articles', catalogTitle: 'Catalogue complet',
-                fa1q: 'MOQ standard ?', fa1a: 'PVC 50pcs, armoire bois 100pcs, miroir LED 500pcs. OEM 100pcs.',
-                fa2q: 'Délai échantillon ?', fa2a: '7-10 jours ouvrables, série 25-30j validation échantillon.',
-                fa3q: 'OEM/ODM possible ?', fa3a: 'Oui taille/logo/lumière/emballage/fonctions personnalisables.',
-                fa4q: 'Modes livraison ?', fa4a: 'Mer, avion, DHL/FedEx, livraison porte DDP.',
-                fa5q: 'Durée garantie ?', fa5a: 'Garantie 2 ans défaut usine + pièces de rechange.',
-                fa6q: 'Remise grande quantité ?', fa6a: 'Oui commande >1000pcs nous contacter tarif.',
-                contact: 'Nous contacter', factory: 'Infos usine', productsLabel: 'Nos produits', follow: 'Nous suivre',
-                copyright: '© 2026 Yongling LED Sanitary Mirror Factory. Tous droits réservés.',
-                breadAll: 'Tous produits', breadA: 'Miroir LED', breadB: 'Armoire intelligente', breadC: 'Armoire PVC'
-            }
-        };
-
-        // ============================================================
-        // 通用工具函数
-        // ============================================================
-        function debounce(fn, delay) { let t; return (...args) => { clearTimeout(t); t = setTimeout(() => fn(...args), delay); } }
-        function throttle(fn, limit) { let flag = false; return (...args) => { if (!flag) { fn(...args); flag = true; setTimeout(() => flag = false, limit); } } }
-        function getSvgPlaceholder() { return `<svg width="120" height="120" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8zm1-13h-2v6h2V7zm0 8h-2v2h2v-2z" fill="#c890a0"/></svg>`; }
-        function showToast(msg) { const t = document.getElementById('copyToast'); t.textContent = msg; t.classList.add('show'); clearTimeout(t._timer); t._timer = setTimeout(() => t.classList.remove('show'), 2000); }
-        function copyToClipboard(text, successMsg) {
-            const cb = navigator.clipboard;
-            if (cb) {
-                cb.writeText(text).then(() => showToast(successMsg || getLangText('copySuccess'))).catch(fallbackCopy);
-            } else fallbackCopy(text, successMsg);
-        }
-        function fallbackCopy(text, successMsg) {
-            const ta = document.createElement('textarea'); ta.value = text; ta.style.opacity = '0'; document.body.appendChild(ta); ta.select(); document.execCommand('copy'); document.body.removeChild(ta); showToast(successMsg || getLangText('copySuccess'));
-        }
-        function getLangText(key) { return LANG[currentLang][key] || LANG.en[key] || key; }
-
-        // ============================================================
-        // DOM缓存
-        // ============================================================
-        const container = document.getElementById('productContainer');
-        const emptyState = document.getElementById('emptyState');
-        const resultCount = document.getElementById('resultCount');
-        const searchInput = document.getElementById('searchInput');
-        const filterTabs = document.querySelectorAll('.filter-tab');
-        const breadcrumbLabel = document.getElementById('breadcrumbLabel');
-        const pageNumbers = document.getElementById('pageNumbers');
-        const pagePrev = document.getElementById('pagePrev');
-        const pageNext = document.getElementById('pageNext');
-        const pageInfo = document.getElementById('pageInfo');
-        const batchBar = document.getElementById('batchBar');
-        const batchCount = document.getElementById('batchCount');
-
-        // ============================================================
-        // 筛选分页渲染核心
-        // ============================================================
-        function getDisplayModel(item) { return item.id; }
-        function getFilteredProducts() {
-            let list = [...PRODUCTS];
-            if (currentFilter !== 'all') list = list.filter(p => p.type === currentFilter);
-            const kw = searchKeyword.trim().toLowerCase();
-            if (kw) list = list.filter(p => p.id.toLowerCase().includes(kw) || p.name.toLowerCase().includes(kw) || p.desc.toLowerCase().includes(kw));
-            const minP = parseFloat(priceMin || '0'), maxP = parseFloat(priceMax || '9999');
-            list = list.filter(p => { const pr = parseFloat(p.price.replace('$','')); return pr >= minP && pr <= maxP; });
-            if (filterMoq) { const mq = Number(filterMoq); list = list.filter(p => { const m = p.desc.match(/MOQ:\s*(\d+)/); return m && Number(m[1]) >= mq; }); }
-            if (sortBy === 'price-asc') list.sort((a,b)=>parseFloat(a.price.slice(1)) - parseFloat(b.price.slice(1)));
-            if (sortBy === 'price-desc') list.sort((a,b)=>parseFloat(b.price.slice(1)) - parseFloat(a.price.slice(1)));
-            if (sortBy === 'model') list.sort((a,b)=>a.id.localeCompare(b));
-            return list;
-        }
-        function renderProducts() {
-            const allFiltered = getFilteredProducts();
-            const total = allFiltered.length;
-            const totalPage = Math.ceil(total / CONFIG.PER_PAGE) || 1;
-            if (currentPage > totalPage) currentPage = totalPage;
-            if (currentPage < 1) currentPage = 1;
-            const order = { A:0,B:1,C:2 };
-            allFiltered.sort((a,b)=> (order[a.type]||9) - (order[b.type]||9));
-            const start = (currentPage - 1) * CONFIG.PER_PAGE;
-            const pageList = allFiltered.slice(start, start + CONFIG.PER_PAGE);
-            container.querySelectorAll('.product-card').forEach(el => el.remove());
-            emptyState.classList.toggle('show', pageList.length === 0);
-            let html = '';
-            pageList.forEach(item => {
-                const fav = favorites.includes(item.id);
-                const checked = batchSelected.has(item.id) ? 'checked' : '';
-                const hasImg = !!item.img;
-                const model = getDisplayModel(item);
-                html += `
-                    <div class="product-card" data-id="${item.id}">
-                        <div class="img-box">
-                            ${hasImg ? `<img class="product-img" src="${item.img}" alt="${model}" loading="lazy" onerror="this.style.display='none';this.nextElementSibling.style='flex'">` : ''}
-                            <div class="img-placeholder" style="display:${hasImg ? 'none' : 'flex'};">${getSvgPlaceholder()}<span>No image</span></div>
-                            <span class="model-tag">${model}</span>
-                            <button class="favorite-btn ${fav?'active':''}" onclick="toggleFav('${item.id}')">${fav?'♥':'♡'}</button>
-                            <input type="checkbox" class="product-check" ${checked} onchange="toggleBatch('${item.id}')">
+    <!-- ====================== 全部弹窗容器 ====================== -->
+    <!-- 产品详情弹窗 -->
+    <div class="modal-mask" id="productModal">
+        <div class="modal-box">
+            <div class="modal-header">
+                <h3 class="modal-title" id="modalTitle"></h3>
+                <button class="close-modal" onclick="closeProductModal()">✕</button>
+            </div>
+            <div class="modal-body">
+                <img id="modalImg" class="modal-img" onclick="openImageFullscreen()" alt="">
+                <div class="meta-row" id="modalMeta"></div>
+                <div id="modalContent"></div>
+            </div>
+            <div class="modal-footer">
+                <button class="btn-primary" onclick="contactWhatsApp()" data-lang-key="inquire">Inquire via WhatsApp</button>
+                <button class="btn-secondary" onclick="closeProductModal()" data-lang-key="close">Close</button>
+            </div>
+        </div>
+    </div>
+    <!-- OEM弹窗 -->
+    <div class="modal-mask" id="oemModal">
+        <div class="modal-box">
+            <div class="modal-header">
+                <h3 class="modal-title" data-lang-key="oemTitle">OEM & ODM Custom Service</h3>
+                <button class="close-modal" onclick="closeOEMModal()">✕</button>
+            </div>
+            <div class="modal-body">
+                <div class="mb-24">
+                    <h4 data-lang-key="oemSize">Custom Size & Shape</h4>
+                    <p data-lang-key="oemSizeDesc"></p>
+                </div>
+                <div class="mb-24">
+                    <h4 data-lang-key="oemLogo">Custom Logo Printing</h4>
+                    <p data-lang-key="oemLogoDesc"></p>
+                </div>
+                <div class="mb-24">
+                    <h4 data-lang-key="oemLight">Custom Light Options</h4>
+                    <p data-lang-key="oemLightDesc"></p>
+                </div>
+                <div class="mb-24">
+                    <h4 data-lang-key="oemFunc">Custom Functions</h4>
+                    <p data-lang-key="oemFuncDesc"></p>
+                </div>
+                <div class="mb-24">
+                    <h4 data-lang-key="oemPack">Custom Packaging</h4>
+                    <p data-lang-key="oemPackDesc"></p>
+                </div>
+                <ul>
+                    <li data-lang-key="oemInfo1">Custom MOQ: 100pcs</li>
+                    <li data-lang-key="oemInfo2">Sample lead:7-10 Days</li>
+                    <li data-lang-key="oemInfo3">Mass production:25-30 Days</li>
+                    <li data-lang-key="oemInfo4">Sea / Air / DDP shipping available</li>
+                </ul>
+            </div>
+            <div class="modal-footer">
+                <button class="btn-primary" onclick="contactWhatsAppOEM()" data-lang-key="getQuote">Get Custom Quote</button>
+                <button class="btn-secondary" onclick="closeOEMModal()" data-lang-key="close">Close</button>
+            </div>
+        </div>
+    </div>
+    <!-- 询价表单弹窗 -->
+    <div class="modal-mask" id="inquiryModal">
+        <div class="modal-box">
+            <div class="modal-header">
+                <h3 class="modal-title" data-lang-key="inquiry">Online Inquiry Form</h3>
+                <button class="close-modal" onclick="closeInquiryModal()">✕</button>
+            </div>
+            <div class="modal-body">
+                <form id="inquiryForm">
+                    <div class="form-row flex gap-12 mb-20">
+                        <div style="flex:1">
+                            <label data-lang-key="name">Full Name *</label>
+                            <input type="text" id="inqName" required placeholder="">
                         </div>
-                        <div class="product-info">
-                            <div class="product-model">${model}</div>
-                            <div class="product-price">${item.price}</div>
-                            <div class="card-actions">
-                                <button class="order-btn" onclick="openProductModal('${item.id}')">${getLangText('viewDetails')}</button>
-                                <button class="quick-whatsapp" onclick="quickWhatsApp('${item.id}')">💬</button>
-                            </div>
+                        <div style="flex:1">
+                            <label data-lang-key="company">Company</label>
+                            <input type="text" id="inqCompany" placeholder="">
                         </div>
                     </div>
-                `;
-            });
-            container.insertAdjacentHTML('afterbegin', html);
-            resultCount.textContent = total + ' ' + getLangText('products');
-            renderPagination(total, totalPage);
-            updateBatchBar();
-            updateBreadcrumb();
+                    <div class="form-row flex gap-12 mb-20">
+                        <div style="flex:1">
+                            <label data-lang-key="email">Email *</label>
+                            <input type="email" id="inqEmail" required placeholder="">
+                        </div>
+                        <div style="flex:1">
+                            <label data-lang-key="qty">Quantity(pcs)</label>
+                            <input type="number" id="inqQty" placeholder="">
+                        </div>
+                    </div>
+                    <div class="mb-20">
+                        <label data-lang-key="sizeReq">Size / Custom Request</label>
+                        <input type="text" id="inqSize" placeholder="">
+                    </div>
+                    <div class="mb-20">
+                        <label data-lang-key="message">Additional Message</label>
+                        <textarea id="inqMessage" rows="4" placeholder=""></textarea>
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button class="btn-primary" onclick="submitInquiry()" data-lang-key="send">Send Inquiry via WhatsApp</button>
+                <button class="btn-secondary" onclick="closeInquiryModal()" data-lang-key="close">Close</button>
+            </div>
+        </div>
+    </div>
+    <!-- 收藏弹窗 -->
+    <div class="modal-mask" id="favModal">
+        <div class="modal-box">
+            <div class="modal-header">
+                <h3 class="modal-title" data-lang-key="favorites">My Favorites List</h3>
+                <button class="close-modal" onclick="closeFavModal()">✕</button>
+            </div>
+            <div class="modal-body" id="favList"></div>
+            <div class="modal-footer">
+                <button class="btn-secondary" onclick="clearAllFavorites()" data-lang-key="clearAll">Clear All</button>
+                <button class="btn-secondary" onclick="closeFavModal()" data-lang-key="close">Close</button>
+            </div>
+        </div>
+    </div>
+    <!-- 产品目录弹窗 -->
+    <div class="modal-mask" id="catalogModal">
+        <div class="modal-box">
+            <div class="modal-header">
+                <h3 class="modal-title" data-lang-key="catalogTitle">Full Product Catalog</h3>
+                <button class="close-modal" onclick="closeCatalogModal()">✕</button>
+            </div>
+            <div class="modal-body" id="catalogContentWrap"></div>
+            <div class="modal-footer">
+                <button class="btn-secondary" onclick="copyCatalog()" data-lang-key="copyAll">Copy All Text</button>
+                <button class="btn-secondary" onclick="closeCatalogModal()" data-lang-key="close">Close</button>
+            </div>
+        </div>
+    </div>
+
+<script>
+// ====================== 全局基础配置 ======================
+const CONFIG = {
+    WHATSAPP_NUM: '8617799215074',
+    PER_PAGE: 24,
+    C_BASE_WIDTH_MM: 500,
+    C_BASE_HEIGHT_MM: 700,
+    C_BASE_PRICE: 82.00
+};
+// 筛选分页全局状态
+let currentFilter = 'all';
+let currentPage = 1;
+let searchKeyword = '';
+let priceMin = '';
+let priceMax = '';
+let filterMoq = '';
+let sortBy = 'default';
+let favorites = JSON.parse(localStorage.getItem('yl_fav') || '[]');
+let batchSelected = new Set();
+let currentLang = localStorage.getItem('yl_lang') || 'en';
+let darkMode = localStorage.getItem('yl_dark') === 'true';
+let currentViewProduct = null;
+
+// ====================== 多语言翻译库 ======================
+const LANG = {
+    en: {
+        all: 'All Products', led: 'LED Mirror', smart: 'Smart Mirror Cabinet', pvc: 'PVC Bathroom Cabinet',
+        search: 'Search model / size / material...', viewDetails: 'View Details', inquire: 'Inquire via WhatsApp',
+        copyModel: 'Copy Model', oemTitle: 'OEM & ODM Custom Service', oemSize: 'Custom Size & Shape',
+        oemSizeDesc: 'Round, square, rectangle, irregular shapes, any size from 30cm to 200cm',
+        oemLogo: 'Custom Logo Printing', oemLogoDesc: 'Silk screen print, laser engraving, adhesive sticker logo',
+        oemLight: 'Custom Light Options', oemLightDesc: 'Warm white / Cool white / Dimmable 3000K~6500K',
+        oemFunc: 'Custom Functions', oemFuncDesc: 'Anti-fog pad, Bluetooth audio, touch control, time display, magnifier mirror',
+        oemPack: 'Custom Packaging', oemPackDesc: 'Plain brown carton, gift color box, export pallet packing',
+        oemInfo1: 'Custom MOQ: 100pcs', oemInfo2: 'Sample lead time:7-10 workdays',
+        oemInfo3: 'Mass production lead:25-30 workdays', oemInfo4: 'Sea freight, air freight & DDP door delivery available',
+        getQuote: 'Get Custom Quote', inquiry: 'Online Inquiry', name: 'Full Name *', company: 'Company Name',
+        email: 'Email Address *', qty: 'Quantity(pcs)', sizeReq: 'Custom Size / Special Request',
+        message: 'Additional Message', send: 'Send Inquiry via WhatsApp', favorites: 'My Favorites',
+        clearAll: 'Clear All Favorites', close: 'Close', catalog: 'Product Catalog', copyAll: 'Copy Full Catalog Text',
+        noResult: 'No matching products found', noFav: 'You have not saved any favorite product yet',
+        selected: 'Selected', products: 'products', batchCopy: 'Copy Selected Models', batchInquiry: 'Batch WhatsApp Inquiry',
+        clear: 'Clear Selection', filterPrice: 'Price', filterMoq: 'Minimum MOQ', sort: 'Sort Order',
+        apply: 'Apply Filters', reset: 'Reset All Filters', page: 'Page', of: 'of',
+        copySuccess: 'Copied to clipboard successfully', whatsappMsg: 'Hello, I want to ask quotation for model: ',
+        whatsappBatch: 'Hello, I need bulk quotation for below items:\n', catalogTitle: 'Full Factory Product Catalog',
+        fa1q: 'What is standard MOQ?', fa1a: 'PVC cabinet 50pcs, solid wood mirror cabinet 100pcs, LED mirror 300pcs. OEM custom 100pcs.',
+        fa2q: 'How long for sample production?', fa2a: '7-10 working days, bulk order 25-30 days after sample confirmation.',
+        fa3q: 'Do you support OEM & ODM customization?', fa3a: 'Yes, we can customize size, logo, light color, functions and package.',
+        fa4q: 'What shipping methods do you provide?', fa4a: 'Sea shipping, air freight, DHL/FedEx express, DDP door to door delivery.',
+        fa5q: 'What is the warranty policy?', fa5a: '2-year factory warranty for all manufacturing defects, free spare parts supply.',
+        fa6q: 'Is bulk discount available for large orders?', fa6a: 'Yes, special discounted price for orders over 1000pcs, contact us for detailed offer.',
+        contact: 'Contact Us', factory: 'Factory Info', productsLabel: 'Our Product Series', follow: 'Certifications',
+        copyright: '© 2026 Yongling LED Sanitary Mirror Factory. All Rights Reserved.',
+        breadAll: 'All Products', breadA: 'LED Mirror Series', breadB: 'Solid Wood Smart Cabinet Series', breadC: 'PVC Waterproof Cabinet Series'
+    },
+    fr: {
+        all: 'Tous les Produits', led: 'Miroir LED', smart: 'Armoire Miroir Intelligente', pvc: 'Armoire Salle Bain PVC',
+        search: 'Recherche par modèle / dimension / matériau...', viewDetails: 'Voir Détails', inquire: 'Demander Devis WhatsApp',
+        copyModel: 'Copier Modèle', oemTitle: 'Service Personnalisé OEM & ODM', oemSize: 'Taille et Forme Sur Mesure',
+        oemSizeDesc: 'Rond, carré, rectangulaire, formes irrégulières, 30cm à 200cm',
+        oemLogo: 'Impression Logo Personnalisé', oemLogoDesc: 'Sérigraphie, gravure laser, autocollant logo',
+        oemLight: 'Options Lumière Sur Mesure', oemLightDesc: 'Blanc chaud / Blanc froid / Réglable 3000K~6500K',
+        oemFunc: 'Fonctions Sur Mesure', oemFuncDesc: 'Anti-buée, Bluetooth, écran tactile, horloge, miroir grossissant',
+        oemPack: 'Emballage Personnalisé', oemPackDesc: 'Carton marron simple, boîte cadeau, emballage export',
+        oemInfo1: 'MOQ sur mesure : 100 pièces', oemInfo2: 'Délai échantillon :7-10 jours ouvrables',
+        oemInfo3: 'Production série :25-30 jours ouvrables', oemInfo4: 'Livraison maritime, aérienne et DDP porte à porte',
+        getQuote: 'Demander Devis Personnalisé', inquiry: 'Demande en Ligne', name: 'Nom Complet *', company: 'Société',
+        email: 'Email *', qty: 'Quantité(pcs)', sizeReq: 'Dimension / Demande Spéciale',
+        message: 'Message Complémentaire', send: 'Envoyer Demande par WhatsApp', favorites: 'Mes Favoris',
+        clearAll: 'Supprimer Tous Favoris', close: 'Fermer', catalog: 'Catalogue Produits', copyAll: 'Copier Tout le Catalogue',
+        noResult: 'Aucun produit ne correspond à votre recherche', noFav: 'Vous n\'avez pas encore de produit favori',
+        selected: 'Sélectionné(s)', products: 'produits', batchCopy: 'Copier Modèles Sélectionnés', batchInquiry: 'Demande Groupée WhatsApp',
+        clear: 'Effacer la Sélection', filterPrice: 'Prix', filterMoq: 'MOQ Minimum', sort: 'Tri',
+        apply: 'Appliquer Filtres', reset: 'Réinitialiser Filtres', page: 'Page', of: 'sur',
+        copySuccess: 'Copié dans le presse-papiers', whatsappMsg: 'Bonjour, je demande un devis pour le modèle : ',
+        whatsappBatch: 'Bonjour, j\'ai besoin d\'un devis groupé pour ces articles :\n', catalogTitle: 'Catalogue Complet Usine',
+        fa1q: 'Quel est le MOQ standard ?', fa1a: 'Armoire PVC 50pcs, armoire bois 100pcs, miroir LED 300pcs. OEM 100pcs.',
+        fa2q: 'Délai de fabrication échantillon ?', fa2a: '7-10 jours ouvrables, production 25-30j après validation échantillon.',
+        fa3q: 'Proposez-vous OEM / ODM ?', fa3a: 'Oui, taille, logo, lumière, fonctions et emballage personnalisables.',
+        fa4q: 'Modes de livraison disponibles ?', fa4a: 'Maritime, aérien, DHL/FedEx, livraison DDP porte à porte.',
+        fa5q: 'Garantie produit ?', fa5a: '2 ans de garantie défaut usine, pièces de rechange gratuites.',
+        fa6q: 'Remise pour grosses commandes ?', fa6a: 'Oui, tarifs réduits au-delà de 1000pcs, contactez-nous.',
+        contact: 'Nous Contacter', factory: 'Infos Usine', productsLabel: 'Nos Gamme Produits', follow: 'Certifications',
+        copyright: '© 2026 Yongling LED Sanitary Mirror Factory. Tous Droits Réservés.',
+        breadAll: 'Tous Produits', breadA: 'Gamme Miroirs LED', breadB: 'Gamme Armoires Bois Intelligent', breadC: 'Gamme Armoires PVC Etanche'
+    }
+};
+// 获取当前语言文本
+function getLangText(key) {
+    return LANG[currentLang][key] || LANG.en[key] || key;
+}
+// 切换语言并全局刷新文本
+function switchLang(lang) {
+    currentLang = lang;
+    localStorage.setItem('yl_lang', lang);
+    document.querySelectorAll('.lang-switch button').forEach(btn => {
+        btn.classList.toggle('active', btn.dataset.lang === lang);
+    });
+    applyAllLangText();
+    renderProducts();
+    if(document.getElementById('favModal').classList.contains('show')) renderFavList();
+    if(document.getElementById('catalogModal').classList.contains('show')) renderCatalogTable();
+}
+// 全局替换所有data-lang-key文字
+function applyAllLangText() {
+    document.querySelectorAll('[data-lang-key]').forEach(el => {
+        const k = el.dataset.langKey;
+        const txt = getLangText(k);
+        if(el.tagName === 'INPUT' || el.tagName === 'TEXTAREA') {
+            el.placeholder = txt;
+        } else {
+            el.textContent = txt;
         }
-        function renderPagination(total, totalPage) {
-            pagePrev.disabled = currentPage <= 1;
-            pageNext.disabled = currentPage >= totalPage;
-            pageInfo.textContent = `${getLangText('page')} ${currentPage} ${getLangText('of')} ${totalPage}`;
-            let pHtml = '';
-            const showMax = 5;
-            let s = Math.max(1, currentPage - Math.floor(showMax/2));
-            let e = Math.min(totalPage, s + showMax -1);
-            if (e - s < showMax -1) s = Math.max(1, e - showMax +1);
-            if (s > 1) { pHtml += `<button onclick="goPage(1)">1</button>`; if (s>2) pHtml += '<span>…</span>'; }
-            for(let i=s;i<=e;i++) pHtml += `<button class="${i===currentPage?'active':''}" onclick="goPage(${i})">${i}</button>`;
-            if (e < totalPage) { if(e < totalPage-1) pHtml += '<span>…</span>'; pHtml += `<button onclick="goPage(${totalPage})">${totalPage}</button>`; }
-            pageNumbers.innerHTML = pHtml;
+    });
+}
+
+// ====================== 暗黑模式切换 ======================
+function toggleDarkMode() {
+    darkMode = !darkMode;
+    localStorage.setItem('yl_dark', darkMode);
+    document.documentElement.setAttribute('data-theme', darkMode ? 'dark' : 'light');
+    document.getElementById('themeToggle').textContent = darkMode ? '☀️' : '🌓';
+}
+
+// ====================== 通用工具函数 ======================
+// 防抖
+function debounce(fn, delay) {
+    let timer;
+    return (...args) => {
+        clearTimeout(timer);
+        timer = setTimeout(() => fn(...args), delay);
+    }
+}
+// 节流
+function throttle(fn, delay) {
+    let flag = false;
+    return (...args) => {
+        if(!flag) {
+            fn(...args);
+            flag = true;
+            setTimeout(()=>flag=false, delay);
         }
-        function goPage(page) {
-            const tp = Math.ceil(getFilteredProducts().length / CONFIG.PER_PAGE) ||1;
-            if(page <1) page=1; if(page>tp) page=tp; currentPage=page; renderProducts(); window.scrollTo({top:0,behavior:'smooth'}); }
-        function updateBreadcrumb() {
-            const map = {all:'breadAll',A:'breadA',B:'breadB',C:'breadC'};
-            breadcrumbLabel.textContent = getLangText(map[currentFilter]);
+    }
+}
+// SVG图片占位符
+function getPlaceholderSvg() {
+    return `<svg width="120" height="120" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8zm1-13h-2v6h2V7zm0 8h-2v2h2v-2z" fill="currentColor" opacity="0.4"/>
+    </svg>`;
+}
+// 复制到剪贴板 + Toast提示
+function copyToClipboard(text, customMsg) {
+    const toast = document.getElementById('copyToast');
+    const msg = customMsg || getLangText('copySuccess');
+    const cb = navigator.clipboard;
+    if(cb) {
+        cb.writeText(text).then(()=>showToast(msg)).catch(()=>fallbackCopy(text, msg));
+    } else {
+        fallbackCopy(text, msg);
+    }
+}
+function fallbackCopy(text, msg) {
+    const ta = document.createElement('textarea');
+    ta.value = text;
+    ta.style.opacity = '0';
+    document.body.appendChild(ta);
+    ta.select();
+    document.execCommand('copy');
+    document.body.removeChild(ta);
+    showToast(msg);
+}
+function showToast(msg) {
+    const toast = document.getElementById('copyToast');
+    toast.textContent = msg;
+    toast.classList.add('show');
+    clearTimeout(toast._t);
+    toast._t = setTimeout(()=>toast.classList.remove('show'), 2000);
+}
+function copyText(text) {
+    copyToClipboard(text, `Copied: ${text}`);
+}
+function copySitemap() {
+    copyToClipboard('https://ledmirror-factory-esra.pages.dev/\n#products\n#oem-custom\n#faq', 'Site map copied');
+}
+// 滚动顶部
+function scrollToTop() {
+    window.scrollTo({top:0, behavior:'smooth'});
+}
+// FAQ折叠切换
+function toggleFaq(el) {
+    const ans = el.nextElementSibling;
+    const arrow = el.querySelector('.arrow');
+    ans.classList.toggle('open');
+    arrow.textContent = ans.classList.contains('open') ? '▲' : '▼';
+}
+// 滚动监听（头部收缩、返回顶部按钮）
+function handleScroll() {
+    const header = document.getElementById('siteHeader');
+    const backTop = document.getElementById('backTop');
+    if(window.scrollY > 30) header.classList.add('scrolled');
+    else header.classList.remove('scrolled');
+    if(window.scrollY > 300) backTop.classList.add('show');
+    else backTop.classList.remove('show');
+}
+
+// ====================== A系列产品数据 29款 ======================
+const A_RAW = [
+    {id:"A001",name:"Model A001 LED Anti-Fog Mirror",desc:"Material: Paulownia Frame Mirror\nSize: 50×50cm | LED + Anti-Fog + Storage\nWarranty: 2 Years | MOQ: 300pcs",price:"$14.90",img:"/img/微信图片_20260707164222_511_35.jpg"},
+    {id:"A002",name:"Model A002 LED Anti-Fog Mirror",desc:"Material: Paulownia Frame Mirror\nSize: 55×55cm | LED + Anti-Fog + Storage\nWarranty: 2 Years | MOQ: 300pcs",price:"$15.90",img:"/img/微信图片_20260707164222_511_35.jpg"},
+    {id:"A003",name:"Model A003 LED Anti-Fog Mirror",desc:"Material: Paulownia Frame Mirror\nSize: 60×60cm | LED + Anti-Fog + Storage\nWarranty: 2 Years | MOQ: 300pcs",price:"$16.90",img:"/img/微信图片_20260707164222_511_35.jpg"},
+    {id:"A004",name:"Model A004 LED Anti-Fog Mirror",desc:"Material: Paulownia Frame Mirror\nSize: 65×65cm | LED + Anti-Fog + Storage\nWarranty: 2 Years | MOQ: 300pcs",price:"$17.90",img:"/img/微信图片_20260707164222_511_35.jpg"},
+    {id:"A005",name:"Model A005 LED Anti-Fog Mirror",desc:"Material: Paulownia Frame Mirror\nSize: 70×70cm | LED + Anti-Fog + Storage\nWarranty: 2 Years | MOQ: 300pcs",price:"$18.90",img:"/img/微信图片_20260707164222_511_35.jpg"},
+    {id:"A006",name:"Model A006 LED Anti-Fog Mirror",desc:"Material: Paulownia Frame Mirror\nSize: 75×75cm | LED + Anti-Fog + Storage\nWarranty: 2 Years | MOQ: 300pcs",price:"$19.90",img:"/img/微信图片_20260707164222_511_35.jpg"},
+    {id:"A007",name:"Model A007 LED Anti-Fog Mirror",desc:"Material: Paulownia Frame Mirror\nSize: 80×80cm | LED + Anti-Fog + Storage\nWarranty: 2 Years | MOQ: 300pcs",price:"$20.90",img:"/img/微信图片_20260707164222_511_35.jpg"},
+    {id:"A008",name:"Model A008 LED Anti-Fog Mirror",desc:"Material: Paulownia Frame Mirror\nSize: 85×85cm | LED + Anti-Fog + Storage\nWarranty: 2 Years | MOQ: 300pcs",price:"$21.90",img:"/img/微信图片_20260707164222_511_35.jpg"},
+    {id:"A009",name:"Model A009 LED Anti-Fog Mirror",desc:"Material: Paulownia Frame Mirror\nSize: 90×90cm | LED + Anti-Fog + Storage\nWarranty: 2 Years | MOQ: 300pcs",price:"$22.90",img:"/img/微信图片_20260707164222_511_35.jpg"},
+    {id:"A010",name:"Model A010 LED Anti-Fog Mirror",desc:"Material: Paulownia Frame Mirror\nSize: 95×95cm | LED + Anti-Fog + Storage\nWarranty: 2 Years | MOQ: 300pcs",price:"$23.90",img:"/img/微信图片_20260707164222_511_35.jpg"},
+    {id:"A011",name:"Model A011 LED Anti-Fog Mirror",desc:"Material: Paulownia Frame Mirror\nSize: 100×100cm | LED + Anti-Fog + Storage\nWarranty: 2 Years | MOQ: 300pcs",price:"$24.90",img:"/img/微信图片_20260707164222_511_35.jpg"},
+    {id:"A012",name:"Model A012 LED Anti-Fog Mirror",desc:"Material: Paulownia Frame Mirror\nSize: 105×105cm | LED + Anti-Fog + Storage\nWarranty: 2 Years | MOQ: 300pcs",price:"$26.40",img:"/img/微信图片_20260707164222_511_35.jpg"},
+    {id:"A013",name:"Model A013 LED Anti-Fog Mirror",desc:"Material: Paulownia Frame Mirror\nSize: 110×110cm | LED + Anti-Fog + Storage\nWarranty: 2 Years | MOQ: 300pcs",price:"$27.90",img:"/img/微信图片_20260707164222_511_35.jpg"},
+    {id:"A014",name:"Model A014 LED Anti-Fog Mirror",desc:"Material: Paulownia Frame Mirror\nSize: 115×115cm | LED + Anti-Fog + Storage\nWarranty: 2 Years | MOQ: 300pcs",price:"$29.40",img:"/img/微信图片_20260707164222_511_35.jpg"},
+    {id:"A015",name:"Model A015 LED Anti-Fog Mirror",desc:"Material: Paulownia Frame Mirror\nSize: 120×120cm | LED + Anti-Fog + Storage\nWarranty: 2 Years | MOQ: 300pcs",price:"$30.90",img:"/img/微信图片_20260707164222_511_35.jpg"},
+    {id:"A016",name:"Model A016 LED Anti-Fog Mirror",desc:"Material: Paulownia Frame Mirror\nSize: 50×70cm | LED + Anti-Fog + Storage\nWarranty: 2 Years | MOQ: 300pcs",price:"$15.90",img:"/img/微信图片_20260707164222_511_35.jpg"},
+    {id:"A017",name:"Model A017 LED Anti-Fog Mirror",desc:"Material: Paulownia Frame Mirror\nSize: 60×80cm | LED + Anti-Fog + Storage\nWarranty: 2 Years | MOQ: 300pcs",price:"$17.90",img:"/img/微信图片_20260707164222_511_35.jpg"},
+    {id:"A018",name:"Model A018 LED Anti-Fog Mirror",desc:"Material: Paulownia Frame Mirror\nSize: 70×90cm | LED + Anti-Fog + Storage\nWarranty: 2 Years | MOQ: 300pcs",price:"$19.90",img:"/img/微信图片_20260707164222_511_35.jpg"},
+    {id:"A019",name:"Model A019 LED Anti-Fog Mirror",desc:"Material: Paulownia Frame Mirror\nSize: 80×100cm | LED + Anti-Fog + Storage\nWarranty: 2 Years | MOQ: 300pcs",price:"$21.90",img:"/img/微信图片_20260707164222_511_35.jpg"},
+    {id:"A020",name:"Model A020 LED Anti-Fog Mirror",desc:"Material: Paulownia Frame Mirror\nSize: 90×110cm | LED + Anti-Fog + Storage\nWarranty: 2 Years | MOQ: 300pcs",price:"$24.90",img:"/img/微信图片_20260707164222_511_35.jpg"},
+    {id:"A021",name:"Model A021 LED Anti-Fog Mirror",desc:"Material: Paulownia Frame Mirror\nSize: 100×120cm | LED + Anti-Fog + Storage\nWarranty: 2 Years | MOQ: 300pcs",price:"$27.90",img:"/img/微信图片_20260707164222_511_35.jpg"},
+    {id:"A022",name:"Model A022 LED Anti-Fog Mirror",desc:"Material: Paulownia Frame Mirror\nSize: 50×80cm | LED + Anti-Fog + Storage\nWarranty: 2 Years | MOQ: 300pcs",price:"$16.90",img:"/img/微信图片_20260707164222_511_35.jpg"},
+    {id:"A023",name:"Model A023 LED Anti-Fog Mirror",desc:"Material: Paulownia Frame Mirror\nSize: 60×90cm | LED + Anti-Fog + Storage\nWarranty: 2 Years | MOQ: 300pcs",price:"$19.40",img:"/img/微信图片_20260707164222_511_35.jpg"},
+    {id:"A024",name:"Model A024 LED Anti-Fog Mirror",desc:"Material: Paulownia Frame Mirror\nSize: 70×100cm | LED + Anti-Fog + Storage\nWarranty: 2 Years | MOQ: 300pcs",price:"$21.90",img:"/img/微信图片_20260707164222_511_35.jpg"},
+    {id:"A025",name:"Model A025 LED Anti-Fog Mirror",desc:"Material: Paulownia Frame Mirror\nSize: 80×110cm | LED + Anti-Fog + Storage\nWarranty: 2 Years | MOQ: 300pcs",price:"$25.40",img:"/img/微信图片_20260707164222_511_35.jpg"},
+    {id:"A026",name:"Model A026 LED Anti-Fog Mirror",desc:"Material: Paulownia Frame Mirror\nSize: 90×120cm | LED + Anti-Fog + Storage\nWarranty: 2 Years | MOQ: 300pcs",price:"$28.90",img:"/img/微信图片_20260707164222_511_35.jpg"},
+    {id:"A027",name:"Model A027 LED Anti-Fog Mirror",desc:"Material: Paulownia Frame Mirror\nSize: 60×100cm | LED + Anti-Fog + Storage\nWarranty: 2 Years | MOQ: 300pcs",price:"$22.90",img:"/img/微信图片_20260707164222_511_35.jpg"},
+    {id:"A028",name:"Model A028 LED Anti-Fog Mirror",desc:"Material: Paulownia Frame Mirror\nSize: 70×120cm | LED + Anti-Fog + Storage\nWarranty: 2 Years | MOQ: 300pcs",price:"$32.90",img:"/img/微信图片_20260707164222_511_35.jpg"},
+    {id:"A029",name:"Model A029 LED Anti-Fog Mirror",desc:"Material: Paulownia Frame Mirror\nSize: 80×120cm | LED + Anti-Fog + Storage\nWarranty: 2 Years | MOQ: 300pcs",price:"$42.90",img:"/img/微信图片_20260707164222_511_35.jpg"},
+];
+
+// ====================== B系列原始基准数据 ======================
+const B_RAW_BASE = {
+"B001": {name:"Model B001 Premium Solid Wood Mirror Cabinet",desc:"Material: Solid Wood + Paulownia Frame\nSize: 70×90cm | Full Storage Cabinet\nWarranty: 2 Years | MOQ: 100pcs",basePrice:"107.65",img:"/img/微信图片_20260707164044_510_35.jpg"},
+"B002": {name:"Model B002 Premium Solid Wood Mirror Cabinet",desc:"Material: Solid Wood + Paulownia Frame\nSize: 50×60cm | Full Storage Cabinet\nWarranty: 2 Years | MOQ: 100pcs",basePrice:"95.56",img:"/img/微信图片_20260707164044_510_35.jpg"},
+"B003": {name:"Model B003 Premium Solid Wood Mirror Cabinet",desc:"Material: Solid Wood + Paulownia Frame\nSize: 50×70cm | Full Storage Cabinet\nWarranty: 2 Years | MOQ: 100pcs",basePrice:"104.03",img:"/img/微信图片_20260707164044_510_35.jpg"},
+"B004": {name:"Model B004 Premium Solid Wood Mirror Cabinet",desc:"Material: Solid Wood + Paulownia Frame\nSize: 55×70cm | Full Storage Cabinet\nWarranty: 2 Years | MOQ: 100pcs",basePrice:"110.07",img:"/img/微信图片_20260707164044_510_35.jpg"},
+"B005": {name:"Model B005 Premium Solid Wood Mirror Cabinet",desc:"Material: Solid Wood + Paulownia Frame\nSize: 60×70cm | Full Storage Cabinet\nWarranty: 2 Years | MOQ: 100pcs",basePrice:"116.12",img:"/img/微信图片_20260707164044_510_35.jpg"},
+"B006": {name:"Model B006 Premium Solid Wood Mirror Cabinet",desc:"Material: Solid Wood + Paulownia Frame\nSize: 60×80cm | Full Storage Cabinet\nWarranty: 2 Years | MOQ: 100pcs",basePrice:"123.38",img:"/img/微信图片_20260707164044_510_35.jpg"},
+"B007": {name:"Model B007 Premium Solid Wood Mirror Cabinet",desc:"Material: Solid Wood + Paulownia Frame\nSize: 65×80cm | Full Storage Cabinet\nWarranty: 2 Years | MOQ: 100pcs",basePrice:"129.43",img:"/img/微信图片_20260707164044_510_35.jpg"},
+"B008": {name:"Model B008 Premium Solid Wood Mirror Cabinet",desc:"Material: Solid Wood + Paulownia Frame\nSize: 60×90cm | Full Storage Cabinet\nWarranty: 2 Years | MOQ: 100pcs",basePrice:"133.06",img:"/img/微信图片_20260707164044_510_35.jpg"},
+"B009": {name:"Model B009 Premium Solid Wood Mirror Cabinet",desc:"Material: Solid Wood + Paulownia Frame\nSize: 70×80cm | Full Storage Cabinet\nWarranty: 2 Years | MOQ: 100pcs",basePrice:"124.59",img:"/img/微信图片_20260707164044_510_35.jpg"},
+"B010": {name:"Model B010 Premium Solid Wood Mirror Cabinet",desc:"Material: Solid Wood + Paulownia Frame\nSize: 75×85cm | Full Storage Cabinet\nWarranty: 2 Years | MOQ: 100pcs",basePrice:"130.64",img:"/img/微信图片_20260707164044_510_35.jpg"},
+"B011": {name:"Model B011 Premium Solid Wood Mirror Cabinet",desc:"Material: Solid Wood + Paulownia Frame\nSize: 70×100cm | Full Storage Cabinet\nWarranty: 2 Years | MOQ: 100pcs",basePrice:"142.73",img:"/img/微信图片_20260707164044_510_35.jpg"},
+"B012": {name:"Model B012 Premium Solid Wood Mirror Cabinet",desc:"Material: Solid Wood + Paulownia Frame\nSize: 80×90cm | Full Storage Cabinet\nWarranty: 2 Years | MOQ: 100pcs",basePrice:"135.48",img:"/img/微信图片_20260707164044_510_35.jpg"},
+"B013": {name:"Model B013 Premium Solid Wood Mirror Cabinet",desc:"Material: Solid Wood + Paulownia Frame\nSize: 75×100cm | Full Storage Cabinet\nWarranty: 2 Years | MOQ: 100pcs",basePrice:"143.94",img:"/img/微信图片_20260707164044_510_35.jpg"},
+"B014": {name:"Model B014 Premium Solid Wood Mirror Cabinet",desc:"Material: Solid Wood + Paulownia Frame\nSize: 80×100cm | Full Storage Cabinet\nWarranty: 2 Years | MOQ: 100pcs",basePrice:"151.20",img:"/img/微信图片_20260707164044_510_35.jpg"},
+"B015": {name:"Model B015 Premium Solid Wood Mirror Cabinet",desc:"Material: Solid Wood + Paulownia Frame\nSize: 85×95cm | Full Storage Cabinet\nWarranty: 2 Years | MOQ: 100pcs",basePrice:"153.62",img:"/img/微信图片_20260707164044_510_35.jpg"},
+"B016": {name:"Model B016 Premium Solid Wood Mirror Cabinet",desc:"Material: Solid Wood + Paulownia Frame\nSize: 90×90cm | Full Storage Cabinet\nWarranty: 2 Years | MOQ: 100pcs",basePrice:"154.83",img:"/img/微信图片_20260707164044_510_35.jpg"},
+"B017": {name:"Model B017 Premium Solid Wood Mirror Cabinet",desc:"Material: Solid Wood + Paulownia Frame\nSize: 85×105cm | Full Storage Cabinet\nWarranty: 2 Years | MOQ: 100pcs",basePrice:"163.30",img:"/img/微信图片_20260707164044_510_35.jpg"},
+"B018": {name:"Model B018 Premium Solid Wood Mirror Cabinet",desc:"Material: Solid Wood + Paulownia Frame\nSize: 90×100cm | Full Storage Cabinet\nWarranty: 2 Years | MOQ: 100pcs",basePrice:"166.92",img:"/img/微信图片_20260707164044_510_35.jpg"},
+"B019": {name:"Model B019 Premium Solid Wood Mirror Cabinet",desc:"Material: Solid Wood + Paulownia Frame
+Size: 95×100cm | Full Storage Cabinet
+Warranty: 2 Years | MOQ: 100pcs",basePrice:"171.76",img:"/img/微信图片_20260707164044_510_35.jpg"},
+"B020": {name:"Model B020 Premium Solid Wood Mirror Cabinet",desc:"Material: Solid Wood + Paulownia Frame\nSize: 90×110cm | Full Storage Cabinet\nWarranty: 2 Years | MOQ: 100pcs",basePrice:"179.02",img:"/img/微信图片_20260707164044_510_35.jpg"},
+"B021": {name:"Model B021 Premium Solid Wood Mirror Cabinet",desc:"Material: Solid Wood + Paulownia Frame\nSize: 100×100cm | Full Storage Cabinet\nWarranty: 2 Years | MOQ: 100pcs",basePrice:"181.44",img:"/img/微信图片_20260707164044_510_35.jpg"},
+"B022": {name:"Model B022 Premium Solid Wood Mirror Cabinet",desc:"Material: Solid Wood + Paulownia Frame\nSize: 95×115cm | Full Storage Cabinet\nWarranty: 2 Years | MOQ: 100pcs",basePrice:"188.70",img:"/img/微信图片_20260707164044_510_35.jpg"},
+"B023": {name:"Model B023 Premium Solid Wood Mirror Cabinet",desc:"Material: Solid Wood + Paulownia Frame\nSize: 100×110cm | Full Storage Cabinet
+Warranty: 2 Years | MOQ: 100pcs",basePrice:"192.33",img:"/img/微信图片_20260707164044_510_35.jpg"},
+"B024": {name:"Model B024 Premium Solid Wood Mirror Cabinet",desc:"Material: Solid Wood + Paulownia Frame
+Size: 105×115cm | Full Storage Cabinet
+Warranty: 2 Years | MOQ: 100pcs",basePrice:"203.21",img:"/img/微信图片_20260707164044_510_35.jpg"},
+"B025": {name:"Model B025 Premium Solid Wood Mirror Cabinet",desc:"Material: Solid Wood + Paulownia Frame
+Size: 110×120cm | Full Storage Cabinet
+Warranty: 2 Years | MOQ: 100pcs",basePrice:"211.68",img:"/img/微信图片_20260707164044_510_35.jpg"},
+"B026": {name:"Model B026 Premium Solid Wood Mirror Cabinet",desc:"Material: Solid Wood + Paulownia Frame
+Size: 115×125cm | Full Storage Cabinet
+Warranty: 2 Years | MOQ: 100pcs",basePrice:"220.15",img:"/img/微信图片_20260707164044_510_35.jpg"},
+"B027": {name:"Model B027 Premium Solid Wood Mirror Cabinet",desc:"Material: Solid Wood + Paulownia Frame
+Size: 120×130cm | Full Storage Cabinet
+Warranty: 2 Years | MOQ: 100pcs",basePrice:"228.61",img:"/img/微信图片_20260707164044_510_35.jpg"},
+"B028": {name:"Model B028 Premium Solid Wood Mirror Cabinet",desc:"Material: Solid Wood + Paulownia Frame
+Size: 100×140cm | Full Storage Cabinet
+Warranty: 2 Years | MOQ: 100pcs",basePrice:"224.99",img:"/img/微信图片_20260707164044_510_35.jpg"},
+"B029": {name:"Model B029 Premium Solid Wood Mirror Cabinet",desc:"Material: Solid Wood + Paulownia Frame
+Size: 120×150cm | Full Storage Cabinet
+Warranty: 2 Years | MOQ: 100pcs",basePrice:"228.61",img:"/img/微信图片_20260707164044_510_35.jpg"}
+};
+
+// B系列价格上浮8%计算生成数组
+const B_RAW = [];
+Object.keys(B_RAW_BASE).forEach(id => {
+    const item = B_RAW_BASE[id];
+    const baseNum = parseFloat(item.basePrice);
+    const newPrice = (baseNum * 1.08).toFixed(2);
+    B_RAW.push({
+        id,
+        name: item.name,
+        desc: item.desc,
+        price: `$${newPrice}`,
+        img: item.img
+    });
+});
+
+// C系列尺寸映射（缺失3,4,7,8）
+const C_SIZE_MAP = {
+    1: {w:1000,h:470},2:{w:1000,h:470},5:{w:1000,h:470},6:{w:1000,h:470},
+    9:{w:1000,h:500},10:{w:1000,h:500},13:{w:1000,h:500},14:{w:1000,h:500},
+    25:{w:800,h:500},39:{w:1000,h:470},40:{w:1000,h:470},41:{w:1000,h:470},
+    42:{w:1000,h:470},43:{w:1000,h:470},44:{w:1000,h:470},69:{w:800,h:470},
+    70:{w:800,h:470},73:{w:800,h:470},74:{w:800,h:470},77:{w:800,h:500},
+    85:{w:800,h:500},93:{w:800,h:500},101:{w:800,h:470},120:{w:460,h:260},
+    134:{w:800,h:470},140:{w:800,h:470},148:{w:600,h:470},156:{w:800,h:500},
+    164:{w:1000,h:500},172:{w:1000,h:500},180:{w:800,h:470},188:{w:800,h:470}
+};
+
+// 整合全部产品数组
+const PRODUCTS = [];
+A_RAW.forEach(i=>PRODUCTS.push({type:'A',...i}));
+B_RAW.forEach(i=>PRODUCTS.push({type:'B',...i}));
+// 循环生成C系列
+for(let num=1;num<=198;num++){
+    if(num===3||num===4||num===7||num===8) continue;
+    const size = C_SIZE_MAP[num] ?? {w:800,h:500};
+    const wCm = (size.w/10).toFixed(0);
+    const hCm = (size.h/10).toFixed(0);
+    const area = size.w * size.h;
+    const baseArea = CONFIG.C_BASE_WIDTH_MM * CONFIG.C_BASE_HEIGHT_MM;
+    const priceVal = (CONFIG.C_BASE_PRICE * area / baseArea).toFixed(2);
+    const cId = `C${String(num).padStart(3,'0')}`;
+    PRODUCTS.push({
+        type:'C',
+        id:cId,
+        name:`${num} PVC Bathroom Cabinet`,
+        desc:`Size: ${wCm}×${hCm}cm\nMaterial: PVC\nMOQ: 200pcs`,
+        price:`$${priceVal}`,
+        img:""
+    });
+}
+
+// DOM元素缓存
+const container = document.getElementById('productContainer');
+const emptyState = document.getElementById('emptyState');
+const resultCount = document.getElementById('resultCount');
+const searchInput = document.getElementById('searchInput');
+const filterTabs = document.querySelectorAll('.filter-tab');
+const breadcrumbLabel = document.getElementById('breadcrumbLabel');
+const pageNumbers = document.getElementById('pageNumbers');
+const pagePrev = document.getElementById('pagePrev');
+const pageNext = document.getElementById('pageNext');
+const pageInfo = document.getElementById('pageInfo');
+const batchBar = document.getElementById('batchBar');
+const batchCount = document.getElementById('batchCount');
+const priceMinInput = document.getElementById('priceMin');
+const priceMaxInput = document.getElementById('priceMax');
+const filterMoqSelect = document.getElementById('filterMoq');
+const sortSelect = document.getElementById('sortSelect');
+const filterApplyBtn = document.getElementById('filterApply');
+const filterResetBtn = document.getElementById('filterReset');
+const galleryCar = document.getElementById('galleryCar');
+
+// 获取筛选后产品列表
+function getFilteredList(){
+    let list = [...PRODUCTS];
+    if(currentFilter !== 'all') list = list.filter(p=>p.type === currentFilter);
+    const kw = searchKeyword.toLowerCase().trim();
+    if(kw) list = list.filter(p=>p.id.toLowerCase().includes(kw) || p.name.toLowerCase().includes(kw) || p.desc.toLowerCase().includes(kw));
+    const minP = Number(priceMin) || 0;
+    const maxP = Number(priceMax) || 9999;
+    list = list.filter(p=>{
+        const pr = parseFloat(p.price.replace('$',''));
+        return pr >= minP && pr <= maxP;
+    });
+    if(filterMoq){
+        const mq = Number(filterMoq);
+        list = list.filter(p=>{
+            const match = p.desc.match(/MOQ:\s*(\d+)/);
+            return match && Number(match[1]) >= mq;
+        });
+    }
+    if(sortBy === 'price-asc') list.sort((a,b)=>parseFloat(a.price.slice(1)) - parseFloat(b.price.slice(1)));
+    if(sortBy === 'price-desc') list.sort((a,b)=>parseFloat(b.price.slice(1)) - parseFloat(a.price.slice(1)));
+    if(sortBy === 'model') list.sort((a,b)=>a.id.localeCompare(b.id));
+    const typeOrder = {A:0,B:1,C:2};
+    list.sort((a,b)=> typeOrder[a.type] - typeOrder[b.type]);
+    return list;
+}
+
+// 渲染产品卡片
+function renderProducts(){
+    const filtered = getFilteredList();
+    const total = filtered.length;
+    const totalPage = Math.ceil(total / CONFIG.PER_PAGE) || 1;
+    if(currentPage > totalPage) currentPage = totalPage;
+    if(currentPage < 1) currentPage = 1;
+    const start = (currentPage - 1) * CONFIG.PER_PAGE;
+    const pageData = filtered.slice(start, start + CONFIG.PER_PAGE);
+    container.innerHTML = '';
+    emptyState.classList.toggle('hidden', pageData.length > 0);
+    let html = '';
+    pageData.forEach(item=>{
+        const fav = favorites.includes(item.id);
+        const checked = batchSelected.has(item.id) ? 'checked' : '';
+        const hasImg = !!item.img;
+        html += `
+        <div class="product-card" data-id="${item.id}">
+            <div class="img-box">
+                ${hasImg ? `<img class="product-img" src="${item.img}" alt="${item.id}" loading="lazy" onerror="this.style.display='none';this.nextElementSibling.style='flex'">` : ''}
+                <div class="img-placeholder" style="display:${hasImg ? 'none' : 'flex'}">${getPlaceholderSvg()}<span>Image pending upload</span></div>
+                <span class="model-tag">${item.id}</span>
+                <button class="favorite-btn ${fav?'active':''}" onclick="toggleFav('${item.id}')">${fav?'♥':'♡'}</button>
+                <input type="checkbox" class="product-check" ${checked} onchange="toggleBatch('${item.id}')">
+            </div>
+            <div class="product-info">
+                <div class="product-model">${item.id}</div>
+                <div class="product-price">${item.price}</div>
+                <div class="card-actions">
+                    <button class="order-btn" onclick="openProductModal('${item.id}')" data-lang-key="viewDetails">${getLangText('viewDetails')}</button>
+                    <button class="quick-whatsapp" onclick="quickWhatsApp('${item.id}')">💬</button>
+                </div>
+            </div>
+        </div>`;
+    });
+    container.insertAdjacentHTML('beforeend', html);
+    resultCount.textContent = `${total} ${getLangText('products')}`;
+    renderPagination(total, totalPage);
+    updateBatchBar();
+    updateBreadcrumb();
+}
+
+// 分页渲染
+function renderPagination(total, totalPage){
+    pageNumbers.innerHTML = '';
+    pagePrev.disabled = currentPage <= 1;
+    pageNext.disabled = currentPage >= totalPage;
+    pageInfo.textContent = `${getLangText('page')} ${currentPage} ${getLangText('of')} ${totalPage}`;
+    const showMax = 5;
+    let s = Math.max(1, currentPage - Math.floor(showMax / 2));
+    let e = Math.min(totalPage, s + showMax - 1);
+    if(e - s < showMax - 1) s = Math.max(1, e - showMax + 1);
+    let pHtml = '';
+    if(s > 1){
+        pHtml += `<button onclick="goPage(1)">1</button>`;
+        if(s > 2) pHtml += '<span>…</span>';
+    }
+    for(let i = s; i <= e; i++){
+        pHtml += `<button class="${i === currentPage ? 'active' : ''}" onclick="goPage(${i})">${i}</button>`;
+    }
+    if(e < totalPage){
+        if(e < totalPage - 1) pHtml += '<span>…</span>';
+        pHtml += `<button onclick="goPage(${totalPage})">${totalPage}</button>`;
+    }
+    pageNumbers.innerHTML = pHtml;
+}
+
+function goPage(page){
+    const tp = Math.ceil(getFilteredList().length / CONFIG.PER_PAGE) || 1;
+    if(page < 1) page = 1;
+    if(page > tp) page = tp;
+    currentPage = page;
+    renderProducts();
+    scrollToTop();
+}
+
+function updateBreadcrumb(){
+    const map = {all:'breadAll',A:'breadA',B:'breadB',C:'breadC'};
+    breadcrumbLabel.textContent = getLangText(map[currentFilter]);
+}
+
+// 批量选择操作
+function toggleBatch(id){
+    batchSelected.has(id) ? batchSelected.delete(id) : batchSelected.add(id);
+    document.querySelectorAll('.product-check').forEach(cb=>{
+        const cid = cb.closest('.product-card')?.dataset.id;
+        cb.checked = batchSelected.has(cid);
+    });
+    updateBatchBar();
+}
+function updateBatchBar(){
+    batchCount.textContent = batchSelected.size;
+    batchBar.classList.toggle('show', batchSelected.size > 0);
+}
+function batchClear(){
+    batchSelected.clear();
+    document.querySelectorAll('.product-check').forEach(cb=>cb.checked = false);
+    updateBatchBar();
+}
+function batchCopy(){
+    if(!batchSelected.size) return showToast(getLangText('noFav'));
+    const arr = [...batchSelected].map(id=>PRODUCTS.find(p=>p.id===id)).filter(Boolean);
+    let txt = '';
+    ['A','B','C'].forEach(t=>{
+        const g = arr.filter(p=>p.type === t);
+        if(g.length){
+            txt += `===== ${t} Series =====\n`;
+            g.forEach(item=>txt += `${item.id} | ${item.price}\n`);
+            txt += '\n';
         }
-
-        // ============================================================
-        // 批量选择功能
-        // ============================================================
-        function toggleBatch(id) { batchSelected.has(id) ? batchSelected.delete(id) : batchSelected.add(id); updateBatchBar(); document.querySelectorAll('.product-check').forEach(cb=>{ const cid = cb.closest('.product-card')?.dataset.id; cb.checked = batchSelected.has(cid); }); }
-        function updateBatchBar() { batchCount.textContent = batchSelected.size; batchBar.classList.toggle('show', batchSelected.size > 0); }
-        function batchClear() { batchSelected.clear(); document.querySelectorAll('.product-check').forEach(cb=>cb.checked=false); updateBatchBar(); }
-        function batchCopy() { if(!batchSelected.size) return showToast('No item selected'); const arr = [...batchSelected].map(id=>PRODUCTS.find(p=>p.id===id)).filter(Boolean); let txt = ''; ['A','B','C'].forEach(t=>{ const g = arr.filter(p=>p.type===t); if(g.length) txt += `--- ${t} ---\n${g.map(i=>i.id + ' ' + i.price).join('\n')}\n\n`; }); copyToClipboard(txt.trim()); }
-        function batchWhatsApp() { if(!batchSelected.size) return showToast('No item selected'); const arr = [...batchSelected].map(id=>PRODUCTS.find(p=>p.id===id)).filter(Boolean); let msg = getLangText('whatsappBatch') + '\n\n'; ['A','B','C'].forEach(t=>{ const g = arr.filter(p=>p.type===t); if(g.length) msg += `【${t}系列】\n${g.map(i=>`${i.id} ${i.price}`).join('\n')}\n\n`; }); window.open(`https://wa.me/${CONFIG.WHATSAPP}?text=${encodeURIComponent(msg)}`); }
-
-        // ============================================================
-        // 收藏功能
-        // ============================================================
-        function toggleFav(id) {
-            const idx = favorites.indexOf(id); idx > -1 ? favorites.splice(idx,1) : favorites.push(id); localStorage.setItem('favorites', JSON.stringify(favorites)); renderProducts(); if(document.getElementById('favModal').classList.contains('show')) renderFavList(); }
-        function renderFavList() { const wrap = document.getElementById('favList'); if(!favorites.length) { wrap.innerHTML = `<p>${getLangText('noFav')}</p>`; return; let h = ''; favorites.forEach(id=>{ const item = PRODUCTS.find(p=>p.id===id); if(!item) return; h += `<div class="fav-item"><span>${item.id} ${item.name}</span><button onclick="removeFav('${id}')" class="fav-remove">✕</button></div>`; }); wrap.innerHTML = h; }
-        function removeFav(id) { const i = favorites.indexOf(i); favorites.splice(i,1); localStorage.setItem('favorites', JSON.stringify(favorites)); renderFavList(); renderProducts(); }
-        function clearAllFavorites() { if(!confirm('Clear all favorites?')) return; favorites = []; localStorage.setItem('favorites'); renderFavList(); renderProducts(); }
-        function openFavModal() { document.getElementById('favModal').classList.add('show'); document.body.classList.add('no-scroll'); renderFavList(); }
-        function closeFavModal() { document.getElementById('favModal').classList.remove('show'); document.body.classList.remove('no-scroll'); }
-
-        // ============================================================
-        // 产品弹窗、WhatsApp咨询
-        // ============================================================
-        let currentViewProduct = null;
-        function openProductModal(id) {
-            const p = PRODUCTS.find(x=>x.id===id); if(!p) return; currentViewProduct = p;
-            const modal = document.getElementById('productModal');
-            document.getElementById('modalTitle').innerHTML = `${p.name} <button class="copy-model-btn" onclick="copyModel()">${getLangText('copyModel')}</button>`;
-            document.getElementById('modalMeta').innerHTML = `
-                <span class="meta-item">💰 ${p.price}</span>
-                <span class="meta-item">🔖 ${p.id}</span>
-                <span class="meta-item">📦 ${p.desc.match(/MOQ:\s*(\d+)/)?.[1] || 'N/A'}</span>
-                <span class="meta-item">Category ${p.type}</span>
-            `;
-            const imgDom = document.getElementById('modalImg');
-            if(p.img) { imgDom.src = p.img; imgDom.style.display = 'block'; } else imgDom.style.display = 'none';
-            document.getElementById('modalContent').textContent = p.desc;
-            modal.classList.add('show'); document.body.classList.add('no-scroll');
+    });
+    copyToClipboard(txt.trim());
+}
+function batchWhatsApp(){
+    if(!batchSelected.size) return showToast(getLangText('noFav'));
+    const arr = [...batchSelected].map(id=>PRODUCTS.find(p=>p.id===id)).filter(Boolean);
+    let msg = getLangText('whatsappBatch') + '\n\n';
+    ['A','B','C'].forEach(t=>{
+        const g = arr.filter(p=>p.type === t);
+        if(g.length){
+            msg += `【${t} Series】\n`;
+            g.forEach(item=>msg += `${item.id} ${item.price}\n`);
+            msg += '\n';
         }
-        function closeProductModal() { document.getElementById('productModal').classList.remove('show'); document.body.classList.remove('no-scroll'); currentViewProduct = null; }
-        function copyModel() { if(!currentViewProduct) return; const t = `${currentView.id}\n${currentView.name}\nPrice: ${currentView.price}\n${currentView.desc}`; copyToClipboard(t); }
-        function contactWhatsApp() { if(!currentViewProduct) return; const text = `${getLangText('whatsappMsg')} ${currentViewProduct.id} ${currentView.name} ${currentView.price}`; window.open(`https://wa.me/${CONFIG.WHATSAPP}?text=${encodeURIComponent(text)}`); }
-        function quickWhatsApp(id) { const p = PRODUCTS.find(x=>x.id===id); if(!p) return; const text = `${getLangText('whatsappMsg')} ${p.id} ${p.name} ${p.price}`; window.open(`https://wa.me/${CONFIG.WHATSAPP}?text=${encodeURIComponent(text)}`); }
-        function openImageFullscreen() { if(!currentViewProduct || !currentViewProduct.img) return; window.open(currentViewProduct.img, '_blank'); }
+    });
+    window.open(`https://wa.me/${CONFIG.WHATSAPP_NUM}?text=${encodeURIComponent(msg)}`);
+}
 
-        // ============================================================
-        // OEM弹窗
-        // ============================================================
-        function openOEMModal() { document.getElementById('oemModal').classList.add('show'); document.body.classList.add('no-scroll'); }
-        function closeOEMModal() { document.getElementById('oemModal').classList.remove('show'); document.body.classList.remove('no-scroll'); }
-        function contactWhatsAppOEM() { const msg = 'I need OEM/ODM custom quotation for bathroom mirrors & cabinets'; window.open(`https://wa.me/${CONFIG.WHATSAPP}?text=${encodeURIComponent(msg)}`); }
+// 收藏功能
+function toggleFav(id){
+    const idx = favorites.indexOf(id);
+    idx > -1 ? favorites.splice(idx,1) : favorites.push(id);
+    localStorage.setItem('yl_fav', JSON.stringify(favorites));
+    renderProducts();
+    if(document.getElementById('favModal').classList.contains('show')) renderFavList();
+}
+function renderFavList(){
+    const wrap = document.getElementById('favList');
+    if(!favorites.length){
+        wrap.innerHTML = `<p>${getLangText('noFav')}</p>`;
+        return;
+    }
+    let h = '';
+    favorites.forEach(id=>{
+        const item = PRODUCTS.find(p=>p.id===id);
+        if(!item) return;
+        h += `<div class="fav-item flex-between"><span>${item.id} - ${item.name}</span><button onclick="toggleFav('${id}')" class="fav-remove btn-secondary">✕</button></div>`;
+    });
+    wrap.innerHTML = h;
+}
+function clearAllFavorites(){
+    if(!confirm(getLangText('clearAll'))) return;
+    favorites = [];
+    localStorage.setItem('yl_fav', JSON.stringify(favorites));
+    renderFavList();
+    renderProducts();
+}
+function openFavModal(){
+    document.getElementById('favModal').classList.add('show');
+    document.body.classList.add('no-scroll');
+    renderFavList();
+}
+function closeFavModal(){
+    document.getElementById('favModal').classList.remove('show');
+    document.body.classList.remove('no-scroll');
+}
 
-        // ============================================================
-        // 询价表单弹窗
-        // ============================================================
-        function openInquiryModal() { document.getElementById('inquiryModal').classList.add('show'); document.body.classList.add('no-scroll'); }
-        function closeInquiryModal() { document.getElementById('inquiryModal').classList.remove('no-scroll'); document.body.classList.remove('no-scroll'); }
-        function submitInquiry(e) {
-            e.preventDefault();
-            const name = document.getElementById('inqName').value.trim();
-            const email = document.getElementById('inqEmail').value.trim();
-            if(!name || !email) return showToast('Fill name & email');
-            const company = document.getElementById('inqCompany').value.trim();
-            const qty = document.getElementById('inqQty').value.trim();
-            const size = document.getElementById('inqSize').value.trim();
-            const msg = document.getElementById('inqMessage').value.trim();
-            let text = `New Inquiry\nName:${name}\nEmail:${email}`;
-            if(company) text += `\nCompany:${company}`;
-            if(qty) text += `\nQty:${qty}pcs`;
-            if(size) text += `\nSize Request:${size}`;
-            if(msg) text += `\nMessage:${msg}`;
-            window.open(`https://wa.me/${CONFIG.WHATSAPP}?text=${encodeURIComponent(text)}`);
+// 产品详情弹窗
+let currentViewProduct = null;
+function openProductModal(id){
+    const p = PRODUCTS.find(x=>x.id === id);
+    if(!p) return;
+    currentViewProduct = p;
+    const modal = document.getElementById('productModal');
+    document.getElementById('modalTitle').innerHTML = `${p.name} <button class="copy-model-btn" onclick="copyModel()">${getLangText('copyModel')}</button>`;
+    document.getElementById('modalMeta').innerHTML = `
+    <span class="meta-item">💰 ${p.price}</span>
+    <span class="meta-item">🔖 ${p.id}</span>
+    <span class="meta-item">📦 ${p.desc.match(/MOQ:\s*(\d+)/)[0]}</span>
+    <span class="meta-item">Category ${p.type}</span>`;
+    const imgDom = document.getElementById('modalImg');
+    if(p.img){
+        imgDom.src = p.img;
+        imgDom.style.display = 'block';
+    }else{
+        imgDom.style.display = 'none';
+    }
+    document.getElementById('modalContent').textContent = p.desc;
+    modal.classList.add('show');
+    document.body.classList.add('no-scroll');
+}
+function closeProductModal(){
+    document.getElementById('productModal').classList.remove('show');
+    document.body.classList.remove('no-scroll');
+    currentViewProduct = null;
+}
+function copyModel(){
+    if(!currentViewProduct) return;
+    const t = `${currentViewProduct.id}\n${currentViewProduct.name}\nPrice: ${currentViewProduct.price}\n${currentViewProduct.desc}`;
+    copyToClipboard(t);
+}
+function contactWhatsApp(){
+    if(!currentViewProduct) return;
+    const text = `${getLangText('whatsappMsg')} ${currentViewProduct.id} ${currentViewProduct.name} ${currentView.price}`;
+    window.open(`https://wa.me/${CONFIG.WHATSAPP_NUM}?text=${encodeURIComponent(text)}`);
+}
+function quickWhatsApp(id){
+    const p = PRODUCTS.find(x=>x.id === id);
+    if(!p) return;
+    const text = `${getLangText('whatsappMsg')} ${p.id} ${p.name} ${p.price}`;
+    window.open(`https://wa.me/${CONFIG.WHATSAPP_NUM}?text=${encodeURIComponent(text)}`);
+}
+function openImageFullscreen(){
+    if(!currentViewProduct || !currentViewProduct.img) return;
+    window.open(currentViewProduct.img, '_blank');
+}
+
+// OEM弹窗
+function openOEMModal(){
+    document.getElementById('oemModal').classList.add('show');
+    document.body.classList.add('no-scroll');
+}
+function closeOEMModal(){
+    document.getElementById('oemModal').classList.remove('show');
+    document.body.classList.remove('no-scroll');
+}
+function contactWhatsAppOEM(){
+    const msg = 'I need OEM/ODM custom quotation for bathroom mirrors & cabinets';
+    window.open(`https://wa.me/${CONFIG.WHATSAPP_NUM}?text=${encodeURIComponent(msg)}`);
+}
+
+// 询价表单
+function openInquiryModal(){
+    document.getElementById('inquiryModal').classList.add('show');
+    document.body.classList.add('no-scroll');
+}
+function closeInquiryModal(){
+    document.getElementById('inquiryModal').classList.remove('show');
+    document.body.classList.remove('no-scroll');
+}
+function submitInquiry(e){
+    e.preventDefault();
+    const name = document.getElementById('inqName').value.trim();
+    const email = document.getElementById('inqEmail').value.trim();
+    if(!name || !email) return showToast(getLangText('name') + ' & ' + getLangText('email') + ' required');
+    const company = document.getElementById('inqCompany').value.trim();
+    const qty = document.getElementById('inqQty').value.trim();
+    const size = document.getElementById('inqSize').value.trim();
+    const msg = document.getElementById('inqMessage').value.trim();
+    let text = `New Inquiry\nName:${name}\nEmail:${email}`;
+    if(company) text += `\nCompany:${company}`;
+    if(qty) text += `\nQty:${qty}pcs`;
+    if(size) text += `\nSize Request:${size}`;
+    if(msg) text += `\nMessage:${msg}`;
+    window.open(`https://wa.me/${CONFIG.WHATSAPP_NUM}?text=${encodeURIComponent(text)}`);
+    closeInquiryModal();
+    document.getElementById('inquiryForm').reset();
+}
+
+// 产品目录弹窗
+function openCatalogModal(){
+    document.getElementById('catalogModal').classList.add('show');
+    document.body.classList.add('no-scroll');
+    renderCatalogTable();
+}
+function closeCatalogModal(){
+    document.getElementById('catalogModal').classList.remove('show');
+    document.body.classList.remove('no-scroll');
+}
+function renderCatalogTable(){
+    const wrap = document.getElementById('catalogContentWrap');
+    let html = `<table class="catalog-table"><thead><tr><th>Type</th><th>Model</th><th>Name</th><th>Price</th></tr></thead><tbody>`;
+    ['A','B','C'].forEach(t=>{
+        PRODUCTS.filter(p=>p.type === t).forEach(item=>{
+            html += `<tr><td><span class="type-badge">${t}</span></td><td><strong>${item.id}</strong></td><td>${item.name}</td><td>${item.price}</td></tr>`;
+        });
+    });
+    html += `</tbody></table>`;
+    wrap.innerHTML = html;
+}
+function copyCatalog(){
+    let txt = `${getLangText('catalogTitle')}\n================================\n`;
+    ['A','B','C'].forEach(t=>{
+        const list = PRODUCTS.filter(p=>p.type === t);
+        if(list.length) txt += `\n--- ${t} Series ---\n`;
+        list.forEach(i=> txt += `${i.id} | ${i.name} | ${i.price}\n`);
+    });
+    copyToClipboard(txt);
+}
+
+// 画廊初始化
+function initGallery(){
+    const car = document.getElementById('galleryCar');
+    if(!car) return;
+    let h = '';
+    for(let i=1;i<=6;i++) h += `<div class="carousel-item"><img src="/img/factory/${i}.jpg" alt="factory${i}" loading="lazy" onerror="this.style.display='none';this.parent.innerHTML='${getPlaceholderSvg()}'"></div>`;
+    car.innerHTML = h;
+}
+
+// 页面DOM加载完成初始化
+document.addEventListener('DOMContentLoaded', function(){
+    // 明暗模式初始化
+    if(darkMode){
+        document.documentElement.setAttribute('data-theme','dark');
+        document.getElementById('themeToggle').textContent = '☀️';
+    }
+    // 语言按钮激活
+    document.querySelectorAll('.lang-switch button').forEach(b=>{
+        if(b.dataset.lang === currentLang) b.classList.add('active');
+        b.onclick = ()=>switchLang(b.dataset.lang);
+    });
+    applyAllLangText();
+    // 搜索防抖绑定
+    searchInput.addEventListener('input', debounce(()=>{
+        searchKeyword = searchInput.value;
+        currentPage = 1;
+        renderProducts();
+    }, 300));
+    // 分类筛选按钮
+    filterTabs.forEach(t=>{
+        t.onclick = ()=>{
+            filterTabs.forEach(x=>x.classList.remove('active'));
+            t.classList.add('active');
+            currentFilter = t.dataset.filter;
+            currentPage = 1;
+            renderProducts();
+        };
+        if(t.dataset.filter === currentFilter) t.classList.add('active');
+    });
+    // 筛选按钮
+    filterApplyBtn.onclick = ()=>{
+        priceMin = priceMinInput.value;
+        priceMax = priceMaxInput.value;
+        filterMoq = filterMoqSelect.value;
+        sortBy = sortSelect.value;
+        currentPage = 1;
+        renderProducts();
+    };
+    filterResetBtn.onclick = ()=>{
+        priceMinInput.value = '';
+        priceMaxInput.value = '';
+        filterMoqSelect.value = '';
+        sortSelect.value = 'default';
+        priceMin = '';
+        priceMax = '';
+        filterMoq = '';
+        sortBy = 'default';
+        currentPage = 1;
+        renderProducts();
+    };
+    // 分页切换
+    pagePrev.onclick = ()=>goPage(currentPage - 1);
+    pageNext.onclick = ()=>goPage(currentPage + 1);
+    // 暗黑切换
+    document.getElementById('themeToggle').onclick = toggleDarkMode;
+    // 滚动监听节流
+    window.addEventListener('scroll', throttle(handleScroll, 100));
+    // ESC关闭所有弹窗
+    document.addEventListener('keydown', e=>{
+        if(e.key === 'Escape'){
+            closeProductModal();
+            closeOEMModal();
             closeInquiryModal();
-            document.getElementById('inquiryForm').reset();
+            closeFavModal();
+            closeCatalogModal();
         }
-
-        // ============================================================
-        // 产品目录弹窗
-        // ============================================================
-        function openCatalogModal() { document.getElementById('catalogModal').classList.add('show'); document.body.classList.add('no-scroll'); renderCatalogTable(); }
-        function closeCatalogModal() { document.getElementById('catalogModal').classList.remove('show'); document.body.classList.remove('no-scroll'); }
-        function renderCatalogTable() {
-            const wrap = document.getElementById('catalogContentWrap');
-            let html = `<table class="catalog-table"><thead><tr><th>Type</th><th>Model</th><th>Name</th><th>Price</th></tr></tbody><tbody>`;
-            ['A','B','C'].forEach(t=>{
-                PRODUCTS.filter(p=>p.type===t).forEach(item=>{
-                    html += `<tr><td><span class="type-badge">${t}</span></td><td><strong>${item.id}</strong></td><td>${item.name}</td><td>${item.price}</td></tr>`;
-                });
-            });
-            html += `</tbody></table>`; wrap.innerHTML = html;
-        }
-        function copyCatalog() {
-            let txt = `${getLangText('catalogTitle')}\n================================\n`;
-            ['A','B','C'].forEach(t=>{
-                const list = PRODUCTS.filter(p=>p.type===t);
-                if(list.length) txt += `\n--- ${t}系列 ---\n`;
-                list.forEach(i=> txt += `${i.id} | ${i.name} | ${i.price}\n`);
-            });
-            copyToClipboard(txt);
-        }
-
-        // ============================================================
-        // 画廊、FAQ、语言、暗黑模式、滚动监听
-        // ============================================================
-        function initGallery() { const car = document.getElementById('galleryCar'); if(!car) return; let h = ''; for(let i=1;i<=6;i++) h += `<div class="carousel-item"><img src="/img/factory/${i}.jpg" alt="factory${i}" loading="lazy" onerror="this.style.display='none';this.parent.innerHTML='${getSvgPlaceholder()}'"></div>`; car.innerHTML = h; }
-        function toggleFaq(el) { const ans = el.nextElementSibling; const arr = el.querySelector('.arrow'); ans.classList.toggle('open'); arr.textContent = ans.classList.contains('open') ? '▲' : '▼'; }
-        function switchLang(lang) { if(lang === currentLang) return; currentLang = lang; localStorage.setItem('yl_lang', lang); document.querySelectorAll('.lang-switch button').forEach(b=>b.classList.toggle('active', b.dataset.lang === lang)); applyAllLang(); }
-        function applyAllLang() {
-            document.querySelectorAll('[data-lang-key]').forEach(el=>{
-                const k = el.dataset.langKey;
-                if(!k) return;
-                if(el.tagName === 'INPUT' || el.tagName === 'TEXTAREA') el.placeholder = getLangText(k);
-                else el.textContent = getLangText(k);
-            });
-            searchInput.placeholder = getLangText('search');
-            const tabMap = {all:'all',A:'led',B:'smart',C:'pvc'};
-            filterTabs.forEach(t=>t.textContent = getLangText(tabMap[t.dataset.filter]));
-            updateBreadcrumb(); renderProducts();
-            if(document.getElementById('favModal').classList.contains('show')) renderFavList();
-            if(document.getElementById('catalogModal').classList.contains('show')) renderCatalogTable();
-        }
-        function toggleDarkMode() { darkMode = !dark; localStorage.setItem('yl_dark', String(darkMode)); document.documentElement.setAttribute('data-theme', darkMode ? 'dark' : ''); document.getElementById('themeToggle').textContent = darkMode ? '☀️' : '🌓'; }
-        function handleScroll() {
-            const header = document.getElementById('siteHeader');
-            const topBtn = document.getElementById('backTop');
-            if(window.scrollY > 30) header.classList.add('scrolled'); else header.classList.remove('scrolled');
-            if(window.scrollY > 300) topBtn.classList.add('show'); else topBtn.classList.remove('show');
-        }
-        function scrollToTop() { window.scrollTo({top:0,behavior:'smooth'}); }
-        function copyText(text) { copyToClipboard(`Copied: ${text}`, `Copied: ${text}`); }
-        function copySitemap() { copyToClipboard('https://ledmirror-factory-esra.pages.dev/\n#products\n#oem\n#faq', 'Sitemap copied'); }
-
-        // ============================================================
-        // 页面初始化挂载事件
-        // ============================================================
-        document.addEventListener('DOMContentLoaded', function(){
-            // 初始化暗黑/语言
-            if(darkMode) { document.documentElement.setAttribute('data-theme','dark'); document.getElementById('themeToggle').textContent = '☀️'; }
-            document.querySelectorAll('.lang-switch button').forEach(b=>{ if(b.dataset.lang === currentLang) b.classList.add('active'); });
-            applyAllLang();
-            // 搜索防抖
-            searchInput.addEventListener('input', deb(()=>{ searchKeyword = searchInput.value; currentPage =1; renderProducts(); },300));
-            // 分类切换
-            filterTabs.forEach(t=>t.addEventListener('click',()=>{ filterTabs.forEach(x=>x.classList.remove('active')); t.classList.add('active'); currentFilter = t.dataset.filter; currentPage=1; renderProducts(); }));
-            // 分页按钮
-            pagePrev.addEventListener('click',()=>goPage(currentPage-1));
-            pageNext.addEventListener('click',()=>goPage(currentPage+1));
-            // 暗黑切换
-            document.getElementById('themeToggle').addEventListener('click', toggleDarkMode);
-            // 语言切换按钮
-            document.querySelectorAll('.lang-switch button').forEach(b=>b.addEventListener('click',()=>switch(b.dataset.lang)));
-            // 滚动节流监听
-            window.addEventListener('scroll', throttle(handleScroll, 100));
-            // ESC关闭弹窗 & 点击遮罩关闭
-            document.addEventListener('keydown', e=>{ if(e.key === 'Escape') {
-                ['productModal','oemModal','inquiryModal','favModal','catalogModal'].forEach(id=>{
-                    const m = document.getElementById(id);
-                    if(m.classList.contains('
-```
+    });
+    // 点击遮罩关闭弹窗
+    document.querySelectorAll('.modal-mask').forEach(mask=>{
+        mask.onclick = e=>{
+            if(e.target === mask){
+                mask.classList.remove('show');
+                document.body.classList.remove('no-scroll');
+            }
+        };
+    });
+    // 初始化画廊+渲染商品
+    initGallery();
+    renderProducts();
+});
+</script>
+</body>
+</html>
