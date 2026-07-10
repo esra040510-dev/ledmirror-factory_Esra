@@ -1462,25 +1462,27 @@
     ];
     bData.forEach(p => { PRODUCTS.push({ id: p.id, type: 'B', name: p.name, desc: p.desc, price: p.price, img: p.img }); });
 
-    // ========== C系列（198款）修改点 ==========
-    // 名称改为数字（1 ~ 198），图片路径修复为三位数字 C001.jpg ~ C198.jpg
+    // ========== C系列（198款）最终修改 ==========
+    // 产品ID改为纯数字（1-198），图片路径根据编号分别放在 PVC1 和 PVC2 文件夹
     for (let i = 1; i <= 198; i++) {
-        const id = 'C' + String(i).padStart(3, '0');
         let size = '80×50cm';
         if (i <= 18) size = '100/80×50cm';
         else if (i <= 32) size = '80×50cm';
         else if (i <= 35) size = '120×50cm';
         else if (i <= 38) size = '100×50cm';
         else size = '80×50cm';
-        // 图片文件名改为三位数字：C001.jpg, C002.jpg ...
-        const imgFileName = 'C' + String(i).padStart(3, '0') + '.jpg';
+
+        // 根据编号选择文件夹
+        let folder = (i <= 100) ? 'PVC1' : 'PVC2';
+        let imgPath = '/' + folder + '/' + i + '.jpg';
+
         PRODUCTS.push({
-            id: id,
+            id: String(i),             // 纯数字ID，用于展示和唯一标识
             type: 'C',
-            name: i + ' PVC Bathroom Cabinet',   // 改为数字 + 空格 + PVC Bathroom Cabinet
+            name: i + ' PVC Bathroom Cabinet',
             desc: 'Size: ' + size + '\nMaterial: PVC\nWarranty: 2 Years | MOQ: 50sets',
             price: '$112.00',
-            img: '/img/' + imgFileName
+            img: imgPath
         });
     }
 
