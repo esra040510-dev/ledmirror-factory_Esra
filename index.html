@@ -364,7 +364,7 @@
         .product-card .product-img {
             width: 100%;
             height: 100%;
-            object-fit: cover;
+            object-fit: contain;  /* 图片完整显示，四周环绕 */
             transition: transform 0.4s ease;
         }
         .product-card:hover .product-img { transform: scale(1.03); }
@@ -435,25 +435,14 @@
             flex: 1;
             display: flex;
             flex-direction: column;
+            align-items: center;  /* 居中显示型号和价格 */
+            text-align: center;
         }
-        .product-card .product-name {
-            font-size: 15px;
-            font-weight: 600;
-            margin-bottom: 4px;
+        .product-card .product-model {
+            font-size: 18px;
+            font-weight: 700;
             color: var(--primary-dark);
-            line-height: 1.3;
-        }
-        .product-card .product-desc {
-            font-size: 12px;
-            color: var(--text-muted);
-            line-height: 1.5;
-            margin-bottom: 8px;
-            flex: 1;
-            display: -webkit-box;
-            -webkit-line-clamp: 2;
-            -webkit-box-orient: vertical;
-            overflow: hidden;
-            white-space: pre-line;
+            margin-bottom: 4px;
         }
         .product-card .product-price {
             font-size: 18px;
@@ -464,6 +453,7 @@
         .product-card .card-actions {
             display: flex;
             gap: 6px;
+            width: 100%;
         }
         .product-card .order-btn {
             flex: 1;
@@ -605,9 +595,25 @@
         .modal-box .modal-title {
             font-size: 20px;
             color: var(--primary-dark);
-            margin-bottom: 14px;
+            margin-bottom: 8px;
             font-weight: 600;
             padding-right: 36px;
+        }
+        .modal-box .modal-image {
+            margin-bottom: 14px;
+            text-align: center;
+            cursor: pointer;
+        }
+        .modal-box .modal-image img {
+            max-width: 100%;
+            max-height: 300px;
+            object-fit: contain;
+            border-radius: 8px;
+            border: 1px solid var(--border-soft);
+            transition: transform 0.2s;
+        }
+        .modal-box .modal-image img:hover {
+            transform: scale(1.02);
         }
         .modal-box .modal-text {
             line-height: 1.8;
@@ -619,7 +625,7 @@
         .modal-box .modal-meta {
             display: flex;
             gap: 10px;
-            margin-bottom: 14px;
+            margin-bottom: 10px;
             flex-wrap: wrap;
         }
         .modal-box .meta-item {
@@ -1016,14 +1022,14 @@
             .filter-group select { min-width: 70px; }
             .product-grid { grid-template-columns: 1fr 1fr; gap: 12px; }
             .product-card .img-box { height: 140px; }
-            .product-card .product-name { font-size: 13px; }
+            .product-card .product-model { font-size: 15px; }
             .product-card .product-price { font-size: 16px; }
-            .product-card .product-desc { font-size: 11px; }
             .product-card .order-btn { font-size: 12px; padding: 6px; }
             .product-card .quick-whatsapp { width: 32px; font-size: 12px; }
             .pagination-wrap button { padding: 4px 10px; font-size: 12px; min-width: 30px; }
             .modal-box { padding: 16px; max-width: 100%; margin: 8px; }
             .modal-box .modal-title { font-size: 18px; }
+            .modal-box .modal-image img { max-height: 200px; }
             .batch-bar { padding: 6px 10px; gap: 6px; font-size: 12px; }
             .batch-bar button { padding: 4px 12px; font-size: 12px; }
             .float-whatsapp { right: 12px; bottom: 64px; width: 44px; height: 44px; font-size: 20px; }
@@ -1077,6 +1083,7 @@
     </style>
 </head>
 <body>
+    <body>
 
 <header id="siteHeader">
     <div class="header-top">
@@ -1122,6 +1129,8 @@
             <option value="">All</option>
             <option value="50">≥ 50</option>
             <option value="100">≥ 100</option>
+            <option value="200">≥ 200</option>
+            <option value="300">≥ 300</option>
             <option value="500">≥ 500</option>
         </select>
     </div>
@@ -1170,6 +1179,9 @@
             <button class="copy-model-btn" onclick="copyModel()" data-lang-key="copyModel">Copy Model</button>
         </h2>
         <div class="modal-meta" id="modalMeta"></div>
+        <div class="modal-image" id="modalImage" onclick="openImageFullscreen()">
+            <img id="modalImg" src="" alt="Product Image" />
+        </div>
         <div class="modal-text" id="modalContent"></div>
         <button class="whatsapp-btn" onclick="contactWhatsApp()" data-lang-key="inquire">💬 Inquire via WhatsApp</button>
     </div>
@@ -1286,7 +1298,6 @@
         </div>
     </div>
 </div>
-
 <section class="gallery-section no-print">
     <h2>🏭 Factory Gallery</h2>
     <div class="gallery-carousel" id="galleryCarousel"></div>
@@ -1391,44 +1402,46 @@
 
     // ============================================================
     // 产品数据 (A29 + B29 + C198 = 256)
+    // 注意：MOQ 已按您的要求调整：
+    // A系列：300起订，B系列：100起订，C系列：200起订
     // ============================================================
     const PRODUCTS = [];
 
-    // A系列（29款）
+    // A系列（29款）MOQ 全部改为 300
     const aData = [
-        { id: 'A001', name: 'Model A001 LED Anti-Fog Bathroom Mirror', desc: 'Material: Paulownia Frame Mirror\nSize: 50×50cm | LED + Anti-Fog + Storage\nWarranty: 2 Years | MOQ: 500pcs', price: '$14.90', img: '/img/微信图片_20260707164222_511_35.jpg' },
-        { id: 'A002', name: 'Model A002 LED Anti-Fog Bathroom Mirror', desc: 'Material: Paulownia Frame Mirror\nSize: 55×55cm | LED + Anti-Fog + Storage\nWarranty: 2 Years | MOQ: 500pcs', price: '$15.90', img: '/img/微信图片_20260707164222_511_35.jpg' },
-        { id: 'A003', name: 'Model A003 LED Anti-Fog Bathroom Mirror', desc: 'Material: Paulownia Frame Mirror\nSize: 60×60cm | LED + Anti-Fog + Storage\nWarranty: 2 Years | MOQ: 500pcs', price: '$16.90', img: '/img/微信图片_20260707164222_511_35.jpg' },
-        { id: 'A004', name: 'Model A004 LED Anti-Fog Bathroom Mirror', desc: 'Material: Paulownia Frame Mirror\nSize: 65×65cm | LED + Anti-Fog + Storage\nWarranty: 2 Years | MOQ: 500pcs', price: '$17.90', img: '/img/微信图片_20260707164222_511_35.jpg' },
-        { id: 'A005', name: 'Model A005 LED Anti-Fog Bathroom Mirror', desc: 'Material: Paulownia Frame Mirror\nSize: 70×70cm | LED + Anti-Fog + Storage\nWarranty: 2 Years | MOQ: 500pcs', price: '$18.90', img: '/img/微信图片_20260707164222_511_35.jpg' },
-        { id: 'A006', name: 'Model A006 LED Anti-Fog Bathroom Mirror', desc: 'Material: Paulownia Frame Mirror\nSize: 75×75cm | LED + Anti-Fog + Storage\nWarranty: 2 Years | MOQ: 500pcs', price: '$19.90', img: '/img/微信图片_20260707164222_511_35.jpg' },
-        { id: 'A007', name: 'Model A007 LED Anti-Fog Bathroom Mirror', desc: 'Material: Paulownia Frame Mirror\nSize: 80×80cm | LED + Anti-Fog + Storage\nWarranty: 2 Years | MOQ: 500pcs', price: '$20.90', img: '/img/微信图片_20260707164222_511_35.jpg' },
-        { id: 'A008', name: 'Model A008 LED Anti-Fog Bathroom Mirror', desc: 'Material: Paulownia Frame Mirror\nSize: 85×85cm | LED + Anti-Fog + Storage\nWarranty: 2 Years | MOQ: 500pcs', price: '$21.90', img: '/img/微信图片_20260707164222_511_35.jpg' },
-        { id: 'A009', name: 'Model A009 LED Anti-Fog Bathroom Mirror', desc: 'Material: Paulownia Frame Mirror\nSize: 90×90cm | LED + Anti-Fog + Storage\nWarranty: 2 Years | MOQ: 500pcs', price: '$22.90', img: '/img/微信图片_20260707164222_511_35.jpg' },
-        { id: 'A010', name: 'Model A010 LED Anti-Fog Bathroom Mirror', desc: 'Material: Paulownia Frame Mirror\nSize: 95×95cm | LED + Anti-Fog + Storage\nWarranty: 2 Years | MOQ: 500pcs', price: '$23.90', img: '/img/微信图片_20260707164222_511_35.jpg' },
-        { id: 'A011', name: 'Model A011 LED Anti-Fog Bathroom Mirror', desc: 'Material: Paulownia Frame Mirror\nSize: 100×100cm | LED + Anti-Fog + Storage\nWarranty: 2 Years | MOQ: 500pcs', price: '$24.90', img: '/img/微信图片_20260707164222_511_35.jpg' },
-        { id: 'A012', name: 'Model A012 LED Anti-Fog Bathroom Mirror', desc: 'Material: Paulownia Frame Mirror\nSize: 105×105cm | LED + Anti-Fog + Storage\nWarranty: 2 Years | MOQ: 500pcs', price: '$26.40', img: '/img/微信图片_20260707164222_511_35.jpg' },
-        { id: 'A013', name: 'Model A013 LED Anti-Fog Bathroom Mirror', desc: 'Material: Paulownia Frame Mirror\nSize: 110×110cm | LED + Anti-Fog + Storage\nWarranty: 2 Years | MOQ: 500pcs', price: '$27.90', img: '/img/微信图片_20260707164222_511_35.jpg' },
-        { id: 'A014', name: 'Model A014 LED Anti-Fog Bathroom Mirror', desc: 'Material: Paulownia Frame Mirror\nSize: 115×115cm | LED + Anti-Fog + Storage\nWarranty: 2 Years | MOQ: 500pcs', price: '$29.40', img: '/img/微信图片_20260707164222_511_35.jpg' },
-        { id: 'A015', name: 'Model A015 LED Anti-Fog Bathroom Mirror', desc: 'Material: Paulownia Frame Mirror\nSize: 120×120cm | LED + Anti-Fog + Storage\nWarranty: 2 Years | MOQ: 500pcs', price: '$30.90', img: '/img/微信图片_20260707164222_511_35.jpg' },
-        { id: 'A016', name: 'Model A016 LED Anti-Fog Bathroom Mirror', desc: 'Material: Paulownia Frame Mirror\nSize: 50×70cm | LED + Anti-Fog + Storage\nWarranty: 2 Years | MOQ: 500pcs', price: '$15.90', img: '/img/微信图片_20260707164222_511_35.jpg' },
-        { id: 'A017', name: 'Model A017 LED Anti-Fog Bathroom Mirror', desc: 'Material: Paulownia Frame Mirror\nSize: 60×80cm | LED + Anti-Fog + Storage\nWarranty: 2 Years | MOQ: 500pcs', price: '$17.90', img: '/img/微信图片_20260707164222_511_35.jpg' },
-        { id: 'A018', name: 'Model A018 LED Anti-Fog Bathroom Mirror', desc: 'Material: Paulownia Frame Mirror\nSize: 70×90cm | LED + Anti-Fog + Storage\nWarranty: 2 Years | MOQ: 500pcs', price: '$19.90', img: '/img/微信图片_20260707164222_511_35.jpg' },
-        { id: 'A019', name: 'Model A019 LED Anti-Fog Bathroom Mirror', desc: 'Material: Paulownia Frame Mirror\nSize: 80×100cm | LED + Anti-Fog + Storage\nWarranty: 2 Years | MOQ: 500pcs', price: '$21.90', img: '/img/微信图片_20260707164222_511_35.jpg' },
-        { id: 'A020', name: 'Model A020 LED Anti-Fog Bathroom Mirror', desc: 'Material: Paulownia Frame Mirror\nSize: 90×110cm | LED + Anti-Fog + Storage\nWarranty: 2 Years | MOQ: 500pcs', price: '$24.90', img: '/img/微信图片_20260707164222_511_35.jpg' },
-        { id: 'A021', name: 'Model A021 LED Anti-Fog Bathroom Mirror', desc: 'Material: Paulownia Frame Mirror\nSize: 100×120cm | LED + Anti-Fog + Storage\nWarranty: 2 Years | MOQ: 500pcs', price: '$27.90', img: '/img/微信图片_20260707164222_511_35.jpg' },
-        { id: 'A022', name: 'Model A022 LED Anti-Fog Bathroom Mirror', desc: 'Material: Paulownia Frame Mirror\nSize: 50×80cm | LED + Anti-Fog + Storage\nWarranty: 2 Years | MOQ: 500pcs', price: '$16.90', img: '/img/微信图片_20260707164222_511_35.jpg' },
-        { id: 'A023', name: 'Model A023 LED Anti-Fog Bathroom Mirror', desc: 'Material: Paulownia Frame Mirror\nSize: 60×90cm | LED + Anti-Fog + Storage\nWarranty: 2 Years | MOQ: 500pcs', price: '$19.40', img: '/img/微信图片_20260707164222_511_35.jpg' },
-        { id: 'A024', name: 'Model A024 LED Anti-Fog Bathroom Mirror', desc: 'Material: Paulownia Frame Mirror\nSize: 70×100cm | LED + Anti-Fog + Storage\nWarranty: 2 Years | MOQ: 500pcs', price: '$21.90', img: '/img/微信图片_20260707164222_511_35.jpg' },
-        { id: 'A025', name: 'Model A025 LED Anti-Fog Bathroom Mirror', desc: 'Material: Paulownia Frame Mirror\nSize: 80×110cm | LED + Anti-Fog + Storage\nWarranty: 2 Years | MOQ: 500pcs', price: '$25.40', img: '/img/微信图片_20260707164222_511_35.jpg' },
-        { id: 'A026', name: 'Model A026 LED Anti-Fog Bathroom Mirror', desc: 'Material: Paulownia Frame Mirror\nSize: 90×120cm | LED + Anti-Fog + Storage\nWarranty: 2 Years | MOQ: 500pcs', price: '$28.90', img: '/img/微信图片_20260707164222_511_35.jpg' },
-        { id: 'A027', name: 'Model A027 LED Anti-Fog Bathroom Mirror', desc: 'Material: Paulownia Frame Mirror\nSize: 60×100cm | LED + Anti-Fog + Storage\nWarranty: 2 Years | MOQ: 500pcs', price: '$22.90', img: '/img/微信图片_20260707164222_511_35.jpg' },
-        { id: 'A028', name: 'Model A028 LED Anti-Fog Bathroom Mirror', desc: 'Material: Paulownia Frame Mirror\nSize: 70×120cm | LED + Anti-Fog + Storage\nWarranty: 2 Years | MOQ: 500pcs', price: '$32.90', img: '/img/微信图片_20260707164222_511_35.jpg' },
-        { id: 'A029', name: 'Model A029 LED Anti-Fog Bathroom Mirror', desc: 'Material: Paulownia Frame Mirror\nSize: 80×120cm | LED + Anti-Fog + Storage\nWarranty: 2 Years | MOQ: 500pcs', price: '$42.90', img: '/img/微信图片_20260707164222_511_35.jpg' }
+        { id: 'A001', name: 'Model A001 LED Anti-Fog Bathroom Mirror', desc: 'Material: Paulownia Frame Mirror\nSize: 50×50cm | LED + Anti-Fog + Storage\nWarranty: 2 Years | MOQ: 300pcs', price: '$14.90', img: '/img/微信图片_20260707164222_511_35.jpg' },
+        { id: 'A002', name: 'Model A002 LED Anti-Fog Bathroom Mirror', desc: 'Material: Paulownia Frame Mirror\nSize: 55×55cm | LED + Anti-Fog + Storage\nWarranty: 2 Years | MOQ: 300pcs', price: '$15.90', img: '/img/微信图片_20260707164222_511_35.jpg' },
+        { id: 'A003', name: 'Model A003 LED Anti-Fog Bathroom Mirror', desc: 'Material: Paulownia Frame Mirror\nSize: 60×60cm | LED + Anti-Fog + Storage\nWarranty: 2 Years | MOQ: 300pcs', price: '$16.90', img: '/img/微信图片_20260707164222_511_35.jpg' },
+        { id: 'A004', name: 'Model A004 LED Anti-Fog Bathroom Mirror', desc: 'Material: Paulownia Frame Mirror\nSize: 65×65cm | LED + Anti-Fog + Storage\nWarranty: 2 Years | MOQ: 300pcs', price: '$17.90', img: '/img/微信图片_20260707164222_511_35.jpg' },
+        { id: 'A005', name: 'Model A005 LED Anti-Fog Bathroom Mirror', desc: 'Material: Paulownia Frame Mirror\nSize: 70×70cm | LED + Anti-Fog + Storage\nWarranty: 2 Years | MOQ: 300pcs', price: '$18.90', img: '/img/微信图片_20260707164222_511_35.jpg' },
+        { id: 'A006', name: 'Model A006 LED Anti-Fog Bathroom Mirror', desc: 'Material: Paulownia Frame Mirror\nSize: 75×75cm | LED + Anti-Fog + Storage\nWarranty: 2 Years | MOQ: 300pcs', price: '$19.90', img: '/img/微信图片_20260707164222_511_35.jpg' },
+        { id: 'A007', name: 'Model A007 LED Anti-Fog Bathroom Mirror', desc: 'Material: Paulownia Frame Mirror\nSize: 80×80cm | LED + Anti-Fog + Storage\nWarranty: 2 Years | MOQ: 300pcs', price: '$20.90', img: '/img/微信图片_20260707164222_511_35.jpg' },
+        { id: 'A008', name: 'Model A008 LED Anti-Fog Bathroom Mirror', desc: 'Material: Paulownia Frame Mirror\nSize: 85×85cm | LED + Anti-Fog + Storage\nWarranty: 2 Years | MOQ: 300pcs', price: '$21.90', img: '/img/微信图片_20260707164222_511_35.jpg' },
+        { id: 'A009', name: 'Model A009 LED Anti-Fog Bathroom Mirror', desc: 'Material: Paulownia Frame Mirror\nSize: 90×90cm | LED + Anti-Fog + Storage\nWarranty: 2 Years | MOQ: 300pcs', price: '$22.90', img: '/img/微信图片_20260707164222_511_35.jpg' },
+        { id: 'A010', name: 'Model A010 LED Anti-Fog Bathroom Mirror', desc: 'Material: Paulownia Frame Mirror\nSize: 95×95cm | LED + Anti-Fog + Storage\nWarranty: 2 Years | MOQ: 300pcs', price: '$23.90', img: '/img/微信图片_20260707164222_511_35.jpg' },
+        { id: 'A011', name: 'Model A011 LED Anti-Fog Bathroom Mirror', desc: 'Material: Paulownia Frame Mirror\nSize: 100×100cm | LED + Anti-Fog + Storage\nWarranty: 2 Years | MOQ: 300pcs', price: '$24.90', img: '/img/微信图片_20260707164222_511_35.jpg' },
+        { id: 'A012', name: 'Model A012 LED Anti-Fog Bathroom Mirror', desc: 'Material: Paulownia Frame Mirror\nSize: 105×105cm | LED + Anti-Fog + Storage\nWarranty: 2 Years | MOQ: 300pcs', price: '$26.40', img: '/img/微信图片_20260707164222_511_35.jpg' },
+        { id: 'A013', name: 'Model A013 LED Anti-Fog Bathroom Mirror', desc: 'Material: Paulownia Frame Mirror\nSize: 110×110cm | LED + Anti-Fog + Storage\nWarranty: 2 Years | MOQ: 300pcs', price: '$27.90', img: '/img/微信图片_20260707164222_511_35.jpg' },
+        { id: 'A014', name: 'Model A014 LED Anti-Fog Bathroom Mirror', desc: 'Material: Paulownia Frame Mirror\nSize: 115×115cm | LED + Anti-Fog + Storage\nWarranty: 2 Years | MOQ: 300pcs', price: '$29.40', img: '/img/微信图片_20260707164222_511_35.jpg' },
+        { id: 'A015', name: 'Model A015 LED Anti-Fog Bathroom Mirror', desc: 'Material: Paulownia Frame Mirror\nSize: 120×120cm | LED + Anti-Fog + Storage\nWarranty: 2 Years | MOQ: 300pcs', price: '$30.90', img: '/img/微信图片_20260707164222_511_35.jpg' },
+        { id: 'A016', name: 'Model A016 LED Anti-Fog Bathroom Mirror', desc: 'Material: Paulownia Frame Mirror\nSize: 50×70cm | LED + Anti-Fog + Storage\nWarranty: 2 Years | MOQ: 300pcs', price: '$15.90', img: '/img/微信图片_20260707164222_511_35.jpg' },
+        { id: 'A017', name: 'Model A017 LED Anti-Fog Bathroom Mirror', desc: 'Material: Paulownia Frame Mirror\nSize: 60×80cm | LED + Anti-Fog + Storage\nWarranty: 2 Years | MOQ: 300pcs', price: '$17.90', img: '/img/微信图片_20260707164222_511_35.jpg' },
+        { id: 'A018', name: 'Model A018 LED Anti-Fog Bathroom Mirror', desc: 'Material: Paulownia Frame Mirror\nSize: 70×90cm | LED + Anti-Fog + Storage\nWarranty: 2 Years | MOQ: 300pcs', price: '$19.90', img: '/img/微信图片_20260707164222_511_35.jpg' },
+        { id: 'A019', name: 'Model A019 LED Anti-Fog Bathroom Mirror', desc: 'Material: Paulownia Frame Mirror\nSize: 80×100cm | LED + Anti-Fog + Storage\nWarranty: 2 Years | MOQ: 300pcs', price: '$21.90', img: '/img/微信图片_20260707164222_511_35.jpg' },
+        { id: 'A020', name: 'Model A020 LED Anti-Fog Bathroom Mirror', desc: 'Material: Paulownia Frame Mirror\nSize: 90×110cm | LED + Anti-Fog + Storage\nWarranty: 2 Years | MOQ: 300pcs', price: '$24.90', img: '/img/微信图片_20260707164222_511_35.jpg' },
+        { id: 'A021', name: 'Model A021 LED Anti-Fog Bathroom Mirror', desc: 'Material: Paulownia Frame Mirror\nSize: 100×120cm | LED + Anti-Fog + Storage\nWarranty: 2 Years | MOQ: 300pcs', price: '$27.90', img: '/img/微信图片_20260707164222_511_35.jpg' },
+        { id: 'A022', name: 'Model A022 LED Anti-Fog Bathroom Mirror', desc: 'Material: Paulownia Frame Mirror\nSize: 50×80cm | LED + Anti-Fog + Storage\nWarranty: 2 Years | MOQ: 300pcs', price: '$16.90', img: '/img/微信图片_20260707164222_511_35.jpg' },
+        { id: 'A023', name: 'Model A023 LED Anti-Fog Bathroom Mirror', desc: 'Material: Paulownia Frame Mirror\nSize: 60×90cm | LED + Anti-Fog + Storage\nWarranty: 2 Years | MOQ: 300pcs', price: '$19.40', img: '/img/微信图片_20260707164222_511_35.jpg' },
+        { id: 'A024', name: 'Model A024 LED Anti-Fog Bathroom Mirror', desc: 'Material: Paulownia Frame Mirror\nSize: 70×100cm | LED + Anti-Fog + Storage\nWarranty: 2 Years | MOQ: 300pcs', price: '$21.90', img: '/img/微信图片_20260707164222_511_35.jpg' },
+        { id: 'A025', name: 'Model A025 LED Anti-Fog Bathroom Mirror', desc: 'Material: Paulownia Frame Mirror\nSize: 80×110cm | LED + Anti-Fog + Storage\nWarranty: 2 Years | MOQ: 300pcs', price: '$25.40', img: '/img/微信图片_20260707164222_511_35.jpg' },
+        { id: 'A026', name: 'Model A026 LED Anti-Fog Bathroom Mirror', desc: 'Material: Paulownia Frame Mirror\nSize: 90×120cm | LED + Anti-Fog + Storage\nWarranty: 2 Years | MOQ: 300pcs', price: '$28.90', img: '/img/微信图片_20260707164222_511_35.jpg' },
+        { id: 'A027', name: 'Model A027 LED Anti-Fog Bathroom Mirror', desc: 'Material: Paulownia Frame Mirror\nSize: 60×100cm | LED + Anti-Fog + Storage\nWarranty: 2 Years | MOQ: 300pcs', price: '$22.90', img: '/img/微信图片_20260707164222_511_35.jpg' },
+        { id: 'A028', name: 'Model A028 LED Anti-Fog Bathroom Mirror', desc: 'Material: Paulownia Frame Mirror\nSize: 70×120cm | LED + Anti-Fog + Storage\nWarranty: 2 Years | MOQ: 300pcs', price: '$32.90', img: '/img/微信图片_20260707164222_511_35.jpg' },
+        { id: 'A029', name: 'Model A029 LED Anti-Fog Bathroom Mirror', desc: 'Material: Paulownia Frame Mirror\nSize: 80×120cm | LED + Anti-Fog + Storage\nWarranty: 2 Years | MOQ: 300pcs', price: '$42.90', img: '/img/微信图片_20260707164222_511_35.jpg' }
     ];
     aData.forEach(p => { PRODUCTS.push({ id: p.id, type: 'A', name: p.name, desc: p.desc, price: p.price, img: p.img }); });
 
-    // B系列（29款）
+    // B系列（29款）MOQ 保持 100
     const bData = [
         { id: 'B001', name: 'Model B001 Premium Solid Wood Mirror Cabinet', desc: 'Material: Solid Wood + Paulownia Frame\nSize: 70×90cm | Full Storage Cabinet\nWarranty: 2 Years | MOQ: 100pcs', price: '$99.68', img: '/img/微信图片_20260707164044_510_35.jpg' },
         { id: 'B002', name: 'Model B002 Premium Solid Wood Mirror Cabinet', desc: 'Material: Solid Wood + Paulownia Frame\nSize: 50×60cm | Full Storage Cabinet\nWarranty: 2 Years | MOQ: 100pcs', price: '$88.48', img: '/img/微信图片_20260707164044_510_35.jpg' },
@@ -1462,8 +1475,7 @@
     ];
     bData.forEach(p => { PRODUCTS.push({ id: p.id, type: 'B', name: p.name, desc: p.desc, price: p.price, img: p.img }); });
 
-    // ========== C系列（198款）最终修改 ==========
-    // 产品ID改为纯数字（1-198），图片路径根据编号分别放在 PVC1 和 PVC2 文件夹
+    // C系列（198款）MOQ 改为 200
     for (let i = 1; i <= 198; i++) {
         let size = '80×50cm';
         if (i <= 18) size = '100/80×50cm';
@@ -1472,17 +1484,17 @@
         else if (i <= 38) size = '100×50cm';
         else size = '80×50cm';
 
-        // 根据编号选择文件夹
         let folder = (i <= 100) ? 'PVC1' : 'PVC2';
         let imgPath = '/' + folder + '/' + i + '.jpg';
-
+        let displayId = 'C' + String(i).padStart(3, '0');
         PRODUCTS.push({
-            id: String(i),             // 纯数字ID，用于展示和唯一标识
+            id: displayId,
             type: 'C',
             name: i + ' PVC Bathroom Cabinet',
-            desc: 'Size: ' + size + '\nMaterial: PVC\nWarranty: 2 Years | MOQ: 50sets',
+            desc: 'Size: ' + size + '\nMaterial: PVC\nWarranty: 2 Years | MOQ: 200pcs',
             price: '$112.00',
-            img: imgPath
+            img: imgPath,
+            _num: i
         });
     }
 
@@ -1572,8 +1584,7 @@
             breadAll: 'Tous les produits', breadA: 'Miroir LED', breadB: 'Armoire miroir intelligent', breadC: 'Armoire PVC'
         }
     };
-
-    // ============================================================
+        // ============================================================
     // 工具函数
     // ============================================================
     function debounce(fn, delay) { let t; return function(...a) { clearTimeout(t); t = setTimeout(() => fn.apply(this, a), delay); }; }
@@ -1612,7 +1623,17 @@
     const batchCount = document.getElementById('batchCount');
 
     // ============================================================
-    // 核心渲染
+    // 获取显示型号（A/B用原ID，C系列用Cxxx格式）
+    // ============================================================
+    function getDisplayModel(item) {
+        if (item.type === 'C') {
+            return item.id;  // 已经是 C001 格式
+        }
+        return item.id;
+    }
+
+    // ============================================================
+    // 核心渲染函数
     // ============================================================
     function getFilteredProducts() {
         let list = PRODUCTS;
@@ -1639,14 +1660,21 @@
         const pageItems = sorted.slice(start, start + CONFIG.PER_PAGE);
         container.querySelectorAll('.product-card').forEach(el => el.remove());
         emptyState.classList.remove('show');
-        if (pageItems.length === 0) { emptyState.classList.add('show'); resultCount.textContent = '0 ' + getLangText('products'); updatePagination(total, totalPages); updateBatchBar(); updateBreadcrumb(); return; }
+        if (pageItems.length === 0) {
+            emptyState.classList.add('show');
+            resultCount.textContent = '0 ' + getLangText('products');
+            updatePagination(total, totalPages);
+            updateBatchBar();
+            updateBreadcrumb();
+            return;
+        }
         let html = '';
         pageItems.forEach(item => {
             const isFav = favorites.includes(item.id);
             const checked = batchSelected.has(item.id) ? 'checked' : '';
             const imgSrc = item.img || '';
             const hasImg = imgSrc && imgSrc.length > 0;
-            const shortDesc = item.desc.length > 60 ? item.desc.substring(0,60)+'...' : item.desc;
+            const displayModel = getDisplayModel(item);
             html += `
                 <div class="product-card" data-id="${item.id}">
                     <div class="img-box">
@@ -1659,13 +1687,12 @@
                             </svg>
                             <span>图片待上传</span>
                         </div>
-                        <span class="model-tag">${item.id}</span>
+                        <span class="model-tag">${displayModel}</span>
                         <button class="favorite-btn ${isFav?'active':''}" onclick="toggleFav('${item.id}')" title="${isFav?'Remove':'Add'}">${isFav?'♥':'♡'}</button>
                         <input type="checkbox" class="product-check" onchange="toggleBatch('${item.id}')" ${checked} />
                     </div>
                     <div class="product-info">
-                        <div class="product-name">${item.name}</div>
-                        <div class="product-desc">${shortDesc}</div>
+                        <div class="product-model">${displayModel}</div>
                         <div class="product-price">${item.price}</div>
                         <div class="card-actions">
                             <button class="order-btn" onclick="openProductModal('${item.id}')">${getLangText('viewDetails')}</button>
@@ -1770,16 +1797,29 @@
     function closeFavModal() { document.getElementById('favModal').classList.remove('show'); document.body.classList.remove('no-scroll'); }
 
     // ============================================================
-    // 产品详情
+    // 产品详情（含图片放大）
     // ============================================================
     function openProductModal(id) {
         const product = PRODUCTS.find(p => p.id === id);
         if (!product) return;
         const modal = document.getElementById('productModal');
         modal.dataset.pid = id;
-        document.getElementById('modalTitle').innerHTML = `${product.id} - ${product.name} <button class="copy-model-btn" onclick="copyModel()">${getLangText('copyModel')}</button>`;
+        document.getElementById('modalTitle').innerHTML = `${product.name} <button class="copy-model-btn" onclick="copyModel()">${getLangText('copyModel')}</button>`;
         const moqMatch = product.desc.match(/MOQ:\s*(\d+)/);
-        document.getElementById('modalMeta').innerHTML = `<span class="meta-item">💰 ${product.price}</span><span class="meta-item">📦 MOQ: ${moqMatch?moqMatch[1]:'N/A'}</span><span class="meta-item">🔧 ${product.type==='A'?'LED Mirror':product.type==='B'?'Smart Cabinet':'PVC Cabinet'}</span>`;
+        document.getElementById('modalMeta').innerHTML = `
+            <span class="meta-item">💰 ${product.price}</span>
+            <span class="meta-item">📦 MOQ: ${moqMatch?moqMatch[1]:'N/A'}</span>
+            <span class="meta-item">🔧 ${product.type==='A'?'LED Mirror':product.type==='B'?'Smart Cabinet':'PVC Cabinet'}</span>
+            <span class="meta-item">🔖 ${getDisplayModel(product)}</span>
+        `;
+        const imgElem = document.getElementById('modalImg');
+        if (product.img && product.img.length > 0) {
+            imgElem.src = product.img;
+            imgElem.alt = product.id;
+            imgElem.style.display = 'block';
+        } else {
+            imgElem.style.display = 'none';
+        }
         document.getElementById('modalContent').textContent = product.desc;
         modal.classList.add('show');
         document.body.classList.add('no-scroll');
@@ -1788,6 +1828,11 @@
     function copyModel() { const pid = document.getElementById('productModal').dataset.pid; const product = PRODUCTS.find(p => p.id === pid); if (!product) return; copyToClipboard(product.id + ' ' + product.name + '\nPrice: ' + product.price + '\n' + product.desc, getLangText('copySuccess')); }
     function contactWhatsApp() { const pid = document.getElementById('productModal').dataset.pid; const product = PRODUCTS.find(p => p.id === pid); if (!product) return; window.open('https://wa.me/' + CONFIG.WHATSAPP + '?text=' + encodeURIComponent(getLangText('whatsappMsg') + ' ' + product.id + ' - ' + product.name + ' (' + product.price + ')'), '_blank'); }
     function quickWhatsApp(id) { const product = PRODUCTS.find(p => p.id === id); if (!product) return; window.open('https://wa.me/' + CONFIG.WHATSAPP + '?text=' + encodeURIComponent(getLangText('whatsappMsg') + ' ' + product.id + ' - ' + product.name + ' (' + product.price + ')'), '_blank'); }
+    function openImageFullscreen() {
+        const img = document.getElementById('modalImg');
+        if (!img || !img.src) return;
+        window.open(img.src, '_blank');
+    }
 
     // ============================================================
     // OEM
@@ -1824,7 +1869,7 @@
     }
 
     // ============================================================
-    // Catalog（新：表格显示）
+    // Catalog（表格显示）
     // ============================================================
     function openCatalogModal() {
         document.getElementById('catalogModal').classList.add('show');
@@ -1846,7 +1891,7 @@
             groups[type].forEach(p => {
                 html += `<tr>
                     <td><span class="type-badge">${type}</span></td>
-                    <td><strong>${p.id}</strong></td>
+                    <td><strong>${getDisplayModel(p)}</strong></td>
                     <td>${p.name}</td>
                     <td>${p.price}</td>
                 </tr>`;
@@ -1856,7 +1901,6 @@
         wrap.innerHTML = html;
     }
     function copyCatalog() {
-        // 复制纯文本格式，便于粘贴
         let text = getLangText('catalogTitle') + '\n' + '='.repeat(40) + '\n';
         const groups = { A: [], B: [], C: [] };
         PRODUCTS.forEach(p => groups[p.type].push(p));
@@ -1864,7 +1908,7 @@
         ['A','B','C'].forEach(type => {
             text += '\n--- ' + typeNames[type] + ' ---\n';
             groups[type].forEach(p => {
-                text += p.id + ' | ' + p.name + ' | ' + p.price + '\n';
+                text += getDisplayModel(p) + ' | ' + p.name + ' | ' + p.price + '\n';
             });
         });
         copyToClipboard(text, 'Catalog copied!');
@@ -1913,7 +1957,6 @@
             const a = item.querySelector('.faq-a');
             if (q && a) { q.textContent = getLangText('faq' + (idx+1) + 'q'); a.textContent = getLangText('faq' + (idx+1) + 'a'); }
         });
-        // 重新生成目录表（如果打开则更新）
         if (document.getElementById('catalogModal').classList.contains('show')) {
             generateCatalogTable();
         }
@@ -2083,6 +2126,7 @@
         window.copyInfo = copyModel;
         window.openFav = openFavModal;
         window.closeFav = closeFavModal;
+        window.openImageFullscreen = openImageFullscreen;
     });
 </script>
 </body>
