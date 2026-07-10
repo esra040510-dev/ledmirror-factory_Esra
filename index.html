@@ -1835,53 +1835,7 @@
         let batchSelected = new Set();
 
         // ============================================================
-        // C系列尺寸映射（单位：毫米，从PDF提取）
-        // 缺失编号：6003,6004,6007,6008（即C003,C004,C007,C008）
-        // 其余编号全部包含（194款产品）
-        // ============================================================
-        const cSizeMap = {};
-        // 先全部默认 800x500 mm
-        for (let i = 1; i <= 198; i++) cSizeMap[i] = { w: 800, h: 500 };
-        // 已知尺寸（从PDF中提取的型号对应C001~C198）
-        const known = {
-            1: { w: 1000, h: 470 }, // 6001
-            2: { w: 1000, h: 470 }, // 6002
-            5: { w: 1000, h: 470 }, // 6005
-            6: { w: 1000, h: 470 }, // 6006
-            9: { w: 1000, h: 500 }, // 6009
-            10: { w: 1000, h: 500 }, // 6010
-            13: { w: 1000, h: 500 }, // 6013
-            14: { w: 1000, h: 500 }, // 6014
-            25: { w: 800, h: 500 }, // 6025
-            39: { w: 1000, h: 470 }, // 6039
-            40: { w: 1000, h: 470 }, // 6040
-            41: { w: 1000, h: 470 }, // 6041
-            42: { w: 1000, h: 470 }, // 6042
-            43: { w: 1000, h: 470 }, // 6043
-            44: { w: 1000, h: 470 }, // 6044
-            69: { w: 800, h: 470 }, // 6069
-            70: { w: 800, h: 470 }, // 6070
-            73: { w: 800, h: 470 }, // 6073
-            74: { w: 800, h: 470 }, // 6074
-            77: { w: 800, h: 500 }, // 6077
-            85: { w: 800, h: 500 }, // 6085
-            93: { w: 800, h: 500 }, // 6093
-            101: { w: 800, h: 470 }, // 6101
-            120: { w: 460, h: 260 }, // 6120
-            134: { w: 800, h: 470 }, // 6134
-            140: { w: 800, h: 470 }, // 6140
-            148: { w: 600, h: 470 }, // 6148
-            156: { w: 800, h: 500 }, // 6156
-            164: { w: 1000, h: 500 }, // 6164
-            172: { w: 1000, h: 500 }, // 6172
-            180: { w: 800, h: 470 }, // 6180
-            188: { w: 800, h: 470 }, // 6188
-            // 其他编号（6003,6004,6007,6008）已被跳过，不会使用
-        };
-        Object.assign(cSizeMap, known);
-
-        // ============================================================
-        // 产品数据 (A29 + B29 + C194)
+        // 产品数据 (A29 + B29) —— 已删除所有 C 系列产品
         // ============================================================
         const PRODUCTS = [];
 
@@ -2069,33 +2023,7 @@
         ];
         bData.forEach(p => { PRODUCTS.push({ id: p.id, type: 'B', name: p.name, desc: p.desc, price: p.price, img: p.img }); });
 
-        // C系列：跳过缺失的编号3,4,7,8（即6003,6004,6007,6008），共194款
-        // 图片暂时留空，稍后用户上传
-        for (let i = 1; i <= 198; i++) {
-            if (i === 3 || i === 4 || i === 7 || i === 8) continue;
-            const sizeMm = cSizeMap[i] || { w: 800, h: 500 };
-            // 转换为厘米
-            const wCm = sizeMm.w / 10;
-            const hCm = sizeMm.h / 10;
-            const areaCm2 = wCm * hCm;
-            const baseArea = 50 * 70; // 3500 cm²
-            const basePrice = 82.00;
-            const price = (basePrice * areaCm2) / baseArea;
-            const formattedPrice = '$' + price.toFixed(2);
-            const displayId = 'C' + String(i).padStart(3, '0');
-            // 图片暂时留空，用户后续上传
-            const imgPath = ''; // 暂时不设置图片，网页将显示占位符
-            PRODUCTS.push({
-                id: displayId,
-                type: 'C',
-                name: i + ' PVC Bathroom Cabinet',
-                desc: 'Size: ' + wCm.toFixed(0) + '×' + hCm.toFixed(0) + 'cm\nMaterial: PVC\nMOQ: 200pcs',
-                price: formattedPrice,
-                img: imgPath,
-                _num: i,
-                _sizeCm: { w: wCm, h: hCm }
-            });
-        }
+        // 注意：C系列产品已全部删除，请勿在此添加任何 C 系列数据。
 
         // ============================================================
         // 语言映射 (EN/FR)
@@ -2350,7 +2278,7 @@
         // 辅助函数
         // ============================================================
         function getDisplayModel(item) {
-            if (item.type === 'C') return item.id;
+            // 由于C系列已删除，不需要特殊处理，直接返回ID
             return item.id;
         }
 
@@ -2392,8 +2320,8 @@
             if (currentPage > totalPages) currentPage = totalPages;
             if (currentPage < 1) currentPage = 1;
             const sorted = list.slice().sort((a, b) => {
-                const o = { 'A': 0, 'B': 1, 'C': 2 };
-                return (o[a.type] || 3) - (o[b.type] || 3);
+                const o = { 'A': 0, 'B': 1 };
+                return (o[a.type] || 2) - (o[b.type] || 2);
             });
             const start = (currentPage - 1) * CONFIG.PER_PAGE;
             const pageItems = sorted.slice(start, start + CONFIG.PER_PAGE);
@@ -2511,6 +2439,7 @@
             list.forEach(p => groups[p.type].push(p.id));
             let text = '【A LED Mirror】\n' + groups.A.join('\n') + '\n\n';
             text += '【B Smart Cabinet】\n' + groups.B.join('\n') + '\n\n';
+            // C系列为空，仍保留分组但无内容
             text += '【C PVC Cabinet】\n' + groups.C.join('\n');
             copyToClipboard(text, 'Batch models copied!');
         }
@@ -3001,8 +2930,8 @@
             window.closeModal = closeProductModal;
             window.copyInfo = copyModel;
             window.closeFav = closeFavModal;
-        window.openImageFullscreen = openImageFullscreen;
-    });
-</script>
+            window.openImageFullscreen = openImageFullscreen;
+        });
+    </script>
 </body>
 </html>
