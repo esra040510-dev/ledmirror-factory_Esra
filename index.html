@@ -1,15 +1,3 @@
-好的，我明白您的要求。现在我将为您生成一份**完整、未压缩、无截断**的 `index.html` 代码。此代码已彻底解决您提到的两个问题：
-
-1. **C系列尺寸**：从PDF中提取的尺寸映射（单位mm）已全部整合，每个产品均使用其实际尺寸（未在PDF中明确列出的产品使用默认值，并附注释），并在描述中转换为厘米显示。
-2. **C系列价格与保修**：取消“Warranty”字段，价格按面积比例计算（基准50×70cm = $82.00，此价格已是降价后的四分之三价格）。
-
-所有其他功能（A/B系列、搜索、筛选、分页、收藏、批量、多语言、暗黑模式、图片放大、目录导出等）均完整保留。
-
-代码长度较大，但我会一次性完整提供，请您直接复制保存为 `index.html` 使用。
-
----
-
-```html
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -2940,64 +2928,84 @@
 
         // ============================================================
         // 复制 & Sitemap
-// ============================================================
-function copyText(text){copyToClipboard(text,'Copied: '+text)}
-function copySitemap(){copyToClipboard('https://ledmirror-factory-esra.pages.dev/\n#products\n#oem\n#faq','Sitemap copied!')}
-function scrollToTop(){window.scrollTo({top:0,behavior:'smooth'})}
+        // ============================================================
+        function copyText(text) { copyToClipboard(text, 'Copied: ' + text); }
+        function copySitemap() {
+            copyToClipboard('https://ledmirror-factory-esra.pages.dev/\n#products\n#oem\n#faq', 'Sitemap copied!');
+        }
+        function scrollToTop() { window.scrollTo({ top: 0, behavior: 'smooth' }); }
 
-// ============================================================
-// 初始化
-// ============================================================
-document.addEventListener('DOMContentLoaded',function(){
-    if(darkMode){document.documentElement.setAttribute('data-theme','dark');document.querySelector('#themeToggle').textContent='☀️'}else{document.querySelector('#themeToggle').textContent='🌓'}
-    const langBtn=document.querySelector('.lang-switch button[data-lang="'+currentLang+'"]');
-    if(langBtn){document.querySelectorAll('.lang-switch button').forEach(b=>b.classList.remove('active'));langBtn.classList.add('active')}
-    applyLangToUI();
-    searchInput.addEventListener('input',handleSearch);
-    filterTabs.forEach(tab=>{tab.addEventListener('click',function(){filterTabs.forEach(t=>t.classList.remove('active'));this.classList.add('active');currentFilter=this.dataset.filter;currentPage=1;renderProducts()})});
-    pagePrev.addEventListener('click',()=>{if(currentPage>1)goPage(currentPage-1)});
-    pageNext.addEventListener('click',()=>{goPage(currentPage+1)});
-    window.addEventListener('scroll',handleScroll);
-    document.getElementById('themeToggle').addEventListener('click',toggleDarkMode);
-    document.querySelectorAll('.lang-switch button').forEach(btn=>{btn.addEventListener('click',function(){switchLang(this.dataset.lang)})});
-    initGallery();
-    renderProducts();
-    // 暴露全局函数
-    window.openFavModal=openFavModal;
-    window.closeFavModal=closeFavModal;
-    window.clearAllFavorites=clearAllFavorites;
-    window.toggleFav=toggleFav;
-    window.openProductModal=openProductModal;
-    window.closeProductModal=closeProductModal;
-    window.quickWhatsApp=quickWhatsApp;
-    window.contactWhatsApp=contactWhatsApp;
-    window.copyModel=copyModel;
-    window.openOEMModal=openOEMModal;
-    window.closeOEMModal=closeOEMModal;
-    window.contactWhatsAppOEM=contactWhatsAppOEM;
-    window.openInquiryModal=openInquiryModal;
-    window.closeInquiryModal=closeInquiryModal;
-    window.submitInquiry=submitInquiry;
-    window.openCatalogModal=openCatalogModal;
-    window.closeCatalogModal=closeCatalogModal;
-    window.copyCatalog=copyCatalog;
-    window.toggleFaq=toggleFaq;
-    window.applyAdvancedFilter=applyAdvancedFilter;
-    window.resetAdvancedFilter=resetAdvancedFilter;
-    window.toggleBatch=toggleBatch;
-    window.batchCopy=batchCopy;
-    window.batchWhatsApp=batchWhatsApp;
-    window.batchClear=batchClear;
-    window.copyText=copyText;
-    window.copySitemap=copySitemap;
-    window.scrollToTop=scrollToTop;
-    window.openDetail=openProductModal;
-    window.closeModal=closeProductModal;
-    window.copyInfo=copyModel;
-    window.openFav=openFavModal;
-    window.closeFav=closeFavModal;
-    window.openImageFullscreen=openImageFullscreen;
-});
-</script>
+        // ============================================================
+        // 初始化
+        // ============================================================
+        document.addEventListener('DOMContentLoaded', function() {
+            if (darkMode) {
+                document.documentElement.setAttribute('data-theme', 'dark');
+                document.querySelector('#themeToggle').textContent = '☀️';
+            } else {
+                document.querySelector('#themeToggle').textContent = '🌓';
+            }
+            const langBtn = document.querySelector('.lang-switch button[data-lang="' + currentLang + '"]');
+            if (langBtn) {
+                document.querySelectorAll('.lang-switch button').forEach(b => b.classList.remove('active'));
+                langBtn.classList.add('active');
+            }
+            applyLangToUI();
+            searchInput.addEventListener('input', handleSearch);
+            filterTabs.forEach(tab => {
+                tab.addEventListener('click', function() {
+                    filterTabs.forEach(t => t.classList.remove('active'));
+                    this.classList.add('active');
+                    currentFilter = this.dataset.filter;
+                    currentPage = 1;
+                    renderProducts();
+                });
+            });
+            pagePrev.addEventListener('click', () => { if (currentPage > 1) goPage(currentPage - 1); });
+            pageNext.addEventListener('click', () => { goPage(currentPage + 1); });
+            window.addEventListener('scroll', handleScroll);
+            document.getElementById('themeToggle').addEventListener('click', toggleDarkMode);
+            document.querySelectorAll('.lang-switch button').forEach(btn => {
+                btn.addEventListener('click', function() { switchLang(this.dataset.lang); });
+            });
+            initGallery();
+            renderProducts();
+            // 暴露全局函数
+            window.openFavModal = openFavModal;
+            window.closeFavModal = closeFavModal;
+            window.clearAllFavorites = clearAllFavorites;
+            window.toggleFav = toggleFav;
+            window.openProductModal = openProductModal;
+            window.closeProductModal = closeProductModal;
+            window.quickWhatsApp = quickWhatsApp;
+            window.contactWhatsApp = contactWhatsApp;
+            window.copyModel = copyModel;
+            window.openOEMModal = openOEMModal;
+            window.closeOEMModal = closeOEMModal;
+            window.contactWhatsAppOEM = contactWhatsAppOEM;
+            window.openInquiryModal = openInquiryModal;
+            window.closeInquiryModal = closeInquiryModal;
+            window.submitInquiry = submitInquiry;
+            window.openCatalogModal = openCatalogModal;
+            window.closeCatalogModal = closeCatalogModal;
+            window.copyCatalog = copyCatalog;
+            window.toggleFaq = toggleFaq;
+            window.applyAdvancedFilter = applyAdvancedFilter;
+            window.resetAdvancedFilter = resetAdvancedFilter;
+            window.toggleBatch = toggleBatch;
+            window.batchCopy = batchCopy;
+            window.batchWhatsApp = batchWhatsApp;
+            window.batchClear = batchClear;
+            window.copyText = copyText;
+            window.copySitemap = copySitemap;
+            window.scrollToTop = scrollToTop;
+            window.openDetail = openProductModal;
+            window.closeModal = closeProductModal;
+            window.copyInfo = copyModel;
+            window.openFav = openFavModal;
+            window.closeFav = closeFavModal;
+            window.openImageFullscreen = openImageFullscreen;
+        });
+    </script>
 </body>
 </html>
