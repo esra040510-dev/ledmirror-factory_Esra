@@ -545,7 +545,6 @@
             background: var(--primary-light);
             transform: translateY(-1px);
         }
-        /* 快速 WhatsApp 按钮已删除（不显示） */
 
         /* ========== Pagination ========== */
         .pagination-wrap {
@@ -749,7 +748,6 @@
             font-size: 12px;
             color: var(--primary-dark);
         }
-        /* 模态框中的 WhatsApp 按钮已恢复（见下方 HTML） */
 
         /* ========== OEM ========== */
         .oem-list {
@@ -1070,13 +1068,45 @@
             opacity: 1;
         }
 
+        /* ========== 一键回顶按钮（修复：悬浮 + 正常大小） ========== */
+        .back-top {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            width: 48px;
+            height: 48px;
+            border-radius: 50%;
+            background: #91284b;
+            color: #fff;
+            font-size: 24px;
+            font-weight: 700;
+            border: none;
+            box-shadow: 0 4px 16px rgba(145, 40, 75, 0.4);
+            cursor: pointer;
+            z-index: 999;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            visibility: hidden;
+            transform: translateY(20px);
+            transition: opacity 0.3s ease, transform 0.3s ease, background 0.2s;
+        }
         .back-top.show {
             opacity: 1;
             visibility: visible;
+            transform: translateY(0);
         }
         .back-top:hover {
-            background: var(--primary-light);
+            background: #b03860;
             transform: translateY(-3px);
+        }
+        /* 暗色模式适配 */
+        [data-theme="dark"] .back-top {
+            box-shadow: 0 4px 16px rgba(0, 0, 0, 0.5);
+        }
+        [data-theme="dark"] .back-top:hover {
+            background: #b03860;
         }
 
         /* ========== Responsive ========== */
@@ -1205,50 +1235,68 @@
                 padding: 4px 12px;
                 font-size: 12px;
             }
-            .float-whatsapp {
-                right: 12px;
-                bottom: 64px;
-                width: 44px;
-                height: 44px;
+            .back-top {
+                bottom: 20px;
+                right: 16px;
+                width: 42px;
+                height: 42px;
                 font-size: 20px;
             }
-           /* ========== 一键回顶按钮 ========== */
-.back-top {
-    position: fixed;          /* 固定定位（悬浮关键） */
-    bottom: 30px;             /* 距离底部 30px */
-    right: 30px;              /* 距离右侧 30px */
-    width: 44px;              /* 大小适中 */
-    height: 44px;
-    border-radius: 50%;
-    background: #91284b;
-    color: #fff;
-    font-size: 22px;
-    font-weight: 700;
-    border: none;
-    box-shadow: 0 4px 14px rgba(145, 40, 75, 0.35);
-    cursor: pointer;
-    z-index: 999;             /* 浮在最上层 */
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    
-    /* 默认隐藏，滚动后出现 */
-    opacity: 0;
-    visibility: hidden;
-    transform: translateY(20px);
-    transition: opacity 0.3s ease, transform 0.3s ease, background 0.2s;
-}
-/* 滚动后显示 */
-.back-top.show {
-    opacity: 1;
-    visibility: visible;
-    transform: translateY(0);
-}
-/* 鼠标悬停效果 */
-.back-top:hover {
-    background: #b03860;
-    transform: translateY(-3px);
-}
+            .footer-grid {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+            .footer-grid .footer-col .social-icons {
+                justify-content: center;
+            }
+            .inquiry-form .form-row {
+                grid-template-columns: 1fr;
+            }
+            .oem-item .oem-content h4 {
+                font-size: 13px;
+            }
+            .oem-item .oem-content p {
+                font-size: 11px;
+            }
+            .catalog-table {
+                font-size: 12px;
+            }
+            .catalog-table th,
+            .catalog-table td {
+                padding: 4px 6px;
+            }
+            .catalog-table .type-badge {
+                font-size: 10px;
+                padding: 0 6px;
+            }
+        }
+        @media (max-width: 480px) {
+            .product-grid {
+                grid-template-columns: 1fr;
+            }
+            .product-card {
+                max-width: 100%;
+            }
+            .product-card .img-box {
+                height: 180px;
+            }
+            header h1 {
+                font-size: 16px;
+            }
+            header.scrolled h1 {
+                font-size: 14px;
+            }
+        }
+
+        /* ========== Helpers ========== */
+        a:focus-visible,
+        button:focus-visible,
+        input:focus-visible,
+        select:focus-visible,
+        textarea:focus-visible {
+            outline: 3px solid var(--primary-light);
+            outline-offset: 2px;
+        }
         [data-theme="dark"] .filter-tab {
             background: var(--bg-card);
             border-color: var(--primary-light);
@@ -1397,7 +1445,6 @@
                 <img id="modalImg" src="" alt="Product Image" />
             </div>
             <div class="modal-text" id="modalContent"></div>
-            <!-- 恢复 WhatsApp 咨询按钮 -->
             <button class="whatsapp-btn" onclick="contactWhatsApp()" data-lang-key="inquire">💬 Inquire via WhatsApp</button>
         </div>
     </div>
@@ -1589,9 +1636,9 @@
         </div>
         <div class="copyright" data-lang-key="copyright">© 2026 Esra LED Sanitary Mirror Factory. All Rights Reserved.</div>
     </footer>
-<button class="back-top" id="backTop" onclick="scrollToTop()" title="回到顶部">↑</button>
+
+    <button class="back-top" id="backTop" onclick="scrollToTop()" title="回到顶部">↑</button>
     <div class="copy-toast" id="copyToast">Copied!</div>
-    
 
     <script>
         // ============================================================
@@ -1856,7 +1903,7 @@
 
         // 处理 1~195，跳过 i=8（便宜的C008）
         for (let i = 1; i <= 195; i++) {
-            if (i === 8) continue; // 删除便宜的C008
+            if (i === 8) continue;
             const sizeMm = cSizeMap[i] || { w: 800, h: 500 };
             const wCm = sizeMm.w / 10;
             const hCm = sizeMm.h / 10;
@@ -1864,7 +1911,6 @@
             const baseArea = 50 * 70;
             const basePrice = 82.00;
             let price = (basePrice * areaCm2) / baseArea;
-            // 价格调整
             if (price > 150) price = price * 0.9;
             if (price < 50) price = price * 1.3;
             const formattedPrice = '$' + price.toFixed(2);
@@ -1893,7 +1939,6 @@
         const hCmC008 = c005Size.h / 10;
         const areaCm2C008 = wCmC008 * hCmC008;
         let priceC008 = (82.00 * areaCm2C008) / 3500;
-        // 价格调整
         if (priceC008 > 150) priceC008 = priceC008 * 0.9;
         if (priceC008 < 50) priceC008 = priceC008 * 1.3;
         const formattedPriceC008 = '$' + priceC008.toFixed(2);
@@ -1914,8 +1959,6 @@
             const p = PRODUCTS[i];
             if (p._num === 196 || p._num === 197 || p._num === 198) {
                 p.img = '/PHOTO/C/PVC1(C001_C100)/' + p.id + '.jpg';
-                // 这些特殊映射的产品也要应用价格调整（但它们的原始价格已经在上面循环中计算过）
-                // 注意：上面循环中已经处理了 1~195，包括了 196~198，所以已经调整过了，无需再调
             }
         }
 
@@ -2151,6 +2194,7 @@
             const lang = currentLang || 'en';
             return LANG[lang] && LANG[lang][key] ? LANG[lang][key] : LANG['en'][key] || key;
         }
+
         // ============================================================
         // 一键回顶功能
         // ============================================================
@@ -2169,6 +2213,7 @@
                 }
             });
         }
+
         // ============================================================
         // DOM 引用
         // ============================================================
@@ -2274,7 +2319,6 @@
                                 <div class="product-price">${item.price}</div>
                                 <div class="card-actions">
                                     <button class="order-btn" onclick="openProductModal('${item.id}')">${getLangText('viewDetails')}</button>
-                                    <!-- 快速 WhatsApp 按钮已删除 -->
                                 </div>
                             </div>
                         </div>
@@ -2470,7 +2514,6 @@
             copyToClipboard(product.id + ' ' + product.name + '\nPrice: ' + product.price + '\n' + product.desc, getLangText(
             'copySuccess'));
         }
-        // 恢复 contactWhatsApp 函数，用于产品详情弹窗中的咨询按钮
         function contactWhatsApp() {
             const pid = document.getElementById('productModal').dataset.pid;
             const product = PRODUCTS.find(p => p.id === pid);
@@ -2751,7 +2794,6 @@
         function copySitemap() {
             copyToClipboard('https://ledmirror-factory-esra.pages.dev/\n#products\n#oem\n#faq', 'Sitemap copied!');
         }
-        function scrollToTop() { window.scrollTo({ top: 0, behavior: 'smooth' }); }
 
         // ============================================================
         // 初始化
@@ -2787,7 +2829,7 @@
                 btn.addEventListener('click', function() { switchLang(this.dataset.lang); });
             });
             renderProducts();
-            // 暴露全局函数（包括 contactWhatsApp）
+            // 暴露全局函数
             window.openFavModal = openFavModal;
             window.closeFavModal = closeFavModal;
             window.clearAllFavorites = clearAllFavorites;
