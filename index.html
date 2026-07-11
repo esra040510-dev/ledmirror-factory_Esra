@@ -996,68 +996,6 @@
             background: var(--border-soft);
         }
 
-        /* ========== Gallery & Certifications ========== */
-        .gallery-section {
-            margin: 30px 0 20px;
-        }
-        .gallery-section h2 {
-            font-size: 22px;
-            color: var(--primary-dark);
-            margin-bottom: 12px;
-            text-align: center;
-        }
-        .gallery-carousel {
-            display: flex;
-            gap: 10px;
-            overflow-x: auto;
-            padding: 6px 2px 12px;
-            scroll-snap-type: x mandatory;
-            -webkit-overflow-scrolling: touch;
-        }
-        .gallery-carousel .carousel-item {
-            flex: 0 0 160px;
-            scroll-snap-align: start;
-            border-radius: 10px;
-            overflow: hidden;
-            aspect-ratio: 4/3;
-            background: var(--bg-soft);
-            border: 1px solid var(--border-soft);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-        .gallery-carousel .carousel-item img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-        }
-        .cert-grid {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 16px;
-            justify-content: center;
-            margin-top: 12px;
-        }
-        .cert-card {
-            background: var(--bg-card);
-            border-radius: 10px;
-            padding: 12px 18px;
-            border: 1px solid var(--border-soft);
-            text-align: center;
-            min-width: 100px;
-            box-shadow: var(--shadow-sm);
-        }
-        .cert-card .cert-icon {
-            font-size: 30px;
-            display: block;
-            margin-bottom: 4px;
-        }
-        .cert-card .cert-name {
-            font-size: 13px;
-            font-weight: 600;
-            color: var(--primary-dark);
-        }
-
         /* ========== FAQ ========== */
         .faq-section {
             margin: 30px 0 20px;
@@ -1395,22 +1333,6 @@
             .footer-grid .footer-col .social-icons {
                 justify-content: center;
             }
-            .gallery-carousel .carousel-item {
-                flex: 0 0 120px;
-            }
-            .cert-grid {
-                gap: 10px;
-            }
-            .cert-card {
-                min-width: 70px;
-                padding: 8px 12px;
-            }
-            .cert-card .cert-icon {
-                font-size: 24px;
-            }
-            .cert-card .cert-name {
-                font-size: 11px;
-            }
             .inquiry-form .form-row {
                 grid-template-columns: 1fr;
             }
@@ -1726,21 +1648,6 @@
         </div>
     </div>
 
-    <!-- Gallery -->
-    <section class="gallery-section no-print">
-        <h2>🏭 Factory Gallery</h2>
-        <div class="gallery-carousel" id="galleryCarousel"></div>
-        <div style="text-align:center;margin-top:6px;font-size:12px;color:var(--text-muted);">
-            <span>📸 Production line, workshop, QC, showroom</span>
-        </div>
-        <div class="cert-grid">
-            <div class="cert-card"><span class="cert-icon">✅</span><div class="cert-name">CE Certified</div></div>
-            <div class="cert-card"><span class="cert-icon">✅</span><div class="cert-name">ISO 9001</div></div>
-            <div class="cert-card"><span class="cert-icon">✅</span><div class="cert-name">SGS Tested</div></div>
-            <div class="cert-card"><span class="cert-icon">✅</span><div class="cert-name">RoHS Compliant</div></div>
-        </div>
-    </section>
-
     <!-- FAQ -->
     <section class="faq-section no-print">
         <h2>❓ Frequently Asked Questions</h2>
@@ -1838,42 +1745,40 @@
         // C系列尺寸映射（单位：毫米，从PDF提取）
         // ============================================================
         const cSizeMap = {};
-        // 先全部默认 800x500 mm
         for (let i = 1; i <= 198; i++) cSizeMap[i] = { w: 800, h: 500 };
-        // 已知尺寸（从PDF中提取的型号对应C001~C198）
         const known = {
-            1: { w: 1000, h: 470 }, // 6001
-            2: { w: 1000, h: 470 }, // 6002
-            5: { w: 1000, h: 470 }, // 6005
-            6: { w: 1000, h: 470 }, // 6006
-            9: { w: 1000, h: 500 }, // 6009
-            10: { w: 1000, h: 500 }, // 6010
-            13: { w: 1000, h: 500 }, // 6013
-            14: { w: 1000, h: 500 }, // 6014
-            25: { w: 800, h: 500 }, // 6025
-            39: { w: 1000, h: 470 }, // 6039
-            40: { w: 1000, h: 470 }, // 6040
-            41: { w: 1000, h: 470 }, // 6041
-            42: { w: 1000, h: 470 }, // 6042
-            43: { w: 1000, h: 470 }, // 6043
-            44: { w: 1000, h: 470 }, // 6044
-            69: { w: 800, h: 470 }, // 6069
-            70: { w: 800, h: 470 }, // 6070
-            73: { w: 800, h: 470 }, // 6073
-            74: { w: 800, h: 470 }, // 6074
-            77: { w: 800, h: 500 }, // 6077
-            85: { w: 800, h: 500 }, // 6085
-            93: { w: 800, h: 500 }, // 6093
-            101: { w: 800, h: 470 }, // 6101
-            120: { w: 460, h: 260 }, // 6120
-            134: { w: 800, h: 470 }, // 6134
-            140: { w: 800, h: 470 }, // 6140
-            148: { w: 600, h: 470 }, // 6148
-            156: { w: 800, h: 500 }, // 6156
-            164: { w: 1000, h: 500 }, // 6164
-            172: { w: 1000, h: 500 }, // 6172
-            180: { w: 800, h: 470 }, // 6180
-            188: { w: 800, h: 470 }, // 6188
+            1: { w: 1000, h: 470 },
+            2: { w: 1000, h: 470 },
+            5: { w: 1000, h: 470 },
+            6: { w: 1000, h: 470 },
+            9: { w: 1000, h: 500 },
+            10: { w: 1000, h: 500 },
+            13: { w: 1000, h: 500 },
+            14: { w: 1000, h: 500 },
+            25: { w: 800, h: 500 },
+            39: { w: 1000, h: 470 },
+            40: { w: 1000, h: 470 },
+            41: { w: 1000, h: 470 },
+            42: { w: 1000, h: 470 },
+            43: { w: 1000, h: 470 },
+            44: { w: 1000, h: 470 },
+            69: { w: 800, h: 470 },
+            70: { w: 800, h: 470 },
+            73: { w: 800, h: 470 },
+            74: { w: 800, h: 470 },
+            77: { w: 800, h: 500 },
+            85: { w: 800, h: 500 },
+            93: { w: 800, h: 500 },
+            101: { w: 800, h: 470 },
+            120: { w: 460, h: 260 },
+            134: { w: 800, h: 470 },
+            140: { w: 800, h: 470 },
+            148: { w: 600, h: 470 },
+            156: { w: 800, h: 500 },
+            164: { w: 1000, h: 500 },
+            172: { w: 1000, h: 500 },
+            180: { w: 800, h: 470 },
+            188: { w: 800, h: 470 },
         };
         Object.assign(cSizeMap, known);
 
@@ -1882,7 +1787,7 @@
         // ============================================================
         const PRODUCTS = [];
 
-        // A系列（29款）价格不变，保留2年保修
+        // A系列（29款）
         const aData = [
             { id: 'A001', name: 'Model A001 LED Anti-Fog Bathroom Mirror',
                 desc: 'Material: Paulownia Frame Mirror\nSize: 50×50cm | LED + Anti-Fog + Storage\nWarranty: 2 Years | MOQ: 300pcs',
@@ -1974,7 +1879,7 @@
         ];
         aData.forEach(p => { PRODUCTS.push({ id: p.id, type: 'A', name: p.name, desc: p.desc, price: p.price, img: p.img }); });
 
-        // B系列（29款）涨价8%，保留2年保修
+        // B系列（29款）
         const bData = [
             { id: 'B001', name: 'Model B001 Premium Solid Wood Mirror Cabinet',
                 desc: 'Material: Solid Wood + Paulownia Frame\nSize: 70×90cm | Full Storage Cabinet\nWarranty: 2 Years | MOQ: 100pcs',
@@ -2067,24 +1972,19 @@
         bData.forEach(p => { PRODUCTS.push({ id: p.id, type: 'B', name: p.name, desc: p.desc, price: p.price, img: p.img }); });
 
         // ============================================================
-        // C系列：按用户要求调整编号
-        // 原始编号 196→C007, 197→C003, 198→C004, 新增 C008（与C005一致）
+        // C系列：跳过 i=8（便宜的C008），保留后面单独添加的C008（贵的）
         // ============================================================
-        // 先构建一个映射：原始序号 -> 显示ID
         const cIdMap = {};
-        // 前195个保持 C001~C195
         for (let i = 1; i <= 195; i++) {
             cIdMap[i] = 'C' + String(i).padStart(3, '0');
         }
-        // 特殊映射
         cIdMap[196] = 'C007';
         cIdMap[197] = 'C003';
         cIdMap[198] = 'C004';
-        // 新增 C008（使用与C005相同的尺寸和描述）
-        // 我们会在循环中单独处理
 
-        // 先处理 1~195
+        // 处理 1~195，跳过 i=8（便宜的C008）
         for (let i = 1; i <= 195; i++) {
+            if (i === 8) continue; // 删除便宜的C008
             const sizeMm = cSizeMap[i] || { w: 800, h: 500 };
             const wCm = sizeMm.w / 10;
             const hCm = sizeMm.h / 10;
@@ -2112,15 +2012,13 @@
             });
         }
 
-        // 新增 C008（与C005信息一致，仅序列号不同）
-        // C005 的尺寸是 1000x470mm（来自 known[5]）
+        // 新增 C008（贵的，与C005尺寸一致，价格约$110.11）
         const c005Size = cSizeMap[5] || { w: 1000, h: 470 };
         const wCmC008 = c005Size.w / 10;
         const hCmC008 = c005Size.h / 10;
         const areaCm2C008 = wCmC008 * hCmC008;
         const priceC008 = (82.00 * areaCm2C008) / 3500;
         const formattedPriceC008 = '$' + priceC008.toFixed(2);
-        // 图片路径：C008 属于前100，放在 PVC1 文件夹
         const imgPathC008 = '/PHOTO/C/PVC1(C001_C100)/C008.jpg';
         PRODUCTS.push({
             id: 'C008',
@@ -2133,27 +2031,10 @@
             _sizeCm: { w: wCmC008, h: hCmC008 }
         });
 
-        // 处理 196~198（已通过特殊映射在循环中处理，但为了确保顺序，我们重新处理）
-        // 实际上上面的循环已经包含了 196~198，但为了避免覆盖，我们重新处理一遍
-        // 但由于循环中已经 push 了 196~198，我们需要移除之前 push 的 196~198，然后重新 push
-        // 更干净的方式：重新构建 PRODUCTS 中的 C 系列部分
-        // 由于上面已经 push 了 1~195，我们需要移除 196~198 的条目，然后重新添加
-        // 但为了简洁，我们直接在循环中处理，并确保 196~198 使用正确的映射
-        // 由于上面的循环已经包含了 196~198，我们需要覆盖它们
-        // 最简单的方式：从 PRODUCTS 中移除所有 C 系列，然后重新添加
-        // 但为了保持代码整洁，我们直接在循环中处理，并添加 C008
-        // 实际上，上面的循环已经包含了 196~198，但它们的 ID 已经被映射为 C007, C003, C004
-        // 所以不需要额外操作
-
-        // 由于上面循环中 196~198 的图片路径可能不正确（它们属于 101~195 范围），我们需要修正
-        // 修正 196~198 的图片路径为空（因为它们不在 PVC1 或 PVC2 中）
-        // 但由于它们已经被映射为 C007, C003, C004，这些图片应该存在于 PVC1 中
-        // 所以我们需要修正它们的图片路径为 PVC1 路径
-        // 遍历 PRODUCTS，修正 196~198 的图片路径
+        // 修正 196~198 的图片路径
         for (let i = 0; i < PRODUCTS.length; i++) {
             const p = PRODUCTS[i];
             if (p._num === 196 || p._num === 197 || p._num === 198) {
-                // 这些产品的图片应该放在 PVC1 中
                 p.img = '/PHOTO/C/PVC1(C001_C100)/' + p.id + '.jpg';
             }
         }
@@ -2802,20 +2683,6 @@
         }
 
         // ============================================================
-        // 工厂相册（图片路径已修改）
-        // ============================================================
-        function initGallery() {
-            const carousel = document.getElementById('galleryCarousel');
-            if (!carousel) return;
-            let html = '';
-            for (let i = 1; i <= 6; i++) {
-                html +=
-                    `<div class="carousel-item"><img src="/PHOTO/厂/${i}.jpg" alt="Factory ${i}" loading="lazy" onerror="this.style.display='none';this.parentElement.innerHTML='<div style=\\'display:flex;align-items:center;justify-content:center;width:100%;height:100%;\\'>${getSvgPlaceholder()}</div>'"></div>`;
-            }
-            carousel.innerHTML = html;
-        }
-
-        // ============================================================
         // FAQ
         // ============================================================
         function toggleFaq(el) {
@@ -3027,7 +2894,6 @@
             document.querySelectorAll('.lang-switch button').forEach(btn => {
                 btn.addEventListener('click', function() { switchLang(this.dataset.lang); });
             });
-            initGallery();
             renderProducts();
             // 暴露全局函数
             window.openFavModal = openFavModal;
