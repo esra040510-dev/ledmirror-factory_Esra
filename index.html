@@ -545,21 +545,7 @@
             background: var(--primary-light);
             transform: translateY(-1px);
         }
-        .product-card .quick-whatsapp {
-            width: 36px;
-            padding: 8px 0;
-            background: var(--whatsapp);
-            color: #fff;
-            border: none;
-            border-radius: 8px;
-            cursor: pointer;
-            transition: var(--transition);
-            font-size: 14px;
-        }
-        .product-card .quick-whatsapp:hover {
-            background: var(--whatsapp-dark);
-            transform: translateY(-1px);
-        }
+        /* 快速 WhatsApp 按钮已被删除 */
 
         /* ========== Pagination ========== */
         .pagination-wrap {
@@ -763,40 +749,7 @@
             font-size: 12px;
             color: var(--primary-dark);
         }
-        .modal-box .whatsapp-btn {
-            display: block;
-            width: 100%;
-            text-align: center;
-            padding: 10px;
-            background: var(--whatsapp);
-            color: #fff;
-            border-radius: 8px;
-            text-decoration: none;
-            font-weight: 600;
-            transition: var(--transition);
-            border: none;
-            font-size: 14px;
-            cursor: pointer;
-        }
-        .modal-box .whatsapp-btn:hover {
-            background: var(--whatsapp-dark);
-            transform: translateY(-1px);
-        }
-        .modal-box .copy-model-btn {
-            display: inline-block;
-            margin-left: 6px;
-            padding: 2px 10px;
-            font-size: 11px;
-            background: var(--bg-soft);
-            color: var(--primary);
-            border: none;
-            border-radius: 4px;
-            cursor: pointer;
-            transition: var(--transition);
-        }
-        .modal-box .copy-model-btn:hover {
-            background: var(--border-soft);
-        }
+        /* 模态框中的 WhatsApp 按钮已删除 */
 
         /* ========== OEM ========== */
         .oem-list {
@@ -997,7 +950,47 @@
         }
 
         /* ========== FAQ ========== */
-        /* 整块已删除 */
+        .faq-section {
+            margin: 30px 0 20px;
+            border-top: 1px solid var(--border-color);
+            padding-top: 24px;
+        }
+        .faq-section h2 {
+            font-size: 22px;
+            color: var(--primary-dark);
+            margin-bottom: 14px;
+            text-align: center;
+        }
+        .faq-item {
+            border-bottom: 1px solid var(--border-soft);
+            padding: 10px 0;
+        }
+        .faq-item .faq-q {
+            font-size: 15px;
+            font-weight: 600;
+            color: var(--primary-dark);
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .faq-item .faq-q .arrow {
+            transition: transform 0.3s;
+            font-size: 16px;
+        }
+        .faq-item .faq-q.open .arrow {
+            transform: rotate(180deg);
+        }
+        .faq-item .faq-a {
+            font-size: 13px;
+            color: var(--text-muted);
+            padding-top: 4px;
+            display: none;
+            line-height: 1.6;
+        }
+        .faq-item .faq-a.open {
+            display: block;
+        }
 
         /* ========== Footer ========== */
         footer {
@@ -1243,9 +1236,10 @@
                 font-size: 12px;
                 padding: 6px;
             }
-            .product-card .quick-whatsapp {
-                width: 32px;
+            .pagination-wrap button {
+                padding: 4px 10px;
                 font-size: 12px;
+                min-width: 30px;
             }
             .modal-box {
                 padding: 16px;
@@ -1457,7 +1451,12 @@
         </div>
     </div>
 
-    <!-- 分页区域已删除 -->
+    <div class="pagination-wrap no-print" id="paginationWrap">
+        <button id="pagePrev" disabled>‹</button>
+        <div id="pageNumbers"></div>
+        <button id="pageNext" disabled>›</button>
+        <span class="page-info" id="pageInfo">Page 1 / 1</span>
+    </div>
 
     <div class="batch-bar no-print" id="batchBar">
         <span class="batch-info">✔ Selected <strong id="batchCount">0</strong> <span data-lang-key="products">products</span></span>
@@ -1479,7 +1478,7 @@
                 <img id="modalImg" src="" alt="Product Image" />
             </div>
             <div class="modal-text" id="modalContent"></div>
-            <button class="whatsapp-btn" onclick="contactWhatsApp()" data-lang-key="inquire">💬 Inquire via WhatsApp</button>
+            <!-- WhatsApp 按钮已删除 -->
         </div>
     </div>
 
@@ -1598,7 +1597,34 @@
         </div>
     </div>
 
-    <!-- FAQ 部分已删除 -->
+    <!-- FAQ -->
+    <section class="faq-section no-print">
+        <h2>❓ Frequently Asked Questions</h2>
+        <div class="faq-item">
+            <div class="faq-q" onclick="toggleFaq(this)"><span data-lang-key="faq1q">What is the MOQ for standard products?</span> <span class="arrow">▼</span></div>
+            <div class="faq-a" data-lang-key="faq1a">Standard MOQ: 50pcs for PVC cabinets, 100pcs for smart mirror cabinets, 500pcs for LED mirrors. OEM/ODM MOQ starts from 100pcs.</div>
+        </div>
+        <div class="faq-item">
+            <div class="faq-q" onclick="toggleFaq(this)"><span data-lang-key="faq2q">How long is the sample lead time?</span> <span class="arrow">▼</span></div>
+            <div class="faq-a" data-lang-key="faq2a">Sample lead time: 7-10 working days. Bulk production: 25-30 days after sample approval.</div>
+        </div>
+        <div class="faq-item">
+            <div class="faq-q" onclick="toggleFaq(this)"><span data-lang-key="faq3q">Do you support OEM/ODM customization?</span> <span class="arrow">▼</span></div>
+            <div class="faq-a" data-lang-key="faq3a">Yes, we support custom size, shape, logo, light color, packaging, anti-fog, Bluetooth, touch switch, etc.</div>
+        </div>
+        <div class="faq-item">
+            <div class="faq-q" onclick="toggleFaq(this)"><span data-lang-key="faq4q">What shipping methods do you offer?</span> <span class="arrow">▼</span></div>
+            <div class="faq-a" data-lang-key="faq4a">Shipping by sea, air, or express (DHL/FedEx). DDP door-to-door available for many countries.</div>
+        </div>
+        <div class="faq-item">
+            <div class="faq-q" onclick="toggleFaq(this)"><span data-lang-key="faq5q">What is the warranty period?</span> <span class="arrow">▼</span></div>
+            <div class="faq-a" data-lang-key="faq5a">2-year warranty against manufacturing defects. After-sales technical support and spare parts provided.</div>
+        </div>
+        <div class="faq-item">
+            <div class="faq-q" onclick="toggleFaq(this)"><span data-lang-key="faq6q">Can I get a bulk discount for large projects?</span> <span class="arrow">▼</span></div>
+            <div class="faq-a" data-lang-key="faq6a">Yes, for projects ≥1000pcs, special discounts apply. Contact us with your project details.</div>
+        </div>
+    </section>
 
     <!-- Footer -->
     <footer>
@@ -1975,7 +2001,6 @@
                 pvc: 'PVC Bathroom Cabinet',
                 search: 'Search model / size / material...',
                 viewDetails: 'View Details',
-                inquire: 'Inquire via WhatsApp',
                 copyModel: 'Copy Model',
                 oemTitle: 'OEM & ODM Custom Service',
                 oemSize: 'Custom Size & Shape',
@@ -2053,7 +2078,6 @@
                 pvc: 'Armoire PVC',
                 search: 'Rechercher modèle / taille / matériau...',
                 viewDetails: 'Voir les détails',
-                inquire: 'Demander via WhatsApp',
                 copyModel: 'Copier le modèle',
                 oemTitle: 'Service OEM & ODM sur mesure',
                 oemSize: 'Taille et forme personnalisées',
@@ -2302,7 +2326,7 @@
                                 <div class="product-price">${item.price}</div>
                                 <div class="card-actions">
                                     <button class="order-btn" onclick="openProductModal('${item.id}')">${getLangText('viewDetails')}</button>
-                                    <button class="quick-whatsapp" onclick="quickWhatsApp('${item.id}')" title="Inquire">💬</button>
+                                    <!-- 快速 WhatsApp 按钮已删除 -->
                                 </div>
                             </div>
                         </div>
@@ -2498,19 +2522,7 @@
             copyToClipboard(product.id + ' ' + product.name + '\nPrice: ' + product.price + '\n' + product.desc, getLangText(
             'copySuccess'));
         }
-        function contactWhatsApp() {
-            const pid = document.getElementById('productModal').dataset.pid;
-            const product = PRODUCTS.find(p => p.id === pid);
-            if (!product) return;
-            window.open('https://wa.me/' + CONFIG.WHATSAPP + '?text=' + encodeURIComponent(getLangText('whatsappMsg') + ' ' +
-                product.id + ' - ' + product.name + ' (' + product.price + ')'), '_blank');
-        }
-        function quickWhatsApp(id) {
-            const product = PRODUCTS.find(p => p.id === id);
-            if (!product) return;
-            window.open('https://wa.me/' + CONFIG.WHATSAPP + '?text=' + encodeURIComponent(getLangText('whatsappMsg') + ' ' +
-                product.id + ' - ' + product.name + ' (' + product.price + ')'), '_blank');
-        }
+        // 移除了 contactWhatsApp（模态框中的 WhatsApp 按钮不再调用）
         function openImageFullscreen() {
             const img = document.getElementById('modalImg');
             if (!img || !img.src) return;
@@ -2608,8 +2620,19 @@
         }
 
         // ============================================================
-        // FAQ 相关函数已移除
+        // FAQ
         // ============================================================
+        function toggleFaq(el) {
+            const ans = el.nextElementSibling;
+            const arrow = el.querySelector('.arrow');
+            if (ans.classList.contains('open')) {
+                ans.classList.remove('open');
+                arrow.textContent = '▼';
+            } else {
+                ans.classList.add('open');
+                arrow.textContent = '▲';
+            }
+        }
 
         // ============================================================
         // 语言 & 主题
@@ -2633,7 +2656,14 @@
             });
             updateBreadcrumb();
             applyLangToOEM();
-            // FAQ 部分已删除，不再更新
+            document.querySelectorAll('.faq-item').forEach((item, idx) => {
+                const q = item.querySelector('.faq-q span');
+                const a = item.querySelector('.faq-a');
+                if (q && a) {
+                    q.textContent = getLangText('faq' + (idx + 1) + 'q');
+                    a.textContent = getLangText('faq' + (idx + 1) + 'a');
+                }
+            });
             if (document.getElementById('catalogModal').classList.contains('show')) generateCatalogTable();
             renderProducts();
         }
@@ -2802,15 +2832,13 @@
                 btn.addEventListener('click', function() { switchLang(this.dataset.lang); });
             });
             renderProducts();
-            // 暴露全局函数
+            // 暴露全局函数（注意：已移除 contactWhatsApp）
             window.openFavModal = openFavModal;
             window.closeFavModal = closeFavModal;
             window.clearAllFavorites = clearAllFavorites;
             window.toggleFav = toggleFav;
             window.openProductModal = openProductModal;
             window.closeProductModal = closeProductModal;
-            window.quickWhatsApp = quickWhatsApp;
-            window.contactWhatsApp = contactWhatsApp;
             window.copyModel = copyModel;
             window.openOEMModal = openOEMModal;
             window.closeOEMModal = closeOEMModal;
@@ -2821,7 +2849,7 @@
             window.openCatalogModal = openCatalogModal;
             window.closeCatalogModal = closeCatalogModal;
             window.copyCatalog = copyCatalog;
-            // toggleFaq 已移除
+            window.toggleFaq = toggleFaq;
             window.applyAdvancedFilter = applyAdvancedFilter;
             window.resetAdvancedFilter = resetAdvancedFilter;
             window.toggleBatch = toggleBatch;
