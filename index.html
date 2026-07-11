@@ -545,7 +545,7 @@
             background: var(--primary-light);
             transform: translateY(-1px);
         }
-        /* 快速 WhatsApp 按钮已被删除 */
+        /* 快速 WhatsApp 按钮已删除（不显示） */
 
         /* ========== Pagination ========== */
         .pagination-wrap {
@@ -749,7 +749,7 @@
             font-size: 12px;
             color: var(--primary-dark);
         }
-        /* 模态框中的 WhatsApp 按钮已删除 */
+        /* 模态框中的 WhatsApp 按钮已恢复（见下方 HTML） */
 
         /* ========== OEM ========== */
         .oem-list {
@@ -1478,7 +1478,8 @@
                 <img id="modalImg" src="" alt="Product Image" />
             </div>
             <div class="modal-text" id="modalContent"></div>
-            <!-- WhatsApp 按钮已删除 -->
+            <!-- 恢复 WhatsApp 咨询按钮 -->
+            <button class="whatsapp-btn" onclick="contactWhatsApp()" data-lang-key="inquire">💬 Inquire via WhatsApp</button>
         </div>
     </div>
 
@@ -1924,6 +1925,7 @@
 
         // ============================================================
         // C系列：跳过 i=8（便宜的C008），保留后面单独添加的C008（贵的）
+        // 并应用价格调整：>150 降价10%，<50 涨价30%
         // ============================================================
         const cIdMap = {};
         for (let i = 1; i <= 195; i++) {
@@ -1942,7 +1944,10 @@
             const areaCm2 = wCm * hCm;
             const baseArea = 50 * 70;
             const basePrice = 82.00;
-            const price = (basePrice * areaCm2) / baseArea;
+            let price = (basePrice * areaCm2) / baseArea;
+            // 价格调整
+            if (price > 150) price = price * 0.9;
+            if (price < 50) price = price * 1.3;
             const formattedPrice = '$' + price.toFixed(2);
             const displayId = cIdMap[i];
             let imgPath = '';
@@ -1963,12 +1968,15 @@
             });
         }
 
-        // 新增 C008（贵的，与C005尺寸一致，价格约$110.11）
+        // 新增 C008（贵的，与C005尺寸一致）并应用价格调整
         const c005Size = cSizeMap[5] || { w: 1000, h: 470 };
         const wCmC008 = c005Size.w / 10;
         const hCmC008 = c005Size.h / 10;
         const areaCm2C008 = wCmC008 * hCmC008;
-        const priceC008 = (82.00 * areaCm2C008) / 3500;
+        let priceC008 = (82.00 * areaCm2C008) / 3500;
+        // 价格调整
+        if (priceC008 > 150) priceC008 = priceC008 * 0.9;
+        if (priceC008 < 50) priceC008 = priceC008 * 1.3;
         const formattedPriceC008 = '$' + priceC008.toFixed(2);
         const imgPathC008 = '/PHOTO/C/PVC1(C001_C100)/C008.jpg';
         PRODUCTS.push({
@@ -1987,6 +1995,8 @@
             const p = PRODUCTS[i];
             if (p._num === 196 || p._num === 197 || p._num === 198) {
                 p.img = '/PHOTO/C/PVC1(C001_C100)/' + p.id + '.jpg';
+                // 这些特殊映射的产品也要应用价格调整（但它们的原始价格已经在上面循环中计算过）
+                // 注意：上面循环中已经处理了 1~195，包括了 196~198，所以已经调整过了，无需再调
             }
         }
 
@@ -2002,6 +2012,7 @@
                 search: 'Search model / size / material...',
                 viewDetails: 'View Details',
                 copyModel: 'Copy Model',
+                inquire: 'Inquire via WhatsApp',
                 oemTitle: 'OEM & ODM Custom Service',
                 oemSize: 'Custom Size & Shape',
                 oemSizeDesc: 'Round, square, rectangle, irregular shapes, any size 30–200cm',
@@ -2079,6 +2090,7 @@
                 search: 'Rechercher modèle / taille / matériau...',
                 viewDetails: 'Voir les détails',
                 copyModel: 'Copier le modèle',
+                inquire: 'Demander via WhatsApp',
                 oemTitle: 'Service OEM & ODM sur mesure',
                 oemSize: 'Taille et forme personnalisées',
                 oemSizeDesc: 'Rond, carré, rectangulaire, formes irrégulières, taille 30–200cm',
@@ -2522,7 +2534,14 @@
             copyToClipboard(product.id + ' ' + product.name + '\nPrice: ' + product.price + '\n' + product.desc, getLangText(
             'copySuccess'));
         }
-        // 移除了 contactWhatsApp（模态框中的 WhatsApp 按钮不再调用）
+        // 恢复 contactWhatsApp 函数，用于产品详情弹窗中的咨询按钮
+        function contactWhatsApp() {
+            const pid = document.getElementById('productModal').dataset.pid;
+            const product = PRODUCTS.find(p => p.id === pid);
+            if (!product) return;
+            window.open('https://wa.me/' + CONFIG.WHATSAPP + '?text=' + encodeURIComponent(getLangText('whatsappMsg') + ' ' +
+                product.id + ' - ' + product.name + ' (' + product.price + ')'), '_blank');
+        }
         function openImageFullscreen() {
             const img = document.getElementById('modalImg');
             if (!img || !img.src) return;
@@ -2832,7 +2851,7 @@
                 btn.addEventListener('click', function() { switchLang(this.dataset.lang); });
             });
             renderProducts();
-            // 暴露全局函数（注意：已移除 contactWhatsApp）
+            // 暴露全局函数（包括 contactWhatsApp）
             window.openFavModal = openFavModal;
             window.closeFavModal = closeFavModal;
             window.clearAllFavorites = clearAllFavorites;
@@ -2840,6 +2859,7 @@
             window.openProductModal = openProductModal;
             window.closeProductModal = closeProductModal;
             window.copyModel = copyModel;
+            window.contactWhatsApp = contactWhatsApp;
             window.openOEMModal = openOEMModal;
             window.closeOEMModal = closeOEMModal;
             window.contactWhatsAppOEM = contactWhatsAppOEM;
