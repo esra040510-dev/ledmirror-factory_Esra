@@ -42,7 +42,7 @@
     <link rel="manifest" href="/manifest.json" />
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet" />
     <style>
-        /* ========== 全局重置与变量 ========== */
+        /* ========== Global Reset & Variables ========== */
         :root {
             --primary: #91284b;
             --primary-dark: #781f3e;
@@ -118,7 +118,7 @@
             max-width: 100%;
         }
 
-        /* ========== 头部 ========== */
+        /* ========== Header ========== */
         header {
             text-align: center;
             padding: 16px 0 12px;
@@ -224,7 +224,7 @@
             color: var(--border-input);
         }
 
-        /* ========== 搜索与筛选 ========== */
+        /* ========== Search & Filter ========== */
         .search-wrap {
             display: flex;
             justify-content: center;
@@ -374,7 +374,7 @@
             box-shadow: var(--shadow-sm);
         }
 
-        /* ========== 产品网格 ========== */
+        /* ========== Product Grid ========== */
         .product-grid {
             display: grid;
             grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
@@ -400,7 +400,7 @@
             margin-bottom: 10px;
         }
 
-        /* ========== 产品卡片 ========== */
+        /* ========== Product Card ========== */
         .product-card {
             background: var(--bg-card);
             border-radius: var(--radius-card);
@@ -561,7 +561,7 @@
             transform: translateY(-1px);
         }
 
-        /* ========== 分页 ========== */
+        /* ========== Pagination ========== */
         .pagination-wrap {
             display: flex;
             justify-content: center;
@@ -601,7 +601,7 @@
             padding: 0 8px;
         }
 
-        /* ========== 批量操作栏 ========== */
+        /* ========== Batch Bar ========== */
         .batch-bar {
             position: fixed;
             bottom: 0;
@@ -661,7 +661,7 @@
             background: var(--bg-soft);
         }
 
-        /* ========== 模态框 ========== */
+        /* ========== Modal ========== */
         .modal-mask {
             display: none;
             position: fixed;
@@ -840,7 +840,7 @@
             margin-bottom: 2px;
         }
 
-        /* ========== 询价表单 ========== */
+        /* ========== Inquiry Form ========== */
         .inquiry-form label {
             display: block;
             font-size: 13px;
@@ -878,7 +878,7 @@
             gap: 10px;
         }
 
-        /* ========== 收藏 ========== */
+        /* ========== Favorites ========== */
         .fav-list {
             max-height: 240px;
             overflow-y: auto;
@@ -928,7 +928,7 @@
             background: var(--border-soft);
         }
 
-        /* ========== 目录表格 ========== */
+        /* ========== Catalog Table ========== */
         .catalog-table-wrap {
             max-height: 380px;
             overflow-y: auto;
@@ -996,7 +996,7 @@
             background: var(--border-soft);
         }
 
-        /* ========== 画廊与认证 ========== */
+        /* ========== Gallery & Certifications ========== */
         .gallery-section {
             margin: 30px 0 20px;
         }
@@ -1101,7 +1101,7 @@
             display: block;
         }
 
-        /* ========== 页脚 ========== */
+        /* ========== Footer ========== */
         footer {
             margin-top: 40px;
             padding-top: 24px;
@@ -1179,7 +1179,7 @@
             opacity: 1;
         }
 
-        /* ========== 浮动按钮 ========== */
+        /* ========== Floating Buttons ========== */
         .float-whatsapp {
             position: fixed;
             bottom: 80px;
@@ -1244,7 +1244,7 @@
             transform: translateY(-3px);
         }
 
-        /* ========== 响应式 ========== */
+        /* ========== Responsive ========== */
         @media (max-width: 1024px) and (min-width: 768px) {
             .product-grid {
                 grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
@@ -1450,7 +1450,7 @@
             }
         }
 
-        /* ========== 辅助 ========== */
+        /* ========== Helpers ========== */
         a:focus-visible,
         button:focus-visible,
         input:focus-visible,
@@ -2073,6 +2073,7 @@
         // C系列：跳过缺失的编号3,4,7,8（即6003,6004,6007,6008），共194款
         // 价格：按面积比例计算，基准50×70cm = $82.00（此价格已是降价后的四分之三价格）
         // 描述中不含Warranty
+        // 图片路径根据编号映射到指定文件夹
         for (let i = 1; i <= 198; i++) {
             if (i === 3 || i === 4 || i === 7 || i === 8) continue;
             const sizeMm = cSizeMap[i] || { w: 800, h: 500 };
@@ -2085,8 +2086,15 @@
             const price = (basePrice * areaCm2) / baseArea;
             const formattedPrice = '$' + price.toFixed(2);
             const displayId = 'C' + String(i).padStart(3, '0');
-            // 图片暂时留空，用户后续上传
-            const imgPath = '';
+            // 根据编号设置图片路径
+            let imgPath = '';
+            if (i >= 1 && i <= 100) {
+                imgPath = '/PHOTO/C/PVC1(C001_C100)/' + displayId + '.jpg';
+            } else if (i >= 101 && i <= 195) {
+                imgPath = '/PHOTO/C/PVC2(C101_C195)/' + displayId + '.jpg';
+            } else {
+                imgPath = ''; // C196~C198 暂时无图片
+            }
             PRODUCTS.push({
                 id: displayId,
                 type: 'C',
@@ -2426,7 +2434,7 @@
                                         <path d="M9 15l3-3 3 3"/>
                                         <path d="M12 12v6"/>
                                     </svg>
-                                    <span>图片待上传</span>
+                                    <span>Image pending</span>
                                 </div>
                                 <span class="model-tag">${displayModel}</span>
                                 <button class="favorite-btn ${isFav?'active':''}" onclick="toggleFav('${item.id}')" title="${isFav?'Remove':'Add'}">${isFav?'♥':'♡'}</button>
@@ -2743,7 +2751,7 @@
         }
 
         // ============================================================
-        // 工厂相册
+        // 工厂相册（图片路径已修改）
         // ============================================================
         function initGallery() {
             const carousel = document.getElementById('galleryCarousel');
@@ -2751,7 +2759,7 @@
             let html = '';
             for (let i = 1; i <= 6; i++) {
                 html +=
-                    `<div class="carousel-item"><img src="/img/factory/${i}.jpg" alt="Factory ${i}" loading="lazy" onerror="this.style.display='none';this.parentElement.innerHTML='<div style=\\'display:flex;align-items:center;justify-content:center;width:100%;height:100%;\\'>${getSvgPlaceholder()}</div>'"></div>`;
+                    `<div class="carousel-item"><img src="/PHOTO/厂/${i}.jpg" alt="Factory ${i}" loading="lazy" onerror="this.style.display='none';this.parentElement.innerHTML='<div style=\\'display:flex;align-items:center;justify-content:center;width:100%;height:100%;\\'>${getSvgPlaceholder()}</div>'"></div>`;
             }
             carousel.innerHTML = html;
         }
