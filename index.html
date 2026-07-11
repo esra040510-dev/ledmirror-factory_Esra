@@ -1212,68 +1212,43 @@
                 height: 44px;
                 font-size: 20px;
             }
-            .back-top {
-                right: 12px;
-                bottom: 16px;
-                width: 36px;
-                height: 36px;
-                font-size: 14px;
-            }
-            .footer-grid {
-                grid-template-columns: 1fr;
-                text-align: center;
-            }
-            .footer-grid .footer-col .social-icons {
-                justify-content: center;
-            }
-            .inquiry-form .form-row {
-                grid-template-columns: 1fr;
-            }
-            .oem-item .oem-content h4 {
-                font-size: 13px;
-            }
-            .oem-item .oem-content p {
-                font-size: 11px;
-            }
-            .catalog-table {
-                font-size: 12px;
-            }
-            .catalog-table th,
-            .catalog-table td {
-                padding: 4px 6px;
-            }
-            .catalog-table .type-badge {
-                font-size: 10px;
-                padding: 0 6px;
-            }
-        }
-        @media (max-width: 480px) {
-            .product-grid {
-                grid-template-columns: 1fr;
-            }
-            .product-card {
-                max-width: 100%;
-            }
-            .product-card .img-box {
-                height: 180px;
-            }
-            header h1 {
-                font-size: 16px;
-            }
-            header.scrolled h1 {
-                font-size: 14px;
-            }
-        }
-
-        /* ========== Helpers ========== */
-        a:focus-visible,
-        button:focus-visible,
-        input:focus-visible,
-        select:focus-visible,
-        textarea:focus-visible {
-            outline: 3px solid var(--primary-light);
-            outline-offset: 2px;
-        }
+           /* ========== 一键回顶按钮 ========== */
+.back-top {
+    position: fixed;          /* 固定定位（悬浮关键） */
+    bottom: 30px;             /* 距离底部 30px */
+    right: 30px;              /* 距离右侧 30px */
+    width: 44px;              /* 大小适中 */
+    height: 44px;
+    border-radius: 50%;
+    background: #91284b;
+    color: #fff;
+    font-size: 22px;
+    font-weight: 700;
+    border: none;
+    box-shadow: 0 4px 14px rgba(145, 40, 75, 0.35);
+    cursor: pointer;
+    z-index: 999;             /* 浮在最上层 */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    
+    /* 默认隐藏，滚动后出现 */
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(20px);
+    transition: opacity 0.3s ease, transform 0.3s ease, background 0.2s;
+}
+/* 滚动后显示 */
+.back-top.show {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+}
+/* 鼠标悬停效果 */
+.back-top:hover {
+    background: #b03860;
+    transform: translateY(-3px);
+}
         [data-theme="dark"] .filter-tab {
             background: var(--bg-card);
             border-color: var(--primary-light);
@@ -1614,9 +1589,9 @@
         </div>
         <div class="copyright" data-lang-key="copyright">© 2026 Esra LED Sanitary Mirror Factory. All Rights Reserved.</div>
     </footer>
-
+<button class="back-top" id="backTop" onclick="scrollToTop()" title="回到顶部">↑</button>
     <div class="copy-toast" id="copyToast">Copied!</div>
-    <button class="back-top no-print" id="backTop" onclick="scrollToTop()">↑</button>
+    
 
     <script>
         // ============================================================
@@ -2176,7 +2151,24 @@
             const lang = currentLang || 'en';
             return LANG[lang] && LANG[lang][key] ? LANG[lang][key] : LANG['en'][key] || key;
         }
+        // ============================================================
+        // 一键回顶功能
+        // ============================================================
+        function scrollToTop() {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
 
+        const backTopBtn = document.getElementById('backTop');
+
+        if (backTopBtn) {
+            window.addEventListener('scroll', function() {
+                if (window.scrollY > 300) {
+                    backTopBtn.classList.add('show');
+                } else {
+                    backTopBtn.classList.remove('show');
+                }
+            });
+        }
         // ============================================================
         // DOM 引用
         // ============================================================
